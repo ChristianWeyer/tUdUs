@@ -6,6 +6,7 @@ using Thinktecture.IdentityModel.Authorization.WebApi;
 using Todo.Base;
 using Todo.Contracts;
 using Todo.Entities;
+using System.Net.Http.Formatting;
 
 namespace Todo.WebApi
 {
@@ -16,7 +17,7 @@ namespace Todo.WebApi
 
         public TodosController(IGenericRepository<TodoItem> repository)
         {            
-            this.repository = repository;
+            this.repository = repository;            
         }
 
         /// <summary>
@@ -54,8 +55,8 @@ namespace Todo.WebApi
         public TodoItemDto Post(TodoItemDto item)
         {
             var newItem = repository.Insert(item.Map());
-
-            this.Hub.Clients.addItem(newItem);
+            
+            this.Hub.Clients.addItem(ConnectionId, item);
 
             return newItem.Map();
         }

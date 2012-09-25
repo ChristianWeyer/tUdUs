@@ -3,8 +3,7 @@
 /// <reference path="../js/kendo.mobile.min.js" />
 /// <reference path="../js/amplify.min.js" />
 /// <reference path="../js/jquery.signalR-0.5.3.min.js" />
-/// <reference path="../js/toastr.js" />
-/// <reference path="notifier.min.js" />
+/// <reference path="../js/notifier.min.js" />
 /// <reference path="../js/signalr.hubs.js" />
 
 /// <reference path="../Scripts/app.js" />

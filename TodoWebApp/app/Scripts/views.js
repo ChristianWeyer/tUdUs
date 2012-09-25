@@ -4,7 +4,7 @@
 
 function todosPageInit(e) {
     //    e.view.element.find("#tasksList li").kendoMobileSwipe(function (e) {
-    //            // If we need swipe...
+    //        // If we need swipe...
     //        },
     //        { surface: e.view.element.find("#tasksList") }
     //    );
@@ -13,10 +13,11 @@ function todosPageInit(e) {
         onLabel: "YES",
         offLabel: "NO"
     });
+
+    todosViewModel.loadTodos();
 };
 
-function todosPageShow(e) {
-    todosViewModel.loadTodos();
+function todosPageShow(e) {    
 };
 
 function beforePageShow(e) {

@@ -4,17 +4,15 @@ function registerNotifications() {
     $.connection.hub.url = signalREndpoint;
     var hub = $.connection.todos;
 
-    hub.addItem = function (item) {
-        //toastr.info(item.Title, 'New TODO');
-        Notifier.info(item.Title, 'New TODO');
-        todosViewModel.addLocalItem(item);
+    hub.addItem = function (connectionId, item) {        
+        if ($.connection.hub.id !== connectionId) {
+            Notifier.info(item.title, 'New TODO');
+            todosViewModel.addLocalItem(item);
+        }
     };
 
     $.connection.hub.start();
 
-    //toastr.options = {
-    //    positionClass: 'toast-bottom-right'
-    //};
     NotifierjsConfig.defaultTimeOut = 1250;
     NotifierjsConfig.position = ["bottom", "right"];
     NotifierjsConfig.notificationStyles.width = "255";

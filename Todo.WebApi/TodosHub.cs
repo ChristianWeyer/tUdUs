@@ -1,4 +1,8 @@
 ﻿using SignalR.Hubs;
+using System.Threading.Tasks;
+using System.Collections.Generic;
+using System;
+using Todo.Base;
 
 namespace Todo.WebApi
 {
@@ -6,5 +10,7 @@ namespace Todo.WebApi
     // via the Web API. It's here for clients which want to get continuous
     // notification of changes.
     [HubName("todos")]
-    public class TodosHub : Hub { }
+    public class TodosHub : Hub
+    {
+    }
 }

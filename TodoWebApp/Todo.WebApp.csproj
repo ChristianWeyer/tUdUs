@@ -217,16 +217,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>signalr.hubs.js</DependentUpon>
     </Content>
-    <Content Include="app\js\toastr.js">
-      <Generator>GoogleClosureCompiler</Generator>
-      <LastGenOutput>toastr.min.js</LastGenOutput>
-    </Content>
     <Content Include="app\js\jquery.signalR-0.5.3.min.js" />
-    <Content Include="app\js\toastr.min.js">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>toastr.js</DependentUpon>
-    </Content>
     <Content Include="app\js\underscore-min.js" />
     <Content Include="app\Scripts\constants.js" />
     <Content Include="app\Scripts\notifications.js" />

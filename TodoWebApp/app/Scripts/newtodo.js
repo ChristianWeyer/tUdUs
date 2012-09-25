@@ -15,6 +15,7 @@ var todoItemViewModel = kendo.observable({
 
         requests.saveTodo(item)
             .done(function () {
+                todosViewModel.addLocalItem(item);
                 window.kendoMobileApplication.navigate("#todosPage");
 
                 self.set("title", "");

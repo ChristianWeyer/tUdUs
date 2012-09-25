@@ -2,7 +2,7 @@
 
   var config = window.NotifierjsConfig = {
     defaultTimeOut: 5000,
-    position: ["top", "right"],
+    position: ["bottom", "right"],
     notificationStyles: {
       padding: "12px 18px",
       margin: "0 0 6px 0",

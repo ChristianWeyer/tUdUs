@@ -1,4 +1,12 @@
-﻿.km-android .km-navbar .km-view-title
+﻿.km-ios .km-detail 
+{
+    line-height: 1.3rem;
+    margin-top: -.8rem;
+    width: 1.4rem;
+    height: 1.4rem;
+}
+
+.km-android .km-navbar .km-view-title
 {
     visibility: visible;
 }
@@ -46,9 +54,4 @@
     text-align: center;
     margin: .6em .8em 0;
     font-size: 1.2em;
-}
-
-.km-rowdelete::after
-{
-    margin-top: 1px;
 }
