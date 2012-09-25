@@ -29,7 +29,8 @@ var todosViewModel = kendo.observable({
 
         requests.updateTodo(item)
             .done(function () {
-                toastr.success(item.title, 'Updated');
+                //toastr.success(item.title, 'Updated');
+                Notifier.success(item.Title, 'Updated');
             });
     },
 
@@ -46,7 +47,8 @@ var todosViewModel = kendo.observable({
                 var index = _.indexOf(self.todosSource.data(), item)
                 self.todosSource.data().splice(index, 1);
 
-                toastr.warning(item.title, 'Deleted');
+                //toastr.warning(item.title, 'Deleted');
+                Notifier.warning(item.Title, 'Deleted');
             });
     },
 

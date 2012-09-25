@@ -198,6 +198,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="app\config.xml" />
+    <Content Include="app\js\notifier.js" />
+    <Content Include="app\js\notifier.min.js" />
     <Content Include="app\Scripts\acs.js" />
     <Content Include="app\acstest.html" />
     <Content Include="app\Images\splash.png" />

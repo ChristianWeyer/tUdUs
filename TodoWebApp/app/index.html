@@ -22,6 +22,7 @@
 	<script src="js/kendo.mobile.min.js" type="text/javascript"></script>
 	<script src="js/amplify.min.js" type="text/javascript"></script>
 	<script src="js/toastr.min.js" type="text/javascript"></script>
+    <script src="js/notifier.min.js" type="text/javascript"></script>
 	<script src="js/jquery.signalR-0.5.3.min.js" type="text/javascript"></script>
 	<!--<script src="../signalr/hubs" type="text/javascript"></script>-->
 	<script src="js/signalr.hubs.min.js" type="text/javascript"></script>
@@ -38,8 +39,8 @@
 <body>
 	<!-- Templates -->
 	<script type="text/x-kendo-template" id="tasksListTemplate">		
-        <a data-align="left" data-bind="events:{touchend: navigateTodoDetails}">${title}</a>
-        <a data-role="detailbutton" data-style="rowdelete" data-bind="events:{click: removeTodo}"></a>
+		<a data-align="left" data-bind="events:{touchend: navigateTodoDetails}">${title}</a>
+		<a data-role="detailbutton" data-style="rowdelete" data-bind="events:{click: removeTodo}"></a>
 	</script>
 	
 	<!-- Start page -->
@@ -66,7 +67,7 @@
 
 		<footer data-role="footer">
 			<div data-role="tabstrip">
-                <a data-icon="home" href="#startPage">Home</a>
+				<a data-icon="home" href="#startPage">Home</a>
 				<a data-icon="bookmarks" href="#todosPage">TODOs</a>
 				<a data-icon="info" href="#infoPage">Info</a>
 			</div>
@@ -145,7 +146,7 @@
 		</header>
 		<footer data-role="footer">
 			<div data-role="tabstrip">
-                <a data-icon="home" href="#startPage">Home</a>
+				<a data-icon="home" href="#startPage">Home</a>
 				<a data-icon="bookmarks" href="#todosPage">TODOs</a> 
 				<a data-icon="info" href="#infoPage">Info</a>
 			</div>
@@ -161,7 +162,7 @@
 		</header>
 		<footer data-role="footer">
 			<div data-role="tabstrip">
-                <a data-icon="home" href="#startPage">Home</a>
+				<a data-icon="home" href="#startPage">Home</a>
 				<a data-icon="bookmarks" href="#todosPage">TODOs</a> 
 				<a data-icon="info" href="#infoPage">Info</a>
 			</div>

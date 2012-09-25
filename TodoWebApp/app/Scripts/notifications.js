@@ -5,13 +5,16 @@ function registerNotifications() {
     var hub = $.connection.todos;
 
     hub.addItem = function (item) {
-        toastr.info(item.Title, 'New TODO');
+        //toastr.info(item.Title, 'New TODO');
+        Notifier.info(item.Title, 'New TODO');
         todosViewModel.addLocalItem(item);
     };
 
     $.connection.hub.start();
 
-    toastr.options = {
-        positionClass: 'toast-bottom-right'
-    };
+    //toastr.options = {
+    //    positionClass: 'toast-bottom-right'
+    //};
+    NotifierjsConfig.defaultTimeOut = 1250;
+    NotifierjsConfig.position = ["bottom", "right"];
 };
