@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<widget xmlns="http://www.w3.org/ns/widgets"
+        xmlns:gap="http://phonegap.com/ns/1.0"
+        id="net.christianweyer.todo"
+        version="0.1.0">
+
+  <name>MobileTODO</name>
+  <description>Mobile TODOs.</description>
+
+  <author href="http://weblogs.thinktecture.com/cweyer"
+          email="christian.weyer@thinktecture.com">Christian Weyer</author>
+
+  <feature name="http://api.phonegap.com/1.0/geolocation"/>
+  <feature name="http://api.phonegap.com/1.0/network"/>
+
+  <preference name="orientation"
+              value="portrait" />
+  <preference name="webviewbounce"
+              value="false" />
+
+<icon src="images/Wooden_Todo_128x128.png" width="57" height="57" />
+<icon src="images/Wooden_Todo_128x128.png" gap:platform="ios" width="72" height="72" />
+<icon src="images/Wooden_Todo_128x128.png" width="114" height="114" />
+
+<icon src="images/Wooden_Todo_128x128.png" gap:platform="android" gap:density="ldpi" />
+<icon src="images/Wooden_Todo_128x128.png" gap:platform="android" gap:density="mdpi" />
+<icon src="images/Wooden_Todo_128x128.png" gap:platform="android" gap:density="hdpi" />
+<icon src="images/Wooden_Todo_128x128.png" gap:platform="android" gap:density="xhdpi" />
+
+  <gap:splash src="images/splash.png"
+              width="320"
+              height="480" />
+  <gap:splash src="images/splash.png"
+              width="640"
+              height="960" />
+  <gap:splash src="images/splash.png"
+              gap:platform="android"
+              gap:density="ldpi" />
+  <gap:splash src="images/splash.png"
+              gap:platform="android"
+              gap:density="mdpi" />
+  <gap:splash src="images/splash.png"
+              gap:platform="android"
+              gap:density="hdpi" />
+</widget>

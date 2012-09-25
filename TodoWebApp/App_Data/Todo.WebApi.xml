@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Todo.WebApi</name>
+    </assembly>
+    <members>
+        <member name="M:Todo.WebApi.TodosController.Get">
+            <summary>
+            List available TODO items. Supports OData query syntax.
+            </summary>
+            <returns>List of items.</returns>
+        </member>
+        <member name="M:Todo.WebApi.TodosController.Get(System.Int32)">
+            <summary>
+            Get a single TODO item by ID.
+            </summary>
+            <param name="id">The ID of the item</param>
+            <returns>A TODO item.</returns>
+        </member>
+        <member name="M:Todo.WebApi.TodosController.Post(Todo.Contracts.TodoItemDto)">
+            <summary>
+            Add a new TODO item to the system.
+            </summary>
+            <param name="item">The new item.</param>
+            <returns>The new item with up-to-date data.</returns>
+        </member>
+        <member name="M:Todo.WebApi.TodosController.Put(Todo.Contracts.TodoItemDto)">
+            <summary>
+            Update an existing TODO item.
+            </summary>
+            <param name="item">The existing item.</param>
+            <returns>The existing item with up-to-date data.</returns>
+        </member>
+        <member name="M:Todo.WebApi.TodosController.Delete(System.Int32)">
+            <summary>
+            Delete an existing TODO item by ID.
+            </summary>
+            <param name="id">The ID of the item.</param>
+        </member>
+    </members>
+</doc>

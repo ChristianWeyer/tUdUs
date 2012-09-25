@@ -1,0 +1,27 @@
+﻿/// <reference path="../js/_references.js" />
+
+// View initializations and configurations
+
+function todosPageInit(e) {
+    //    e.view.element.find("#tasksList li").kendoMobileSwipe(function (e) {
+    //            // If we need swipe...
+    //        },
+    //        { surface: e.view.element.find("#tasksList") }
+    //    );
+
+    $("#done").kendoMobileSwitch({
+        onLabel: "YES",
+        offLabel: "NO"
+    });
+};
+
+function todosPageShow(e) {
+    todosViewModel.loadTodos();
+};
+
+function beforePageShow(e) {
+    if (!loginViewModel.authenticated) {
+        e.preventDefault();
+        window.kendoMobileApplication.navigate("#loginDialog");
+    }
+};
