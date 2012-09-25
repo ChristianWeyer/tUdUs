@@ -12,7 +12,7 @@
       font: "normal 13px 'Droid Sans', sans-serif",
       borderRadius: "3px",
       boxShadow: "#999 0 0 12px",
-      width: "255px"
+      width: "300px"
     },
     notificationStylesHover: {
       opacity: 1,

@@ -17,4 +17,5 @@ function registerNotifications() {
     //};
     NotifierjsConfig.defaultTimeOut = 1250;
     NotifierjsConfig.position = ["bottom", "right"];
+    NotifierjsConfig.notificationStyles.width = "255";
 };
