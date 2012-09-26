@@ -26,11 +26,3 @@ function beforePageShow(e) {
         window.kendoMobileApplication.navigate("#loginDialog");
     }
 }
-
-function showDialog(dialog) {
-    $('#' + dialog).data("kendoMobileModalView").open();
-}
-
-function showDialog(dialog) {
-    $("#" + dialog).kendoMobileModalView("close");
-}

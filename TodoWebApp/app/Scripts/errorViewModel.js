@@ -1,31 +1,18 @@
 ﻿/// <reference path="../js/_references.js" />
 
-var authenticationViewModel = kendo.observable({
-    userName: "",
-    password: "",
-    authenticated: false,
+var errorViewModel = kendo.observable({
+    message: "",
 
-    doLogin: function () {
-        var self = this;
-
-        remoteservices.callLoginPing(self.userName, self.password)
-            .success(function () {
-                amplify.store.sessionStorage("userName", self.get("userName"));
-                amplify.store.sessionStorage("password", self.get("password"));
-
-                self.set("authenticated", true);
-                self.cancelLoginDialog();
-
-                window.kendoMobileApplication.navigate("#todosPage");
-            });
+    showErrorDialog: function (errorMessage) {
+        $('#errorDialog').data("kendoMobileModalView").open();
+        this.set("message", errorMessage);
     },
 
-    cancelLoginDialog: function () {
+    closeErrorDialog: function () {
         var self = this;
 
-        $("#loginDialog").kendoMobileModalView("close");
+        $("#errorDialog").kendoMobileModalView("close");
 
-        self.set("userName", "");
-        self.set("password", "");
+        self.set("message", "");
     }
 });

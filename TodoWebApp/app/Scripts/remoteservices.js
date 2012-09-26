@@ -3,14 +3,14 @@
 var remoteservices = (function () {
     function handleServiceError(data) {
         if (data.status == "401") {
-            alert('Login failed.');
+            errorViewModel.showErrorDialog("Login failed.");
         }
         else {
-            alert('Error: ' + data.statusText);
+            errorViewModel.showErrorDialog(data.statusText);
         }
     }
 
-    function beforeSend(xhr, un, pw) {        
+    function beforeSend(xhr, un, pw) {
         xhr.setRequestHeader('Authorization', createBasicAuthenticationHeader(un, pw));
         kendoMobileApplication.showLoading();
     };

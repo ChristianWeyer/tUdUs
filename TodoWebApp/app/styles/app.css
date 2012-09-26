@@ -1,4 +1,41 @@
-﻿.km-ios .km-detail 
+﻿.km-modalview, .km-modalview-wrapper:before
+{
+	display: -webkit-inline-box;
+	height: 100%;
+	vertical-align: middle;
+}
+
+.km-modalview-wrapper:before
+{
+	content: "\a0";
+	width: 0px;
+	display: inline-block;
+}
+				
+#commonErrorButton {
+	display: block;
+	text-align: center;
+	margin: .6em .8em 0;
+	font-size: 1.2em;
+}
+		
+#errorText {
+	display: block;
+	text-align: center;
+	margin: .6em .8em 0;
+	font-size: 1.5em;
+}
+
+.km-ios #errorDialog {
+	height: 240px;
+}
+
+.km-ios #errorDialog #commonErrorButton {
+	background-color: Red;
+}
+
+
+.km-ios .km-detail 
 {
     line-height: 1.3rem;
     margin-top: -.8rem;
