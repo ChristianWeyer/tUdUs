@@ -27,7 +27,7 @@ var todosViewModel = kendo.observable({
             done: ci.done
         };
 
-        requests.updateTodo(item)
+        remoteservices.updateTodo(item)
             .done(function () {                
                 Notifier.success(item.title, 'Updated');
             });
@@ -41,7 +41,7 @@ var todosViewModel = kendo.observable({
         var self = this;
         var item = element.data;
 
-        requests.deleteTodo(item.id)
+        remoteservices.deleteTodo(item.id)
             .done(function (data) {
                 var index = _.indexOf(self.todosSource.data(), item)
                 self.todosSource.data().splice(index, 1);
@@ -53,7 +53,7 @@ var todosViewModel = kendo.observable({
     loadTodos: function () {
         var self = this;
 
-        requests.getTodos()
+        remoteservices.getTodos()
             .done(function (data) {
                 self.todosSource.data(data);
             });

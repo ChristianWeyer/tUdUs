@@ -1,6 +1,6 @@
 ﻿/// <reference path="../js/_references.js" />
 
-var todoItemViewModel = kendo.observable({
+var newTodoItemViewModel = kendo.observable({
     title: "",
     details: "",
 
@@ -13,7 +13,7 @@ var todoItemViewModel = kendo.observable({
             details: this.get("details")
         };
 
-        requests.saveTodo(item)
+        remoteservices.saveTodo(item)
             .done(function () {
                 todosViewModel.addLocalItem(item);
                 window.kendoMobileApplication.navigate("#todosPage");

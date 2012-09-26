@@ -7,10 +7,10 @@
 /// <reference path="../js/signalr.hubs.js" />
 
 /// <reference path="../Scripts/app.js" />
-/// <reference path="../Scripts/authentication.js" />
+/// <reference path="../Scripts/authenticationViewModel.js" />
 /// <reference path="../Scripts/constants.js" />
-/// <reference path="../Scripts/newtodo.js" />
+/// <reference path="../Scripts/newTodoItemViewModel.js" />
 /// <reference path="../Scripts/notifications.js" />
-/// <reference path="../Scripts/services.js" />
-/// <reference path="../Scripts/todos.js" />
+/// <reference path="../Scripts/remoteservices.js" />
+/// <reference path="../Scripts/todosViewModel.js" />
 /// <reference path="../Scripts/views.js" />

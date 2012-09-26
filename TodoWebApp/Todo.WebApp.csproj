@@ -198,9 +198,16 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="app\config.xml" />
-    <Content Include="app\js\notifier.js" />
-    <Content Include="app\js\notifier.min.js" />
-    <Content Include="app\Scripts\acs.js" />
+    <Content Include="app\js\notifier.js">
+      <Generator>GoogleClosureCompiler</Generator>
+      <LastGenOutput>notifier.min.js</LastGenOutput>
+    </Content>
+    <Content Include="app\js\notifier.min.js">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>notifier.js</DependentUpon>
+    </Content>
+    <Content Include="app\Scripts\acsViewModel.js" />
     <Content Include="app\acstest.html" />
     <Content Include="app\Images\splash.png" />
     <Content Include="app\js\modernizr-2.5.3.min.js">
@@ -220,27 +227,18 @@
     <Content Include="app\js\jquery.signalR-0.5.3.min.js" />
     <Content Include="app\js\underscore-min.js" />
     <Content Include="app\Scripts\constants.js" />
+    <Content Include="app\Scripts\errorViewModel.js" />
     <Content Include="app\Scripts\notifications.js" />
     <Content Include="app\Scripts\views.js" />
-    <Content Include="app\Scripts\services.js" />
-    <Content Include="app\Scripts\newtodo.js" />
-    <Content Include="app\Scripts\todos.js" />
-    <Content Include="app\Scripts\authentication.js" />
+    <Content Include="app\Scripts\remoteservices.js" />
+    <Content Include="app\Scripts\newTodoItemViewModel.js" />
+    <Content Include="app\Scripts\todosViewModel.js" />
+    <Content Include="app\Scripts\authenticationViewModel.js" />
     <Content Include="app\js\jquery.base64.min.js" />
     <Content Include="app\styles\app.min.css">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>app.css</DependentUpon>
-    </Content>
-    <Content Include="app\styles\toastr-responsive.min.css">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>toastr-responsive.css</DependentUpon>
-    </Content>
-    <Content Include="app\styles\toastr.min.css">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>toastr.css</DependentUpon>
     </Content>
     <Content Include="App_Data\Todo.WebApi.xml" />
     <Content Include="Areas\HelpPage\HelpPage.css" />
@@ -304,14 +302,6 @@
     <Content Include="app\styles\images\icons.png" />
     <Content Include="app\styles\images\ios-sprite.png" />
     <Content Include="app\styles\kendo.mobile.all.min.css" />
-    <Content Include="app\styles\toastr-responsive.css">
-      <Generator>YUICompressor</Generator>
-      <LastGenOutput>toastr-responsive.min.css</LastGenOutput>
-    </Content>
-    <Content Include="app\styles\toastr.css">
-      <Generator>YUICompressor</Generator>
-      <LastGenOutput>toastr.min.css</LastGenOutput>
-    </Content>
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

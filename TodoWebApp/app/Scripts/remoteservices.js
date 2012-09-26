@@ -1,6 +1,6 @@
 ﻿/// <reference path="../js/_references.js" />
 
-var requests = (function () {
+var remoteservices = (function () {
     function handleServiceError(data) {
         if (data.status == "401") {
             alert('Login failed.');
@@ -109,7 +109,7 @@ var requests = (function () {
 
         updateTodo: function (item) {
             return $.ajax({
-                url: addParameter(serviceEndpointUrl + "/" + id, "connectionId", $.connection.hub.id),
+                url: addParameter(serviceEndpointUrl, "connectionId", $.connection.hub.id),
                 type: 'put',
                 dataType: 'json',
                 data: item,

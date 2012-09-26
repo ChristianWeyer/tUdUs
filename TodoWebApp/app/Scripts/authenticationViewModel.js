@@ -1,6 +1,6 @@
 ﻿/// <reference path="../js/_references.js" />
 
-var loginViewModel = kendo.observable({
+var authenticationViewModel = kendo.observable({
     userName: "",
     password: "",
     authenticated: false,
@@ -8,7 +8,7 @@ var loginViewModel = kendo.observable({
     doLogin: function () {
         var self = this;
 
-        requests.callLoginPing(self.userName, self.password)
+        remoteservices.callLoginPing(self.userName, self.password)
             .success(function () {
                 amplify.store.sessionStorage("userName", self.get("userName"));
                 amplify.store.sessionStorage("password", self.get("password"));

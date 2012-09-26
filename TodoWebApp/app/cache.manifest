@@ -3,32 +3,14 @@
 
 CACHE:
 ./index.html
-./index.css
-./favicon.ico
-./favicon.png
 
-./content/startup.png
-./content/startup_simple.png
-./content/startup_webapp.png
-./content/startup_x2.png
-./content/swimrec.png
-./content/swimrec_small.png
-./content/swimrec_small_transparent.png
+./images/...
 
-./js/jquery.min.js
-./js/kendo.mobile.min.js
-./js/underscore.js
-./js/lawnchair-0.6.1.min.js
+./js/...
 
-./scripts/app.index.js
+./scripts/...
 
-./styles/kendo.mobile.all.min.css
-./styles/kendo.mobile.android4.min.css
-./styles/kendo.mobile.ios.min.css
-
-./styles/images/android-sprite.png
-./styles/images/ios-sprite.png
-./styles/images/icons.png
+./styles/...
 
 NETWORK:
 *
