@@ -14,8 +14,24 @@ var todosViewModel = kendo.observable({
 
         window.kendoMobileApplication.navigate("#todoDetailsPage");
     },
-
+    
     currentItem: null,
+
+    addLocalItem: function (item) {
+        this.todosSource.add(item);
+    },
+
+    updateLocalItem: function (item) {
+        var oldItem = _.find(this.todosSource.data(), function (t) { return t.id == item.id; });
+        var index = _.indexOf(this.todosSource.data(), oldItem);
+        this.todosSource.data().splice(index, 1, item);
+    },
+
+    deleteLocalItem: function (id) {
+        var item = _.find(this.todosSource.data(), function (t) { return t.id == id; });
+        var index = _.indexOf(this.todosSource.data(), item);
+        this.todosSource.data().splice(index, 1);
+    },
 
     updateTodo: function () {
         var ci = this.get("currentItem");
@@ -28,13 +44,9 @@ var todosViewModel = kendo.observable({
         };
 
         remoteservices.updateTodo(item)
-            .done(function () {                
+            .done(function () {
                 Notifier.success(item.title, 'Updated');
             });
-    },
-
-    addLocalItem: function (item) {
-        this.todosSource.add(item);
     },
 
     removeTodo: function (element) {
@@ -43,9 +55,9 @@ var todosViewModel = kendo.observable({
 
         remoteservices.deleteTodo(item.id)
             .done(function (data) {
-                var index = _.indexOf(self.todosSource.data(), item)
+                var index = _.indexOf(self.todosSource.data(), item);
                 self.todosSource.data().splice(index, 1);
-                
+
                 Notifier.warning(item.title, 'Deleted');
             });
     },

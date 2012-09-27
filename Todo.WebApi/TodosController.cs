@@ -56,7 +56,7 @@ namespace Todo.WebApi
         {
             var newItem = repository.Insert(item.Map());
             
-            this.Hub.Clients.addItem(ConnectionId, item);
+            Hub.Clients.itemAdded(ConnectionId, item);
 
             return newItem.Map();
         }
@@ -71,7 +71,8 @@ namespace Todo.WebApi
             try
             {
                 var updatedItem = repository.Update(item.Map());
-                
+                Hub.Clients.itemUpdated(ConnectionId, item);
+    
                 return updatedItem.Map();
             }
             catch (DbUpdateException duex)
@@ -89,6 +90,7 @@ namespace Todo.WebApi
             try
             {
                 repository.Delete(new TodoItem { Id = id });
+                Hub.Clients.itemDeleted(ConnectionId, id);
             }
             catch (DbUpdateException duex)
             {

@@ -14,13 +14,15 @@ var authenticationViewModel = kendo.observable({
                 amplify.store.sessionStorage("password", self.get("password"));
 
                 self.set("authenticated", true);
-                self.cancelLoginDialog();
+                self.closeLoginDialog();
+
+                registerNotifications();
 
                 window.kendoMobileApplication.navigate("#todosPage");
             });
     },
 
-    cancelLoginDialog: function () {
+    closeLoginDialog: function () {
         var self = this;
 
         $("#loginDialog").kendoMobileModalView("close");

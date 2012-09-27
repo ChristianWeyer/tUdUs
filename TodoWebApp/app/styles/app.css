@@ -11,7 +11,7 @@
 	width: 0px;
 	display: inline-block;
 }
-				
+	
 #commonErrorButton {
 	display: block;
 	text-align: center;
@@ -23,17 +23,12 @@
 	display: block;
 	text-align: center;
 	margin: .6em .8em 0;
-	font-size: 1.5em;
-}
-
-.km-ios #errorDialog {
-	height: 240px;
+	font-size: 1.0em;
 }
 
 .km-ios #errorDialog #commonErrorButton {
 	background-color: Red;
 }
-
 
 .km-ios .km-detail 
 {
