@@ -197,7 +197,11 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="app\config.xml" />
+    <Content Include="app\config.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="app\js\childbrowser.js" />
+    <Content Include="app\js\cordova-2.0.0.js" />
     <Content Include="app\js\notifier.js">
       <Generator>GoogleClosureCompiler</Generator>
       <LastGenOutput>notifier.min.js</LastGenOutput>

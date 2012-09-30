@@ -13,10 +13,20 @@ var remoteservices = (function () {
     function beforeSend(xhr, un, pw) {
         xhr.setRequestHeader('Authorization', createBasicAuthenticationHeader(un, pw));
         kendoMobileApplication.showLoading();
-    };
+    }
+
+    function beforeSendEX(xhr, token) {
+        xhr.setRequestHeader('Authorization', createXYZHeader(token));
+        kendoMobileApplication.showLoading();
+    }
 
     function createBasicAuthenticationHeader(un, pw) {
         var header = 'Basic ' + $.base64.encode(un + ":" + pw);
+        return header;
+    }
+
+    function createXYZHeader(token) {
+        var header = 'Bearer ' + token;
         return header;
     }
 
@@ -36,6 +46,21 @@ var remoteservices = (function () {
     }
 
     return {
+        getTodosEX: function (token) {
+            return $.ajax({
+                url: serviceEndpointUrl,
+                type: 'get',
+                dataType: 'json',
+                beforeSend: function (xhr) { beforeSendEX(xhr, token); }
+            })
+            .always(function () {
+                kendoMobileApplication.hideLoading();
+            })
+            .fail(function (error) {
+                handleServiceError(error);
+            });
+        },
+
         callLoginPing: function (un, pw) {
             return $.ajax({
                 url: addParameter(pingEndpointUrl, "connectionId", $.connection.hub.id),
