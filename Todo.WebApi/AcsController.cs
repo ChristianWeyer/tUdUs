@@ -1,4 +1,11 @@
-﻿using System;
+﻿using Microsoft.IdentityModel.Claims;
+using Microsoft.IdentityModel.Configuration;
+using Microsoft.IdentityModel.Protocols.WSFederation;
+using Microsoft.IdentityModel.Protocols.WSTrust;
+using Microsoft.IdentityModel.Tokens;
+using Microsoft.IdentityModel.Web;
+using Newtonsoft.Json.Linq;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.IdentityModel.Selectors;
@@ -9,13 +16,6 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Http;
-using Microsoft.IdentityModel.Claims;
-using Microsoft.IdentityModel.Configuration;
-using Microsoft.IdentityModel.Protocols.WSFederation;
-using Microsoft.IdentityModel.Protocols.WSTrust;
-using Microsoft.IdentityModel.Tokens;
-using Microsoft.IdentityModel.Web;
-using Newtonsoft.Json.Linq;
 using Thinktecture.IdentityModel.Clients.AccessControlService;
 using Thinktecture.IdentityModel.Tokens;
 
@@ -41,17 +41,13 @@ namespace Todo.WebApi
             var signInResponse = ExtractTokenResponse();
             var icp = ValidateToken(signInResponse);
 
-            // TODO: Optionally transform claims
+            // TODO: Transform claims into app-specific claims
 
             int tokenExpiration;
             var newTokenString = CreateJwtToken(icp, out tokenExpiration);
-
             var newTokenQueryString = BuildQueryStringFromToken(tokenExpiration, newTokenString);
 
-            //TODO: This returns null on my machine - seems very strange...
-            //var redirectUrl = Url.Link("ACSApi", new { controller = "Acs", action = "Noop" });
-
-            var redirectUrl = "http://tttodos.azurewebsites.net/api/acs/noop";
+            var redirectUrl = Url.Link("ACSApi", new { controller = "Acs", action = "Noop" });
             var newUrl = new Uri(redirectUrl + "?" + newTokenQueryString);
 
             var responseMessage = Request.CreateResponse(HttpStatusCode.Redirect);
@@ -132,10 +128,10 @@ namespace Todo.WebApi
         {
             var config = new SecurityTokenHandlerConfiguration();
             config.AudienceRestriction.AudienceMode = AudienceUriMode.Always;
-            config.AudienceRestriction.AllowedAudienceUris.Add(new Uri("http://tt.com/mobile/todos"));
+            config.AudienceRestriction.AllowedAudienceUris.Add(new Uri(ConfigurationManager.AppSettings["appliesToAddress"]));
 
             var registry = new ConfigurationBasedIssuerNameRegistry();
-            registry.AddTrustedIssuer("9243CE072FCD94A422ABDC9A2055769369E20CF3", "ACS");
+            registry.AddTrustedIssuer(ConfigurationManager.AppSettings["trustedIssuerThumbprint"], "ACS");
             config.IssuerNameRegistry = registry;
             config.CertificateValidator = X509CertificateValidator.None;
 
