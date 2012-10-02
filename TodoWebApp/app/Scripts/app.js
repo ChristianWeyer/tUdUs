@@ -7,5 +7,5 @@ $(function () {
 });
 
 function deviceready() {
-
+    
 }

@@ -25,12 +25,13 @@ var acsViewModel = kendo.observable({
     },
 
     openAuthWindow: function (url) {
+        console.log("openAuthWindow: " + url);
         window.plugins.childBrowser.showWebPage(url, { showLocationBar: true });
         window.plugins.childBrowser.onLocationChange = this.onAuthUrlChange;
     },
 
     onAuthUrlChange: function (url) {
-        if (uriLocation.indexOf("acs/noop") != -1) {
+        if (url.indexOf("acs/noop") != -1) {
             var params = $.deparam.querystring(url);
             var t = params.access_token;
 
@@ -39,6 +40,7 @@ var acsViewModel = kendo.observable({
             authenticationViewModel.authenticated = true;
 
             window.plugins.childBrowser.close();
+            window.kendoMobileApplication.navigate("#todosPage");
 
             Notifier.success("Authenticated", "Success");
         }

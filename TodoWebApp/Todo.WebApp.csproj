@@ -220,7 +220,6 @@
       <DependentUpon>notifier.js</DependentUpon>
     </Content>
     <Content Include="app\Scripts\acsViewModel.js" />
-    <Content Include="app\acs.html" />
     <Content Include="app\Images\splash.png" />
     <Content Include="app\js\modernizr-2.5.3.min.js">
       <AutoGen>True</AutoGen>
@@ -239,7 +238,7 @@
     <Content Include="app\js\jquery.signalR-0.5.3.min.js" />
     <Content Include="app\js\underscore-min.js" />
     <Content Include="app\Scripts\constants.js" />
-    <Content Include="app\Scripts\configuration.js" />
+    <Content Include="app\Scripts\settingsViewModel.js" />
     <Content Include="app\Scripts\startViewModel.js" />
     <Content Include="app\Scripts\errorViewModel.js" />
     <Content Include="app\Scripts\notifications.js" />

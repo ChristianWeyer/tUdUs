@@ -2,7 +2,7 @@
 
 var startViewModel = kendo.observable({
     openLoginView: function () {
-        if (configuration.authenticationMode === "ACS") {
+        if (settingsViewModel.authenticationMode === "ACS") {
             window.kendoMobileApplication.navigate("#acsLogin");
         }
         else {

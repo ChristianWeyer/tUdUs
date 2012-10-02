@@ -18,7 +18,7 @@ var remoteservices = (function () {
     }
 
     function beforeSend(xhr) {
-        if (configuration.authenticationMode === "Basic") {
+        if (settingsViewModel.authenticationMode === "Basic") {
             xhr.setRequestHeader('Authorization', createBasicAuthenticationHeader(amplify.store.sessionStorage("userName"), amplify.store.sessionStorage("password")));
         }
         else {

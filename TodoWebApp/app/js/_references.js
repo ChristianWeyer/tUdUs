@@ -17,4 +17,4 @@
 /// <reference path="../Scripts/errorViewModel.js" />
 /// <reference path="../Scripts/views.js" />
 /// <reference path="../Scripts/acsViewModel.js" />
-/// <reference path="../Scripts/configuration.js" />
+/// <reference path="../Scripts/settingsViewModel.js" />
