@@ -29,5 +29,5 @@ function registerNotifications() {
         }
     };
 
-    $.connection.hub.start();
+    $.connection.hub.start().done(function () { });
 };

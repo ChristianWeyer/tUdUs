@@ -20,6 +20,8 @@
 
   <preference name="webviewbounce"
               value="false" />
+  <preference name="orientation"
+              value="portrait" />
 
   <icon src="Images/Wooden_Todo_128x128.png"
         width="57"

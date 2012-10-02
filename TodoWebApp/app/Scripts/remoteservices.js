@@ -38,6 +38,10 @@ var remoteservices = (function () {
         return header;
     }
 
+    function addConnectionIdParameter(url) {
+        return addParameter(url, "connectionId", $.connection.hub.id)
+    }
+
     function addParameter(url, param, value) {
         var val = new RegExp('(\\?|\\&)' + param + '=.*?(?=(&|$))'),
             qstring = /\?.+$/;
@@ -56,7 +60,7 @@ var remoteservices = (function () {
     return {
         callLoginPing: function (un, pw) {
             return $.ajax({
-                url: addParameter(pingEndpointUrl, "connectionId", $.connection.hub.id),
+                url: pingEndpointUrl,
                 type: 'get',
                 dataType: 'json',
                 beforeSend: function (xhr) { beforeLoginSend(xhr, un, pw); }
@@ -71,7 +75,7 @@ var remoteservices = (function () {
 
         getTodos: function () {
             return $.ajax({
-                url: addParameter(serviceEndpointUrl, "connectionId", $.connection.hub.id),
+                url: addConnectionIdParameter(serviceEndpointUrl),
                 type: 'get',
                 dataType: 'json',
                 beforeSend: function (xhr) { beforeSend(xhr); }
@@ -86,7 +90,7 @@ var remoteservices = (function () {
 
         saveTodo: function (item) {
             return $.ajax({
-                url: addParameter(serviceEndpointUrl, "connectionId", $.connection.hub.id),
+                url: addConnectionIdParameter(serviceEndpointUrl),
                 type: 'post',
                 dataType: 'json',
                 data: item,
@@ -102,7 +106,7 @@ var remoteservices = (function () {
 
         deleteTodo: function (id) {
             return $.ajax({
-                url: addParameter(serviceEndpointUrl + "/" + id, "connectionId", $.connection.hub.id),
+                url: addConnectionIdParameter(serviceEndpointUrl + "/" + id),
                 type: 'delete',
                 dataType: 'json',
                 beforeSend: function (xhr) { beforeSend(xhr); }
@@ -117,7 +121,7 @@ var remoteservices = (function () {
 
         updateTodo: function (item) {
             return $.ajax({
-                url: addParameter(serviceEndpointUrl, "connectionId", $.connection.hub.id),
+                url: addConnectionIdParameter(serviceEndpointUrl),
                 type: 'put',
                 dataType: 'json',
                 data: item,

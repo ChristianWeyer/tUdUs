@@ -26,6 +26,11 @@ var acsViewModel = kendo.observable({
 
     openAuthWindow: function (url) {
         console.log("openAuthWindow: " + url);
+
+        if (url.indexOf("login.live.com") != -1) {
+            url = url + "&pcexp=false";
+        };
+
         window.plugins.childBrowser.showWebPage(url, { showLocationBar: true });
         window.plugins.childBrowser.onLocationChange = this.onAuthUrlChange;
     },
@@ -39,9 +44,10 @@ var acsViewModel = kendo.observable({
             amplify.store.sessionStorage("authenticationToken", t);
             authenticationViewModel.authenticated = true;
 
+            registerNotifications();
+
             window.plugins.childBrowser.close();
             window.kendoMobileApplication.navigate("#todosPage");
-
             Notifier.success("Authenticated", "Success");
         }
     },
