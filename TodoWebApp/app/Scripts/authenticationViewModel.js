@@ -13,12 +13,10 @@ var authenticationViewModel = kendo.observable({
                 amplify.store.sessionStorage("userName", self.get("userName"));
                 amplify.store.sessionStorage("password", self.get("password"));
 
-                self.set("authenticated", true);
-                self.closeLoginDialog();
+                self.set("authenticated", true);                
 
                 registerNotifications();
-
-                window.kendoMobileApplication.navigate("#todosPage");
+                self.closeLoginDialog();                
             });
     },
 
@@ -29,5 +27,7 @@ var authenticationViewModel = kendo.observable({
 
         self.set("userName", "");
         self.set("password", "");
+
+        window.kendoMobileApplication.navigate("#todosPage");
     }
 });
