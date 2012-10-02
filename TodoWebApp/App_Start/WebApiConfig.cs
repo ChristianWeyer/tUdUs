@@ -12,8 +12,8 @@ namespace Todo.WebApp
         public static void Register(HttpConfiguration config)
         {
             config.Routes.MapHttpRoute(
-                name: "ACS Api", 
-                routeTemplate: "api/acs/{action}/{ns}/{realm}", 
+                name: "ACSApi",
+                routeTemplate: "api/acs/{action}/{ns}/{realm}",
                 defaults: new { controller = "Acs", ns = RouteParameter.Optional, realm = RouteParameter.Optional });
 
             config.Routes.MapHttpRoute(

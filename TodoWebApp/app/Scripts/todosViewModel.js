@@ -2,20 +2,17 @@
 
 var todosViewModel = kendo.observable({
     todosSource: new kendo.data.DataSource(),
+    currentItem: {},
 
     navigateAddTodo: function () {
         window.kendoMobileApplication.navigate("#addTodoPage");
     },
 
     navigateTodoDetails: function (e) {
-        var self = this;
-
-        self.set("currentItem", e.data);
+        this.set("currentItem", e.data);
 
         window.kendoMobileApplication.navigate("#todoDetailsPage");
     },
-    
-    currentItem: null,
 
     addLocalItem: function (item) {
         this.todosSource.add(item);
@@ -53,6 +50,7 @@ var todosViewModel = kendo.observable({
         var self = this;
         var item = element.data;
 
+        // TODO: this does not after adding an item - first needs reload/refresh
         remoteservices.deleteTodo(item.id)
             .done(function (data) {
                 var index = _.indexOf(self.todosSource.data(), item);

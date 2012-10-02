@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>ACS Test</title>
+	<title>Authenticate</title>
 
 	<link href="styles/kendo.mobile.all.min.css" rel="stylesheet" type="text/css" />
 	<link href="styles/app.min.css" rel="stylesheet" type="text/css" />
@@ -11,24 +11,24 @@
 	<script src="js/jquery.base64.min.js" type="text/javascript"></script>
 	<script src="js/kendo.mobile.min.js" type="text/javascript"></script>
 	<script src="js/amplify.min.js" type="text/javascript"></script>	
-    
+    <script src="js/jquery.ba-bbq.min.js" type="text/javascript"></script>
+    <script src="js/notifier.js" type="text/javascript"></script>
+
     <script src="cordova.js" type="text/javascript"></script>
     <script src="childbrowser.js" type="text/javascript"></script>
 
     <script src="Scripts/constants.js" type="text/javascript"></script>
     <script src="Scripts/errorViewModel.js" type="text/javascript"></script>    
     <script src="Scripts/remoteservices.js" type="text/javascript"></script>
-    <script src="Scripts/acsViewModel.js" type="text/javascript"></script>
+    <script src="Scripts/acsViewModel.js" type="text/javascript"></script>    
 </head>
 <body>
     <script type="text/x-kendo-template" id="idpListTemplate">		
         <img src="${imageUrl}" style="border: 0px; height: 20px" />
         <button type="button" onclick="acsViewModel.openAuthWindow('${loginUrl}')">${name}</button>
 	</script>
-	<!-- <a data-bind="click: redirectToIdp">${name}</a> 
-    <button type="button" onclick="javascript:window.location.href='${loginUrl}'">${name}</button> -->
 
-    <div id="startPage" data-role="view" data-title="ACS Test" data-model="acsViewModel">
+    <div id="startPage" data-role="view" data-title="Login" data-model="acsViewModel">
 		<header data-role="header">
 			<div data-role="navbar">
 				<span data-role="view-title"></span>
@@ -36,28 +36,22 @@
 		</header>
 		
 		<br />
-		<h2>Identity Providers</h2>
-		
+		<h2>Choose your Identity Provider</h2>
+		<br />
+
         <ul id="idps" data-role="listview" data-bind="source: idpsSource" data-template="idpListTemplate" data-style="inset">
 		</ul>
-
-        <button type="button" data-bind="click: listTodos">List data</button>
-
-		<footer data-role="footer">
-			<div data-role="tabstrip">
-                <a data-icon="home" href="#startPage">Home</a>
-			</div>
-		</footer>
 	</div>
-    
+
     <script type="text/javascript">
         $(function () {
-            document.addEventListener("deviceready", deviceready, false);            
+            //window.kendoMobileApplication = new kendo.mobile.Application(document.body);
+            document.addEventListener("deviceready", deviceready, false);
+                        
+            acsViewModel.getIdps();            
         });
 
         function deviceready() {
-            window.kendoMobileApplication = new kendo.mobile.Application(document.body);
-
             acsViewModel.getIdps();
         }
     </script>

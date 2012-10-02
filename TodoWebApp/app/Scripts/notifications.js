@@ -1,7 +1,7 @@
 ﻿/// <reference path="../js/_references.js" />
 
 function registerNotifications() {
-    NotifierjsConfig.defaultTimeOut = 1250;
+    NotifierjsConfig.defaultTimeOut = 1750;
     NotifierjsConfig.position = ["bottom", "right"];
     NotifierjsConfig.notificationStyles.width = "255";
     

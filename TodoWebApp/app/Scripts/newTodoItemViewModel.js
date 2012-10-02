@@ -15,11 +15,12 @@ var newTodoItemViewModel = kendo.observable({
 
         remoteservices.saveTodo(item)
             .done(function () {
-                todosViewModel.addLocalItem(item);
-                window.kendoMobileApplication.navigate("#todosPage");
-
                 self.set("title", "");
                 self.set("details", "");
+
+                todosViewModel.addLocalItem(item);
+
+                window.kendoMobileApplication.navigate("#todosPage");                
             });
     }
 });

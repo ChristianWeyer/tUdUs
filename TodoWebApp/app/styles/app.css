@@ -1,17 +1,10 @@
-﻿.km-modalview, .km-modalview-wrapper:before
-{
-	display: -webkit-inline-box;
-	height: 100%;
-	vertical-align: middle;
+﻿.idpList {
+	display: block;
+	text-align: center;
+	margin: .6em .8em 0;
+	font-size: 1.0em;
 }
 
-.km-modalview-wrapper:before
-{
-	content: "\a0";
-	width: 0px;
-	display: inline-block;
-}
-	
 #commonErrorButton {
 	display: block;
 	text-align: center;

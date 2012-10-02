@@ -1,54 +1,51 @@
-﻿var acsViewModel = kendo.observable({
+﻿/// <reference path="../js/_references.js" />
+
+var acsViewModel = kendo.observable({
     idpsSource: new kendo.data.DataSource(),
     token: {},
 
     getIdps: function () {
         var self = this;
 
-        //var staticAcsEndpoint = "http://localhost/Todo.WebApp/api/acs/getidps?ns=tttodos&realm=http%3A%2F%2Ftt.com%2Fmobile%2Ftodos";
-        var staticAcsEndpoint = "http://tttodos.azurewebsites.net/api/acs/getidps?ns=tttodos&realm=http%3A%2F%2Ftt.com%2Fmobile%2Ftodos";
-
         $.ajax({
-            url: staticAcsEndpoint,
+            url: acsIdpsEndpoint,
             type: 'get',
-            dataType: 'json'
+            dataType: 'json',
+            beforeSend: function (xhr) { kendoMobileApplication.showLoading(); }
+        })
+        .always(function () {
+            kendoMobileApplication.hideLoading();
         })
         .done(function (data) {
             self.idpsSource.data(data);
         })
         .fail(function (error) {
-            alert(error);
+            errorViewModel.showErrorDialog(error);
         });
     },
 
-    setToken: function (tokenResponse) {
-        var token = tokenResponse.access_token;
-        this.token = token;
-    },
-
     openAuthWindow: function (url) {
-        //window.open(url, '_blank', 'width=500,height=400');
         window.plugins.childBrowser.showWebPage(url, { showLocationBar: true });
-        window.plugins.childBrowser.onClose = this.onAuthClose;
         window.plugins.childBrowser.onLocationChange = this.onAuthUrlChange;
     },
 
-    onAuthClose: function () {
-        console.log("Auth window closed");
-    },
+    onAuthUrlChange: function (url) {
+        if (uriLocation.indexOf("acs/noop") != -1) {
+            var params = $.deparam.querystring(url);
+            var t = params.access_token;
 
-    onAuthUrlChange: function (uriLocation) {
-        console.log("Auth window URL changed");
+            acsViewModel.set("token", t);
+            amplify.store.sessionStorage("authenticationToken", t);
+            authenticationViewModel.authenticated = true;
 
-        if (uriLocation.indexOf("acs/token") != -1) {
-            alert("that code");
-            alert(amplify.store("tokenResponse"));
             window.plugins.childBrowser.close();
+
+            Notifier.success("Authenticated", "Success");
         }
     },
 
     listTodos: function () {
-        remoteservices.getTodosEX(this.token)
+        remoteservices.getTodosEX(amplify.store.sessionStorage("authenticationToken"))
             .done(function (data) {
                 alert(data[0].title);
             });

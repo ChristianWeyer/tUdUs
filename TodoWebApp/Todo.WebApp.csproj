@@ -191,17 +191,25 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
+    <Compile Include="Areas\Trace\App_Start\TraceConfig.cs" />
+    <Compile Include="Areas\Trace\Controllers\TraceController.cs" />
+    <Compile Include="Areas\Trace\Models\RequestTrace.cs" />
+    <Compile Include="Areas\Trace\Models\TraceGroup.cs" />
+    <Compile Include="Areas\Trace\Models\TraceItem.cs" />
+    <Compile Include="Areas\Trace\TraceAreaRegistration.cs" />
+    <Compile Include="Areas\Trace\TraceWriters\MemoryTraceStore.cs" />
+    <Compile Include="Areas\Trace\TraceWriters\MemoryTraceWriter.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="app\childbrowser.js" />
     <Content Include="app\config.xml">
       <SubType>Designer</SubType>
     </Content>
-    <Content Include="app\js\childbrowser.js" />
-    <Content Include="app\js\cordova-2.0.0.js" />
+    <Content Include="app\js\jquery.ba-bbq.min.js" />
     <Content Include="app\js\notifier.js">
       <Generator>GoogleClosureCompiler</Generator>
       <LastGenOutput>notifier.min.js</LastGenOutput>
@@ -212,7 +220,7 @@
       <DependentUpon>notifier.js</DependentUpon>
     </Content>
     <Content Include="app\Scripts\acsViewModel.js" />
-    <Content Include="app\acstest.html" />
+    <Content Include="app\acs.html" />
     <Content Include="app\Images\splash.png" />
     <Content Include="app\js\modernizr-2.5.3.min.js">
       <AutoGen>True</AutoGen>
@@ -231,6 +239,8 @@
     <Content Include="app\js\jquery.signalR-0.5.3.min.js" />
     <Content Include="app\js\underscore-min.js" />
     <Content Include="app\Scripts\constants.js" />
+    <Content Include="app\Scripts\configuration.js" />
+    <Content Include="app\Scripts\startViewModel.js" />
     <Content Include="app\Scripts\errorViewModel.js" />
     <Content Include="app\Scripts\notifications.js" />
     <Content Include="app\Scripts\views.js" />
@@ -349,6 +359,11 @@
     <Content Include="Areas\HelpPage\Views\Help\Api.cshtml" />
     <Content Include="Areas\HelpPage\Views\_ViewStart.cshtml" />
     <None Include="app\cache.manifest" />
+    <Content Include="Areas\Trace\Views\Web.config" />
+    <Content Include="Areas\Trace\Views\Trace\TraceDetails.cshtml" />
+    <Content Include="Areas\Trace\Views\Trace\Index.cshtml" />
+    <Content Include="Areas\Trace\Views\Trace\GroupDetails.cshtml" />
+    <Content Include="Areas\Trace\Views\Trace\_ViewStart.cshtml" />
     <None Include="Properties\PublishProfiles\tttodos - FTP %282%29.pubxml" />
     <None Include="Properties\PublishProfiles\tttodos - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\tttodos - Web Deploy %282%29.pubxml" />

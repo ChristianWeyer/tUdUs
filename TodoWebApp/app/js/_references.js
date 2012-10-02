@@ -5,6 +5,7 @@
 /// <reference path="../js/jquery.signalR-0.5.3.min.js" />
 /// <reference path="../js/notifier.min.js" />
 /// <reference path="../js/signalr.hubs.js" />
+/// <reference path="../js/jquery.ba-bbq.min.js" />
 
 /// <reference path="../Scripts/app.js" />
 /// <reference path="../Scripts/authenticationViewModel.js" />
@@ -15,3 +16,5 @@
 /// <reference path="../Scripts/todosViewModel.js" />
 /// <reference path="../Scripts/errorViewModel.js" />
 /// <reference path="../Scripts/views.js" />
+/// <reference path="../Scripts/acsViewModel.js" />
+/// <reference path="../Scripts/configuration.js" />

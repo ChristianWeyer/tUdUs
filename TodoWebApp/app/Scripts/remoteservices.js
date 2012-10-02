@@ -1,22 +1,30 @@
 ﻿/// <reference path="../js/_references.js" />
 
 var remoteservices = (function () {
-    function handleServiceError(data) {
-        if (data.status == "401") {
+    function handleServiceError(error) {
+        console.log(error);
+
+        if (error.status == "401") {
             errorViewModel.showErrorDialog("Login failed.");
         }
         else {
-            errorViewModel.showErrorDialog(data.statusText);
+            errorViewModel.showErrorDialog(error.statusText);
         }
     }
 
-    function beforeSend(xhr, un, pw) {
+    function beforeLoginSend(xhr, un, pw) {
         xhr.setRequestHeader('Authorization', createBasicAuthenticationHeader(un, pw));
         kendoMobileApplication.showLoading();
     }
 
-    function beforeSendEX(xhr, token) {
-        xhr.setRequestHeader('Authorization', createXYZHeader(token));
+    function beforeSend(xhr) {
+        if (configuration.authenticationMode === "Basic") {
+            xhr.setRequestHeader('Authorization', createBasicAuthenticationHeader(amplify.store.sessionStorage("userName"), amplify.store.sessionStorage("password")));
+        }
+        else {
+            xhr.setRequestHeader('Authorization', createBearerHeader(amplify.store.sessionStorage("authenticationToken")));
+        }
+
         kendoMobileApplication.showLoading();
     }
 
@@ -25,7 +33,7 @@ var remoteservices = (function () {
         return header;
     }
 
-    function createXYZHeader(token) {
+    function createBearerHeader(token) {
         var header = 'Bearer ' + token;
         return header;
     }
@@ -46,27 +54,12 @@ var remoteservices = (function () {
     }
 
     return {
-        getTodosEX: function (token) {
-            return $.ajax({
-                url: serviceEndpointUrl,
-                type: 'get',
-                dataType: 'json',
-                beforeSend: function (xhr) { beforeSendEX(xhr, token); }
-            })
-            .always(function () {
-                kendoMobileApplication.hideLoading();
-            })
-            .fail(function (error) {
-                handleServiceError(error);
-            });
-        },
-
         callLoginPing: function (un, pw) {
             return $.ajax({
                 url: addParameter(pingEndpointUrl, "connectionId", $.connection.hub.id),
                 type: 'get',
                 dataType: 'json',
-                beforeSend: function (xhr) { beforeSend(xhr, un, pw); }
+                beforeSend: function (xhr) { beforeLoginSend(xhr, un, pw); }
             })
             .always(function () {
                 kendoMobileApplication.hideLoading();
@@ -81,7 +74,7 @@ var remoteservices = (function () {
                 url: addParameter(serviceEndpointUrl, "connectionId", $.connection.hub.id),
                 type: 'get',
                 dataType: 'json',
-                beforeSend: function (xhr) { beforeSend(xhr, amplify.store("userName"), amplify.store("password")); }
+                beforeSend: function (xhr) { beforeSend(xhr); }
             })
             .always(function () {
                 kendoMobileApplication.hideLoading();
@@ -97,7 +90,7 @@ var remoteservices = (function () {
                 type: 'post',
                 dataType: 'json',
                 data: item,
-                beforeSend: function (xhr) { beforeSend(xhr, amplify.store("userName"), amplify.store("password")); }
+                beforeSend: function (xhr) { beforeSend(xhr); }
             })
             .always(function () {
                 kendoMobileApplication.hideLoading();
@@ -112,7 +105,7 @@ var remoteservices = (function () {
                 url: addParameter(serviceEndpointUrl + "/" + id, "connectionId", $.connection.hub.id),
                 type: 'delete',
                 dataType: 'json',
-                beforeSend: function (xhr) { beforeSend(xhr, amplify.store("userName"), amplify.store("password")); }
+                beforeSend: function (xhr) { beforeSend(xhr); }
             })
             .always(function () {
                 kendoMobileApplication.hideLoading();
@@ -128,7 +121,7 @@ var remoteservices = (function () {
                 type: 'put',
                 dataType: 'json',
                 data: item,
-                beforeSend: function (xhr) { beforeSend(xhr, amplify.store("userName"), amplify.store("password")); }
+                beforeSend: function (xhr) { beforeSend(xhr); }
             })
             .always(function () {
                 kendoMobileApplication.hideLoading();

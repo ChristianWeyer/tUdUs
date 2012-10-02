@@ -2,4 +2,10 @@
 
 $(function () {
     window.kendoMobileApplication = new kendo.mobile.Application(document.body);
+
+    document.addEventListener("deviceready", deviceready, false);
 });
+
+function deviceready() {
+
+}

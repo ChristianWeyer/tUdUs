@@ -2,6 +2,10 @@
 
 // View initializations and configurations
 
+function acsLoginShow(e) {
+    acsViewModel.getIdps();
+}
+
 function todosPageInit(e) {
     e.view.element.find("#tasksList li").kendoMobileSwipe(function (e) {
         // If we need swipe...
