@@ -16,6 +16,9 @@ var authenticationViewModel = kendo.observable({
                 amplify.store.sessionStorage("password", self.get("password"));
 
                 self.set("authenticated", true);
+                Notifier.success("Authenticated", "Success");
+                window.kendoMobileApplication.navigate("#todosPage");
+
                 self.closeLoginDialog();
             });
     },
@@ -24,8 +27,6 @@ var authenticationViewModel = kendo.observable({
         this.set("userName", "");
         this.set("password", "");
 
-        $("#loginDialog").kendoMobileModalView("close");
-        window.kendoMobileApplication.navigate("#todosPage");
-        Notifier.success("Authenticated", "Success");
+        $("#loginDialog").kendoMobileModalView("close");        
     }
 });
