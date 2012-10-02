@@ -19,13 +19,13 @@ var todosViewModel = kendo.observable({
     },
 
     updateLocalItem: function (item) {
-        var oldItem = _.find(this.todosSource.data(), function (t) { return t.id == item.id; });
+        var oldItem = _.find(this.todosSource.data(), function (t) { return t.id === item.id; });
         var index = _.indexOf(this.todosSource.data(), oldItem);
         this.todosSource.data().splice(index, 1, item);
     },
 
     deleteLocalItem: function (id) {
-        var item = _.find(this.todosSource.data(), function (t) { return t.id == id; });
+        var item = _.find(this.todosSource.data(), function (t) { return t.id === id; });
         var index = _.indexOf(this.todosSource.data(), item);
         this.todosSource.data().splice(index, 1);
     },

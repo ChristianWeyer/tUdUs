@@ -30,4 +30,4 @@ function registerNotifications() {
     };
 
     $.connection.hub.start().done(function () { });
-};
+}

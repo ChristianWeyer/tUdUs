@@ -27,16 +27,16 @@ var acsViewModel = kendo.observable({
     openAuthWindow: function (url) {
         console.log("openAuthWindow: " + url);
 
-        if (url.indexOf("login.live.com") != -1) {
+        if (url.indexOf("login.live.com") !== -1) {
             url = url + "&pcexp=false";
-        };
+        }
 
         window.plugins.childBrowser.showWebPage(url, { showLocationBar: true });
         window.plugins.childBrowser.onLocationChange = this.onAuthUrlChange;
     },
 
     onAuthUrlChange: function (url) {
-        if (url.indexOf("acs/noop") != -1) {
+        if (url.indexOf("acs/noop") !== -1) {
             var params = $.deparam.querystring(url);
             var t = params.access_token;
 

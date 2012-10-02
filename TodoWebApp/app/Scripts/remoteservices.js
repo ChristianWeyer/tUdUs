@@ -4,7 +4,7 @@ var remoteservices = (function () {
     function handleServiceError(error) {
         console.log(error);
 
-        if (error.status == "401") {
+        if (error.status === "401") {
             errorViewModel.showErrorDialog("Login failed.");
         }
         else {
@@ -39,7 +39,7 @@ var remoteservices = (function () {
     }
 
     function addConnectionIdParameter(url) {
-        return addParameter(url, "connectionId", $.connection.hub.id)
+        return addParameter(url, "connectionId", $.connection.hub.id);
     }
 
     function addParameter(url, param, value) {
@@ -134,5 +134,5 @@ var remoteservices = (function () {
                 handleServiceError(error);
             });
         }
-    }
+    };
 } ());
