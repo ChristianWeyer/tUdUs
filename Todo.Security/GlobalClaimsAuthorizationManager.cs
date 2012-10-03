@@ -12,7 +12,6 @@ namespace Todo.Security
 
             if (claimsId.IsAuthenticated)
             {
-                // TODO: implement authZ logic!
                 return base.CheckAccess(context);
             }
             else

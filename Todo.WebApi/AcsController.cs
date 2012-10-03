@@ -18,6 +18,7 @@ using System.Web;
 using System.Web.Http;
 using Thinktecture.IdentityModel.Clients.AccessControlService;
 using Thinktecture.IdentityModel.Tokens;
+using Todo.Security;
 
 namespace Todo.WebApi
 {
@@ -41,11 +42,13 @@ namespace Todo.WebApi
             var signInResponse = ExtractTokenResponse();
             var icp = ValidateToken(signInResponse);
 
-            // TODO: Transform claims into app-specific claims
+            //var claimsTransformer = new AcsClaimsAuthenticationManager();
+            //icp = claimsTransformer.Authenticate("acsToken", icp);
+            
+            var tokenExpiration = Convert.ToInt32(ConfigurationManager.AppSettings["tokenExpirationInMinutes"]);
 
-            int tokenExpiration;
-            var newTokenString = CreateJwtToken(icp, out tokenExpiration);
-            var newTokenQueryString = BuildQueryStringFromToken(tokenExpiration, newTokenString);
+            var newTokenString = CreateJwtToken(icp, tokenExpiration);
+            var newTokenQueryString = BuildQueryStringFromToken(newTokenString, tokenExpiration);
 
             var redirectUrl = Url.Link("ACSApi", new { controller = "Acs", action = "Noop" });
             var newUrl = new Uri(redirectUrl + "?" + newTokenQueryString);
@@ -65,12 +68,12 @@ namespace Todo.WebApi
             return response;
         }
 
-        private static string BuildQueryStringFromToken(int tokenExpiration, string newTokenString)
+        private static string BuildQueryStringFromToken(string newTokenString, int tokenExpiration)
         {
             var newTokenResponse = new TokenResponse
             {
                 AccessToken = newTokenString,
-                ExpiresIn = tokenExpiration * 60,
+                ExpiresIn = tokenExpiration,
                 TokenType = "Bearer"
             };
 
@@ -82,10 +85,10 @@ namespace Todo.WebApi
             return newTokenQueryString;
         }
 
-        private static string CreateJwtToken(IClaimsPrincipal icp, out int tokenExpiration)
+        private static string CreateJwtToken(IClaimsPrincipal icp, int tokenExpiration)
         {
             var signingKey = ConfigurationManager.AppSettings["signingKey"];
-            tokenExpiration = Convert.ToInt32(ConfigurationManager.AppSettings["tokenExpirationInMinutes"]);
+            
 
             var jwtHandler = new JsonWebTokenHandler();
             var securityDescriptor = new SecurityTokenDescriptor

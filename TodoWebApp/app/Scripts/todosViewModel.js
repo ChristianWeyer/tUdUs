@@ -50,7 +50,7 @@ var todosViewModel = kendo.observable({
         var self = this;
         var item = element.data;
 
-        // TODO: this does not after adding an item - first needs reload/refresh
+        // TODO: this does not work after adding an item - first needs reload/refresh
         remoteservices.deleteTodo(item.id)
             .done(function (data) {
                 var index = _.indexOf(self.todosSource.data(), item);

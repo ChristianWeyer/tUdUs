@@ -15,7 +15,11 @@
 	<link href="styles/app.min.css" rel="stylesheet" type="text/css" />
 	
 	<script src="js/jquery-1.7.1.min.js" type="text/javascript"></script>
-	<script src="js/underscore-min.js" type="text/javascript"></script>
+	
+    <script src="cordova.js" type="text/javascript"></script>
+    <script src="childbrowser.js" type="text/javascript"></script>
+
+    <script src="js/underscore-min.js" type="text/javascript"></script>
 	<script src="js/jquery.base64.min.js" type="text/javascript"></script>
 	<script src="js/kendo.mobile.min.js" type="text/javascript"></script>
 	<script src="js/amplify.min.js" type="text/javascript"></script>
@@ -24,9 +28,6 @@
     <script src="js/jquery.ba-bbq.min.js" type="text/javascript"></script>
 	<script src="js/signalr.hubs.min.js" type="text/javascript"></script>
 	
-    <script src="cordova.js" type="text/javascript"></script>
-    <script src="childbrowser.js" type="text/javascript"></script>
-
 	<script src="Scripts/app.js" type="text/javascript"></script>
     <script src="Scripts/constants.js" type="text/javascript"></script>
     <script src="Scripts/startViewModel.js" type="text/javascript"></script>
@@ -47,8 +48,8 @@
 		<a data-role="detailbutton" data-style="rowdelete" data-bind="events:{click: removeTodo}"></a>
 	</script>
 	<script type="text/x-kendo-template" id="idpListTemplate">
-        <img src="${imageUrl}" style="border: 0px; height: 20px"/>        
-        <button type="button" onclick="acsViewModel.openAuthWindow('${loginUrl}')">${name}</button>
+        <img src="${imageUrl}" style="border: 50px; width: 60px" align="middle"/>
+        <a onclick="acsViewModel.openAuthWindow('${loginUrl}')">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${name}</a>
 	</script>
     
 	<!-- Start page -->
