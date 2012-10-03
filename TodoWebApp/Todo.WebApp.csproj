@@ -371,9 +371,7 @@
     <Content Include="Areas\Trace\Views\Trace\Index.cshtml" />
     <Content Include="Areas\Trace\Views\Trace\GroupDetails.cshtml" />
     <Content Include="Areas\Trace\Views\Trace\_ViewStart.cshtml" />
-    <None Include="Properties\PublishProfiles\tttodos - FTP %282%29.pubxml" />
     <None Include="Properties\PublishProfiles\tttodos - FTP.pubxml" />
-    <None Include="Properties\PublishProfiles\tttodos - Web Deploy %282%29.pubxml" />
     <None Include="Properties\PublishProfiles\tttodos - Web Deploy.pubxml" />
     <None Include="simulator\README.md" />
   </ItemGroup>
