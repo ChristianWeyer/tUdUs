@@ -41,6 +41,7 @@ namespace Todo.WebApi
 
             if (todo == null)
             {
+                // TODO: log...
                 throw new HttpResponseException(HttpStatusCode.NotFound);
             }
 
@@ -53,7 +54,7 @@ namespace Todo.WebApi
         /// <param name="item">The new item.</param>
         /// <returns>The new item with up-to-date data.</returns>
         public TodoItemDto Post(TodoItemDto item)
-        {
+        {   
             var newItem = repository.Insert(item.Map());
             
             Hub.Clients.itemAdded(ConnectionId, item);
@@ -75,8 +76,9 @@ namespace Todo.WebApi
     
                 return updatedItem.Map();
             }
-            catch (DbUpdateException duex)
+            catch (DbUpdateException)
             {
+                // TODO: log...
                 throw new HttpResponseException(HttpStatusCode.BadRequest);
             }            
         }
@@ -92,8 +94,9 @@ namespace Todo.WebApi
                 repository.Delete(new TodoItem { Id = id });
                 Hub.Clients.itemDeleted(ConnectionId, id);
             }
-            catch (DbUpdateException duex)
+            catch (DbUpdateException)
             {
+                // TODO: log...
                 throw new HttpResponseException(HttpStatusCode.BadRequest);
             }            
         }

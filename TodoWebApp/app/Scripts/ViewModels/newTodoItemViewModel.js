@@ -13,7 +13,7 @@ var newTodoItemViewModel = kendo.observable({
             details: this.get("details")
         };
 
-        remoteservices.saveTodo(item)
+        dataservices.saveTodo(item)
             .done(function () {
                 self.set("title", "");
                 self.set("details", "");

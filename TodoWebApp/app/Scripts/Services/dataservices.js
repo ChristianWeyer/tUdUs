@@ -1,6 +1,6 @@
 ﻿/// <reference path="../js/_references.js" />
 
-var remoteservices = (function () {
+var dataservices = (function () {
     function handleServiceError(error) {
         console.log(error);
 

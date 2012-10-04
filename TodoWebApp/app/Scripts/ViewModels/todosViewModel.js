@@ -40,7 +40,7 @@ var todosViewModel = kendo.observable({
             done: ci.done
         };
 
-        remoteservices.updateTodo(item)
+        dataservices.updateTodo(item)
             .done(function () {
                 Notifier.success(item.title, 'Updated');
             });
@@ -50,8 +50,8 @@ var todosViewModel = kendo.observable({
         var self = this;
         var item = element.data;
 
-        // TODO: this does not work after adding an item - first needs reload/refresh
-        remoteservices.deleteTodo(item.id)
+        // BUG: this does not work after adding an item - first needs reload/refresh
+        dataservices.deleteTodo(item.id)
             .done(function (data) {
                 var index = _.indexOf(self.todosSource.data(), item);
                 self.todosSource.data().splice(index, 1);
@@ -63,7 +63,7 @@ var todosViewModel = kendo.observable({
     loadTodos: function () {
         var self = this;
 
-        remoteservices.getTodos()
+        dataservices.getTodos()
             .done(function (data) {
                 self.todosSource.data(data);
             });

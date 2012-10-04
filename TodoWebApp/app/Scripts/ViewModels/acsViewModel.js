@@ -53,7 +53,7 @@ var acsViewModel = kendo.observable({
     },
 
     listTodos: function () {
-        remoteservices.getTodosEX(amplify.store.sessionStorage("authenticationToken"))
+        dataservices.getTodosEX(amplify.store.sessionStorage("authenticationToken"))
             .done(function (data) {
                 alert(data[0].title);
             });

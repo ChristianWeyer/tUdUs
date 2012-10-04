@@ -224,7 +224,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>notifier.js</DependentUpon>
     </Content>
-    <Content Include="app\Scripts\acsViewModel.js" />
+    <Content Include="app\Scripts\ViewModels\acsViewModel.js" />
     <Content Include="app\Images\splash.png" />
     <Content Include="app\js\modernizr-2.5.3.min.js">
       <AutoGen>True</AutoGen>
@@ -243,15 +243,15 @@
     <Content Include="app\js\jquery.signalR-0.5.3.min.js" />
     <Content Include="app\js\underscore-min.js" />
     <Content Include="app\Scripts\constants.js" />
-    <Content Include="app\Scripts\settingsViewModel.js" />
-    <Content Include="app\Scripts\startViewModel.js" />
-    <Content Include="app\Scripts\errorViewModel.js" />
-    <Content Include="app\Scripts\notifications.js" />
+    <Content Include="app\Scripts\ViewModels\settingsViewModel.js" />
+    <Content Include="app\Scripts\ViewModels\startViewModel.js" />
+    <Content Include="app\Scripts\ViewModels\errorViewModel.js" />
+    <Content Include="app\Scripts\Services\notifications.js" />
     <Content Include="app\Scripts\views.js" />
-    <Content Include="app\Scripts\remoteservices.js" />
-    <Content Include="app\Scripts\newTodoItemViewModel.js" />
-    <Content Include="app\Scripts\todosViewModel.js" />
-    <Content Include="app\Scripts\authenticationViewModel.js" />
+    <Content Include="app\Scripts\Services\dataservices.js" />
+    <Content Include="app\Scripts\ViewModels\newTodoItemViewModel.js" />
+    <Content Include="app\Scripts\ViewModels\todosViewModel.js" />
+    <Content Include="app\Scripts\ViewModels\authenticationViewModel.js" />
     <Content Include="app\js\jquery.base64.min.js" />
     <Content Include="app\styles\app.min.css">
       <AutoGen>True</AutoGen>

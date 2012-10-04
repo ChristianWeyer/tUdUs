@@ -8,25 +8,27 @@ var authenticationViewModel = kendo.observable({
     doLogin: function () {
         var self = this;
 
-        remoteservices.callLoginPing(self.userName, self.password)
+        dataservices.callLoginPing(self.userName, self.password)
             .success(function () {
                 registerNotifications();
 
                 amplify.store.sessionStorage("userName", self.get("userName"));
                 amplify.store.sessionStorage("password", self.get("password"));
 
-                self.set("authenticated", true);
-                Notifier.success("Authenticated", "Success");
-                window.kendoMobileApplication.navigate("#todosPage");
-
-                self.closeLoginDialog();
+                self.set("authenticated", true);                
+                self.closeLoginDialog(true);
             });
     },
 
-    closeLoginDialog: function () {
+    closeLoginDialog: function (success) {
         this.set("userName", "");
         this.set("password", "");
 
-        $("#loginDialog").kendoMobileModalView("close");        
+        $("#loginDialog").kendoMobileModalView("close");
+
+        if (success) {
+            window.kendoMobileApplication.navigate("#todosPage");
+            Notifier.success("Authenticated", "Success");
+        }
     }
 });
