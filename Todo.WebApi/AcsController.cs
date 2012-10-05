@@ -50,7 +50,9 @@ namespace Todo.WebApi
             var newTokenString = CreateJwtToken(icp, tokenExpiration);
             var newTokenQueryString = BuildQueryStringFromToken(newTokenString, tokenExpiration);
 
-            var redirectUrl = Url.Link("ACSApi", new { controller = "Acs", action = "Noop" });
+            //TODO: This returns null on my machine & in WAWS - seems very strange...
+            //var redirectUrl = Url.Link("ACSApi", new { controller = "Acs", action = "Noop" });
+            var redirectUrl = "http://tttodos.azurewebsites.net/api/acs/noop";
             var newUrl = new Uri(redirectUrl + "?" + newTokenQueryString);
 
             var responseMessage = Request.CreateResponse(HttpStatusCode.Redirect);

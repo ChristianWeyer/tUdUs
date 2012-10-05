@@ -2,7 +2,6 @@
 
 var acsViewModel = kendo.observable({
     idpsSource: new kendo.data.DataSource(),
-    token: {},
 
     getIdps: function () {
         var self = this;
@@ -40,7 +39,6 @@ var acsViewModel = kendo.observable({
             var params = $.deparam.querystring(url);
             var t = params.access_token;
 
-            acsViewModel.set("token", t);
             amplify.store.sessionStorage("authenticationToken", t);
             authenticationViewModel.authenticated = true;
 
@@ -50,12 +48,5 @@ var acsViewModel = kendo.observable({
             window.kendoMobileApplication.navigate("#todosPage");
             Notifier.success("Authenticated", "Success");
         }
-    },
-
-    listTodos: function () {
-        dataservices.getTodosEX(amplify.store.sessionStorage("authenticationToken"))
-            .done(function (data) {
-                alert(data[0].title);
-            });
     }
 });

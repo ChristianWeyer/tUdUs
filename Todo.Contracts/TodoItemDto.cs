@@ -15,5 +15,7 @@ namespace Todo.Contracts
         public string Details { get; set; }
         [DataMember(Name = "done")]
         public bool Done { get; set; }
+        [DataMember(Name = "pictureUrl")]
+        public string PictureUrl { get; set; }
     }
 }

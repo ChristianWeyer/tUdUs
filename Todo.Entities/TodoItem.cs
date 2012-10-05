@@ -9,5 +9,6 @@ namespace Todo.Entities
         public string Details { get; set; }
         public bool Done { get; set; }
         public string AssignedTo { get; set; }
+        public string PictureUrl { get; set; }
     }
 }

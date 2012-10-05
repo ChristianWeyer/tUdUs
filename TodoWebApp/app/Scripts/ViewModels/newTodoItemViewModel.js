@@ -3,24 +3,41 @@
 var newTodoItemViewModel = kendo.observable({
     title: "",
     details: "",
+    pictureUrl: null,
 
     saveTodo: function () {
-        var self = this;
+        if (addTodoPageValidator.validate()) {
+            var self = this;
 
-        var item =
-        {
-            title: this.get("title"),
-            details: this.get("details")
-        };
+            dataservices.saveTodo(this.toJSON())
+                .done(function (itemFromServer) {
+                    self.set("title", "");
+                    self.set("details", "");
+                    self.set("pictureUrl", null);
 
-        dataservices.saveTodo(item)
-            .done(function () {
-                self.set("title", "");
-                self.set("details", "");
+                    todosViewModel.addLocalItem(itemFromServer);
 
-                todosViewModel.addLocalItem(item);
+                    window.kendoMobileApplication.navigate("#todosPage");
+                });
+        }
+    },
 
-                window.kendoMobileApplication.navigate("#todosPage");                
-            });
+    openCamera: function () {
+        navigator.camera.getPicture(this.onCameraSuccess, this.onCameraFail, {
+            quality: 40,
+            destinationType: Camera.DestinationType.FILE_URL,
+            sourceType: Camera.PictureSourceType.CAMERA
+        });
+    },
+
+    onCameraSuccess: function (imageUrl) {
+        newTodoItemViewModel.set("pictureUrl", imageUrl);
+        
+        var imagePane = $("#capturedImagePane");
+        imagePane.show();        
+    },
+
+    onCameraFail: function (message) {
+        alert("Oops: " + message);
     }
 });

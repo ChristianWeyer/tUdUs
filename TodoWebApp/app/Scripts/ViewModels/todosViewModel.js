@@ -4,6 +4,10 @@ var todosViewModel = kendo.observable({
     todosSource: new kendo.data.DataSource(),
     currentItem: {},
 
+    pictureAvailable: function () {
+        return this.currentItem.pictureUrl !== null;
+    },
+
     navigateAddTodo: function () {
         window.kendoMobileApplication.navigate("#addTodoPage");
     },
@@ -31,14 +35,7 @@ var todosViewModel = kendo.observable({
     },
 
     updateTodo: function () {
-        var ci = this.get("currentItem");
-        var item =
-        {
-            id: ci.id,
-            title: ci.title,
-            details: ci.details,
-            done: ci.done
-        };
+        var item = this.get("currentItem").toJSON();
 
         dataservices.updateTodo(item)
             .done(function () {
@@ -50,7 +47,6 @@ var todosViewModel = kendo.observable({
         var self = this;
         var item = element.data;
 
-        // BUG: this does not work after adding an item - first needs reload/refresh
         dataservices.deleteTodo(item.id)
             .done(function (data) {
                 var index = _.indexOf(self.todosSource.data(), item);

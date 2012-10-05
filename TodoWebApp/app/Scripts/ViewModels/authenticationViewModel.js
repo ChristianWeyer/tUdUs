@@ -21,8 +21,8 @@ var authenticationViewModel = kendo.observable({
     },
 
     closeLoginDialog: function (success) {
-        this.set("userName", "");
-        this.set("password", "");
+        authenticationViewModel.set("userName", "");
+        authenticationViewModel.set("password", "");
 
         $("#loginDialog").kendoMobileModalView("close");
 

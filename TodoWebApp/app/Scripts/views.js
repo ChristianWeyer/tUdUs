@@ -15,6 +15,16 @@ function todosPageInit(e) {
     todosViewModel.loadTodos();
 }
 
+var addTodoPageValidator;
+
+function addTodoPageInit() {
+    addTodoPageValidator = $("#addTodoPage").kendoValidator({
+        messages: {
+            required: "A title is required."
+        }
+    }).data("kendoValidator");
+}
+
 function beforePageShow(e) {
     if (!authenticationViewModel.authenticated) {
         e.preventDefault();
