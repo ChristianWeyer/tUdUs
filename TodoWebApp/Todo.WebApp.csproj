@@ -213,6 +213,7 @@
     <Content Include="app\config.xml">
       <SubType>Designer</SubType>
     </Content>
+    <Content Include="app\scripts\services\httpConstants.js" />
     <Content Include="images\thinktecture.jpg" />
     <Content Include="app\js\jquery.ba-bbq.min.js" />
     <Content Include="app\js\notifier.js">
@@ -224,8 +225,8 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>notifier.js</DependentUpon>
     </Content>
-    <Content Include="app\Scripts\ViewModels\acsViewModel.js" />
-    <Content Include="app\Images\splash.png" />
+    <Content Include="app\scripts\viewmodels\acsViewModel.js" />
+    <Content Include="app\images\splash.png" />
     <Content Include="app\js\modernizr-2.5.3.min.js">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -242,16 +243,16 @@
     </Content>
     <Content Include="app\js\jquery.signalR-0.5.3.min.js" />
     <Content Include="app\js\underscore-min.js" />
-    <Content Include="app\Scripts\constants.js" />
-    <Content Include="app\Scripts\ViewModels\settingsViewModel.js" />
-    <Content Include="app\Scripts\ViewModels\startViewModel.js" />
-    <Content Include="app\Scripts\ViewModels\errorViewModel.js" />
-    <Content Include="app\Scripts\Services\notifications.js" />
-    <Content Include="app\Scripts\views.js" />
-    <Content Include="app\Scripts\Services\dataservices.js" />
-    <Content Include="app\Scripts\ViewModels\newTodoItemViewModel.js" />
-    <Content Include="app\Scripts\ViewModels\todosViewModel.js" />
-    <Content Include="app\Scripts\ViewModels\authenticationViewModel.js" />
+    <Content Include="app\scripts\applicationConstants.js" />
+    <Content Include="app\scripts\viewmodels\settingsViewModel.js" />
+    <Content Include="app\scripts\viewmodels\startViewModel.js" />
+    <Content Include="app\scripts\viewmodels\errorViewModel.js" />
+    <Content Include="app\scripts\services\notifications.js" />
+    <Content Include="app\scripts\views.js" />
+    <Content Include="app\scripts\services\dataservices.js" />
+    <Content Include="app\scripts\viewmodels\newTodoItemViewModel.js" />
+    <Content Include="app\scripts\viewmodels\todosViewModel.js" />
+    <Content Include="app\scripts\viewmodels\authenticationViewModel.js" />
     <Content Include="app\js\jquery.base64.min.js" />
     <Content Include="app\styles\app.min.css">
       <AutoGen>True</AutoGen>
@@ -302,12 +303,12 @@
       <LastGenOutput>app.min.css</LastGenOutput>
     </Content>
     <Content Include="Global.asax" />
-    <Content Include="app\Images\Wooden_Todo_128x128.png" />
-    <Content Include="app\Images\Wooden_Todo_256x256.png" />
-    <Content Include="app\Images\Wooden_Todo_32x32.png" />
+    <Content Include="app\images\Wooden_Todo_128x128.png" />
+    <Content Include="app\images\Wooden_Todo_256x256.png" />
+    <Content Include="app\images\Wooden_Todo_32x32.png" />
     <Content Include="app\index.html" />
     <Content Include="app\js\amplify.min.js" />
-    <Content Include="app\Scripts\app.js" />
+    <Content Include="app\scripts\app.js" />
     <Content Include="app\js\kendo.mobile.min.js" />
     <Content Include="app\js\jquery-1.7.1.min.js" />
     <Content Include="app\js\jquery-ui-1.8.20.min.js" />
@@ -365,7 +366,6 @@
     <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ApiGroup.cshtml" />
     <Content Include="Areas\HelpPage\Views\Help\Api.cshtml" />
     <Content Include="Areas\HelpPage\Views\_ViewStart.cshtml" />
-    <None Include="app\cache.manifest" />
     <Content Include="Areas\Trace\Views\Web.config" />
     <Content Include="Areas\Trace\Views\Trace\TraceDetails.cshtml" />
     <Content Include="Areas\Trace\Views\Trace\Index.cshtml" />
