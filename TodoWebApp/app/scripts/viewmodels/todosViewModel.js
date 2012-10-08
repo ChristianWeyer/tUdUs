@@ -1,6 +1,4 @@
-﻿/// <reference path="../../js/_references.js" />
-
-var todosViewModel = kendo.observable({
+﻿var todosViewModel = kendo.observable({
     todosSource: new kendo.data.DataSource(),
     currentItem: {},
 

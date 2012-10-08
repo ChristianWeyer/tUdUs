@@ -50,10 +50,10 @@
 	<script type="text/x-kendo-template" id="idpListTemplate">
         <img src="${imageUrl}" style="border: 50px; width: 60px" align="middle"/>
         <a onclick="acsViewModel.openAuthWindow('${loginUrl}')">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${name}</a>
-	</script>
-    
+	</script>    
+        
     <!-- Start page -->
-	<div id="startPage" data-role="view" data-title="TODOs" data-model="startViewModel">
+	<div id="startPage" data-role="view" data-title="TODOs" data-model="startViewModel" data-layout="defaultLayout">
 		<header data-role="header">
 			<div data-role="navbar">
 				<span data-role="view-title"></span>
@@ -61,18 +61,10 @@
 		</header>
         <img src="images/Wooden_Todo_256x256.png" alt="TODOs" />
 		<a data-role="button" id="openLoginButton" data-bind="click: openLoginView">Login</a>
-        <footer data-role="footer">
-			<div data-role="tabstrip">
-				<a data-icon="home" href="#startPage">Home</a>
-				<a data-icon="bookmarks" href="#todosPage">TODOs</a> 
-                <a data-icon="settings" href="#settingsPage">Settings</a> 
-				<a data-icon="info" href="#infoPage">Info</a>
-			</div>
-		</footer>
 	</div>
 
     <!-- ACS Login page -->
-    <div id="acsLogin" data-role="view" data-title="Login" data-model="acsViewModel" data-show="acsLoginShow">
+    <div id="acsLogin" data-role="view" data-title="Login" data-model="acsViewModel" data-show="acsLoginShow" data-layout="defaultLayout">
 		<header data-role="header">
 			<div data-role="navbar">
 				<span data-role="view-title"></span>
@@ -84,19 +76,10 @@
 
         <ul id="idps" data-role="listview" data-bind="source: idpsSource" data-template="idpListTemplate" data-style="inset">
 		</ul>
-
-        <footer data-role="footer">
-			<div data-role="tabstrip">
-				<a data-icon="home" href="#startPage">Home</a>
-				<a data-icon="bookmarks" href="#todosPage">TODOs</a>
-                <a data-icon="settings" href="#settingsPage">Settings</a>
-				<a data-icon="info" href="#infoPage">Info</a>
-			</div>
-		</footer>
 	</div>
 
 	<!-- TODOs page -->
-	<div id="todosPage" data-role="view" data-title="TODOs" data-model="todosViewModel" data-init="todosPageInit" data-before-show="beforePageShow">
+	<div id="todosPage" data-role="view" data-title="TODOs" data-model="todosViewModel" data-init="todosPageInit" data-before-show="beforePageShow" data-layout="defaultLayout">
 		<header data-role="header">
 			<div data-role="navbar">
 				<span data-role="view-title"></span>
@@ -110,19 +93,10 @@
 				
 		<ul id="tasksList" data-role="listview" data-bind="source: todosSource" data-template="tasksListTemplate" data-style="inset">
 		</ul>
-
-		<footer data-role="footer">
-			<div data-role="tabstrip">
-				<a data-icon="home" href="#startPage">Home</a>
-				<a data-icon="bookmarks" href="#todosPage">TODOs</a>
-                <a data-icon="settings" href="#settingsPage">Settings</a>
-				<a data-icon="info" href="#infoPage">Info</a>
-			</div>
-		</footer>
 	</div>
 
 	<!-- TODO details page -->
-	<div id="todoDetailsPage" data-role="view" data-title="Details" data-model="todosViewModel" data-before-show="beforePageShow">
+	<div id="todoDetailsPage" data-role="view" data-title="Details" data-model="todosViewModel" data-before-show="beforePageShow" data-layout="defaultLayout">
 		<header data-role="header">
 			<div data-role="navbar">
 				<a data-role="backbutton" data-align="left">Back</a>
@@ -151,38 +125,30 @@
 		</ul>
 
 		<br />
-		<a id="saveTodoButton" data-bind="click: updateTodo" data-role="button">Save</a>
-
-        <footer data-role="footer">
-			<div data-role="tabstrip">
-				<a data-icon="home" href="#startPage">Home</a>
-				<a data-icon="bookmarks" href="#todosPage">TODOs</a>
-                <a data-icon="settings" href="#settingsPage">Settings</a>
-				<a data-icon="info" href="#infoPage">Info</a>
-			</div>
-		</footer>
+	    <a id="saveTodoButton" data-bind="click: updateTodo" data-role="button">Save</a>
+        <br/>
 	</div>
-
-	<!-- Add TODO page -->
-	<div id="addTodoPage" data-role="view" data-title="TODOs" data-transition="overlay:up" data-model="newTodoItemViewModel" data-init="addTodoPageInit" data-before-show="beforePageShow">
-		<header data-role="header">
-			<div data-role="navbar">
-				<a data-role="backbutton" data-align="left">Back</a>
-				<span data-role="view-title"></span>
-			</div>
-		</header>
+	
+    <!-- Add TODO page -->
+    <div id="addTodoPage" data-role="view" data-title="TODOs" data-transition="overlay:up" data-model="newTodoItemViewModel" data-init="addTodoPageInit" data-before-show="beforePageShow" data-layout="defaultLayout">
+        <header data-role="header">
+            <div data-role="navbar">
+                <a data-role="backbutton" data-align="left">Back</a>
+                <span data-role="view-title"></span>
+            </div>
+        </header>
         <br />
-		<h2>New Item</h2>
+        <h2>New Item</h2>
 		
-		<ul data-role="listview" data-style="inset">
-			<li>
-				<label for="newtasktitle">Title:</label>
-				<input data-bind="value: title" type="text" id="newtasktitle" required />
-			</li>
-			<li>
-				<label for="newtaskdetails">Details:</label>
-				<input data-bind="value: details" type="text" id="newtaskdetails" />
-			</li>            
+        <ul data-role="listview" data-style="inset">
+            <li>
+                <label for="newtasktitle">Title:</label>
+                <input data-bind="value: title" type="text" id="newtasktitle" required />
+            </li>
+            <li>
+                <label for="newtaskdetails">Details:</label>
+                <input data-bind="value: details" type="text" id="newtaskdetails" />
+            </li>            
         </ul>
                 
         <a data-role="button" style="margin: 0 0 0 1.1em;" data-icon="camera" data-bind="click: openCamera">Take picture</a>            
@@ -190,23 +156,15 @@
             <li id="capturedImagePane" style="display: none">
                 <img src="" style="margin: 0px auto; display: block; width: 220px" id="capturedImage" data-bind="attr: { src: pictureUrl }"/>
             </li>
-		</ul>
+        </ul>
 
-		<br />
-		<a id="addTodoButton" data-bind="click: saveTodo" data-role="button">Save</a>
+        <br />
+        <a id="addTodoButton" data-bind="click: saveTodo" data-role="button">Save</a>
         <br /><br />
-        <footer data-role="footer">
-			<div data-role="tabstrip">
-				<a data-icon="home" href="#startPage">Home</a>
-				<a data-icon="bookmarks" href="#todosPage">TODOs</a>
-                <a data-icon="settings" href="#settingsPage">Settings</a>
-				<a data-icon="info" href="#infoPage">Info</a>
-			</div>
-		</footer>
-	</div>
+    </div>
 
     <!-- Settings page -->
-	<div id="settingsPage" data-role="view" data-title="TODOs" data-model="settingsViewModel">
+	<div id="settingsPage" data-role="view" data-title="TODOs" data-model="settingsViewModel" data-layout="defaultLayout">
 		<header data-role="header">
 			<div data-role="navbar">
 				<span data-role="view-title"></span>
@@ -215,27 +173,19 @@
 		<br />
 		<h2>Settings</h2>
 			
-		<ul data-role="listview" data-style="inset">
-			 <li>
-                <select data-bind="value: authenticationMode">
-                    <option value="Basic">Basic</option>
-                    <option value="ACS">ACS</option>
-                </select>
-                Authentication
-            </li>
-		</ul>      				
-		<footer data-role="footer">
-			<div data-role="tabstrip">
-				<a data-icon="home" href="#startPage">Home</a>
-				<a data-icon="bookmarks" href="#todosPage">TODOs</a>
-                <a data-icon="settings" href="#settingsPage">Settings</a>
-				<a data-icon="info" href="#infoPage">Info</a>
-			</div>
-		</footer>
+	    <ul data-role="listview" data-style="inset">
+	        <li>
+	            <select data-bind="value: authenticationMode">
+	                <option value="Basic">Basic</option>
+	                <option value="ACS">ACS</option>
+	            </select>
+	            Authentication
+	        </li>
+	    </ul>
 	</div>
 
 	<!-- Info/About page -->
-	<div id="infoPage" data-role="view" data-title="TODOs">
+	<div id="infoPage" data-role="view" data-title="TODOs" data-layout="defaultLayout">
 		<header data-role="header">
 			<div data-role="navbar">
 				<span data-role="view-title"></span>
@@ -254,7 +204,11 @@
 				<a data-role="detailbutton" data-icon="compose"></a>
 			</li>
 		</ul>      				
-		<footer data-role="footer">
+	</div>
+	
+    <!-- Layouts -->
+    <div data-role="layout" data-id="defaultLayout">
+        <footer data-role="footer">
 			<div data-role="tabstrip">
 				<a data-icon="home" href="#startPage">Home</a>
 				<a data-icon="bookmarks" href="#todosPage">TODOs</a>
@@ -262,9 +216,9 @@
 				<a data-icon="info" href="#infoPage">Info</a>
 			</div>
 		</footer>
-	</div>
-	
-	<!-- Global modal views/dialogs -->
+    </div>
+
+    <!-- Global modal views/dialogs -->
 	<!-- Login dialog -->
 	<div data-role="modalview" id="loginDialog" style="width: 95%; height: 50%;" data-model="authenticationViewModel">
 		<div data-role="header">
@@ -285,19 +239,19 @@
 	</div>
 
 	<!-- Error dialog -->
-	<div data-role="modalview" id="errorDialog" style="width: 85%; height: 50%;" data-model="errorViewModel">
-		<div data-role="header">
-			<div data-role="navbar">
-				<span data-role="view-title">Error</span>
-				<a data-bind="click: closeErrorDialog" data-role="button" data-align="right">X</a>
-			</div>
-		</div>
-		<ul data-role="listview" id="errorText">
-			<li><span data-bind="text: message">Error.</span></li>
-		</ul>
-		<p>
-			<a data-role="button" type="button" id="commonErrorButton" data-bind="click: closeErrorDialog">OK</a>
-		</p>
-	</div>
+    <div data-role="modalview" id="errorDialog" style="width: 85%; height: 50%;" data-model="errorViewModel">
+        <div data-role="header">
+            <div data-role="navbar">
+                <span data-role="view-title">Error</span>
+                <a data-bind="click: closeErrorDialog" data-role="button" data-align="right">X</a>
+            </div>
+        </div>
+        <ul data-role="listview" id="errorText">
+            <li><span data-bind="text: message">Error.</span></li>
+        </ul>
+        <p>
+            <a data-role="button" type="button" id="commonErrorButton" data-bind="click: closeErrorDialog">OK</a>
+        </p>
+    </div>        
 </body>
 </html>

@@ -1,6 +1,4 @@
-﻿/// <reference path="../../js/_references.js" />
-
-var httpVerbs = {
+﻿var httpVerbs = {
     GET: "get",
     PUT: "put",
     POST: "post",

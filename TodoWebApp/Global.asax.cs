@@ -3,9 +3,9 @@ using System.Data.Entity.Infrastructure;
 using System.Web.Http;
 using System.Web.Mvc;
 using Todo.DataAccess;
-using Todo.WebApp;
+using Todo.WebApp.App_Start;
 
-namespace TodoWebApp
+namespace Todo.WebApp
 {
     // Note: For instructions on enabling IIS6 or IIS7 classic mode, 
     // visit http://go.microsoft.com/?LinkId=9394801

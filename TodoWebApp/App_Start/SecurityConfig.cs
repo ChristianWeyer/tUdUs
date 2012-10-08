@@ -4,7 +4,7 @@ using Thinktecture.IdentityModel.Tokens.Http;
 using Todo.Security;
 using System.Configuration;
 
-namespace Todo.WebApp
+namespace Todo.WebApp.App_Start
 {
     public class SecurityConfig
     {

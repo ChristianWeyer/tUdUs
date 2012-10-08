@@ -213,6 +213,9 @@
     <Content Include="app\config.xml">
       <SubType>Designer</SubType>
     </Content>
+    <Content Include="app\namespaces.js" />
+    <Content Include="app\test.html" />
+    <Content Include="app\cordova.js" />
     <Content Include="app\scripts\services\httpConstants.js" />
     <Content Include="images\thinktecture.jpg" />
     <Content Include="app\js\jquery.ba-bbq.min.js" />
@@ -324,7 +327,10 @@
     <Content Include="app\styles\images\icons.png" />
     <Content Include="app\styles\images\ios-sprite.png" />
     <Content Include="app\styles\kendo.mobile.all.min.css" />
-    <Content Include="Web.config" />
+    <Content Include="tests\dataservicesTests.js" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -333,9 +339,7 @@
     </Content>
     <Content Include="app\js\_references.js" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="logs\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="packages.config" />
   </ItemGroup>

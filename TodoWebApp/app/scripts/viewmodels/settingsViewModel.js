@@ -1,5 +1,3 @@
-﻿/// <reference path="../../js/_references.js" />
-
-var settingsViewModel = kendo.observable({
+﻿var settingsViewModel = kendo.observable({
     authenticationMode: authenticationModes.Basic
 });

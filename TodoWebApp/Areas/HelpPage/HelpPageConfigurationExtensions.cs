@@ -8,6 +8,7 @@ using System.Net.Http.Headers;
 using System.Web.Http;
 using System.Web.Http.Description;
 using Todo.WebApp.Areas.HelpPage.Models;
+using Todo.WebApp.Areas.HelpPage.SampleGeneration;
 
 namespace Todo.WebApp.Areas.HelpPage
 {

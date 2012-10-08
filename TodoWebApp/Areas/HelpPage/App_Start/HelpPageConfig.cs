@@ -1,7 +1,7 @@
 using System.Web;
 using System.Web.Http;
 
-namespace Todo.WebApp.Areas.HelpPage
+namespace Todo.WebApp.Areas.HelpPage.App_Start
 {
     /// <summary>
     /// Use this class to customize the Help Page.

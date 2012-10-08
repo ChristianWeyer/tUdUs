@@ -1,6 +1,4 @@
-﻿/// <reference path="../../js/_references.js" />
-
-var acsViewModel = kendo.observable({
+﻿var acsViewModel = kendo.observable({
     idpsSource: new kendo.data.DataSource(),
 
     getIdps: function () {

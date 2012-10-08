@@ -1,6 +1,4 @@
-﻿/// <reference path="../../js/_references.js" />
-
-var errorViewModel = kendo.observable({
+﻿var errorViewModel = kendo.observable({
     message: "",
 
     showErrorDialog: function (errorMessage) {

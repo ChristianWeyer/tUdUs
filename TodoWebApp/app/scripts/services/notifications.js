@@ -1,6 +1,4 @@
-﻿/// <reference path="../../js/_references.js" />
-
-var notifications = (function () {
+﻿var notifications = (function () {
     return {
         register: function () {
             NotifierjsConfig.defaultTimeOut = 1750;

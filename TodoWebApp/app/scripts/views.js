@@ -1,7 +1,4 @@
-﻿/// <reference path="../js/_references.js" />
-
-// View initializations and configurations
-function acsLoginShow(e) {
+﻿function acsLoginShow(e) {
     acsViewModel.getIdps();
 }
 

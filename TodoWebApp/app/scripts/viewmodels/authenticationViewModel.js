@@ -1,6 +1,4 @@
-﻿/// <reference path="../../js/_references.js" />
-
-var authenticationViewModel = kendo.observable({
+﻿var authenticationViewModel = kendo.observable({
     userName: "",
     password: "",
     authenticated: false,

@@ -1,6 +1,4 @@
-﻿/// <reference path="../../js/_references.js" />
-
-var dataservices = (function () {
+﻿var dataservices = (function () {
     function handleServiceError(error) {
         console.log(error);
 

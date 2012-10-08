@@ -1,4 +1,9 @@
-﻿.idpList {
+﻿#theApp {
+   -webkit-transition:opacity 2s;
+   transition:opacity 2s;
+}
+
+.idpList {
 	display: block;
 	text-align: center;
 	margin: .6em .8em 0;

@@ -2,7 +2,7 @@ using System.Web.Http;
 using System.Web.Http.Tracing;
 using Todo.WebApp.Areas.Trace.TraceWriters;
 
-namespace Todo.WebApp.Areas.Trace
+namespace Todo.WebApp.Areas.Trace.App_Start
 {
     /// <summary>
     /// This class is responsible for configuring and registering

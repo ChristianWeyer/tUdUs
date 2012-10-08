@@ -1,6 +1,4 @@
-﻿/// <reference path="../js/_references.js" />
-
-$(function () {
+﻿$(function () {
     window.kendoMobileApplication = new kendo.mobile.Application($(document.body), {
         transition: 'slide'
     });
@@ -12,6 +10,15 @@ $(function () {
 });
 
 function deviceready() {
+    //var appElement = $("#theApp");
+    //var app = new kendo.mobile.Application(appElement, {
+    //    transition: 'slide'
+    //});
+
+    //window.kendoMobileApplication = app;
+    
+    //appElement.show();
+    //appElement.css("opacity", 1);
 }
 
 function networkConnectivityChanged(event) {    
