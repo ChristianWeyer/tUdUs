@@ -55,8 +55,8 @@
     },
 
     loadTodos: function () {
-        var self = this;
-
+        var self = this;        
+        
         dataservices.getTodos()
             .done(function (data) {
                 self.todosSource.data(data);

@@ -1,15 +1,19 @@
 ﻿$(function () {
+    $.when(templateLoader.loadExternalTemplate("templates/tasksListTemplate.tmpl.html"),
+        templateLoader.loadExternalTemplate("templates/idpListTemplate.tmpl.html"))
+    .then(function() {
+        document.addEventListener("deviceready", deviceready, false);    
+    });
+});
+
+function deviceready() {
     window.kendoMobileApplication = new kendo.mobile.Application($(document.body), {
         transition: 'slide'
     });
 
     addEvent(window, 'online', networkConnectivityChanged);
     addEvent(window, 'offline', networkConnectivityChanged);
-
-    document.addEventListener("deviceready", deviceready, false);    
-});
-
-function deviceready() {
+    
     //var appElement = $("#theApp");
     //var app = new kendo.mobile.Application(appElement, {
     //    transition: 'slide'
@@ -21,7 +25,7 @@ function deviceready() {
     //appElement.css("opacity", 1);
 }
 
-function networkConnectivityChanged(event) {    
+function networkConnectivityChanged() {    
     if (navigator.onLine) {
         Notifier.info('ONLINE');
     }

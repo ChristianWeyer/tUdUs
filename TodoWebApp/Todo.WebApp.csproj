@@ -213,7 +213,11 @@
     <Content Include="app\config.xml">
       <SubType>Designer</SubType>
     </Content>
-    <Content Include="app\namespaces.js" />
+    <Content Include="app\templates\idpListTemplate.tmpl.html" />
+    <Content Include="app\templates\tasksListTemplate.tmpl.html" />
+    <Content Include="app\scripts\namespaces.js" />
+    <Content Include="app\scripts\services\pictureservice.js" />
+    <Content Include="app\scripts\templateLoader.js" />
     <Content Include="app\test.html" />
     <Content Include="app\cordova.js" />
     <Content Include="app\scripts\services\httpConstants.js" />

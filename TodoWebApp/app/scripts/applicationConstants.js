@@ -16,7 +16,7 @@ var authenticationModes = {
 
 var localStorageKeys = {
     UserName: "userName",
-    Password: "password", // yes, not good...
+    Password: "password", // yes, not good... ;(
     TodosList: "todoslist",
     AuthenticationToken: "authenticationToken"
 };

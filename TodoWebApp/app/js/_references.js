@@ -14,6 +14,7 @@
 /// <reference path="../scripts/services/httpConstants.js" />
 /// <reference path="../scripts/services/notifications.js" />
 /// <reference path="../scripts/services/dataservices.js" />
+/// <reference path="../scripts/services/pictureservice.js" />
 /// <reference path="../scripts/viewmodels/authenticationViewModel.js" />
 /// <reference path="../scripts/viewmodels/newTodoItemViewModel.js" />
 /// <reference path="../scripts/viewmodels/todosViewModel.js" />

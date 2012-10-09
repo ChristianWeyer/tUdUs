@@ -72,12 +72,12 @@
                 dataType: dataTypes.JSON,
                 beforeSend: function (xhr) { beforeLoginSend(xhr, un, pw); }
             })
-            .always(function () {
-                kendoMobileApplication.hideLoading();
-            })
-            .fail(function (error) {
-                handleServiceError(error);
-            });
+                .always(function () {
+                    kendoMobileApplication.hideLoading();
+                })
+                .fail(function (error) {
+                    handleServiceError(error);
+                });
         },
 
         getTodos: function () {
@@ -91,15 +91,15 @@
                     dataType: dataTypes.JSON,
                     beforeSend: function (xhr) { beforeSend(xhr); }
                 })
-                .always(function () {
-                    kendoMobileApplication.hideLoading();
-                })
-                .success(function (data) {
-                    amplify.store.sessionStorage(localStorageKeys.TodosList, data);
-                })
-                .fail(function (error) {
-                    handleServiceError(error);
-                });
+                    .always(function () {
+                        kendoMobileApplication.hideLoading();
+                    })
+                    .success(function (data) {
+                        amplify.store.sessionStorage(localStorageKeys.TodosList, data);
+                    })
+                    .fail(function (error) {
+                        handleServiceError(error);
+                    });
             }
         },
 
@@ -111,12 +111,12 @@
                 data: item,
                 beforeSend: function (xhr) { beforeSend(xhr); }
             })
-            .always(function () {
-                kendoMobileApplication.hideLoading();
-            })
-            .fail(function (error) {
-                handleServiceError(error);
-            });
+                .always(function () {
+                    kendoMobileApplication.hideLoading();
+                })
+                .fail(function (error) {
+                    handleServiceError(error);
+                });
         },
 
         deleteTodo: function (id) {
@@ -126,12 +126,12 @@
                 dataType: dataTypes.JSON,
                 beforeSend: function (xhr) { beforeSend(xhr); }
             })
-            .always(function () {
-                kendoMobileApplication.hideLoading();
-            })
-            .fail(function (error) {
-                handleServiceError(error);
-            });
+                .always(function () {
+                    kendoMobileApplication.hideLoading();
+                })
+                .fail(function (error) {
+                    handleServiceError(error);
+                });
         },
 
         updateTodo: function (item) {
@@ -142,12 +142,12 @@
                 data: item,
                 beforeSend: function (xhr) { beforeSend(xhr); }
             })
-            .always(function () {
-                kendoMobileApplication.hideLoading();
-            })
-            .fail(function (error) {
-                handleServiceError(error);
-            });
+                .always(function () {
+                    kendoMobileApplication.hideLoading();
+                })
+                .fail(function (error) {
+                    handleServiceError(error);
+                });
         }
     };
 }());
