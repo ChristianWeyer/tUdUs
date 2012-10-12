@@ -37,21 +37,29 @@
       <Private>True</Private>
       <HintPath>..\packages\Microsoft.IdentityModel.6.1.7600.16394\lib\net35\Microsoft.IdentityModel.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.4.5.10\lib\net40\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.IdentityModel" />
     <Reference Include="System.Web" />
+    <Reference Include="System.Web.Http, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
+    <Reference Include="Thinktecture.IdentityModel">
+      <HintPath>..\packages\Thinktecture.IdentityModel.2.1.4\lib\net40\Thinktecture.IdentityModel.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AcsClaimsAuthenticationManager.cs" />
     <Compile Include="GlobalClaimsAuthenticationManager.cs" />
     <Compile Include="GlobalClaimsAuthorizationManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ApiClaimsAuthorizeAttribute.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

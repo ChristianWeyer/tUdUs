@@ -1,9 +1,12 @@
 ﻿var todosViewModel = kendo.observable({
-    todosSource: new kendo.data.DataSource(),
+    todosSource: new kendo.data.DataSource({ sort: { field: "title", dir: "asc" } }),
     currentItem: {},
 
     pictureAvailable: function () {
-        return this.get("currentItem.pictureUrl") !== null;
+        var ci = this.get("currentItem.pictureUrl");
+        var result = (ci !== null && ci !== "null");
+
+        return result;
     },
 
     navigateAddTodo: function () {
@@ -46,7 +49,7 @@
         var item = element.data;
 
         dataservices.deleteTodo(item.id)
-            .done(function (data) {
+            .done(function () {
                 var index = _.indexOf(self.todosSource.data(), item);
                 self.todosSource.data().splice(index, 1);
 
@@ -55,8 +58,8 @@
     },
 
     loadTodos: function () {
-        var self = this;        
-        
+        var self = this;
+
         dataservices.getTodos()
             .done(function (data) {
                 self.todosSource.data(data);

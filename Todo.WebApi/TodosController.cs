@@ -9,8 +9,7 @@ using Todo.Entities;
 using System.Net.Http.Formatting;
 
 namespace Todo.WebApi
-{
-    [ApiAuthorize]
+{    
     public class TodosController : HubApiController<TodosHub>
     {
         private IGenericRepository<TodoItem> repository;

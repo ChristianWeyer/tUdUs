@@ -1,4 +1,5 @@
 ﻿using System.Web.Http;
+using Microsoft.IdentityModel.Web;
 using Thinktecture.IdentityModel.Authorization.WebApi;
 using Thinktecture.IdentityModel.Tokens.Http;
 using Todo.Security;
@@ -10,25 +11,26 @@ namespace Todo.WebApp.App_Start
     {
         public static void Configure(HttpConfiguration config)
         {
-            var authNConfig = new AuthenticationConfiguration();
-            authNConfig.DefaultAuthenticationScheme = "Basic";
-            authNConfig.SendWwwAuthenticateResponseHeader = false;
+            var authNConfig = new AuthenticationConfiguration
+                {
+                    DefaultAuthenticationScheme = "Basic",
+                    SendWwwAuthenticateResponseHeader = false
+                };
 
             authNConfig.AddJsonWebToken(
                 "TODOApi",
-                "http://tt.com/mobile/todos", 
-                ConfigurationManager.AppSettings["signingKey"], 
+                "http://tt.com/mobile/todos",
+                ConfigurationManager.AppSettings["signingKey"],
                 AuthenticationOptions.ForAuthorizationHeader("Bearer"));
 
             authNConfig.AddBasicAuthentication(
                 (un, pw) => un == pw); // this is the super complex basic authentication validation logic :)
 
             authNConfig.ClaimsAuthenticationManager =
-                new GlobalClaimsAuthenticationManager();
-            config.SetAuthorizationManager(new HttpClaimsAuthorizationManager(
-                new GlobalClaimsAuthorizationManager()));
+                FederatedAuthentication.ServiceConfiguration.ClaimsAuthenticationManager;
 
             config.MessageHandlers.Add(new AuthenticationHandler(authNConfig));
+            config.Filters.Add(new ApiClaimsAuthorizeAttribute());
         }
     }
 }

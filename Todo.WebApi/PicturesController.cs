@@ -7,13 +7,9 @@ using Microsoft.WindowsAzure.StorageClient;
 
 namespace Todo.WebApi
 {
+    [AllowAnonymous]
     public class PicturesController : ApiController
     {
-        public List<FileDetails> GetTest()
-        {
-            return new List<FileDetails> { new FileDetails { Name = "a", ContentType = "b", Size = 1, Location = "xyz" } };
-        }
-
         public Task<List<FileDetails>> Post()
         {
             if (!Request.Content.IsMimeMultipartContent("form-data"))

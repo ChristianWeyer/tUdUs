@@ -1,43 +1,49 @@
-﻿function acsLoginShow(e) {
+﻿todosApp.Views.acsLoginShow = function() {
     acsViewModel.getIdps();
-}
+};
 
-function todosPageInit(e) {
+todosApp.Views.todosPageInit = function() {
     $("#done").kendoMobileSwitch({
         onLabel: "YES",
         offLabel: "NO"
     });
 
     todosViewModel.loadTodos();
-}
+};
 
-var addTodoPageValidator;
+todosApp.Views.addTodoPageValidator = {};
 
-function addTodoPageInit() {
-    addTodoPageValidator = $("#addTodoPage").kendoValidator({
+todosApp.Views.addTodoPageInit = function() {
+    todosApp.Views.addTodoPageValidator = $("#addTodoPage").kendoValidator({
         messages: {
-            required: function (input) {
+            required: function(input) {
                 input.attr("placeholder", input.attr("name") + " is req.");
             }
         }
     }).data("kendoValidator");
-}
+};
 
-function addTodoPageShow(e) {
+todosApp.Views.addTodoPageShow = function() {
     var imagePane = $("#capturedImagePane");
     imagePane.hide();
-}
+};
 
-function beforePageShow(e) {
+todosApp.Views.beforePageShow = function(e) {
     if (!authenticationViewModel.authenticated) {
         e.preventDefault();
         window.kendoMobileApplication.navigate("#loginDialog");
     }
-}
+};
 
-var loaderElement;
+todosApp.Views.loaderElement = {};
 
-function setLoaderText(text) {
-    loaderElement = window.kendoMobileApplication.pane.loader.element.find("h1");
-    loaderElement.text(text).addClass("loaderHeading");
-}
+todosApp.Views.showLoader = function (text) {
+    todosApp.Views.loaderElement = window.kendoMobileApplication.pane.loader.element.find("h1");
+    todosApp.Views.loaderElement.text(text).addClass("loaderHeading");
+    window.kendoMobileApplication.showLoading();
+};
+
+todosApp.Views.hideLoader = function () {    
+    todosApp.Views.loaderElement.text("Loading...").addClass("loaderHeading");
+    window.kendoMobileApplication.hideLoading();
+};

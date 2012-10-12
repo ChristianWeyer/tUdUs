@@ -8,10 +8,10 @@
             url: endpoints.AcsIdpsEndpoint,
             type: httpVerbs.GET,
             dataType: dataTypes.JSON,
-            beforeSend: function (xhr) { kendoMobileApplication.showLoading(); }
+            beforeSend: function () { todosApp.Views.showLoader("Loading..."); }
         })
         .always(function () {
-            kendoMobileApplication.hideLoading();
+            todosApp.Views.hideLoader();
         })
         .done(function (data) {
             self.idpsSource.data(data);

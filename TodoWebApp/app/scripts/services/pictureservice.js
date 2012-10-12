@@ -41,13 +41,11 @@
         },
         
         uploadPicture: function (imageUrl) {
-            setLoaderText("Uploading...");
-            kendoMobileApplication.showLoading();
+            todosApp.Views.showLoader("Uploading...");
             
             return deferredUpload(imageUrl)
                 .always(function () {
-                    kendoMobileApplication.hideLoading();
-                    setLoaderText("Loading...");
+                    todosApp.Views.hideLoader();
                 })
                 .fail(function (error) {
                     handleError(error);

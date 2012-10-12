@@ -8,16 +8,19 @@ namespace Todo.Security
         public override bool CheckAccess(AuthorizationContext context)
         {
             var principal = Thread.CurrentPrincipal as ClaimsPrincipal;
-            var claimsId = principal.Identity as ClaimsIdentity;
+            
+            if (principal != null)
+            {
+                var claimsId = principal.Identity as ClaimsIdentity;
 
-            if (claimsId.IsAuthenticated)
-            {
-                return base.CheckAccess(context);
+                if (claimsId != null && claimsId.IsAuthenticated)
+                {
+                    // NOTE: Add custom logic here
+                    return base.CheckAccess(context);
+                }
             }
-            else
-            {
-                return false;
-            }
+
+            return false;
         }
     }
 }

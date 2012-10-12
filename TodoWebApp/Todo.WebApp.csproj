@@ -213,12 +213,15 @@
     <Content Include="app\config.xml">
       <SubType>Designer</SubType>
     </Content>
-    <Content Include="app\templates\idpListTemplate.tmpl.html" />
-    <Content Include="app\templates\tasksListTemplate.tmpl.html" />
+    <Content Include="app\js\jquery.pnotify.js" />
+    <Content Include="app\js\jquery.pnotify.min.js" />
+    <Content Include="app\styles\jquery.pnotify.default.css" />
+    <Content Include="app\styles\jquery.pnotify.default.icons.css" />
+    <Content Include="app\templates\idpList.tmpl.html" />
+    <Content Include="app\templates\tasksList.tmpl.html" />
     <Content Include="app\scripts\namespaces.js" />
     <Content Include="app\scripts\services\pictureservice.js" />
     <Content Include="app\scripts\templateLoader.js" />
-    <Content Include="app\test.html" />
     <Content Include="app\cordova.js" />
     <Content Include="app\scripts\services\httpConstants.js" />
     <Content Include="images\thinktecture.jpg" />
