@@ -50,13 +50,11 @@
 </head>
 <body>
     <!-- Templates -->
-    <script type="text/x-kendo-template" id="tasksListTemplate">
-		<li>
-        <a data-align="left" data-bind="events:{touchend: navigateTodoDetails}">${title}</a>
+    <script id="tasksListTemplate" type="text/x-kendo-template">
+        <a class="details-link" data-role="listview-link" href="\#todoDetailsPage?id=#:id#">${title}</a>
 		<a data-role="detailbutton" data-style="rowdelete" data-bind="events:{click: removeTodo}"></a>
-        </li>
-	</script>
-    <script type="text/x-kendo-template" id="idpListTemplate">
+    </script>    
+    <script id="idpListTemplate" type="text/x-kendo-template">
         <img src="${imageUrl}" style="border: 50px; width: 60px" align="middle"/>
         <a onclick="acsViewModel.openAuthWindow('${loginUrl}')">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${name}</a>
 	</script> 
@@ -88,25 +86,25 @@
 	</div>
 
 	<!-- TODOs page -->
-	<div id="todosPage" data-role="view" data-title="TODOs" data-model="todosViewModel" data-init="todosApp.Views.todosPageInit" data-before-show="todosApp.Views.beforePageShow" data-layout="defaultLayout">
-		<header data-role="header">
-			<div data-role="navbar">
-				<span data-role="view-title"></span>
-				<a data-align="right" data-role="button" class="nav-button" data-icon="add" data-bind="click: navigateAddTodo"></a>
+    <div id="todosPage" data-role="view" data-title="TODOs" data-model="todosViewModel" data-init="todosApp.Views.todosPageInit" data-before-show="todosApp.Views.beforePageShow" data-layout="defaultLayout">
+	    <header data-role="header">
+		    <div data-role="navbar">
+			    <span data-role="view-title"></span>
+			    <a data-align="right" data-role="button" class="nav-button" data-icon="add" data-bind="click: navigateAddTodo"></a>
 			    <a data-align="left" data-role="button" class="nav-button" data-icon="refresh" data-bind="click: loadTodos"></a>
                 <a data-align="left" data-role="button" class="nav-button" data-icon="fastforward" data-click="dataservices.sync"></a>
-			</div>
-		</header>
+		    </div>
+	    </header>
 		
-		<br />
-		<h2>Items</h2>
+	    <br />
+	    <h2>Items</h2>
 				
-		<ul id="tasksList" data-role="listview" data-bind="source: todosSource" data-template="tasksListTemplate" data-style="inset">
-		</ul>
-	</div>
+	    <ul id="tasksList" data-role="listview" data-style="inset" data-bind="source: todosSource" data-template="tasksListTemplate" >
+	    </ul>
+    </div>
 
 	<!-- TODO details page -->
-	<div id="todoDetailsPage" data-role="view" data-title="Details" data-model="todosViewModel" data-before-show="todosApp.Views.beforePageShow" data-layout="defaultLayout">
+	<div id="todoDetailsPage" data-role="view" data-title="Details" data-model="todosViewModel" data-show="todosApp.Views.todoDetailsPageShow" data-before-show="todosApp.Views.beforePageShow" data-layout="defaultLayout">
 		<header data-role="header">
 			<div data-role="navbar">
 				<a data-role="backbutton" data-align="left">Back</a>
@@ -206,11 +204,11 @@
 			
 		<ul data-role="listview" data-style="inset">
 			<li>
-				Version 0.2.3 (2012-10-12.1)
+				Version 0.3 (2012-10-13.1)
 				<img data-align="right" alt="TODOs" src="images/Wooden_Todo_32x32.png" style="float: right"/>
 			</li>
 			<li>
-				<a href="mailto:christian.weyer@thinktecture.com?Subject=Question about TODO Items app (2012-10-12.1)" data-rel="external">Christian Weyer</a>
+				<a href="mailto:christian.weyer@thinktecture.com?Subject=Question about TODO Items app (2012-10-13.1)" data-rel="external">Christian Weyer</a>
 				<a data-role="detailbutton" data-icon="compose"></a>
 			</li>
 		</ul>      				

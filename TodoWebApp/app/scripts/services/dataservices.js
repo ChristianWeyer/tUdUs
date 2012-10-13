@@ -25,7 +25,7 @@
                 amplify.store.sessionStorage(localStorageKeys.AuthenticationToken)));
         }
 
-        todosApp.Views.showLoader("Loading...");
+        todosApp.Views.showLoader("Working...");
     }
 
     function createBasicAuthenticationHeader(un, pw) {
