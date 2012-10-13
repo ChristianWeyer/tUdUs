@@ -1,75 +1,63 @@
-﻿#theApp {
-   -webkit-transition:opacity 2s;
-   transition:opacity 2s;
-}
-
-.idpList {
-	display: block;
-	text-align: center;
-	margin: .6em .8em 0;
-	font-size: 1.0em;
+﻿.idpList {
+    display: block;
+    text-align: center;
+    margin: .6em .8em 0;
+    font-size: 1.0em;
 }
 
 #commonErrorButton {
-	display: block;
-	text-align: center;
-	margin: .6em .8em 0;
-	font-size: 1.2em;
-}
-		
-#errorText {
-	display: block;
-	text-align: center;
-	margin: .6em .8em 0;
-	font-size: 1.0em;
-}
-
-.km-ios #errorDialog #commonErrorButton {
-	background-color: Red;
-}
-
-.km-ios .km-detail 
-{
-    line-height: 1.3rem;
-    margin-top: -.8rem;
-    width: 1.4rem;
-    height: 1.4rem;
-}
-
-.km-android .km-navbar .km-view-title
-{
-    visibility: visible;
-}
-
-#startPage
-{
-    text-align: center;
-}
-
-#startPage img
-{
-    display: block;
-    margin: 30px auto;
-}
-
-#loginButton
-{
     display: block;
     text-align: center;
     margin: .6em .8em 0;
     font-size: 1.2em;
 }
 
-#openLoginButton
-{
+#errorText {
+    display: block;
+    text-align: center;
+    margin: .6em .8em 0;
+    font-size: 1.0em;
+}
+
+.km-ios #errorDialog #commonErrorButton {
+    background-color: darkred;
+}
+
+.km-ios .km-detail {
+    line-height: 1.3rem;
+    margin-top: -.8rem;
+    width: 1.4rem;
+    height: 1.4rem;
+}
+
+.km-android .km-navbar .km-view-title {
+    visibility: visible;
+}
+
+#startPage {
+    text-align: center;
+}
+
+    #startPage img {
+        display: block;
+        margin: 30px auto;
+    }
+
+#loginButton {
+    display: block;
+    text-align: center;
+    margin: .6em .8em 0;
+    font-size: 1.2em;
+}
+
+#openLoginButton {
     display: block;
     text-align: center;
     margin: 0 7em;
     padding: .5em;
 }
 
-#saveTodoButton
-{
+#saveTodoButton {
     background-color: Green;
     display: block;
     text-align: center;
@@ -77,8 +65,7 @@
     font-size: 1.2em;
 }
 
-#addTodoButton
-{
+#addTodoButton {
     background-color: Green;
     display: block;
     text-align: center;

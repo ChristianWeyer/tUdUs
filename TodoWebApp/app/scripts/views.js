@@ -11,10 +11,6 @@ todosApp.Views.todosPageInit = function() {
     todosViewModel.loadTodos();
 };
 
-todosApp.Views.todoDetailsPageShow = function (e) {
-    e.view.model.set("currentItem", todosViewModel.todosSource.get(e.view.params.id));
-};
-
 todosApp.Views.addTodoPageValidator = {};
 
 todosApp.Views.addTodoPageInit = function() {

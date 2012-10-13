@@ -1,4 +1,4 @@
-﻿var notifications = (function () {
+﻿var notificationservice = (function () {
     return {
         register: function () {
             NotifierjsConfig.defaultTimeOut = 1750;

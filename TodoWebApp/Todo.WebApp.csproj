@@ -213,10 +213,17 @@
     <Content Include="app\config.xml">
       <SubType>Designer</SubType>
     </Content>
-    <Content Include="app\js\jquery.pnotify.js" />
-    <Content Include="app\js\jquery.pnotify.min.js" />
-    <Content Include="app\styles\jquery.pnotify.default.css" />
-    <Content Include="app\styles\jquery.pnotify.default.icons.css" />
+    <Content Include="app\images\error_bg.png" />
+    <Content Include="app\images\error_close.png" />
+    <Content Include="app\images\info_bg.png" />
+    <Content Include="app\images\info_close.png" />
+    <Content Include="app\images\succ_bg.png" />
+    <Content Include="app\images\succ_close.png" />
+    <Content Include="app\images\warn_bg.png" />
+    <Content Include="app\images\warn_close.png" />
+    <Content Include="app\js\jquery-ajax-retry.js" />
+    <Content Include="app\js\jquery_notification_v.1.js" />
+    <Content Include="app\styles\jquery_notification.css" />
     <Content Include="app\templates\idpList.tmpl.html" />
     <Content Include="app\templates\tasksList.tmpl.html" />
     <Content Include="app\scripts\namespaces.js" />
@@ -257,7 +264,7 @@
     <Content Include="app\scripts\viewmodels\settingsViewModel.js" />
     <Content Include="app\scripts\viewmodels\startViewModel.js" />
     <Content Include="app\scripts\viewmodels\errorViewModel.js" />
-    <Content Include="app\scripts\services\notifications.js" />
+    <Content Include="app\scripts\services\notificationservice.js" />
     <Content Include="app\scripts\views.js" />
     <Content Include="app\scripts\services\dataservices.js" />
     <Content Include="app\scripts\viewmodels\newTodoItemViewModel.js" />

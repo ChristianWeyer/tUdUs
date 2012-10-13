@@ -38,7 +38,7 @@
             amplify.store.sessionStorage(localStorageKeys.AuthenticationToken, t);
             authenticationViewModel.authenticated = true;
 
-            notifications.register();
+            notificationservice.register();
 
             window.plugins.childBrowser.close();
             window.kendoMobileApplication.navigate("#todosPage");

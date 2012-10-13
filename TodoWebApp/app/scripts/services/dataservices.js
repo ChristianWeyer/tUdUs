@@ -106,27 +106,6 @@
     }
     
     return {
-        sync: function () {            
-            todosApp.Views.showLoader("Syncing...");
-            
-            $.each(amplify.store.sessionStorage(localStorageKeys.TodosList), function (i, item) {
-                if (item.isDeleted) {
-                    dataservices.deleteTodo(item.id).done(function () { });
-                }
-                if (item.isAdded) {
-                    // TODO: implement picture upload
-                    dataservices.saveTodo(item).done(function () { });
-                }
-                if (item.isUpdated) {
-                    dataservices.updateTodo(item).done(function () { });
-                }
-            });
-
-            dataservices.getTodos();
-            
-            todosApp.Views.hideLoader();
-        },
-        
         callLoginPing: function (un, pw) {
             return $.ajax({
                 url: endpoints.PingEndpointUrl,
@@ -151,7 +130,10 @@
                     url: addConnectionIdParameter(endpoints.ServiceEndpointUrl),
                     type: httpVerbs.GET,
                     dataType: dataTypes.JSON,
-                    beforeSend: function (xhr) { beforeSend(xhr); }
+                    beforeSend: function (xhr) { beforeSend(xhr); },
+                    timeout: 5000,
+                    maxTries: 3,
+                    retryCodes: [500]
                 })
                     .always(function () {
                         todosApp.Views.hideLoader();
@@ -175,7 +157,10 @@
                     type: httpVerbs.POST,
                     dataType: dataTypes.JSON,
                     data: item,
-                    beforeSend: function(xhr) { beforeSend(xhr); }
+                    beforeSend: function (xhr) { beforeSend(xhr); },
+                    timeout: 3000,
+                    maxTries: 3,
+                    retryCodes: [500]
                 })
                     .always(function() {
                         todosApp.Views.hideLoader();
@@ -195,7 +180,10 @@
                     url: addConnectionIdParameter(endpoints.ServiceEndpointUrl + id),
                     type: httpVerbs.DELETE,
                     dataType: dataTypes.JSON,
-                    beforeSend: function(xhr) { beforeSend(xhr); }
+                    beforeSend: function (xhr) { beforeSend(xhr); },
+                    timeout: 3000,
+                    maxTries: 3,
+                    retryCodes: [500]
                 })
                     .always(function() {
                         todosApp.Views.hideLoader();
@@ -216,7 +204,10 @@
                     type: httpVerbs.PUT,
                     dataType: dataTypes.JSON,
                     data: item,
-                    beforeSend: function(xhr) { beforeSend(xhr); }
+                    beforeSend: function (xhr) { beforeSend(xhr); },
+                    timeout: 3000,
+                    maxTries: 3,
+                    retryCodes: [500]
                 })
                     .always(function() {
                         todosApp.Views.hideLoader();
@@ -225,6 +216,27 @@
                         handleServiceError(error);
                     });
             }
+        },
+        
+        sync: function () {
+            todosApp.Views.showLoader("Syncing...");
+
+            $.each(amplify.store.sessionStorage(localStorageKeys.TodosList), function (i, item) {
+                if (item.isDeleted) {
+                    dataservices.deleteTodo(item.id).done(function () { });
+                }
+                if (item.isAdded) {
+                    // TODO: implement picture upload
+                    dataservices.saveTodo(item).done(function () { });
+                }
+                if (item.isUpdated) {
+                    dataservices.updateTodo(item).done(function () { });
+                }
+            });
+
+            dataservices.getTodos();
+
+            todosApp.Views.hideLoader();
         }
     };
 }());

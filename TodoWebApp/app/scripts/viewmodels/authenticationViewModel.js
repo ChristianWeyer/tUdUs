@@ -8,7 +8,7 @@
 
         dataservices.callLoginPing(self.userName, self.password)
             .success(function () {
-                notifications.register();
+                notificationservice.register();
 
                 amplify.store.sessionStorage(localStorageKeys.UserName, self.get("userName"));
                 amplify.store.sessionStorage(localStorageKeys.Password, self.get("password"));

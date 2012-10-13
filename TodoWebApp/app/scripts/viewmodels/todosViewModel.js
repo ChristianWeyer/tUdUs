@@ -14,9 +14,7 @@
     },
 
     navigateTodoDetails: function (e) {
-        this.set("currentItem", e.data);
-
-        window.kendoMobileApplication.navigate("#todoDetailsPage");
+        todosViewModel.set("currentItem", todosViewModel.todosSource.get(e.view.params.id));
     },
 
     addLocalItem: function (item) {
