@@ -22,6 +22,7 @@ using Todo.Security;
 
 namespace Todo.WebApi
 {
+    [AllowAnonymous]
     public class AcsController : ApiController
     {
         [HttpGet]

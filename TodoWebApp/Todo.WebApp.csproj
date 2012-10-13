@@ -213,6 +213,7 @@
     <Content Include="app\config.xml">
       <SubType>Designer</SubType>
     </Content>
+    <Content Include="app\index.html" />
     <Content Include="app\images\error_bg.png" />
     <Content Include="app\images\error_close.png" />
     <Content Include="app\images\info_bg.png" />
@@ -221,56 +222,58 @@
     <Content Include="app\images\succ_close.png" />
     <Content Include="app\images\warn_bg.png" />
     <Content Include="app\images\warn_close.png" />
-    <Content Include="app\js\jquery-ajax-retry.js" />
-    <Content Include="app\js\jquery_notification_v.1.js" />
+    <Content Include="app\js\libs\jquery-ajax-retry.js" />
+    <Content Include="app\js\libs\jquery_notification_v.1.js" />
+    <Content Include="app\js\libs\require.js" />
+    <Content Include="app\js\main.js" />
     <Content Include="app\styles\jquery_notification.css" />
     <Content Include="app\templates\idpList.tmpl.html" />
     <Content Include="app\templates\tasksList.tmpl.html" />
-    <Content Include="app\scripts\namespaces.js" />
-    <Content Include="app\scripts\services\pictureservice.js" />
-    <Content Include="app\scripts\templateLoader.js" />
+    <Content Include="app\js\namespaces.js" />
+    <Content Include="app\js\services\pictureservice.js" />
+    <Content Include="app\js\templateLoader.js" />
     <Content Include="app\cordova.js" />
-    <Content Include="app\scripts\services\httpConstants.js" />
+    <Content Include="app\js\services\httpConstants.js" />
     <Content Include="images\thinktecture.jpg" />
-    <Content Include="app\js\jquery.ba-bbq.min.js" />
-    <Content Include="app\js\notifier.js">
+    <Content Include="app\js\libs\jquery.ba-bbq.min.js" />
+    <Content Include="app\js\libs\notifier.js">
       <Generator>GoogleClosureCompiler</Generator>
       <LastGenOutput>notifier.min.js</LastGenOutput>
     </Content>
-    <Content Include="app\js\notifier.min.js">
+    <Content Include="app\js\libs\notifier.min.js">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>notifier.js</DependentUpon>
     </Content>
-    <Content Include="app\scripts\viewmodels\acsViewModel.js" />
+    <Content Include="app\js\viewmodels\acsViewModel.js" />
     <Content Include="app\images\splash.png" />
-    <Content Include="app\js\modernizr-2.5.3.min.js">
+    <Content Include="app\js\libs\modernizr-2.5.3.min.js">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>modernizr-2.5.3.js</DependentUpon>
     </Content>
-    <Content Include="app\js\signalr.hubs.js">
+    <Content Include="app\js\libs\signalr.hubs.js">
       <Generator>GoogleClosureCompiler</Generator>
       <LastGenOutput>signalr.hubs.min.js</LastGenOutput>
     </Content>
-    <Content Include="app\js\signalr.hubs.min.js">
+    <Content Include="app\js\libs\signalr.hubs.min.js">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>signalr.hubs.js</DependentUpon>
     </Content>
-    <Content Include="app\js\jquery.signalR-0.5.3.min.js" />
-    <Content Include="app\js\underscore-min.js" />
-    <Content Include="app\scripts\applicationConstants.js" />
-    <Content Include="app\scripts\viewmodels\settingsViewModel.js" />
-    <Content Include="app\scripts\viewmodels\startViewModel.js" />
-    <Content Include="app\scripts\viewmodels\errorViewModel.js" />
-    <Content Include="app\scripts\services\notificationservice.js" />
-    <Content Include="app\scripts\views.js" />
-    <Content Include="app\scripts\services\dataservices.js" />
-    <Content Include="app\scripts\viewmodels\newTodoItemViewModel.js" />
-    <Content Include="app\scripts\viewmodels\todosViewModel.js" />
-    <Content Include="app\scripts\viewmodels\authenticationViewModel.js" />
-    <Content Include="app\js\jquery.base64.min.js" />
+    <Content Include="app\js\libs\jquery.signalR-0.5.3.min.js" />
+    <Content Include="app\js\libs\underscore-min.js" />
+    <Content Include="app\js\applicationConstants.js" />
+    <Content Include="app\js\viewmodels\settingsViewModel.js" />
+    <Content Include="app\js\viewmodels\startViewModel.js" />
+    <Content Include="app\js\viewmodels\errorViewModel.js" />
+    <Content Include="app\js\services\notificationservice.js" />
+    <Content Include="app\js\views.js" />
+    <Content Include="app\js\services\dataservices.js" />
+    <Content Include="app\js\viewmodels\newTodoItemViewModel.js" />
+    <Content Include="app\js\viewmodels\todosViewModel.js" />
+    <Content Include="app\js\viewmodels\authenticationViewModel.js" />
+    <Content Include="app\js\libs\jquery.base64.min.js" />
     <Content Include="app\styles\app.min.css">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -323,16 +326,16 @@
     <Content Include="app\images\Wooden_Todo_128x128.png" />
     <Content Include="app\images\Wooden_Todo_256x256.png" />
     <Content Include="app\images\Wooden_Todo_32x32.png" />
-    <Content Include="app\index.html" />
-    <Content Include="app\js\amplify.min.js" />
-    <Content Include="app\scripts\app.js" />
-    <Content Include="app\js\kendo.mobile.min.js" />
-    <Content Include="app\js\jquery-1.7.1.min.js" />
-    <Content Include="app\js\jquery-ui-1.8.20.min.js" />
-    <Content Include="app\js\jquery.unobtrusive-ajax.min.js" />
-    <Content Include="app\js\jquery.validate.min.js" />
-    <Content Include="app\js\jquery.validate.unobtrusive.min.js" />
-    <Content Include="app\js\modernizr-2.5.3.js">
+    <Content Include="app\index.bkp.req.html" />
+    <Content Include="app\js\libs\amplify.min.js" />
+    <Content Include="app\js\app.js" />
+    <Content Include="app\js\libs\kendo.mobile.min.js" />
+    <Content Include="app\js\libs\jquery-1.7.1.min.js" />
+    <Content Include="app\js\libs\jquery-ui-1.8.20.min.js" />
+    <Content Include="app\js\libs\jquery.unobtrusive-ajax.min.js" />
+    <Content Include="app\js\libs\jquery.validate.min.js" />
+    <Content Include="app\js\libs\jquery.validate.unobtrusive.min.js" />
+    <Content Include="app\js\libs\modernizr-2.5.3.js">
       <Generator>GoogleClosureCompiler</Generator>
       <LastGenOutput>modernizr-2.5.3.min.js</LastGenOutput>
     </Content>
@@ -351,7 +354,7 @@
     <Content Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
-    <Content Include="app\js\_references.js" />
+    <Content Include="app\js\libs\_references.js" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
