@@ -131,7 +131,7 @@
                     type: httpVerbs.GET,
                     dataType: dataTypes.JSON,
                     beforeSend: function (xhr) { beforeSend(xhr); },
-                    timeout: 5000,
+                    timeout: 8000,
                     maxTries: 3,
                     retryCodes: [500]
                 })
@@ -147,7 +147,7 @@
             }
         },
 
-        saveTodo: function (item) {
+        saveTodo: function (item) {            
             if (!navigator.onLine) {
                 return saveLocal(item);
             }

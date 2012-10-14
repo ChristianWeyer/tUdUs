@@ -1,21 +1,23 @@
-﻿
+﻿using System;
+using Newtonsoft.Json;
 using ProtoBuf;
-using System.Runtime.Serialization;
+
 namespace Todo.Contracts
 {
     [ProtoContract(ImplicitFields = ImplicitFields.AllPublic)]
-    [DataContract]
     public class TodoItemDto
     {
-        [DataMember(Name="id")]
+        [JsonProperty(PropertyName = "id")]
         public int Id { get; set; }
-        [DataMember(Name = "title")]
+        [JsonProperty(PropertyName = "title")]
         public string Title { get; set; }
-        [DataMember(Name = "details")]
+        [JsonProperty(PropertyName = "details")]
         public string Details { get; set; }
-        [DataMember(Name = "done")]
+        [JsonProperty(PropertyName = "created")]
+        public DateTime Created { get; set; }
+        [JsonProperty(PropertyName = "done")]
         public bool Done { get; set; }
-        [DataMember(Name = "pictureUrl")]
+        [JsonProperty(PropertyName = "pictureUrl")]
         public string PictureUrl { get; set; }
     }
 }

@@ -21,12 +21,36 @@ todosApp.Views.addTodoPageInit = function() {
             }
         }
     }).data("kendoValidator");
+    
+    navigator.geolocation.getCurrentPosition(function (p) {
+        var options = {
+            center: new google.maps.LatLng(p.coords.latitude, p.coords.longitude),
+            zoom: 8,
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+        };
+
+        var mapElement = $("#mapCanvas");
+        var map = new google.maps.Map(mapElement[0], options);
+    });
 };
 
 todosApp.Views.addTodoPageShow = function() {
     var imagePane = $("#capturedImagePane");
     imagePane.hide();
 };
+
+function initX() {
+    navigator.geolocation.getCurrentPosition(function (p) {
+        var options = {
+            center: new google.maps.LatLng(p.coords.latitude, p.coords.longitude),
+            zoom: 8,
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+        };
+
+        var mapElement = $("#mapCanvasX");
+        var map = new google.maps.Map(mapElement[0], options);
+    });
+}
 
 todosApp.Views.beforePageShow = function(e) {
     if (!authenticationViewModel.authenticated) {

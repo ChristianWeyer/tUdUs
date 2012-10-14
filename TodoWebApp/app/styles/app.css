@@ -1,4 +1,15 @@
-﻿.idpList {
+﻿div {
+    -webkit-transform: translateZ(0);
+}
+
+#map .km-content,
+#map .km-scroll-container,
+#map #mapCanvas {
+    display: -webkit-box;
+    width: 100%;
+}
+
+idpList {
     display: block;
     text-align: center;
     margin: .6em .8em 0;

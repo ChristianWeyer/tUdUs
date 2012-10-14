@@ -6,7 +6,7 @@
     saveTodo: function () {
         var self = this;
         
-        if (addTodoPageValidator.validate()) {
+        if (todosApp.Views.addTodoPageValidator.validate()) {
             if (self.get("pictureUrl") !== null) {
                 pictureservice.uploadPicture(self.get("pictureUrl"))
                     .done(function (r) {
@@ -38,8 +38,9 @@
     
     saveTodoCore: function (item) {
         var self = this;
-        
-        dataservices.saveTodo(item)
+        item.created = new Date().toUTCString();
+
+        dataservices.saveTodo(item)        
             .done(function (itemFromServer) {
                 todosViewModel.addLocalItem(itemFromServer);
 
