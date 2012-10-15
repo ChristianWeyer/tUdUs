@@ -10,7 +10,7 @@
             </summary>
             <returns>List of items.</returns>
         </member>
-        <member name="M:Todo.WebApi.TodosController.Get(System.Int32)">
+        <member name="M:Todo.WebApi.TodosController.Get(System.Guid)">
             <summary>
             Get a single TODO item by ID.
             </summary>
@@ -31,7 +31,7 @@
             <param name="item">The existing item.</param>
             <returns>The existing item with up-to-date data.</returns>
         </member>
-        <member name="M:Todo.WebApi.TodosController.Delete(System.Int32)">
+        <member name="M:Todo.WebApi.TodosController.Delete(System.Guid)">
             <summary>
             Delete an existing TODO item by ID.
             </summary>

@@ -2,9 +2,9 @@
 <widget xmlns="http://www.w3.org/ns/widgets"
         xmlns:gap="http://phonegap.com/ns/1.0"
         id="net.christianweyer.todo"
-        version="0.3.1">
+        version="0.4">
 
-  <name>MobileTODO</name>
+  <name>tUdUs</name>
   <description>Mobile TODOs.</description>
 
   <author href="http://weblogs.thinktecture.com/cweyer"

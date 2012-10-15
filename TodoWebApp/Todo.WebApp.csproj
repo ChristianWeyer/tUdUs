@@ -222,6 +222,7 @@
     <Content Include="app\images\succ_close.png" />
     <Content Include="app\images\warn_bg.png" />
     <Content Include="app\images\warn_close.png" />
+    <Content Include="app\js\helpers.js" />
     <Content Include="app\js\libs\jquery-ajax-retry.js" />
     <Content Include="app\js\libs\jquery_notification_v.1.js" />
     <Content Include="app\js\libs\require.js" />

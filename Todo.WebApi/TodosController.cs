@@ -1,4 +1,5 @@
-﻿using System.Data.Entity.Infrastructure;
+﻿using System;
+using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Net;
 using System.Web.Http;
@@ -34,7 +35,7 @@ namespace Todo.WebApi
         /// </summary>
         /// <param name="id">The ID of the item</param>
         /// <returns>A TODO item.</returns>
-        public TodoItemDto Get(int id)
+        public TodoItemDto Get(Guid id)
         {
             var todo = repository.FindBy(t => t.Id == id).FirstOrDefault();
 
@@ -86,7 +87,7 @@ namespace Todo.WebApi
         /// Delete an existing TODO item by ID.
         /// </summary>
         /// <param name="id">The ID of the item.</param>
-        public void Delete(int id)
+        public void Delete(Guid id)
         {
             try
             {

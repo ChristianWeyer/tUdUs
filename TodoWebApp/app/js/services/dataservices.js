@@ -66,7 +66,7 @@
     }
     
     function saveLocal(item) {
-        return $.Deferred(function (deferred) {
+        return $.Deferred(function (deferred) {            
             item.isAdded = true;
             var data = amplify.store.sessionStorage(localStorageKeys.TodosList);
             data.push(item);
@@ -147,7 +147,9 @@
             }
         },
 
-        saveTodo: function (item) {            
+        saveTodo: function (item) {
+            item.id = createGuid();
+            
             if (!navigator.onLine) {
                 return saveLocal(item);
             }
@@ -234,7 +236,8 @@
                 }
             });
 
-            dataservices.getTodos();
+            // NOTE: this feels not right...
+            todosViewModel.loadTodos();
 
             todosApp.Views.hideLoader();
         }
