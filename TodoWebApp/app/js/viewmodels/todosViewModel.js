@@ -9,7 +9,7 @@
         return result;
     },
 
-    navigateAddTodo: function () {
+    navigateAddTodo: function () {        
         window.kendoMobileApplication.navigate("#addTodoPage");
     },
 

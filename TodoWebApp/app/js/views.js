@@ -34,25 +34,11 @@ todosApp.Views.addTodoPageInit = function() {
     });
 };
 
-todosApp.Views.addTodoPageShow = function() {
-    var imagePane = $("#capturedImagePane");
-    imagePane.hide();
+todosApp.Views.addTodoPageShow = function () {
+    newTodoItemViewModel.set("pictureUrl", images.DefaultItemPicture);
 };
 
-function initX() {
-    navigator.geolocation.getCurrentPosition(function (p) {
-        var options = {
-            center: new google.maps.LatLng(p.coords.latitude, p.coords.longitude),
-            zoom: 8,
-            mapTypeId: google.maps.MapTypeId.ROADMAP
-        };
-
-        var mapElement = $("#mapCanvasX");
-        var map = new google.maps.Map(mapElement[0], options);
-    });
-}
-
-todosApp.Views.beforePageShow = function(e) {
+todosApp.Views.beforePageShow = function (e) {
     if (!authenticationViewModel.authenticated) {
         e.preventDefault();
         window.kendoMobileApplication.navigate("#loginDialog");

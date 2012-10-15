@@ -147,9 +147,7 @@
             }
         },
 
-        saveTodo: function (item) {
-            item.id = createGuid();
-            
+        saveTodo: function (item) {                        
             if (!navigator.onLine) {
                 return saveLocal(item);
             }
@@ -159,10 +157,7 @@
                     type: httpVerbs.POST,
                     dataType: dataTypes.JSON,
                     data: item,
-                    beforeSend: function (xhr) { beforeSend(xhr); },
-                    timeout: 3000,
-                    maxTries: 3,
-                    retryCodes: [500]
+                    beforeSend: function (xhr) { beforeSend(xhr); }
                 })
                     .always(function() {
                         todosApp.Views.hideLoader();
@@ -182,10 +177,7 @@
                     url: addConnectionIdParameter(endpoints.ServiceEndpointUrl + id),
                     type: httpVerbs.DELETE,
                     dataType: dataTypes.JSON,
-                    beforeSend: function (xhr) { beforeSend(xhr); },
-                    timeout: 3000,
-                    maxTries: 3,
-                    retryCodes: [500]
+                    beforeSend: function (xhr) { beforeSend(xhr); }
                 })
                     .always(function() {
                         todosApp.Views.hideLoader();
@@ -206,10 +198,7 @@
                     type: httpVerbs.PUT,
                     dataType: dataTypes.JSON,
                     data: item,
-                    beforeSend: function (xhr) { beforeSend(xhr); },
-                    timeout: 3000,
-                    maxTries: 3,
-                    retryCodes: [500]
+                    beforeSend: function (xhr) { beforeSend(xhr); }
                 })
                     .always(function() {
                         todosApp.Views.hideLoader();

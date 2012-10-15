@@ -213,6 +213,7 @@
     <Content Include="app\config.xml">
       <SubType>Designer</SubType>
     </Content>
+    <Content Include="app\images\noimage.png" />
     <Content Include="app\index.html" />
     <Content Include="app\images\error_bg.png" />
     <Content Include="app\images\error_close.png" />

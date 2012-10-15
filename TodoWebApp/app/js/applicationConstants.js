@@ -20,3 +20,7 @@ var localStorageKeys = {
     TodosList: "todoslist",
     AuthenticationToken: "authenticationToken"
 };
+
+var images = {
+    DefaultItemPicture: "images/noimage.png"  
+};
