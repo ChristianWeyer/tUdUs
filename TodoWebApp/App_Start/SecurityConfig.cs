@@ -1,8 +1,7 @@
-﻿using System.Web.Http;
-using Microsoft.IdentityModel.Web;
+﻿using System.IdentityModel.Services;
+using System.Web.Http;
 using Thinktecture.IdentityModel.Authorization.WebApi;
 using Thinktecture.IdentityModel.Tokens.Http;
-using Todo.Security;
 using System.Configuration;
 
 namespace Todo.WebApp.App_Start
@@ -27,10 +26,11 @@ namespace Todo.WebApp.App_Start
                 (un, pw) => un == pw); // this is the super complex basic authentication validation logic :)
 
             authNConfig.ClaimsAuthenticationManager =
-                FederatedAuthentication.ServiceConfiguration.ClaimsAuthenticationManager;
+                FederatedAuthentication.FederationConfiguration
+                    .IdentityConfiguration.ClaimsAuthenticationManager;
 
             config.MessageHandlers.Add(new AuthenticationHandler(authNConfig));
-            config.Filters.Add(new ApiClaimsAuthorizeAttribute());
+            config.Filters.Add(new ClaimsAuthorizeAttribute());
         }
     }
 }

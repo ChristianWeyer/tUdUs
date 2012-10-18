@@ -1,6 +1,7 @@
 ﻿$(function () {
     window.kendoMobileApplication = new kendo.mobile.Application($(document.body), {
-        transition: 'none'
+        transition: 'none',
+        hideAddressBar: true
     });
 
     window.addEventListener("online", todosApp.appOnline, false);
@@ -13,7 +14,8 @@
     }
 });
 
-todosApp.deviceready = function() {
+todosApp.deviceready = function () {
+    // Code from above should go here for real device app
 };
 
 todosApp.appOnline = function() {

@@ -127,7 +127,7 @@
             }
             else {
                 return $.ajax({
-                    url: addConnectionIdParameter(endpoints.ServiceEndpointUrl),
+                    url: endpoints.ServiceEndpointUrl,
                     type: httpVerbs.GET,
                     dataType: dataTypes.JSON,
                     beforeSend: function (xhr) { beforeSend(xhr); },
@@ -225,7 +225,7 @@
                 }
             });
 
-            // NOTE: this feels not right...
+            // NOTE: this does not feel right...
             todosViewModel.loadTodos();
 
             todosApp.Views.hideLoader();

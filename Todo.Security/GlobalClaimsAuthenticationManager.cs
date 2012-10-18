@@ -1,10 +1,10 @@
-﻿using Microsoft.IdentityModel.Claims;
+﻿using System.Security.Claims;
 
 namespace Todo.Security
 {
     public class GlobalClaimsAuthenticationManager : ClaimsAuthenticationManager
     {
-        public override IClaimsPrincipal Authenticate(string resourceName, IClaimsPrincipal incomingPrincipal)
+        public override ClaimsPrincipal Authenticate(string resourceName, ClaimsPrincipal incomingPrincipal)
         {            
             return base.Authenticate(resourceName, incomingPrincipal);
         }

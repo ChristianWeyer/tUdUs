@@ -1,5 +1,5 @@
-﻿using System.Threading;
-using Microsoft.IdentityModel.Claims;
+﻿using System.Security.Claims;
+using System.Threading;
 
 namespace Todo.Security
 {
@@ -7,17 +7,10 @@ namespace Todo.Security
     {
         public override bool CheckAccess(AuthorizationContext context)
         {
-            var principal = Thread.CurrentPrincipal as ClaimsPrincipal;
-            
-            if (principal != null)
+            if (ClaimsPrincipal.Current.Identity.IsAuthenticated)
             {
-                var claimsId = principal.Identity as ClaimsIdentity;
-
-                if (claimsId != null && claimsId.IsAuthenticated)
-                {
-                    // NOTE: Add custom logic here
-                    return base.CheckAccess(context);
-                }
+                // NOTE: Add custom logic here
+                return base.CheckAccess(context);
             }
 
             return false;

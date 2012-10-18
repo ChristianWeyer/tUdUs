@@ -3,7 +3,6 @@ using System.Web.Http;
 using Autofac;
 using Autofac.Integration.WebApi;
 using Newtonsoft.Json.Serialization;
-using WebApiContrib.Formatting;
 
 namespace Todo.WebApp.App_Start
 {
@@ -22,7 +21,6 @@ namespace Todo.WebApp.App_Start
                 defaults: new { id = RouteParameter.Optional }
             );
 
-            config.Formatters.Add(new ProtoBufFormatter());
             config.Formatters.JsonFormatter.SerializerSettings.ContractResolver =
                 new CamelCasePropertyNamesContractResolver();
 

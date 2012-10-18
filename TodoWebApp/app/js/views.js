@@ -7,8 +7,14 @@ todosApp.Views.todosPageInit = function() {
         onLabel: "YES",
         offLabel: "NO"
     });
+};
 
-    todosViewModel.loadTodos();
+todosApp.Views.todoDetailsShow = function(e) {
+    todosViewModel.set("currentItem", todosViewModel.todosSource.get(e.view.params.id));
+    e.view.scroller.reset();
+
+    var coords = todosViewModel.get("currentItem.location").split(",");
+    todosApp.Views.createMap(coords[0], coords[1], "detailsMap");
 };
 
 todosApp.Views.addTodoPageValidator = {};
@@ -21,21 +27,17 @@ todosApp.Views.addTodoPageInit = function() {
             }
         }
     }).data("kendoValidator");
-    
-    navigator.geolocation.getCurrentPosition(function (p) {
-        var options = {
-            center: new google.maps.LatLng(p.coords.latitude, p.coords.longitude),
-            zoom: 8,
-            mapTypeId: google.maps.MapTypeId.ROADMAP
-        };
 
-        var mapElement = $("#mapCanvas");
-        var map = new google.maps.Map(mapElement[0], options);
-    });
 };
 
-todosApp.Views.addTodoPageShow = function () {
+todosApp.Views.addTodoPageShow = function (e) {
     newTodoItemViewModel.set("pictureUrl", images.DefaultItemPicture);
+    e.view.scroller.reset();
+    
+    navigator.geolocation.getCurrentPosition(function (p) {
+        newTodoItemViewModel.set("location", p.coords.latitude + "," + p.coords.longitude);
+        todosApp.Views.createMap(p.coords.latitude, p.coords.longitude, "newMap");
+    });
 };
 
 todosApp.Views.beforePageShow = function (e) {
@@ -43,6 +45,35 @@ todosApp.Views.beforePageShow = function (e) {
         e.preventDefault();
         window.kendoMobileApplication.navigate("#loginDialog");
     }
+};
+
+todosApp.Views.createMap = function (lat, lng, element) {
+    var options = {
+        center: new google.maps.LatLng(lat, lng),
+        zoom: 11,
+        mapTypeId: google.maps.MapTypeId.ROADMAP
+    };
+
+    var mapElement = $("#" + element);
+    var map = new google.maps.Map(mapElement[0], options);
+};
+
+todosApp.Views.graphInit = function() {
+    setTimeout(function() {
+        $("#chart").kendoChart({
+            title: {
+                text: "Items (total) - fake"
+            },
+            legend: { visible: false },
+
+            series: [
+                { data: [200, 275, 300, 125] }
+            ],
+            categoryAxis: {
+                categories: [2009, 2010, 2011, 2012]
+            }
+        });
+    }, 400);
 };
 
 todosApp.Views.loaderElement = {};

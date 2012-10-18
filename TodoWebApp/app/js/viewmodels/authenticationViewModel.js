@@ -8,6 +8,9 @@
 
         dataservices.callLoginPing(self.userName, self.password)
             .success(function () {
+                todosViewModel.todosSource.data([]);
+                todosViewModel.currentItem = {};
+                
                 notificationservice.register();
 
                 amplify.store.sessionStorage(localStorageKeys.UserName, self.get("userName"));

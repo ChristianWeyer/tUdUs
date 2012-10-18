@@ -35,6 +35,9 @@
             var params = $.deparam.querystring(url);
             var t = params.access_token;
 
+            todosViewModel.todosSource.data([]);
+            todosViewModel.currentItem = {};
+            
             amplify.store.sessionStorage(localStorageKeys.AuthenticationToken, t);
             authenticationViewModel.authenticated = true;
 

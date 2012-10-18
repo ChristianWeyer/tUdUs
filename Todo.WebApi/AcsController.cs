@@ -1,9 +1,7 @@
-﻿using Microsoft.IdentityModel.Claims;
-using Microsoft.IdentityModel.Configuration;
-using Microsoft.IdentityModel.Protocols.WSFederation;
-using Microsoft.IdentityModel.Protocols.WSTrust;
-using Microsoft.IdentityModel.Tokens;
-using Microsoft.IdentityModel.Web;
+﻿using System.IdentityModel.Protocols.WSTrust;
+using System.IdentityModel.Services;
+using System.IdentityModel.Services.Configuration;
+using System.Security.Claims;
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
@@ -18,7 +16,6 @@ using System.Web;
 using System.Web.Http;
 using Thinktecture.IdentityModel.Clients.AccessControlService;
 using Thinktecture.IdentityModel.Tokens;
-using Todo.Security;
 
 namespace Todo.WebApi
 {
@@ -88,7 +85,7 @@ namespace Todo.WebApi
             return newTokenQueryString;
         }
 
-        private static string CreateJwtToken(IClaimsPrincipal icp, int tokenExpiration)
+        private static string CreateJwtToken(ClaimsPrincipal icp, int tokenExpiration)
         {
             var signingKey = ConfigurationManager.AppSettings["signingKey"];
             
@@ -109,11 +106,13 @@ namespace Todo.WebApi
             return newTokenString;
         }
 
-        private IClaimsPrincipal ValidateToken(SignInResponseMessage signInResponse)
+        private ClaimsPrincipal ValidateToken(SignInResponseMessage signInResponse)
         {
-            var serviceConfig = new ServiceConfiguration();
-            var fam = new WSFederationAuthenticationModule();
-            fam.ServiceConfiguration = serviceConfig;
+            var serviceConfig = new FederationConfiguration();
+            var fam = new WSFederationAuthenticationModule
+                {
+                    FederationConfiguration = serviceConfig
+                };
 
             var tokenFromAcs = fam.GetSecurityToken(signInResponse);
             var icp = ValidateToken(tokenFromAcs);
@@ -130,7 +129,7 @@ namespace Todo.WebApi
             return signInResponse;
         }
 
-        private IClaimsPrincipal ValidateToken(SecurityToken token)
+        private ClaimsPrincipal ValidateToken(SecurityToken token)
         {
             var config = new SecurityTokenHandlerConfiguration();
             config.AudienceRestriction.AudienceMode = AudienceUriMode.Always;
@@ -144,7 +143,7 @@ namespace Todo.WebApi
             var handler = SecurityTokenHandlerCollection.CreateDefaultSecurityTokenHandlerCollection(config);
             var identity = handler.ValidateToken(token).First();
 
-            return ClaimsPrincipal.CreateFromIdentity(identity);
+            return new ClaimsPrincipal(identity);
         }
     }
 }

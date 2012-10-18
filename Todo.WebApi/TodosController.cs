@@ -8,6 +8,7 @@ using Todo.Base;
 using Todo.Contracts;
 using Todo.Entities;
 using System.Net.Http.Formatting;
+using System.Security.Claims;
 
 namespace Todo.WebApi
 {    
@@ -27,7 +28,7 @@ namespace Todo.WebApi
         [Queryable]
         public IQueryable<TodoItemDto> Get()
         {
-            return repository.GetAll().Map();
+            return repository.GetAll().Where(t => t.Owner == User.Identity.Name).Map();
         }
 
         /// <summary>
@@ -37,7 +38,7 @@ namespace Todo.WebApi
         /// <returns>A TODO item.</returns>
         public TodoItemDto Get(Guid id)
         {
-            var todo = repository.FindBy(t => t.Id == id).FirstOrDefault();
+            var todo = repository.FindBy(t => t.Id == id && t.Owner == User.Identity.Name).FirstOrDefault();
 
             if (todo == null)
             {
@@ -54,8 +55,11 @@ namespace Todo.WebApi
         /// <param name="item">The new item.</param>
         /// <returns>The new item with up-to-date data.</returns>
         public TodoItemDto Post(TodoItemDto item)
-        {   
-            var newItem = repository.Insert(item.Map());
+        {
+            var itemEntity = item.Map();
+            itemEntity.Owner = User.Identity.Name;
+            
+            var newItem = repository.Insert(itemEntity);
             
             Hub.Clients.itemAdded(ConnectionId, item);
 

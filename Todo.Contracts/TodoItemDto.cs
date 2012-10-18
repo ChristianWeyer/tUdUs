@@ -15,6 +15,8 @@ namespace Todo.Contracts
         public string Details { get; set; }
         [JsonProperty(PropertyName = "created")]
         public DateTime Created { get; set; }
+        [JsonProperty(PropertyName = "location")]
+        public string Location { get; set; }
         [JsonProperty(PropertyName = "done")]
         public bool Done { get; set; }
         [JsonProperty(PropertyName = "pictureUrl")]

@@ -13,10 +13,6 @@
         window.kendoMobileApplication.navigate("#addTodoPage");
     },
 
-    navigateTodoDetails: function (e) {
-        todosViewModel.set("currentItem", todosViewModel.todosSource.get(e.view.params.id));
-    },
-
     addLocalItem: function (item) {
         this.todosSource.add(item);
     },

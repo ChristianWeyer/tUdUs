@@ -1,6 +1,7 @@
 ﻿var newTodoItemViewModel = kendo.observable({
     title: "",
     details: "",
+    location: "",
     pictureUrl: null,
 
     saveTodo: function () {
@@ -33,7 +34,7 @@
                 self.set("pictureUrl", imageUrl);
             });
     },
-
+    
     saveTodoCore: function (item) {
         var self = this;
 
@@ -48,7 +49,7 @@
                 self.set("details", "");
                 self.set("pictureUrl", images.DefaultItemPicture);
 
-                window.kendoMobileApplication.navigate("#todosPage");
+                window.kendoMobileApplication.navigate("#todosPage");                               
             });
     }
 });
