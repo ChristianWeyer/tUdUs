@@ -1,7 +1,7 @@
 ﻿var dataservices = (function () {
     function handleServiceError(error) {
         console.log(error);
-
+        //TODO: handel 500s
         if (error.status === 401) {
             errorViewModel.showErrorDialog("Login failed.");
         }
@@ -212,6 +212,8 @@
         sync: function () {
             todosApp.Views.showLoader("Syncing...");
 
+            // TODO: check whether there is actually anything to sync
+            
             $.each(amplify.store.sessionStorage(localStorageKeys.TodosList), function (i, item) {
                 if (item.isDeleted) {
                     dataservices.deleteTodo(item.id).done(function () { });
@@ -225,6 +227,8 @@
                 }
             });
 
+            // TODO: delete local items. Use $.map(...) above
+            
             // NOTE: this does not feel right...
             todosViewModel.loadTodos();
 

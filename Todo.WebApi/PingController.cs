@@ -1,5 +1,4 @@
 ﻿using System.Web.Http;
-using Thinktecture.IdentityModel.Authorization.WebApi;
 
 namespace Todo.WebApi
 {

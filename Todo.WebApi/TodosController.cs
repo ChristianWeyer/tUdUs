@@ -3,12 +3,9 @@ using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Net;
 using System.Web.Http;
-using Thinktecture.IdentityModel.Authorization.WebApi;
 using Todo.Base;
 using Todo.Contracts;
 using Todo.Entities;
-using System.Net.Http.Formatting;
-using System.Security.Claims;
 
 namespace Todo.WebApi
 {    

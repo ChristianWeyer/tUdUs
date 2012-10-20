@@ -4,6 +4,7 @@ using AutoMapper;
 using AutoMapper.QueryableExtensions;
 using Todo.Contracts;
 using Todo.Entities;
+
 namespace Todo.WebApi
 {
     public static class DataMapper
