@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>tUdUs</title>
+
+	<meta charset="utf-8">
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1.0" />
+	
+	<link rel="apple-touch-icon" href="../images/Wooden_Todo_128x128.png" />
+	<link rel="apple-touch-startup-image" href="../images/splash.png" media="screen and (max-device-width: 320px)" />
+	
+	<link href="../styles/kendo.mobile.all.min.css" rel="stylesheet" type="text/css" />
+    <link href="../styles/kendo.dataviz.min.css" rel="stylesheet" type="text/css" />
+	<link href="../styles/app.min.css" rel="stylesheet" type="text/css" />
+    <link href="../styles/jquery_notification.css" rel="stylesheet" type="text/css" />
+
+	<script src="../js/libs/jquery-1.7.1.min.js" type="text/javascript"></script>
+    <script src="../js/libs/jquery-ajax-retry.js" type="text/javascript"></script>
+    
+    <script>
+    if (navigator.userAgent.toLowerCase().match(/android/)) {
+        document.write('<script charset="utf-8" src="../js/libs/cordova.js"><\/script>');
+    }
+    else if (navigator.userAgent.toLowerCase().match(/iphone/) || navigator.userAgent.toLowerCase().match(/ipad/)) {
+        document.write('<script charset="utf-8" src="../js/libs/cordova.js"><\/script>');
+    } else {
+        document.write('<script charset="utf-8" src="../js/libs/cordova.js"><\/script>');
+    }
+    </script>
+
+    <script src="../js/libs/childbrowser.js" type="text/javascript"></script>
+
+    <script src="../js/libs/jquery-ui-1.8.20.min.js" type="text/javascript"></script>
+    <script src="../js/libs/underscore-min.js" type="text/javascript"></script>
+	<script src="../js/libs/jquery.base64.min.js" type="text/javascript"></script>
+	<script src="../js/libs/kendo.dataviz.min.js" type="text/javascript"></script>
+    <script src="../js/libs/kendo.mobile.min.js" type="text/javascript"></script>    
+	<script src="../js/libs/amplify.min.js" type="text/javascript"></script>
+	<script src="../js/libs/notifier.min.js" type="text/javascript"></script>
+	<script src="../js/libs/jquery.signalR-0.5.3.min.js" type="text/javascript"></script>
+    <script src="../js/libs/jquery.ba-bbq.min.js" type="text/javascript"></script>
+	<script src="../js/libs/signalr.hubs.min.js" type="text/javascript"></script>
+	<script src="../js/libs/jquery_notification_v.1.js" type="text/javascript"></script>
+	
+    <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyCG4jUolof0jhqQu0j1aNqSWfW_ms-wRKg&sensor=true"></script>
+	
+	<script src="../js/namespaces.js" type="text/javascript"></script>
+    <script src="../js/tools/helpers.js" type="text/javascript"></script>
+    <script src="../js/tools/templateLoader.js" type="text/javascript"></script>
+	<script src="../js/app.js" type="text/javascript"></script>
+    <script src="../js/applicationConstants.js" type="text/javascript"></script>
+	<script src="../js/views.js" type="text/javascript"></script>
+    <script src="../js/services/httpConstants.js" type="text/javascript"></script>    
+    <script src="../js/services/notificationservice.js" type="text/javascript"></script>
+	<script src="../js/services/dataservices.js" type="text/javascript"></script>
+    <script src="../js/services/pictureservice.js" type="text/javascript"></script>
+    <script src="../js/viewmodels/startViewModel.js" type="text/javascript"></script>
+	<script src="../js/viewmodels/authenticationViewModel.js" type="text/javascript"></script>
+	<script src="../js/viewmodels/todosViewModel.js" type="text/javascript"></script>
+	<script src="../js/viewmodels/newTodoItemViewModel.js" type="text/javascript"></script>
+	<script src="../js/viewmodels/errorViewModel.js" type="text/javascript"></script>
+    <script src="../js/viewmodels/acsViewModel.js" type="text/javascript"></script>
+    <script src="../js/viewmodels/settingsViewModel.js" type="text/javascript"></script>
+</head>
+<body>
+    <!-- Templates -->    
+    <script id="tasksListTemplate" type="text/x-kendo-template">
+        # if (typeof isAdded !== 'undefined') { #
+            # if (isAdded) { #
+                <a class="details-link" style="color: darkred; font-style: italic;" data-role="listview-link" href="\#todoDetailsPage?id=#:id#">#= title#</a>
+            # } #
+        # } else { #
+            <a class="details-link" data-role="listview-link" href="\#todoDetailsPage?id=#:id#">#= title#</a>
+        # } #
+        
+	    <a data-role="detailbutton" data-style="rowdelete" data-bind="events:{click: removeTodo}"></a>
+    </script>
+
+    <script id="idpListTemplate" type="text/x-kendo-template">
+        <img src="${imageUrl}" style="border: 50px; width: 60px" align="middle"/>
+        <a onclick="acsViewModel.openAuthWindow('${loginUrl}')">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${name}</a>
+	</script>
+
+    <!-- Start page -->
+	<div id="startPage" data-role="view" data-title="tUdUs" data-model="startViewModel" data-layout="defaultLayout">
+		<header data-role="header">
+			<div data-role="navbar">
+				<span data-role="view-title"></span>
+			</div>
+		</header>
+        <img src="../images/Wooden_Todo_256x256.png" alt="tUdUs" />
+		<a data-role="button" id="openLoginButton" data-bind="click: openLoginView">Login</a>
+	</div>
+
+    <!-- Layouts -->
+    <div data-role="layout" data-id="defaultLayout">
+        <footer data-role="footer">
+			<div data-role="tabstrip" id="navigationTabStrip">
+				<a data-icon="home" href="index.html">Home</a>
+			    <a data-icon="bookmarks" href="items.html">Items</a>
+			    <a data-icon="recents" href="stats.html">Stats</a>
+                <a data-icon="settings" href="settings.html">Settings</a>
+				<a data-icon="info" href="info.html">Info</a>
+			</div>
+		</footer>
+    </div>
+
+    <!-- Global modal views/dialogs -->
+	<!-- Login dialog -->
+	<div data-role="modalview" id="loginDialog" style="width: 95%; height: 50%;" data-model="authenticationViewModel">
+		<div data-role="header">
+			<div data-role="navbar">
+				<span data-role="view-title">User Login</span>
+				<a data-bind="click: closeLoginDialog" data-role="button" data-align="right">Cancel</a>
+			</div>
+		</div>
+		<ul data-role="listview" data-style="inset">
+			<li>
+				<label for="username">Username:</label>
+				<input data-bind="value: userName" type="text" id="username" /></li>
+			<li>
+				<label for="password">Password:</label>
+				<input data-bind="value: password" type="password" id="password" /></li>
+		</ul>
+		<a data-bind="click: doLogin" id="loginButton" data-role="button" data-align="right">Login</a>
+	</div>
+
+	<!-- Error dialog -->
+    <div data-role="modalview" id="errorDialog" style="width: 85%; height: 40%;" data-model="errorViewModel">
+        <div data-role="header">
+            <div data-role="navbar">
+                <span data-role="view-title">Error</span>
+                <a data-bind="click: closeErrorDialog" data-role="button" data-align="right">X</a>
+            </div>
+        </div>
+        <ul data-role="listview" id="errorText">
+            <li><span data-bind="text: message">Error.</span></li>
+        </ul>
+        <p>
+            <a data-role="button" type="button" id="commonErrorButton" data-bind="click: closeErrorDialog">OK</a>
+        </p>
+    </div>        
+</body>
+</html>

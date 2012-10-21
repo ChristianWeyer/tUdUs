@@ -203,77 +203,83 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="app\childbrowser.js" />
-    <Content Include="app\config.xml">
+    <Content Include="www\views\index_old.html" />
+    <Content Include="www\views\info.html" />
+    <Content Include="www\views\settings.html" />
+    <Content Include="www\views\stats.html" />
+    <Content Include="www\views\items.html" />
+    <Content Include="www\views\acs.html" />
+    <Content Include="www\js\libs\childbrowser.js" />
+    <Content Include="www\config.xml">
       <SubType>Designer</SubType>
     </Content>
-    <Content Include="app\images\noimage.png" />
-    <Content Include="app\index.html" />
-    <Content Include="app\images\error_bg.png" />
-    <Content Include="app\images\error_close.png" />
-    <Content Include="app\images\info_bg.png" />
-    <Content Include="app\images\info_close.png" />
-    <Content Include="app\images\succ_bg.png" />
-    <Content Include="app\images\succ_close.png" />
-    <Content Include="app\images\warn_bg.png" />
-    <Content Include="app\images\warn_close.png" />
-    <Content Include="app\js\libs\kendo.dataviz.min.js" />
-    <Content Include="app\js\tools\helpers.js" />
-    <Content Include="app\js\libs\jquery-ajax-retry.js" />
-    <Content Include="app\js\libs\jquery_notification_v.1.js" />
-    <Content Include="app\js\libs\require.js" />
-    <Content Include="app\js\main.js" />
-    <Content Include="app\styles\jquery_notification.css" />
-    <Content Include="app\styles\kendo.dataviz.min.css" />
-    <Content Include="app\templates\idpList.tmpl.html" />
-    <Content Include="app\templates\tasksList.tmpl.html" />
-    <Content Include="app\js\namespaces.js" />
-    <Content Include="app\js\services\pictureservice.js" />
-    <Content Include="app\js\tools\templateLoader.js" />
-    <Content Include="app\cordova.js" />
-    <Content Include="app\js\services\httpConstants.js" />
+    <Content Include="www\images\noimage.png" />
+    <Content Include="www\views\index.html" />
+    <Content Include="www\images\error_bg.png" />
+    <Content Include="www\images\error_close.png" />
+    <Content Include="www\images\info_bg.png" />
+    <Content Include="www\images\info_close.png" />
+    <Content Include="www\images\succ_bg.png" />
+    <Content Include="www\images\succ_close.png" />
+    <Content Include="www\images\warn_bg.png" />
+    <Content Include="www\images\warn_close.png" />
+    <Content Include="www\js\libs\kendo.dataviz.min.js" />
+    <Content Include="www\js\tools\helpers.js" />
+    <Content Include="www\js\libs\jquery-ajax-retry.js" />
+    <Content Include="www\js\libs\jquery_notification_v.1.js" />
+    <Content Include="www\js\libs\require.js" />
+    <Content Include="www\js\main.js" />
+    <Content Include="www\styles\jquery_notification.css" />
+    <Content Include="www\styles\kendo.dataviz.min.css" />
+    <Content Include="www\templates\idpList.tmpl.html" />
+    <Content Include="www\templates\tasksList.tmpl.html" />
+    <Content Include="www\js\namespaces.js" />
+    <Content Include="www\js\services\pictureservice.js" />
+    <Content Include="www\js\tools\templateLoader.js" />
+    <Content Include="www\js\libs\cordova.js" />
+    <Content Include="www\js\services\httpConstants.js" />
     <Content Include="Areas\HelpPage\HelpPage.css" />
     <Content Include="images\thinktecture.jpg" />
-    <Content Include="app\js\libs\jquery.ba-bbq.min.js" />
-    <Content Include="app\js\libs\notifier.js">
+    <Content Include="www\js\libs\jquery.ba-bbq.min.js" />
+    <Content Include="www\js\libs\notifier.js">
       <Generator>GoogleClosureCompiler</Generator>
       <LastGenOutput>notifier.min.js</LastGenOutput>
     </Content>
-    <Content Include="app\js\libs\notifier.min.js">
+    <Content Include="www\js\libs\notifier.min.js">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>notifier.js</DependentUpon>
     </Content>
-    <Content Include="app\js\viewmodels\acsViewModel.js" />
-    <Content Include="app\images\splash.png" />
-    <Content Include="app\js\libs\modernizr-2.5.3.min.js">
+    <Content Include="www\js\viewmodels\acsViewModel.js" />
+    <Content Include="www\images\splash.png" />
+    <Content Include="www\js\libs\modernizr-2.5.3.min.js">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>modernizr-2.5.3.js</DependentUpon>
     </Content>
-    <Content Include="app\js\libs\signalr.hubs.js">
+    <Content Include="www\js\libs\signalr.hubs.js">
       <Generator>GoogleClosureCompiler</Generator>
       <LastGenOutput>signalr.hubs.min.js</LastGenOutput>
     </Content>
-    <Content Include="app\js\libs\signalr.hubs.min.js">
+    <Content Include="www\js\libs\signalr.hubs.min.js">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>signalr.hubs.js</DependentUpon>
     </Content>
-    <Content Include="app\js\libs\jquery.signalR-0.5.3.min.js" />
-    <Content Include="app\js\libs\underscore-min.js" />
-    <Content Include="app\js\applicationConstants.js" />
-    <Content Include="app\js\viewmodels\settingsViewModel.js" />
-    <Content Include="app\js\viewmodels\startViewModel.js" />
-    <Content Include="app\js\viewmodels\errorViewModel.js" />
-    <Content Include="app\js\services\notificationservice.js" />
-    <Content Include="app\js\views.js" />
-    <Content Include="app\js\services\dataservices.js" />
-    <Content Include="app\js\viewmodels\newTodoItemViewModel.js" />
-    <Content Include="app\js\viewmodels\todosViewModel.js" />
-    <Content Include="app\js\viewmodels\authenticationViewModel.js" />
-    <Content Include="app\js\libs\jquery.base64.min.js" />
-    <Content Include="app\styles\app.min.css">
+    <Content Include="www\js\libs\jquery.signalR-0.5.3.min.js" />
+    <Content Include="www\js\libs\underscore-min.js" />
+    <Content Include="www\js\applicationConstants.js" />
+    <Content Include="www\js\viewmodels\settingsViewModel.js" />
+    <Content Include="www\js\viewmodels\startViewModel.js" />
+    <Content Include="www\js\viewmodels\errorViewModel.js" />
+    <Content Include="www\js\services\notificationservice.js" />
+    <Content Include="www\js\views.js" />
+    <Content Include="www\js\services\dataservices.js" />
+    <Content Include="www\js\viewmodels\newTodoItemViewModel.js" />
+    <Content Include="www\js\viewmodels\todosViewModel.js" />
+    <Content Include="www\js\viewmodels\authenticationViewModel.js" />
+    <Content Include="www\js\libs\jquery.base64.min.js" />
+    <Content Include="www\styles\app.min.css">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>app.css</DependentUpon>
@@ -283,65 +289,31 @@
     <Content Include="images\microsoft.jpg" />
     <Content Include="images\yahoo.jpg" />
     <Content Include="index.html" />
-    <Content Include="simulator\devices\a100\images\horizontal.png" />
-    <Content Include="simulator\devices\a100\images\vertical.png" />
-    <Content Include="simulator\devices\a100\styles.css" />
-    <Content Include="simulator\devices\ipad\images\horizontal.png" />
-    <Content Include="simulator\devices\ipad\images\vertical.png" />
-    <Content Include="simulator\devices\ipad\styles.css" />
-    <Content Include="simulator\devices\iphone\images\horizontal.png" />
-    <Content Include="simulator\devices\iphone\images\vertical.png" />
-    <Content Include="simulator\devices\iphone\styles.css" />
-    <Content Include="simulator\devices\nexuss\images\horizontal.png" />
-    <Content Include="simulator\devices\nexuss\images\vertical.png" />
-    <Content Include="simulator\devices\nexuss\styles.css" />
-    <Content Include="simulator\devices\playbook\images\horizontal.png" />
-    <Content Include="simulator\devices\playbook\images\vertical.png" />
-    <Content Include="simulator\devices\playbook\styles.css" />
-    <Content Include="simulator\devices\torch\images\horizontal.png" />
-    <Content Include="simulator\devices\torch\images\vertical.png" />
-    <Content Include="simulator\devices\torch\styles.css" />
-    <Content Include="simulator\images\a100.png" />
-    <Content Include="simulator\images\background.png" />
-    <Content Include="simulator\images\flowerbottom.png" />
-    <Content Include="simulator\images\flowertop.png" />
-    <Content Include="simulator\images\ipad.png" />
-    <Content Include="simulator\images\iphone.png" />
-    <Content Include="simulator\images\kendomobile.png" />
-    <Content Include="simulator\images\nexuss.png" />
-    <Content Include="simulator\images\orientation.png" />
-    <Content Include="simulator\images\playbook.png" />
-    <Content Include="simulator\images\torch.png" />
-    <Content Include="simulator\index.html" />
-    <Content Include="simulator\js\simulator.js" />
-    <Content Include="simulator\styles\iconmasks.svg" />
-    <Content Include="simulator\styles\styles.css" />
-    <Content Include="app\styles\app.css">
+    <Content Include="www\styles\app.css">
       <Generator>YUICompressor</Generator>
       <LastGenOutput>app.min.css</LastGenOutput>
     </Content>
     <Content Include="Global.asax" />
-    <Content Include="app\images\Wooden_Todo_128x128.png" />
-    <Content Include="app\images\Wooden_Todo_256x256.png" />
-    <Content Include="app\images\Wooden_Todo_32x32.png" />
-    <Content Include="app\index.bkp.req.html" />
-    <Content Include="app\js\libs\amplify.min.js" />
-    <Content Include="app\js\app.js" />
-    <Content Include="app\js\libs\kendo.mobile.min.js" />
-    <Content Include="app\js\libs\jquery-1.7.1.min.js" />
-    <Content Include="app\js\libs\jquery-ui-1.8.20.min.js" />
-    <Content Include="app\js\libs\jquery.unobtrusive-ajax.min.js" />
-    <Content Include="app\js\libs\jquery.validate.min.js" />
-    <Content Include="app\js\libs\jquery.validate.unobtrusive.min.js" />
-    <Content Include="app\js\libs\modernizr-2.5.3.js">
+    <Content Include="www\images\Wooden_Todo_128x128.png" />
+    <Content Include="www\images\Wooden_Todo_256x256.png" />
+    <Content Include="www\images\Wooden_Todo_32x32.png" />
+    <Content Include="www\js\libs\amplify.min.js" />
+    <Content Include="www\js\app.js" />
+    <Content Include="www\js\libs\kendo.mobile.min.js" />
+    <Content Include="www\js\libs\jquery-1.7.1.min.js" />
+    <Content Include="www\js\libs\jquery-ui-1.8.20.min.js" />
+    <Content Include="www\js\libs\jquery.unobtrusive-ajax.min.js" />
+    <Content Include="www\js\libs\jquery.validate.min.js" />
+    <Content Include="www\js\libs\jquery.validate.unobtrusive.min.js" />
+    <Content Include="www\js\libs\modernizr-2.5.3.js">
       <Generator>GoogleClosureCompiler</Generator>
       <LastGenOutput>modernizr-2.5.3.min.js</LastGenOutput>
     </Content>
-    <Content Include="app\styles\images\android-sprite.png" />
-    <Content Include="app\styles\images\iconmasks.svg" />
-    <Content Include="app\styles\images\icons.png" />
-    <Content Include="app\styles\images\ios-sprite.png" />
-    <Content Include="app\styles\kendo.mobile.all.min.css" />
+    <Content Include="www\styles\images\android-sprite.png" />
+    <Content Include="www\styles\images\iconmasks.svg" />
+    <Content Include="www\styles\images\icons.png" />
+    <Content Include="www\styles\images\ios-sprite.png" />
+    <Content Include="www\styles\kendo.mobile.all.min.css" />
     <Content Include="tests\dataservicesTests.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -352,7 +324,7 @@
     <Content Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
-    <Content Include="app\js\libs\_references.js" />
+    <Content Include="www\js\libs\_references.js" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
@@ -392,7 +364,6 @@
     <Content Include="Areas\HelpPage\Views\_ViewStart.cshtml" />
     <None Include="Properties\PublishProfiles\tttodos - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\tttodos - Web Deploy.pubxml" />
-    <None Include="simulator\README.md" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

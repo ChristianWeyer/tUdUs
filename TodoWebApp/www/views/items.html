@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>tUdUs</title>
+</head>
+<body>
+	<!-- tUdUs page -->
+    <div id="todosPage" data-role="view" data-title="tUdUs" data-model="todosViewModel" data-init="todosApp.Views.todosPageInit" data-before-show="todosApp.Views.beforePageShow" data-layout="defaultLayout">
+	    <header data-role="header">
+		    <div data-role="navbar">
+			    <span data-role="view-title"></span>
+			    <a data-align="right" data-role="button" class="nav-button" data-icon="add" data-bind="click: navigateAddTodo"></a>
+			    <a data-align="left" data-role="button" class="nav-button" data-icon="refresh" data-bind="click: loadTodos"></a>
+                <a data-align="left" data-role="button" class="nav-button" data-icon="fastforward" data-click="dataservices.sync"></a>
+		    </div>
+	    </header>
+		
+	    <br />
+	    <h2>Items</h2>
+				
+	    <ul id="tasksList" data-role="listview" data-style="inset" data-bind="source: todosSource" data-template="tasksListTemplate" >
+	    </ul>
+    </div>
+
+	<!-- tUdU details page -->
+	<div id="todoDetailsPage" data-role="view" data-title="Details" data-model="todosViewModel" data-show="todosApp.Views.todoDetailsShow" data-before-show="todosApp.Views.beforePageShow" data-layout="defaultLayout">
+		<header data-role="header">
+			<div data-role="navbar">
+				<a data-role="backbutton" data-align="left">Back</a>
+				<span data-role="view-title"></span>
+			</div>
+		</header>
+        <br />
+		<h2>Item Details</h2>
+
+		<ul data-role="listview" data-style="inset">
+			<li>
+				<label for="tasktitle">Title:</label>
+				<input type="text" id="tasktitle" data-bind="value: currentItem.title" />
+			</li>
+			<li>
+				<label for="details">Details:</label>
+				<input type="text" id="details" data-bind="value: currentItem.details" />
+			</li>
+		    <li>
+		        <label for="done">Done:</label>
+		        <input id="done" data-role="switch" data-bind="checked: currentItem.done" />
+		    </li>
+		    <li>
+		        <label for="created">Created:</label>
+		        <input type="text" id="created" data-bind="value: currentItem.created" />
+		    </li>
+            <li>
+                <div id="detailsMap" style="height: 150px; width:100%;"></div>
+            </li>
+            <li data-bind="visible: pictureAvailable">
+                <img src="" style="margin: 0px auto; display: block; width: 200px" data-bind="attr: { src: currentItem.pictureUrl }" />
+            </li>
+		</ul>
+        
+	    <br />
+	    <a id="saveTodoButton" data-bind="click: updateTodo" data-role="button">Save</a>
+        <br/>
+	</div>
+	
+    <!-- Add tUdU page -->
+    <div id="addTodoPage" data-role="view" data-title="tUdUs" data-transition="overlay:up" data-model="newTodoItemViewModel" data-init="todosApp.Views.addTodoPageInit" data-show="todosApp.Views.addTodoPageShow" data-before-show="todosApp.Views.beforePageShow" data-layout="defaultLayout">
+        <header data-role="header">
+            <div data-role="navbar">
+                <a data-role="backbutton" data-align="left">Back</a>
+                <span data-role="view-title"></span>
+            </div>
+        </header>
+        <br />
+        <h2>New Item</h2>
+		
+        <ul data-role="listview" data-style="inset">
+            <li>
+                <label for="newtasktitle">Title:</label>
+                <input data-bind="value: title" type="text" name="Title" id="newtasktitle" required />
+            </li>
+            <li>
+                <label for="newtaskdetails">Details:</label>
+                <input data-bind="value: details" type="text" id="newtaskdetails" />
+            </li>            
+        </ul>
+        
+        <ul data-role="listview" data-style="inset">
+            <li id="map">
+                <div id="newMap" style="height: 150px; width:100%;"></div>
+            </li>
+        </ul>
+
+        <a data-role="button" style="margin: 0 0 0 1.1em;" data-icon="camera" data-bind="click: takePicture">Take picture</a>            
+        <ul data-role="listview" data-style="inset">
+            <li id="capturedImagePane">
+                <img src="" style="margin: 0px auto; display: block; width: 220px" id="capturedImage" data-bind="attr: { src: pictureUrl }"/>
+            </li>
+        </ul>
+
+        <br />
+        <a id="addTodoButton" data-bind="click: saveTodo" data-role="button">Save</a>
+        <br /><br />
+    </div>    
+</body>
+</html>
