@@ -2,6 +2,7 @@
 [Bb]in
 [Bb]uild
 PublishProfiles
+.DS_Store
 *.user
 *.suo
 *.[Cc]ache

@@ -64,24 +64,6 @@
     <script src="../js/viewmodels/settingsViewModel.js" type="text/javascript"></script>
 </head>
 <body>
-    <!-- Templates -->    
-    <script id="tasksListTemplate" type="text/x-kendo-template">
-        # if (typeof isAdded !== 'undefined') { #
-            # if (isAdded) { #
-                <a class="details-link" style="color: darkred; font-style: italic;" data-role="listview-link" href="\#todoDetailsPage?id=#:id#">#= title#</a>
-            # } #
-        # } else { #
-            <a class="details-link" data-role="listview-link" href="\#todoDetailsPage?id=#:id#">#= title#</a>
-        # } #
-        
-	    <a data-role="detailbutton" data-style="rowdelete" data-bind="events:{click: removeTodo}"></a>
-    </script>
-
-    <script id="idpListTemplate" type="text/x-kendo-template">
-        <img src="${imageUrl}" style="border: 50px; width: 60px" align="middle"/>
-        <a onclick="acsViewModel.openAuthWindow('${loginUrl}')">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${name}</a>
-	</script>
-
     <!-- Start page -->
 	<div id="startPage" data-role="view" data-title="tUdUs" data-model="startViewModel" data-layout="defaultLayout">
 		<header data-role="header">

@@ -1,5 +1,5 @@
-﻿//var servicesBaseUrl = "../../";
-var servicesBaseUrl = "http://tttodos.azurewebsites.net/";
+﻿var servicesBaseUrl = "../../";
+//var servicesBaseUrl = "http://tttodos.azurewebsites.net/";
 
 var endpoints = {
     ServiceEndpointUrl: servicesBaseUrl + "api/todos/",

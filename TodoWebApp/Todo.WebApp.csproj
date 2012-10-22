@@ -228,7 +228,6 @@
     <Content Include="www\js\libs\jquery-ajax-retry.js" />
     <Content Include="www\js\libs\jquery_notification_v.1.js" />
     <Content Include="www\js\libs\require.js" />
-    <Content Include="www\js\main.js" />
     <Content Include="www\styles\jquery_notification.css" />
     <Content Include="www\styles\kendo.dataviz.min.css" />
     <Content Include="www\templates\idpList.tmpl.html" />
