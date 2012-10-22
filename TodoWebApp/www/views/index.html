@@ -20,10 +20,10 @@
     
     <script>
     if (navigator.userAgent.toLowerCase().match(/android/)) {
-        document.write('<script charset="utf-8" src="../js/libs/cordova.js"><\/script>');
+        document.write('<script charset="utf-8" src="../js/libs/cordova-android.js"><\/script>');
     }
     else if (navigator.userAgent.toLowerCase().match(/iphone/) || navigator.userAgent.toLowerCase().match(/ipad/)) {
-        document.write('<script charset="utf-8" src="../js/libs/cordova.js"><\/script>');
+        document.write('<script charset="utf-8" src="../js/libs/cordova-ios.js"><\/script>');
     } else {
         document.write('<script charset="utf-8" src="../js/libs/cordova.js"><\/script>');
     }
@@ -106,8 +106,7 @@
 		</footer>
     </div>
 
-    <!-- Global modal views/dialogs -->
-	<!-- Login dialog -->
+    <!-- Login dialog -->
 	<div data-role="modalview" id="loginDialog" style="width: 95%; height: 50%;" data-model="authenticationViewModel">
 		<div data-role="header">
 			<div data-role="navbar">
