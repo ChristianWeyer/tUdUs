@@ -30,11 +30,4 @@
 		<nature>com.android.ide.eclipse.adt.AndroidNature</nature>
 		<nature>org.eclipse.jdt.core.javanature</nature>
 	</natures>
-	<linkedResources>
-		<link>
-			<name>assets/www</name>
-			<type>2</type>
-			<location>/Users/christian/tUdUs/TodoWebApp/www</location>
-		</link>
-	</linkedResources>
 </projectDescription>
