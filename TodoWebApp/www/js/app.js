@@ -2,8 +2,8 @@
     $.when(kendoTools.templateLoader.loadExternalTemplate("../templates/tasksList.tmpl.html"),
         kendoTools.templateLoader.loadExternalTemplate("../templates/idpList.tmpl.html"))
         .then(
-            function (data) {
-                todosApp.init();
+            function () {
+                document.addEventListener("deviceready", todosApp.deviceready, false);                
             },
             function (error) {
                 alert(JSON.stringify(error));
@@ -11,9 +11,11 @@
     );
 });
 
-todosApp.init = function () {
-    document.addEventListener("deviceready", todosApp.deviceready, false);
+todosApp.deviceready = function () {
+    todosApp.init();
+};
 
+todosApp.init = function () {
     window.kendoMobileApplication = new kendo.mobile.Application($(document.body), {
         transition: 'slide',
         hideAddressBar: true
@@ -25,10 +27,6 @@ todosApp.init = function () {
     if (!navigator.onLine) {
         todosApp.appOffline();
     }
-};
-
-todosApp.deviceready = function () {
-    // Code from above should go here for real device app: detect PG?
 };
 
 todosApp.appOnline = function () {
