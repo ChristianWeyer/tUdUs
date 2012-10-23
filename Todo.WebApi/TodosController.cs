@@ -8,11 +8,18 @@ using Todo.Contracts;
 using Todo.Entities;
 
 namespace Todo.WebApi
-{    
+{
+    /// <summary>
+    /// The controller for TODO items.
+    /// </summary>
     public class TodosController : HubApiController<TodosHub>
     {
-        private IGenericRepository<TodoItem> repository;
+        private readonly IGenericRepository<TodoItem> repository;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="TodosController" /> class.
+        /// </summary>
+        /// <param name="repository">The repository.</param>
         public TodosController(IGenericRepository<TodoItem> repository)
         {            
             this.repository = repository;            

@@ -133,7 +133,7 @@
                     type: httpVerbs.GET,
                     dataType: dataTypes.JSON,
                     beforeSend: function (xhr) { beforeSend(xhr); },
-                    timeout: 8000,
+                    timeout: 10000,
                     maxTries: 3,
                     retryCodes: [500]
                 })

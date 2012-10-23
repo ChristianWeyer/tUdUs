@@ -2,8 +2,6 @@
 using System.Web.Http;
 using SignalR;
 using SignalR.Hubs;
-using System.Threading.Tasks;
-using System.Collections.Generic;
 using System.Net.Http.Formatting;
 
 namespace Todo.Base

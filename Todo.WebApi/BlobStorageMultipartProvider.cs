@@ -6,10 +6,17 @@ using Microsoft.WindowsAzure.StorageClient;
 
 namespace Todo.WebApi
 {
+    /// <summary>
+    /// A multi-part file stream provider to upload files to Windows Azure Blob Storage.
+    /// </summary>
     public class BlobStorageMultipartProvider : MultipartFileStreamProvider
     {
-        private CloudBlobContainer container;
+        private readonly CloudBlobContainer container;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="BlobStorageMultipartProvider" /> class.
+        /// </summary>
+        /// <param name="container">The container.</param>
         public BlobStorageMultipartProvider(CloudBlobContainer container)
             : base(Path.GetTempPath())
         {
@@ -17,8 +24,14 @@ namespace Todo.WebApi
             Files = new List<FileDetails>();
         }
 
+        /// <summary>
+        /// Gets or sets the files.
+        /// </summary>
+        /// <value>
+        /// The files.
+        /// </value>
         public List<FileDetails> Files { get; set; }
-
+        
         public override Task ExecutePostProcessingAsync()
         {
             foreach (var fileData in FileData)
@@ -28,6 +41,7 @@ namespace Todo.WebApi
                 var blob = container.GetBlobReference(fileName);
                 blob.Properties.ContentType = fileData.Headers.ContentType.MediaType;
                 blob.UploadFile(fileData.LocalFileName);
+
                 File.Delete(fileData.LocalFileName);
                 Files.Add(new FileDetails
                 {

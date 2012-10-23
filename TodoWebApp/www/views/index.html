@@ -63,64 +63,72 @@
     <script src="../js/viewmodels/acsViewModel.js" type="text/javascript"></script>
     <script src="../js/viewmodels/settingsViewModel.js" type="text/javascript"></script>
 </head>
-<body>
-    <!-- Start page -->
-	<div id="startPage" data-role="view" data-title="tUdUs" data-model="startViewModel" data-layout="defaultLayout">
-		<header data-role="header">
-			<div data-role="navbar">
-				<span data-role="view-title"></span>
-			</div>
-		</header>
-        <img src="../images/Wooden_Todo_256x256.png" alt="tUdUs" />
-		<a data-role="button" id="openLoginButton" data-bind="click: openLoginView">Login</a>
-	</div>
-
-    <!-- Layouts -->
-    <div data-role="layout" data-id="defaultLayout">
-        <footer data-role="footer">
-			<div data-role="tabstrip" id="navigationTabStrip">
-				<a data-icon="home" href="index.html">Home</a>
-			    <a data-icon="bookmarks" href="items.html">Items</a>
-			    <a data-icon="recents" href="stats.html">Stats</a>
-                <a data-icon="settings" href="settings.html">Settings</a>
-				<a data-icon="info" href="info.html">Info</a>
-			</div>
-		</footer>
-    </div>
-
-    <!-- Login dialog -->
-	<div data-role="modalview" id="loginDialog" style="width: 95%; height: 50%;" data-model="authenticationViewModel">
-		<div data-role="header">
-			<div data-role="navbar">
-				<span data-role="view-title">User Login</span>
-				<a data-bind="click: closeLoginDialog" data-role="button" data-align="right">Cancel</a>
-			</div>
-		</div>
-		<ul data-role="listview" data-style="inset">
-			<li>
-				<label for="username">Username:</label>
-				<input data-bind="value: userName" type="text" id="username" /></li>
-			<li>
-				<label for="password">Password:</label>
-				<input data-bind="value: password" type="password" id="password" /></li>
-		</ul>
-		<a data-bind="click: doLogin" id="loginButton" data-role="button" data-align="right">Login</a>
-	</div>
-
-	<!-- Error dialog -->
-    <div data-role="modalview" id="errorDialog" style="width: 85%; height: 40%;" data-model="errorViewModel">
-        <div data-role="header">
-            <div data-role="navbar">
-                <span data-role="view-title">Error</span>
-                <a data-bind="click: closeErrorDialog" data-role="button" data-align="right">X</a>
+    <body>
+        <!--   
+        <div id="preLoad">
+            <div>
+                <img src="../images/loading-image.gif" alt="Loading Image" style="width:48px;" />
+                <br />Loading...
             </div>
+        </div>-->
+
+        <!-- Start page -->
+        <div id="startPage" data-role="view" data-title="tUdUs" data-model="startViewModel" data-layout="defaultLayout">
+            <header data-role="header">
+                <div data-role="navbar">
+                    <span data-role="view-title"></span>
+                </div>
+            </header>
+            <img src="../images/Wooden_Todo_256x256.png" alt="tUdUs" />
+            <a data-role="button" id="openLoginButton" data-bind="click: openLoginView">Login</a>
         </div>
-        <ul data-role="listview" id="errorText">
-            <li><span data-bind="text: message">Error.</span></li>
-        </ul>
-        <p>
-            <a data-role="button" type="button" id="commonErrorButton" data-bind="click: closeErrorDialog">OK</a>
-        </p>
-    </div>        
-</body>
+
+        <!-- Layouts -->
+        <div data-role="layout" data-id="defaultLayout">
+            <footer data-role="footer">
+                <div data-role="tabstrip" id="navigationTabStrip">
+                    <a data-icon="home" href="index.html">Home</a>
+                    <a data-icon="bookmarks" href="items.html">Items</a>
+                    <a data-icon="recents" href="stats.html">Stats</a>
+                    <a data-icon="settings" href="settings.html">Settings</a>
+                    <a data-icon="info" href="info.html">Info</a>
+                </div>
+            </footer>
+        </div>
+
+        <!-- Login dialog -->
+        <div data-role="modalview" id="loginDialog" style="width: 95%; height: 50%;" data-model="authenticationViewModel">
+            <div data-role="header">
+                <div data-role="navbar">
+                    <span data-role="view-title">User Login</span>
+                    <a data-bind="click: closeLoginDialog" data-role="button" data-align="right">Cancel</a>
+                </div>
+            </div>
+            <ul data-role="listview" data-style="inset">
+                <li>
+                    <label for="username">Username:</label>
+                    <input data-bind="value: userName" type="text" id="username" /></li>
+                <li>
+                    <label for="password">Password:</label>
+                    <input data-bind="value: password" type="password" id="password" /></li>
+            </ul>
+            <a data-bind="click: doLogin" id="loginButton" data-role="button" data-align="right">Login</a>
+        </div>
+
+        <!-- Error dialog -->
+        <div data-role="modalview" id="errorDialog" style="width: 85%; height: 40%;" data-model="errorViewModel">
+            <div data-role="header">
+                <div data-role="navbar">
+                    <span data-role="view-title">Error</span>
+                    <a data-bind="click: closeErrorDialog" data-role="button" data-align="right">X</a>
+                </div>
+            </div>
+            <ul data-role="listview" id="errorText">
+                <li><span data-bind="text: message">Error.</span></li>
+            </ul>
+            <p>
+                <a data-role="button" type="button" id="commonErrorButton" data-bind="click: closeErrorDialog">OK</a>
+            </p>
+        </div>        
+    </body>
 </html>

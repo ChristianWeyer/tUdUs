@@ -19,9 +19,18 @@ using Thinktecture.IdentityModel.Tokens;
 
 namespace Todo.WebApi
 {
+    /// <summary>
+    /// Controller for interacting with Windows Azure ACS via WS-Federation.
+    /// </summary>
     [AllowAnonymous]
     public class AcsController : ApiController
     {
+        /// <summary>
+        /// Gets the IdP list from ACS.
+        /// </summary>
+        /// <param name="ns">The ACS namespace.</param>
+        /// <param name="realm">The realm.</param>
+        /// <returns></returns>
         [HttpGet]
         public Task<List<IdentityProviderInformation>> GetIdps(string ns, string realm)
         {
@@ -34,6 +43,10 @@ namespace Todo.WebApi
             });
         }
 
+        /// <summary>
+        /// Endpoint where ACS posts the token to.
+        /// </summary>
+        /// <returns></returns>
         [HttpPost]
         public HttpResponseMessage Token()
         {
@@ -57,6 +70,10 @@ namespace Todo.WebApi
             return responseMessage;
         }
 
+        /// <summary>
+        /// No-op action.
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
         public HttpResponseMessage Noop()
         {

@@ -203,6 +203,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="www\images\loading-image.gif" />
     <Content Include="www\views\index_old.html" />
     <Content Include="www\views\info.html" />
     <Content Include="www\views\settings.html" />
