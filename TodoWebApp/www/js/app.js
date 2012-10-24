@@ -1,22 +1,19 @@
 ﻿$(function () {
-    //$(document).bind("APP_READY", function () {
-    //    $("#preLoad").css("opacity", "0").css("visibility", "hidden");
-    //});
-    
-    //todosApp.init();
-    document.addEventListener("deviceready", todosApp.deviceready, false);
-  
-//    $.when(kendoTools.templateLoader.loadExternalTemplate("../templates/tasksList.tmpl.html"),
-//        kendoTools.templateLoader.loadExternalTemplate("../templates/idpList.tmpl.html"))
-//        .then(
-//            function () {
-//                //document.addEventListener("deviceready", todosApp.deviceready, false);
-//                todosApp.init();
-//            },
-//            function (error) {
-//                alert(JSON.stringify(error));
-//            }
-//    );
+    $(document).bind("APP_READY", function () {
+        $("#preLoad").css("opacity", "0").css("visibility", "hidden");
+    });
+
+    $.when(kendoTools.templateLoader.loadExternalTemplate("../templates/tasksList.tmpl.html"),
+        kendoTools.templateLoader.loadExternalTemplate("../templates/idpList.tmpl.html"))
+        .then(
+            function () {
+                //document.addEventListener("deviceready", todosApp.deviceready, false);
+                todosApp.init();
+            },
+            function (error) {
+                alert(JSON.stringify(error));
+            }
+    );
 });
 
 todosApp.deviceready = function () {
@@ -33,7 +30,7 @@ todosApp.init = function () {
     window.addEventListener("offline", todosApp.appOffline, false);
 
     $(document).trigger("APP_READY");
-    
+
     if (!navigator.onLine) {
         todosApp.appOffline();
     }
