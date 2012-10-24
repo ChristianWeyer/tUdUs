@@ -7,8 +7,8 @@
         kendoTools.templateLoader.loadExternalTemplate("../templates/idpList.tmpl.html"))
         .then(
             function () {
-                //document.addEventListener("deviceready", todosApp.deviceready, false);
-                todosApp.init();
+                document.addEventListener("deviceready", todosApp.deviceready, false);
+                //todosApp.init();
             },
             function (error) {
                 alert(JSON.stringify(error));
