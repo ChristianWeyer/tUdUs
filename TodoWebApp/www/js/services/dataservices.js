@@ -62,13 +62,13 @@
     function getLocal() {
         return $.Deferred(function (deferred) {
             var data = amplify.store.sessionStorage(localStorageKeys.TodosList);
-            
+
             deferred.resolve(data);
         }).promise();
     }
-    
+
     function saveLocal(item) {
-        return $.Deferred(function (deferred) {            
+        return $.Deferred(function (deferred) {
             item.isAdded = true;
             var data = amplify.store.sessionStorage(localStorageKeys.TodosList);
             data.push(item);
@@ -86,13 +86,13 @@
             var oldItem = _.find(data, function (t) { return t.id === item.id; });
             var index = _.indexOf(data, oldItem);
             data.splice(index, 1, item);
-            
+
             amplify.store.sessionStorage(localStorageKeys.TodosList, data);
 
             deferred.resolve(item);
         }).promise();
     }
-    
+
     function deleteLocal(id) {
         return $.Deferred(function (deferred) {
             item.isDeleted = true;
@@ -106,7 +106,7 @@
             deferred.resolve();
         }).promise();
     }
-    
+
     return {
         callLoginPing: function (un, pw) {
             return $.ajax({
@@ -149,7 +149,7 @@
             }
         },
 
-        saveTodo: function (item) {                        
+        saveTodo: function (item) {
             if (!navigator.onLine) {
                 return saveLocal(item);
             }
@@ -161,10 +161,10 @@
                     data: item,
                     beforeSend: function (xhr) { beforeSend(xhr); }
                 })
-                    .always(function() {
+                    .always(function () {
                         todosApp.Views.hideLoader();
                     })
-                    .fail(function(error) {
+                    .fail(function (error) {
                         handleServiceError(error);
                     });
             }
@@ -181,10 +181,10 @@
                     dataType: dataTypes.JSON,
                     beforeSend: function (xhr) { beforeSend(xhr); }
                 })
-                    .always(function() {
+                    .always(function () {
                         todosApp.Views.hideLoader();
                     })
-                    .fail(function(error) {
+                    .fail(function (error) {
                         handleServiceError(error);
                     });
             }
@@ -202,37 +202,39 @@
                     data: item,
                     beforeSend: function (xhr) { beforeSend(xhr); }
                 })
-                    .always(function() {
+                    .always(function () {
                         todosApp.Views.hideLoader();
                     })
-                    .fail(function(error) {
+                    .fail(function (error) {
                         handleServiceError(error);
                     });
             }
         },
-        
+
         sync: function () {
             todosApp.Views.showLoader("Syncing...");
 
-            // TODO: check whether there is actually anything to sync
-            
-            $.each(amplify.store.sessionStorage(localStorageKeys.TodosList), function (i, item) {
-                if (item.isDeleted) {
-                    dataservices.deleteTodo(item.id).done(function () { });
-                }
-                if (item.isAdded) {
-                    // TODO: implement picture upload
-                    dataservices.saveTodo(item).done(function () { });
-                }
-                if (item.isUpdated) {
-                    dataservices.updateTodo(item).done(function () { });
-                }
-            });
+            var items = amplify.store.sessionStorage(localStorageKeys.TodosList);
 
-            // TODO: delete local items. Use $.map(...) above
-            
-            // NOTE: this does not feel right...
-            todosViewModel.loadTodos();
+            if (items !== null) {
+                $.each(items, function (i, item) {
+                    if (item.isDeleted) {
+                        dataservices.deleteTodo(item.id).done(function () { });
+                    }
+                    if (item.isAdded) {
+                        // TODO: implement picture upload
+                        dataservices.saveTodo(item).done(function () { });
+                    }
+                    if (item.isUpdated) {
+                        dataservices.updateTodo(item).done(function () { });
+                    }
+                });
+
+                amplify.store.sessionStorage(localStorageKeys.TodosList, null);
+                
+                // NOTE: this does not feel right...
+                todosViewModel.loadTodos();
+            }
 
             todosApp.Views.hideLoader();
         }
