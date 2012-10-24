@@ -3,19 +3,20 @@
     //    $("#preLoad").css("opacity", "0").css("visibility", "hidden");
     //});
     
-    //setTimeout(todosApp.init, 5000);
-    
-    $.when(kendoTools.templateLoader.loadExternalTemplate("../templates/tasksList.tmpl.html"),
-        kendoTools.templateLoader.loadExternalTemplate("../templates/idpList.tmpl.html"))
-        .then(
-            function () {
-                //document.addEventListener("deviceready", todosApp.deviceready, false);
-                todosApp.init();
-            },
-            function (error) {
-                alert(JSON.stringify(error));
-            }
-    );
+    //todosApp.init();
+    document.addEventListener("deviceready", todosApp.deviceready, false);
+  
+//    $.when(kendoTools.templateLoader.loadExternalTemplate("../templates/tasksList.tmpl.html"),
+//        kendoTools.templateLoader.loadExternalTemplate("../templates/idpList.tmpl.html"))
+//        .then(
+//            function () {
+//                //document.addEventListener("deviceready", todosApp.deviceready, false);
+//                todosApp.init();
+//            },
+//            function (error) {
+//                alert(JSON.stringify(error));
+//            }
+//    );
 });
 
 todosApp.deviceready = function () {

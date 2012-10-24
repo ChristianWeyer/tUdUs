@@ -71,14 +71,14 @@ var ChildBrowser = (function (gap) {
             options = { showLocationBar: true };
         }
 
-        gap.exec(onEvent, onError, "ChildBrowser", "showWebPage", [url, options]);
+        cordova.exec(onEvent, onError, "ChildBrowser", "showWebPage", [url, options]);
     };
 
     /**
      * Close the browser opened by showWebPage.
      */
     ChildBrowser.close = function () {
-        gap.exec(null, null, "ChildBrowser", "close", []);
+        cordova.exec(null, null, "ChildBrowser", "close", []);
     };
 
     /**
@@ -92,16 +92,16 @@ var ChildBrowser = (function (gap) {
         if (usePhoneGap) {
             navigator.app.loadUrl(url);
         } else {
-            gap.exec(null, null, "ChildBrowser", "openExternal", [url, usePhoneGap]);
+            cordova.exec(null, null, "ChildBrowser", "openExternal", [url, usePhoneGap]);
         }
     };
 
     /**
      * Load ChildBrowser
      */
-    gap.addConstructor(function () {
-        if (gap.addPlugin) {
-            gap.addPlugin("childBrowser", ChildBrowser);
+    cordova.addConstructor(function () {
+        if (cordova.addPlugin) {
+            cordova.addPlugin("childBrowser", ChildBrowser);
         } else {
             if (!window.plugins) {
                 window.plugins = {};
