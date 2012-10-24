@@ -43,7 +43,7 @@ todosApp.Views.addTodoPageShow = function (e) {
 todosApp.Views.beforePageShow = function (e) {
     if (!authenticationViewModel.authenticated) {
         e.preventDefault();
-        window.kendoMobileApplication.navigate("index.html#loginDialog");
+        window.kendoMobileApplication.navigate("#loginDialog");
         $("#navigationTabStrip").data("kendoMobileTabStrip").switchTo("index.html");
     }
 };

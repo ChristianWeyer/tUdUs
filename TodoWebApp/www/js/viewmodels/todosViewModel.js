@@ -10,7 +10,7 @@
     },
 
     navigateAddTodo: function () {        
-        window.kendoMobileApplication.navigate("items.html#addTodoPage");
+        window.kendoMobileApplication.navigate("#addTodoPage");
     },
 
     addLocalItem: function (item) {

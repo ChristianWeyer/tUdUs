@@ -1,4 +1,4 @@
-﻿var acsViewModel = kendo.observable({
+var acsViewModel = kendo.observable({
     idpsSource: new kendo.data.DataSource(),
 
     getIdps: function () {
@@ -31,7 +31,7 @@
     },
 
     onAuthUrlChange: function (url) {
-        if (url.indexOf("acs/noop") !== -1) {
+        if (url.toLowerCase().indexOf("acs/noop") !== -1) {
             var params = $.deparam.querystring(url);
             var t = params.access_token;
 

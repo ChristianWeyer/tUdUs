@@ -24,6 +24,8 @@
 	<true/>
 	<key>ExternalHosts</key>
 	<array>
+		<string>https://secure.shared.live.com</string>
+		<string>https://login.live.com</string>
 		<string>http://maps.googleapis.com</string>
 		<string>http://maps.gstatic.com</string>
 		<string>http://tttodos.azurewebsites.net</string>

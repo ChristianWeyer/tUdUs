@@ -49,7 +49,7 @@
                 self.set("details", "");
                 self.set("pictureUrl", images.DefaultItemPicture);
 
-                window.kendoMobileApplication.navigate("items.html#todosPage");
+                window.kendoMobileApplication.navigate("#todosPage");
                 $("#navigationTabStrip").data("kendoMobileTabStrip").switchTo("items.html");
             });
     }
