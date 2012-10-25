@@ -1,4 +1,11 @@
-<script type="text/x-kendo-template" id="tasksListTemplate">
-	<a data-align="left" data-bind="events:{touchend: navigateTodoDetails}">${title}</a>
-	<a data-role="detailbutton" data-style="rowdelete" data-bind="events:{click: removeTodo}"></a>
+<script id="tasksListTemplate" type="text/x-kendo-template">
+    # if (typeof isAdded !== 'undefined') { #
+        # if (isAdded) { #
+            <a class="details-link" style="color: darkred; font-style: italic;" data-role="listview-link" href="\#todoDetailsPage?id=#:id#">#= title#</a>
+            # } #
+        # } else { #
+            <a class="details-link" data-role="listview-link" href="\#todoDetailsPage?id=#:id#">#= title#</a>
+            # } #
+    
+    <a data-role="detailbutton" data-style="rowdelete" data-bind="events:{click: removeTodo}"></a>
 </script>

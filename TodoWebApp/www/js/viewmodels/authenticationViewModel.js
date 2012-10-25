@@ -1,4 +1,4 @@
-﻿var authenticationViewModel = kendo.observable({
+var authenticationViewModel = kendo.observable({
     userName: "",
     password: "",
     authenticated: false,

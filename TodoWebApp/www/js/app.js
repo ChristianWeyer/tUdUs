@@ -1,5 +1,8 @@
 ﻿$(function () {
-    $(document).bind("APP_READY", function () {
+  // for debugging - to attach the remote web inspector
+  setTimeout();
+  
+  $(document).bind("APP_READY", function () {
         $("#preLoad").css("opacity", "0").css("visibility", "hidden");
     });
 
