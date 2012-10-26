@@ -1,4 +1,4 @@
-﻿$(function () {
+$(function () {
   $(document).bind("APP_READY", function () {
         $("#preLoad").css("opacity", "0").css("visibility", "hidden");
     });
@@ -21,6 +21,8 @@ todosApp.deviceready = function () {
 };
 
 todosApp.init = function () {
+    cordova.exec(null, null, "PixAuth","loginWithBadCert",["https://vs2012devwin8"]);
+    
     window.kendoMobileApplication = new kendo.mobile.Application($(document.body), {
         transition: 'slide',
         hideAddressBar: true

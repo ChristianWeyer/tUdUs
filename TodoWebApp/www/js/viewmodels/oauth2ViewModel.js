@@ -6,7 +6,7 @@ var oauth2ViewModel = kendo.observable({
     },
 
     onAuthUrlChange: function (url) {
-        if (url.toLowerCase().indexOf("urn:ietf:wg:oauth:2.0:oob") !== -1) {
+        if (url.toLowerCase().indexOf("http://localhost/tudus_redirect") !== -1) {
             var params = $.deparam.querystring(url);
             var t = params.access_token;
 

@@ -8,7 +8,8 @@
             $('#loginDialog').data("kendoMobileModalView").open();
         }
         else {
-            oauth2ViewModel.openAuthWindow("https://vs2012devwin8/idsrv/issue/oauth2/authorize?client_id=tt_tudus&scope=http%3A%2F%2Ftt.com%2Fmobile%2Ftodos&response_type=token&redirect_uri=urn%3Aietf%3Awg%3Aoauth%3A2.0%3Aoob");
+            // temp hack
+            oauth2ViewModel.openAuthWindow(endpoints.IdpOauthEndpointUrl);
         }
     }
 });

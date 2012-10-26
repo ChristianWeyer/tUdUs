@@ -1,5 +1,5 @@
-var servicesBaseUrl = "../../";
-//var servicesBaseUrl = "http://tttodos.azurewebsites.net/";
+//var servicesBaseUrl = "../../";
+var servicesBaseUrl = "http://tttodos.azurewebsites.net/";
 
 var endpoints = {
     ServiceEndpointUrl: servicesBaseUrl + "api/todos/",
@@ -7,6 +7,7 @@ var endpoints = {
     PicturesEndpointUrl: servicesBaseUrl + "api/pictures/",
     SignalREndpoint: servicesBaseUrl + "signalr",
     AcsIdpsEndpoint: servicesBaseUrl + "api/acs/getidps?ns=tttodos&realm=http%3A%2F%2Ftt.com%2Fmobile%2Ftodos",
+IdpOauthEndpointUrl: "https://vs2012devwin8/idsrv/issue/oauth2/authorize?client_id=tt_tudus&scope=http%3A%2F%2Ftt.com%2Fmobile%2Ftodos&response_type=token&redirect_uri=http%3A%2F%2Flocalhost%2Ftudus_redirect"
 };
 
 var authenticationModes = {

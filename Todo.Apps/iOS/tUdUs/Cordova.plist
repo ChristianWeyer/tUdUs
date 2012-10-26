@@ -24,6 +24,9 @@
 	<true/>
 	<key>ExternalHosts</key>
 	<array>
+		<string>http://localhost</string>
+		<string>https://vs2012devwin8</string>
+		<string>https://vs2012devwin8:8888</string>
 		<string>https://secure.shared.live.com</string>
 		<string>https://login.live.com</string>
 		<string>http://*.googleapis.com</string>
@@ -35,6 +38,8 @@
 	</array>
 	<key>Plugins</key>
 	<dict>
+		<key>PixAuth</key>
+		<string>PixAuth</string>
 		<key>ChildBrowser</key>
 		<string>ChildBrowserCommand</string>
 		<key>Device</key>
