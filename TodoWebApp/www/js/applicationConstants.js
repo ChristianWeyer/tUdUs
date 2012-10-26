@@ -1,5 +1,5 @@
-//var servicesBaseUrl = "../../";
-var servicesBaseUrl = "http://tttodos.azurewebsites.net/";
+var servicesBaseUrl = "../../";
+//var servicesBaseUrl = "http://tttodos.azurewebsites.net/";
 
 var endpoints = {
     ServiceEndpointUrl: servicesBaseUrl + "api/todos/",
@@ -11,7 +11,8 @@ var endpoints = {
 
 var authenticationModes = {
     Basic: "Basic",
-    ACS: "ACS"
+    ACS: "ACS",
+    IdSrv: "IdSrv"
 };
 
 var localStorageKeys = {
