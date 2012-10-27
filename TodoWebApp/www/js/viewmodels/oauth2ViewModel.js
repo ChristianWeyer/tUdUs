@@ -6,10 +6,13 @@ var oauth2ViewModel = kendo.observable({
     },
 
     onAuthUrlChange: function (url) {
-        if (url.toLowerCase().indexOf("http://localhost/tudus_redirect") !== -1) {
-            var params = $.deparam.querystring(url);
-            var t = params.access_token;
-
+                              
+        if (url.toLowerCase().indexOf(oAuthRedirectUrl) !== -1) {
+            var params = $.deparam.fragment(url);
+            var t = params[oAuthRedirectUrl + "#access_token"];
+            
+            alert(t);
+                                       
             todosViewModel.todosSource.data([]);
             todosViewModel.currentItem = {};
             

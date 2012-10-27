@@ -21,7 +21,9 @@ todosApp.deviceready = function () {
 };
 
 todosApp.init = function () {
+    // for debugging only
     cordova.exec(null, null, "PixAuth","loginWithBadCert",["https://vs2012devwin8"]);
+    cordova.exec(null, null, "PixAuth","loginWithBadCert",["https://vs2012devwin8:8888"]);
     
     window.kendoMobileApplication = new kendo.mobile.Application($(document.body), {
         transition: 'slide',
