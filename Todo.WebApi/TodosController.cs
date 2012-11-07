@@ -65,7 +65,7 @@ namespace Todo.WebApi
             
             var newItem = repository.Insert(itemEntity);
             
-            Hub.Clients.itemAdded(ConnectionId, item);
+            Hub.Clients.All.itemAdded(ConnectionId, item);
 
             return newItem.Map();
         }
@@ -80,7 +80,7 @@ namespace Todo.WebApi
             try
             {
                 var updatedItem = repository.Update(item.Map());
-                Hub.Clients.itemUpdated(ConnectionId, item);
+                Hub.Clients.All.itemUpdated(ConnectionId, item);
     
                 return updatedItem.Map();
             }
@@ -100,7 +100,7 @@ namespace Todo.WebApi
             try
             {
                 repository.Delete(new TodoItem { Id = id });
-                Hub.Clients.itemDeleted(ConnectionId, id);
+                Hub.Clients.All.itemDeleted(ConnectionId, id);
             }
             catch (DbUpdateException)
             {

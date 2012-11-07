@@ -7,8 +7,8 @@ $(function () {
         kendoTools.templateLoader.loadExternalTemplate("../templates/idpList.tmpl.html"))
         .then(
             function () {
-                document.addEventListener("deviceready", todosApp.deviceready, false);
-                //todosApp.init();
+                //document.addEventListener("deviceready", todosApp.deviceready, false);
+                todosApp.init();
             },
             function (error) {
                 alert(JSON.stringify(error));
@@ -22,8 +22,8 @@ todosApp.deviceready = function () {
 
 todosApp.init = function () {
     // for debugging only
-    cordova.exec(null, null, "PixAuth","loginWithBadCert",["https://vs2012devwin8"]);
-    cordova.exec(null, null, "PixAuth","loginWithBadCert",["https://vs2012devwin8:8888"]);
+    //cordova.exec(null, null, "PixAuth","loginWithBadCert",["https://vs2012devwin8"]);
+    //cordova.exec(null, null, "PixAuth","loginWithBadCert",["https://vs2012devwin8:8888"]);
     
     window.kendoMobileApplication = new kendo.mobile.Application($(document.body), {
         transition: 'slide',

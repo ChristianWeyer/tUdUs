@@ -60,7 +60,6 @@ todosApp.Views.createMap = function (lat, lng, element) {
 };
 
 todosApp.Views.graphInit = function() {
-    setTimeout(function() {
         $("#chart").kendoChart({
             title: {
                 text: "Items (total) - fake"
@@ -74,7 +73,18 @@ todosApp.Views.graphInit = function() {
                 categories: [2009, 2010, 2011, 2012]
             }
         });
-    }, 400);
+    
+    $(window).resize(function () {
+        todosApp.Views.resizeChart();
+    });
+};
+
+todosApp.Views.resizeChart = function() {
+    //$("#chart").height($("#statsPage").height());
+    $("#chart").width($("#statsPage").width());
+
+    var chart = $("#chart").data("kendoChart");
+    chart.redraw();
 };
 
 todosApp.Views.loaderElement = {};

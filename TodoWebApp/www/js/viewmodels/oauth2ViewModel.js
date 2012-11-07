@@ -1,32 +1,44 @@
 var oauth2ViewModel = kendo.observable({
-
-    openAuthWindow: function (url) {
-        window.plugins.childBrowser.showWebPage(url, { showLocationBar: true });
-        window.plugins.childBrowser.onLocationChange = this.onAuthUrlChange;
+    token: "",
+    
+    openAuthWindow: function () {
+        var url = endpoints.IdpOauthEndpointUrl + "?" + $.param(oAuthConfig);
+        
+        if(window.plugins && window.plugins.childBrowser) {
+            window.plugins.childBrowser.showWebPage(url, { showLocationBar: true });
+            window.plugins.childBrowser.onLocationChange = this.onAuthUrlChange;
+        } else {
+            window.open(url, "Login", 'height=500,width=350');
+        }
     },
 
-    onAuthUrlChange: function (url) {
-                              
-        if (url.toLowerCase().indexOf(oAuthRedirectUrl) !== -1) {
+    authCallback: function (params) {
+        oauth2ViewModel.token = params["access_token"];
+
+        oauth2ViewModel.process();
+    },
+    
+    onAuthUrlChange: function (url) {                              
+        if (url.toLowerCase().indexOf(oAuthConfig.redirect_uri) !== -1) {
             var params = $.deparam.fragment(url);
-            var t = params[oAuthRedirectUrl + "#access_token"];
-            
-            alert(t);
-                                       
-            todosViewModel.todosSource.data([]);
-            todosViewModel.currentItem = {};
-            
-            amplify.store.sessionStorage(localStorageKeys.AuthenticationToken, t);
-            authenticationViewModel.authenticated = true;
-
-            notificationservice.register();
-
+            oauth2ViewModel.token = params[oAuthConfig.redirect_uri + "#access_token"];
             window.plugins.childBrowser.close();
-            
-            window.kendoMobileApplication.navigate("items.html#todosPage");
-            $("#navigationTabStrip").data("kendoMobileTabStrip").switchTo("items.html");
-            
-            Notifier.success("Authenticated", "Success");
+
+            oauth2ViewModel.process();
         }
+    },
+    
+    process: function() {
+        todosViewModel.todosSource.data([]);
+        todosViewModel.currentItem = {};
+
+        amplify.store.sessionStorage(localStorageKeys.AuthenticationToken, this.token);
+        authenticationViewModel.authenticated = true;
+        notificationservice.register();
+
+        window.kendoMobileApplication.navigate("items.html#todosPage");
+        $("#navigationTabStrip").data("kendoMobileTabStrip").switchTo("items.html");
+
+        Notifier.success("Authenticated", "Success");
     }
 });

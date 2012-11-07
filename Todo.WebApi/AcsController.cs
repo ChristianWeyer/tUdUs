@@ -56,7 +56,7 @@ namespace Todo.WebApi
             //var claimsTransformer = new AcsClaimsAuthenticationManager();
             //icp = claimsTransformer.Authenticate("acsToken", icp);
             
-            var tokenExpiration = Convert.ToInt32(ConfigurationManager.AppSettings["tokenExpirationInMinutes"]);
+            var tokenExpiration = Convert.ToInt32(ConfigurationManager.AppSettings["acsTokenExpirationInMinutes"]);
 
             var newTokenString = CreateJwtToken(icp, tokenExpiration);
             var newTokenQueryString = BuildQueryStringFromToken(newTokenString, tokenExpiration);
@@ -102,7 +102,7 @@ namespace Todo.WebApi
 
         private static string CreateJwtToken(ClaimsPrincipal icp, int tokenExpiration)
         {
-            var signingKey = ConfigurationManager.AppSettings["signingKey"];
+            var signingKey = ConfigurationManager.AppSettings["acsSigningKey"];
             
 
             var jwtHandler = new JsonWebTokenHandler();
@@ -110,9 +110,9 @@ namespace Todo.WebApi
             {
                 Subject = icp.Identities.First(),
                 SigningCredentials = new HmacSigningCredentials(signingKey),
-                TokenIssuerName = ConfigurationManager.AppSettings["tokenIssuerName"],
+                TokenIssuerName = ConfigurationManager.AppSettings["acsTokenIssuerName"],
                 Lifetime = new Lifetime(DateTime.UtcNow, DateTime.UtcNow.AddMinutes(tokenExpiration)),
-                AppliesToAddress = ConfigurationManager.AppSettings["appliesToAddress"]
+                AppliesToAddress = ConfigurationManager.AppSettings["acsAppliesToAddress"]
             };
 
             var jwtToken = jwtHandler.CreateToken(securityDescriptor);
@@ -148,10 +148,10 @@ namespace Todo.WebApi
         {
             var config = new SecurityTokenHandlerConfiguration();
             config.AudienceRestriction.AudienceMode = AudienceUriMode.Always;
-            config.AudienceRestriction.AllowedAudienceUris.Add(new Uri(ConfigurationManager.AppSettings["appliesToAddress"]));
+            config.AudienceRestriction.AllowedAudienceUris.Add(new Uri(ConfigurationManager.AppSettings["acsAppliesToAddress"]));
 
             var registry = new ConfigurationBasedIssuerNameRegistry();
-            registry.AddTrustedIssuer(ConfigurationManager.AppSettings["trustedIssuerThumbprint"], "ACS");
+            registry.AddTrustedIssuer(ConfigurationManager.AppSettings["acsTrustedIssuerThumbprint"], "ACS");
             config.IssuerNameRegistry = registry;
             config.CertificateValidator = X509CertificateValidator.None;
 

@@ -1,4 +1,4 @@
-﻿using SignalR.Hubs;
+﻿using Microsoft.AspNet.SignalR.Hubs;
 
 namespace Todo.WebApi
 {

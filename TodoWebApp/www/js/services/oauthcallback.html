@@ -1,0 +1,16 @@
+﻿<script src="../libs/jquery-1.7.1.min.js" type="text/javascript"></script>
+<script src="../libs/jquery.ba-bbq.min.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+    //var params = {}, queryString = location.hash.substring(1),
+    //    regex = /([^&=]+)=([^&]*)/g, m;
+
+    //while (m = regex.exec(queryString)) {
+    //    params[decodeURIComponent(m[1])] = decodeURIComponent(m[2]);
+    //}
+    
+    var params = $.deparam.fragment(location.hash.substring(1));
+    
+    window.opener.oAuthCallback(params);
+    window.close();    
+</script>

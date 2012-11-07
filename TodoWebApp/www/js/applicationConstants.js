@@ -1,6 +1,6 @@
-//var servicesBaseUrl = "../../";
+var servicesBaseUrl = "../../";
 //var servicesBaseUrl = "http://tttodos.azurewebsites.net/";
-var servicesBaseUrl = "http://vs2012devwin8/tudus/";
+//var servicesBaseUrl = "http://vs2012devwin8/tudus/";
 
 var endpoints = {
     ServiceEndpointUrl: servicesBaseUrl + "api/todos/",
@@ -8,7 +8,14 @@ var endpoints = {
     PicturesEndpointUrl: servicesBaseUrl + "api/pictures/",
     SignalREndpoint: servicesBaseUrl + "signalr",
     AcsIdpsEndpoint: servicesBaseUrl + "api/acs/getidps?ns=tttodos&realm=http%3A%2F%2Ftt.com%2Fmobile%2Ftodos",
-    IdpOauthEndpointUrl: "https://vs2012devwin8/idsrv/issue/oauth2/authorize?client_id=tt_tudus&scope=http%3A%2F%2Ftt.com%2Fmobile%2Ftodos&response_type=token&redirect_uri=http%3A%2F%2Flocalhost%2Ftudus_redirect"
+    IdpOauthEndpointUrl: "https://localhost/idsrv/issue/oauth2/authorize"
+};
+
+var oAuthConfig = {
+    client_id: "tudus",
+    scope: "http://tt.com/mobile/todos",
+    response_type: "token",
+    redirect_uri: "http://localhost/tudus/www/js/services/oauthcallback.html"
 };
 
 var authenticationModes = {
@@ -16,8 +23,6 @@ var authenticationModes = {
     ACS: "ACS",
     IdSrv: "IdSrv"
 };
-
-var oAuthRedirectUrl = "http://localhost/tudus_redirect";
 
 var localStorageKeys = {
     UserName: "userName",

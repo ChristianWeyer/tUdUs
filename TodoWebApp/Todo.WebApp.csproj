@@ -57,6 +57,17 @@
     <Reference Include="Autofac.Integration.WebApi">
       <HintPath>..\packages\Autofac.WebApi.2.6.2.859\lib\NET40\Autofac.Integration.WebApi.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.AspNet.SignalR.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.SignalR.Core.1.0.0-alpha1\lib\net40\Microsoft.AspNet.SignalR.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.SignalR.Hosting.AspNet">
+      <HintPath>..\packages\Microsoft.AspNet.SignalR.Hosting.AspNet.1.0.0-alpha1\lib\net45\Microsoft.AspNet.SignalR.Hosting.AspNet.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.SignalR.Hosting.Common, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.SignalR.Hosting.Common.1.0.0-alpha1\lib\net40\Microsoft.AspNet.SignalR.Hosting.Common.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Microsoft.Data.Edm, Version=5.0.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -73,15 +84,6 @@
     <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Newtonsoft.Json.4.5.10\lib\net40\Newtonsoft.Json.dll</HintPath>
-    </Reference>
-    <Reference Include="SignalR, Version=0.5.1.10822, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\SignalR.Server.0.5.3\lib\net40\SignalR.dll</HintPath>
-    </Reference>
-    <Reference Include="SignalR.Hosting.AspNet">
-      <HintPath>..\packages\SignalR.Hosting.AspNet.0.5.3\lib\net40\SignalR.Hosting.AspNet.dll</HintPath>
-    </Reference>
-    <Reference Include="SignalR.Hosting.Common, Version=0.5.1.10822, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\SignalR.Hosting.Common.0.5.3\lib\net40\SignalR.Hosting.Common.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -158,10 +160,6 @@
       <HintPath>..\packages\Microsoft.AspNet.Providers.Core.1.1\lib\net40\System.Web.Providers.dll</HintPath>
     </Reference>
     <Reference Include="System.Xml.Linq" />
-    <Reference Include="Thinktecture.IdentityModel, Version=2.1.5.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Thinktecture.IdentityModel.2.1.7\lib\net45\Thinktecture.IdentityModel.dll</HintPath>
-    </Reference>
     <Reference Include="WebGrease">
       <Private>True</Private>
       <HintPath>..\packages\WebGrease.1.1.0\lib\WebGrease.dll</HintPath>
@@ -172,6 +170,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App_Start\RegisterHubs.cs" />
     <Compile Include="App_Start\SecurityConfig.cs" />
     <Compile Include="App_Start\TraceConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
@@ -203,9 +202,11 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="www\js\libs\jquery.signalR-1.0.0-alpha1.js" />
+    <Content Include="www\js\libs\jquery.signalR-1.0.0-alpha1.min.js" />
     <Content Include="www\images\loading-image.gif" />
+    <Content Include="www\js\services\oauthcallback.html" />
     <Content Include="www\js\viewmodels\oauth2ViewModel.js" />
-    <Content Include="www\views\index_old.html" />
     <Content Include="www\views\info.html" />
     <Content Include="www\views\settings.html" />
     <Content Include="www\views\stats.html" />
@@ -267,7 +268,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>signalr.hubs.js</DependentUpon>
     </Content>
-    <Content Include="www\js\libs\jquery.signalR-0.5.3.min.js" />
     <Content Include="www\js\libs\underscore-min.js" />
     <Content Include="www\js\applicationConstants.js" />
     <Content Include="www\js\viewmodels\settingsViewModel.js" />
@@ -327,11 +327,17 @@
     </Content>
     <Content Include="www\js\libs\_references.js" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Scripts\" />
+  </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\Thinktecture.IdentityModel.45\IdentityModel\Thinktecture.IdentityModel\Thinktecture.IdentityModel.45.csproj">
+      <Project>{ac9a74df-4aab-43c8-b0ed-b7602721e545}</Project>
+      <Name>Thinktecture.IdentityModel.45</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Todo.DataAccess\Todo.DataAccess.csproj">
       <Project>{21D64DC8-1B27-4BD6-87B5-9BB8E8F77777}</Project>
       <Name>Todo.DataAccess</Name>

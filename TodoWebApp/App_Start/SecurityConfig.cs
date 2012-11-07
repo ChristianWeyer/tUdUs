@@ -16,10 +16,16 @@ namespace Todo.WebApp.App_Start
                     SendWwwAuthenticateResponseHeader = false
                 };
 
+            //authNConfig.AddJsonWebToken(
+            //    "TODOApi",
+            //    "http://tt.com/mobile/todos",
+            //    ConfigurationManager.AppSettings["acsSigningKey"],
+            //    AuthenticationOptions.ForAuthorizationHeader("Bearer"));
+
             authNConfig.AddJsonWebToken(
-                "TODOApi",
+                "http://identityserver.v2.thinktecture.com/trust/cw",
                 "http://tt.com/mobile/todos",
-                ConfigurationManager.AppSettings["signingKey"],
+                ConfigurationManager.AppSettings["oauthSigningKey"],
                 AuthenticationOptions.ForAuthorizationHeader("Bearer"));
 
             authNConfig.AddBasicAuthentication(
