@@ -11,7 +11,7 @@
 			    <span data-role="view-title"></span>
 			    <a data-align="right" data-role="button" class="nav-button" data-icon="add" data-bind="click: navigateAddTodo"></a>
 			    <a data-align="left" data-role="button" class="nav-button" data-icon="refresh" data-bind="click: loadTodos"></a>
-                <a data-align="left" data-role="button" class="nav-button" data-icon="fastforward" data-click="dataservices.sync"></a>
+                <a data-align="left" data-role="button" class="nav-button" data-icon="fastforward" data-bind="click: sync, visible: isDirty"></a>
 		    </div>
 	    </header>
 		

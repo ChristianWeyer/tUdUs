@@ -212,31 +212,32 @@
         },
 
         sync: function () {
-            todosApp.Views.showLoader("Syncing...");
+            return $.Deferred(function (deferred) {
+                todosApp.Views.showLoader("Syncing...");
 
-            var items = amplify.store.sessionStorage(localStorageKeys.TodosList);
+                var items = amplify.store.sessionStorage(localStorageKeys.TodosList);
 
-            if (items !== null) {
-                $.each(items, function (i, item) {
-                    if (item.isDeleted) {
-                        dataservices.deleteTodo(item.id).done(function () { });
-                    }
-                    if (item.isAdded) {
-                        // TODO: implement picture upload
-                        dataservices.saveTodo(item).done(function () { });
-                    }
-                    if (item.isUpdated) {
-                        dataservices.updateTodo(item).done(function () { });
-                    }
-                });
+                if (items !== null) {
+                    $.each(items, function (i, item) {
+                        if (item.isDeleted) {
+                            dataservices.deleteTodo(item.id).done(function () { });
+                        }
+                        if (item.isAdded) {
+                            // TODO: implement picture upload
+                            dataservices.saveTodo(item).done(function () { });
+                        }
+                        if (item.isUpdated) {
+                            dataservices.updateTodo(item).done(function () { });
+                        }
+                    });
 
-                amplify.store.sessionStorage(localStorageKeys.TodosList, null);
-                
-                // NOTE: this does not feel right...
-                todosViewModel.loadTodos();
-            }
+                    amplify.store.sessionStorage(localStorageKeys.TodosList, null);
+                }
 
-            todosApp.Views.hideLoader();
+                todosApp.Views.hideLoader();
+
+                deferred.resolve();
+            }).promise();            
         }
     };
 }());

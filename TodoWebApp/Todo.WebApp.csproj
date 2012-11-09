@@ -206,6 +206,7 @@
     <Content Include="www\js\libs\jquery.signalR-1.0.0-alpha1.min.js" />
     <Content Include="www\images\loading-image.gif" />
     <Content Include="www\js\services\oauthcallback.html" />
+    <Content Include="www\js\services\signalr.hubs.js" />
     <Content Include="www\js\viewmodels\oauth2ViewModel.js" />
     <Content Include="www\views\info.html" />
     <Content Include="www\views\settings.html" />

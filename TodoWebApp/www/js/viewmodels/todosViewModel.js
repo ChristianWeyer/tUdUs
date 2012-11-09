@@ -1,7 +1,18 @@
 ﻿var todosViewModel = kendo.observable({
     todosSource: new kendo.data.DataSource({ sort: { field: "title", dir: "asc" } }),
     currentItem: {},
-
+    isDirty: false,
+    
+    sync: function () {
+        var self = this;
+        
+        dataservices.sync()
+            .done(function () {
+                self.set("isDirty", false);
+                self.loadTodos();
+            });        
+    },
+    
     pictureAvailable: function () {
         var ci = this.get("currentItem.pictureUrl");
         var result = (ci !== null && ci !== "null");
@@ -14,16 +25,22 @@
     },
 
     addLocalItem: function (item) {
+        this.set("isDirty", true);
+        
         this.todosSource.add(item);
     },
 
     updateLocalItem: function (item) {
+        this.set("isDirty", true);
+        
         var oldItem = _.find(this.todosSource.data(), function (t) { return t.id === item.id; });
         var index = _.indexOf(this.todosSource.data(), oldItem);
         this.todosSource.data().splice(index, 1, item);
     },
 
     deleteLocalItem: function (id) {
+        this.set("isDirty", true);
+        
         var item = _.find(this.todosSource.data(), function (t) { return t.id === id; });
         var index = _.indexOf(this.todosSource.data(), item);
         this.todosSource.data().splice(index, 1);
