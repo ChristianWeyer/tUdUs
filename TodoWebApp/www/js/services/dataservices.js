@@ -1,20 +1,27 @@
-﻿var dataservices = (function () {
+﻿var dataServicesEvents = {
+    error: "dataservices_error",
+    action: "dataservices_action",
+    endaction: "dataservices_endaction",
+    dirty: "dataservices_dirty"
+};
+
+var dataservices = (function () {
     function handleServiceError(error) {
         console.log(error);
 
         if (error.status === 500) {
-            errorViewModel.showErrorDialog("Kaboom!");
+            amplify.publish(dataServicesEvents.error, "Kaboom!");
         } else if (error.status === 401) {
-            errorViewModel.showErrorDialog("Login failed.");
+            amplify.publish(dataServicesEvents.error, "Login failed.");
         }
         else {
-            errorViewModel.showErrorDialog(error.statusText);
+            amplify.publish(dataServicesEvents.error, error.statusText);
         }
     }
 
     function beforeLoginSend(xhr, un, pw) {
         xhr.setRequestHeader(httpSecurity.AuthorizationHeader, createBasicAuthenticationHeader(un, pw));
-        todosApp.Views.showLoader("Log in...");
+        amplify.publish(dataServicesEvents.action, "Login...");
     }
 
     function beforeSend(xhr) {
@@ -27,7 +34,7 @@
                 amplify.store.sessionStorage(localStorageKeys.AuthenticationToken)));
         }
 
-        todosApp.Views.showLoader("Working...");
+        amplify.publish(dataServicesEvents.action, "Working...");
     }
 
     function createBasicAuthenticationHeader(un, pw) {
@@ -59,89 +66,92 @@
         }
     }
 
-    function getLocal() {
+    function getLocal(key) {
         return $.Deferred(function (deferred) {
-            var data = amplify.store.sessionStorage(localStorageKeys.TodosList);
+            var data = amplify.store.sessionStorage(key);
 
             deferred.resolve(data);
         }).promise();
     }
 
-    function saveLocal(item) {
+    function createLocal(key, item) {
         return $.Deferred(function (deferred) {
             item.isAdded = true;
-            var data = amplify.store.sessionStorage(localStorageKeys.TodosList);
+            var data = amplify.store.sessionStorage(key);
             data.push(item);
 
-            amplify.store.sessionStorage(localStorageKeys.TodosList, data);
+            amplify.store.sessionStorage(key, data);
+            amplify.publish(dataServicesEvents.dirty, key);
 
             deferred.resolve(item);
         }).promise();
     }
 
-    function updateLocal(item) {
+    function updateLocal(key, item) {
         return $.Deferred(function (deferred) {
             item.isUpdated = true;
-            var data = amplify.store.sessionStorage(localStorageKeys.TodosList);
+            var data = amplify.store.sessionStorage(key);
             var oldItem = _.find(data, function (t) { return t.id === item.id; });
             var index = _.indexOf(data, oldItem);
             data.splice(index, 1, item);
 
-            amplify.store.sessionStorage(localStorageKeys.TodosList, data);
+            amplify.store.sessionStorage(key, data);
+            amplify.publish(dataServicesEvents.dirty, key);
 
             deferred.resolve(item);
         }).promise();
     }
 
-    function deleteLocal(id) {
+    function deleteLocal(key, id) {
         return $.Deferred(function (deferred) {
             item.isDeleted = true;
-            var data = amplify.store.sessionStorage(localStorageKeys.TodosList);
+            var data = amplify.store.sessionStorage(key);
             var oldItem = _.find(data, function (t) { return t.id === id; });
             var index = _.indexOf(data, oldItem);
             data.splice(index, 1);
 
-            amplify.store.sessionStorage(localStorageKeys.TodosList, data);
+            amplify.store.sessionStorage(key, data);
+            amplify.publish(dataServicesEvents.dirty, key);
 
             deferred.resolve();
         }).promise();
     }
 
     return {
-        callLoginPing: function (un, pw) {
+        loginPing: function (url, un, pw) {
             return $.ajax({
-                url: endpoints.PingEndpointUrl,
+                url: url,
                 type: httpVerbs.GET,
                 dataType: dataTypes.JSON,
                 beforeSend: function (xhr) { beforeLoginSend(xhr, un, pw); }
             })
                 .always(function () {
-                    todosApp.Views.hideLoader();
+                    amplify.publish(dataServicesEvents.endaction);
                 })
                 .fail(function (error) {
                     handleServiceError(error);
                 });
         },
 
-        getTodos: function () {
+        getList: function (service) {
             if (!navigator.onLine) {
-                return getLocal();
+                return getLocal(service);
             }
             else {
                 return $.ajax({
-                    url: endpoints.ServiceEndpointUrl,
+                    url: service,
                     type: httpVerbs.GET,
                     dataType: dataTypes.JSON,
                     beforeSend: function (xhr) { beforeSend(xhr); },
-                    timeout: 10000,
+                    timeout: 15000,
                     maxTries: 3,
                     retryCodes: [500]
                 })
                     .always(function () {
-                        todosApp.Views.hideLoader();
+                        amplify.publish(dataServicesEvents.endaction);
                     })
                     .success(function (data) {
-                        amplify.store.sessionStorage(localStorageKeys.TodosList, data);
+                        amplify.store.sessionStorage(service, data);
                     })
                     .fail(function (error) {
                         handleServiceError(error);
@@ -149,20 +159,20 @@
             }
         },
 
-        saveTodo: function (item) {
+        create: function (service, item) {
             if (!navigator.onLine) {
-                return saveLocal(item);
+                return createLocal(service, item);
             }
             else {
                 return $.ajax({
-                    url: addConnectionIdParameter(endpoints.ServiceEndpointUrl),
+                    url: addConnectionIdParameter(service),
                     type: httpVerbs.POST,
                     dataType: dataTypes.JSON,
                     data: item,
                     beforeSend: function (xhr) { beforeSend(xhr); }
                 })
                     .always(function () {
-                        todosApp.Views.hideLoader();
+                        amplify.publish(dataServicesEvents.endaction);
                     })
                     .fail(function (error) {
                         handleServiceError(error);
@@ -170,19 +180,19 @@
             }
         },
 
-        deleteTodo: function (id) {
+        destroy: function (service, id) {
             if (!navigator.onLine) {
-                return deleteLocal(id);
+                return deleteLocal(service, id);
             }
             else {
                 return $.ajax({
-                    url: addConnectionIdParameter(endpoints.ServiceEndpointUrl + id),
+                    url: addConnectionIdParameter(service + id),
                     type: httpVerbs.DELETE,
                     dataType: dataTypes.JSON,
                     beforeSend: function (xhr) { beforeSend(xhr); }
                 })
                     .always(function () {
-                        todosApp.Views.hideLoader();
+                        amplify.publish(dataServicesEvents.endaction);
                     })
                     .fail(function (error) {
                         handleServiceError(error);
@@ -190,20 +200,20 @@
             }
         },
 
-        updateTodo: function (item) {
+        update: function (service, item) {
             if (!navigator.onLine) {
-                return updateLocal(item);
+                return updateLocal(service, item);
             }
             else {
                 return $.ajax({
-                    url: addConnectionIdParameter(endpoints.ServiceEndpointUrl),
+                    url: addConnectionIdParameter(service),
                     type: httpVerbs.PUT,
                     dataType: dataTypes.JSON,
                     data: item,
                     beforeSend: function (xhr) { beforeSend(xhr); }
                 })
                     .always(function () {
-                        todosApp.Views.hideLoader();
+                        amplify.publish(dataServicesEvents.endaction);
                     })
                     .fail(function (error) {
                         handleServiceError(error);
@@ -211,33 +221,37 @@
             }
         },
 
-        sync: function () {
+        sync: function (service) {
             return $.Deferred(function (deferred) {
-                todosApp.Views.showLoader("Syncing...");
+                if (navigator.onLine) {
+                    amplify.publish(dataServicesEvents.action, "Syncing...");
 
-                var items = amplify.store.sessionStorage(localStorageKeys.TodosList);
+                    var items = amplify.store.sessionStorage(service);
 
-                if (items !== null) {
-                    $.each(items, function (i, item) {
-                        if (item.isDeleted) {
-                            dataservices.deleteTodo(item.id).done(function () { });
-                        }
-                        if (item.isAdded) {
-                            // TODO: implement picture upload
-                            dataservices.saveTodo(item).done(function () { });
-                        }
-                        if (item.isUpdated) {
-                            dataservices.updateTodo(item).done(function () { });
-                        }
-                    });
+                    if (items !== null) {
+                        $.each(items, function (i, item) {
+                            if (item.isDeleted) {
+                                dataservices.destroy(service, item.id);
+                            }
+                            if (item.isAdded) {
+                                // TODO: implement picture upload
+                                dataservices.create(service, item);
+                            }
+                            if (item.isUpdated) {
+                                dataservices.update(service, item);
+                            }
+                        });
 
-                    amplify.store.sessionStorage(localStorageKeys.TodosList, null);
+                        amplify.store.sessionStorage(service, null);
+                    }
+
+                    amplify.publish(dataServicesEvents.endaction);
+                    deferred.resolve();
+                } else {
+                    deferred.reject();
                 }
-
-                todosApp.Views.hideLoader();
-
-                deferred.resolve();
-            }).promise();            
+                
+            }).promise();
         }
     };
 }());

@@ -41,7 +41,7 @@
         item.id = kendoTools.createGuid();
         item.created = new Date().toUTCString();
 
-        dataservices.saveTodo(item)
+        dataservices.create(endpoints.todos, item)
             .done(function (itemFromServer) {
                 todosViewModel.addLocalItem(itemFromServer);
 

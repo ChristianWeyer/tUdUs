@@ -5,7 +5,7 @@
             NotifierjsConfig.position = ["bottom", "right"];
             NotifierjsConfig.notificationStyles.width = "255";
 
-            $.connection.hub.url = endpoints.SignalREndpoint;
+            $.connection.hub.url = endpoints.signalr;
             var hub = $.connection.todos;
 
             hub.itemAdded = function (connectionId, item) {

@@ -2,7 +2,7 @@ var oauth2ViewModel = kendo.observable({
     token: "",
     
     openAuthWindow: function () {
-        var url = endpoints.IdpOauthEndpointUrl + "?" + $.param(oAuthConfig);
+        var url = endpoints.oauth + "?" + $.param(oAuthConfig);
         
         if(window.plugins && window.plugins.childBrowser) {
             window.plugins.childBrowser.showWebPage(url, { showLocationBar: true });
@@ -14,7 +14,6 @@ var oauth2ViewModel = kendo.observable({
 
     authCallback: function (params) {
         oauth2ViewModel.token = params["access_token"];
-
         oauth2ViewModel.process();
     },
     

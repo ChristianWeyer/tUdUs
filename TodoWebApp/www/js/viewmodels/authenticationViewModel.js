@@ -6,7 +6,7 @@ var authenticationViewModel = kendo.observable({
     doLogin: function () {
         var self = this;
 
-        dataservices.callLoginPing(self.userName, self.password)
+        dataservices.loginPing(endpoints.ping, self.userName, self.password)
             .success(function () {
                 todosViewModel.todosSource.data([]);
                 todosViewModel.currentItem = {};

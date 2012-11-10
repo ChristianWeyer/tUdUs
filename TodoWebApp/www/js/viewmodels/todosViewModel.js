@@ -3,14 +3,14 @@
     currentItem: {},
     isDirty: false,
     
-    sync: function () {
+    init: function () {
         var self = this;
         
-        dataservices.sync()
-            .done(function () {
-                self.set("isDirty", false);
-                self.loadTodos();
-            });        
+        amplify.subscribe(dataServicesEvents.dirty, function(key) {
+            if (key === endpoints.todos && navigator.onLine) {
+                self.set("isDirty", true);
+            }
+        });
     },
     
     pictureAvailable: function () {
@@ -25,22 +25,16 @@
     },
 
     addLocalItem: function (item) {
-        this.set("isDirty", true);
-        
         this.todosSource.add(item);
     },
 
-    updateLocalItem: function (item) {
-        this.set("isDirty", true);
-        
+    updateLocalItem: function (item) {        
         var oldItem = _.find(this.todosSource.data(), function (t) { return t.id === item.id; });
         var index = _.indexOf(this.todosSource.data(), oldItem);
         this.todosSource.data().splice(index, 1, item);
     },
 
-    deleteLocalItem: function (id) {
-        this.set("isDirty", true);
-        
+    deleteLocalItem: function (id) {        
         var item = _.find(this.todosSource.data(), function (t) { return t.id === id; });
         var index = _.indexOf(this.todosSource.data(), item);
         this.todosSource.data().splice(index, 1);
@@ -49,7 +43,7 @@
     updateTodo: function () {
         var item = this.get("currentItem").toJSON();
 
-        dataservices.updateTodo(item)
+        dataservices.update(endpoints.todos, item)
             .done(function () {
                 Notifier.success(item.title, 'Updated');
             });
@@ -59,7 +53,7 @@
         var self = this;
         var item = element.data;
 
-        dataservices.deleteTodo(item.id)
+        dataservices.destroy(endpoints.todos, item.id)
             .done(function () {
                 var index = _.indexOf(self.todosSource.data(), item);
                 self.todosSource.data().splice(index, 1);
@@ -71,9 +65,19 @@
     loadTodos: function () {
         var self = this;
 
-        dataservices.getTodos()
+        dataservices.getList(endpoints.todos)
             .done(function (data) {
                 self.todosSource.data(data);
+            });
+    },
+    
+    sync: function () {
+        var self = this;
+
+        dataservices.sync(endpoints.todos)
+            .done(function () {
+                self.loadTodos();
+                self.set("isDirty", false);
             });
     }
 });

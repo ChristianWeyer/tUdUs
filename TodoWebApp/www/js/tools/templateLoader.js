@@ -1,7 +1,7 @@
 ﻿kendoTools.templateLoader = (function () {    
     return {
         loadExternalTemplate: function (path) {
-            return $.get(path, 'html')
+            return $.get(path, dataTypes.HTML)
                 .success(function(result) {
                     $("body").append(result);
                 })

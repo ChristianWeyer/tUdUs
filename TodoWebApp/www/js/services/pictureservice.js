@@ -27,7 +27,7 @@
             options.chunkedMode = false;
 
             var transfer = new FileTransfer();
-            transfer.upload(url, endpoints.PicturesEndpointUrl,
+            transfer.upload(url, endpoints.pictures,
                 dfd.resolve, dfd.reject, options);
         }).promise();
     }

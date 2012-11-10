@@ -25,9 +25,22 @@ todosApp.init = function () {
     //cordova.exec(null, null, "PixAuth","loginWithBadCert",["https://vs2012devwin8"]);
     //cordova.exec(null, null, "PixAuth","loginWithBadCert",["https://vs2012devwin8:8888"]);
     
-    window.kendoMobileApplication = new kendo.mobile.Application($(document.body), {
-        transition: 'slide',
-        hideAddressBar: true
+    window.kendoMobileApplication =
+        new kendo.mobile.Application($(document.body), {
+            transition: 'none',
+            hideAddressBar: true
+    });
+
+    todosViewModel.init();
+    
+    amplify.subscribe(dataServicesEvents.error, function (errorText) {
+        errorViewModel.showErrorDialog(errorText);
+    });
+    amplify.subscribe(dataServicesEvents.action, function (statusText) {
+        todosApp.Views.showLoader(statusText);
+    });
+    amplify.subscribe(dataServicesEvents.endaction, function () {
+        todosApp.Views.hideLoader();
     });
 
     window.addEventListener("online", todosApp.appOnline, false);

@@ -7,10 +7,7 @@
     },
 
     closeErrorDialog: function () {
-        var self = this;
-
         $("#errorDialog").kendoMobileModalView("close");
-
-        self.set("message", "");
+        this.set("message", "");
     }
 });

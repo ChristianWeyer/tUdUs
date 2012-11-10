@@ -255,20 +255,6 @@
     </Content>
     <Content Include="www\js\viewmodels\acsViewModel.js" />
     <Content Include="www\images\splash.png" />
-    <Content Include="www\js\libs\modernizr-2.5.3.min.js">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>modernizr-2.5.3.js</DependentUpon>
-    </Content>
-    <Content Include="www\js\libs\signalr.hubs.js">
-      <Generator>GoogleClosureCompiler</Generator>
-      <LastGenOutput>signalr.hubs.min.js</LastGenOutput>
-    </Content>
-    <Content Include="www\js\libs\signalr.hubs.min.js">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>signalr.hubs.js</DependentUpon>
-    </Content>
     <Content Include="www\js\libs\underscore-min.js" />
     <Content Include="www\js\applicationConstants.js" />
     <Content Include="www\js\viewmodels\settingsViewModel.js" />
@@ -307,10 +293,6 @@
     <Content Include="www\js\libs\jquery.unobtrusive-ajax.min.js" />
     <Content Include="www\js\libs\jquery.validate.min.js" />
     <Content Include="www\js\libs\jquery.validate.unobtrusive.min.js" />
-    <Content Include="www\js\libs\modernizr-2.5.3.js">
-      <Generator>GoogleClosureCompiler</Generator>
-      <LastGenOutput>modernizr-2.5.3.min.js</LastGenOutput>
-    </Content>
     <Content Include="www\styles\images\android-sprite.png" />
     <Content Include="www\styles\images\iconmasks.svg" />
     <Content Include="www\styles\images\icons.png" />
@@ -326,7 +308,6 @@
     <Content Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
-    <Content Include="www\js\libs\_references.js" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Scripts\" />

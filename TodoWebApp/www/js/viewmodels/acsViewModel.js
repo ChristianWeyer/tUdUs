@@ -5,7 +5,7 @@ var acsViewModel = kendo.observable({
         var self = this;
 
         $.ajax({
-            url: endpoints.AcsIdpsEndpoint,
+            url: endpoints.acs,
             type: httpVerbs.GET,
             dataType: dataTypes.JSON,
             beforeSend: function () { todosApp.Views.showLoader("Loading..."); }

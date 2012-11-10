@@ -8,7 +8,6 @@
             $('#loginDialog').data("kendoMobileModalView").open();
         }
         else {
-            // temp hack
             oauth2ViewModel.openAuthWindow();
         }
     }

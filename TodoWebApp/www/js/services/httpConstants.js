@@ -13,5 +13,6 @@ var httpSecurity = {
 
 var dataTypes = {
     JSON: "json",
-    XML: "xml"
+    XML: "xml",
+    HTML: "html"
 };
