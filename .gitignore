@@ -24,7 +24,5 @@ packages
 *.perspective
 *.perspectivev3
 *.pbxuser
-*.xcworkspace
 *.xcuserstate
-*.pbxprof
 xcuserdata
