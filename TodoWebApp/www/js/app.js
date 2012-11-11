@@ -1,4 +1,7 @@
 $(function () {
+    window.onerror = function (errorMsg, url, lineNumber) {
+        ttTools.logger.fatal("Uncaught error: " + errorMsg + " in " + url + ", line " + lineNumber);
+    };
     ttTools.logger.info("Startup...");
     
     var app = document.URL.indexOf("http://") === -1 && document.URL.indexOf("https://") === -1;

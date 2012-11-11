@@ -16,9 +16,17 @@ namespace Todo.WebApi
         public void Post(dynamic logData)
         {
             // TODO: persist logging messages
+            /*
+                'logger',
+                'timestamp',
+                'level',
+                'url',
+                'message',
+                'exception'
+             */
 
-            var msg = logData.message.ToString() as string;
-            Debug.WriteLine("Log message from client: {0}", msg);
+            string msg = logData.message;
+            Debug.WriteLine("###Log message from client: {0}", msg);
         }
     }
 }
