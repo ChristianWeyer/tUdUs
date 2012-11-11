@@ -1,4 +1,4 @@
-﻿kendoTools.templateLoader = (function () {    
+﻿ttTools.templateLoader = (function () {
     return {
         loadExternalTemplate: function (path) {
             return $.get(path, dataTypes.HTML)

@@ -117,6 +117,7 @@
     <Compile Include="AcsController.cs" />
     <Compile Include="BlobStorageMultipartProvider.cs" />
     <Compile Include="BlobHelper.cs" />
+    <Compile Include="LogController.cs" />
     <Compile Include="PicturesController.cs" />
     <Compile Include="PingController.cs" />
     <Compile Include="DataMapper.cs" />

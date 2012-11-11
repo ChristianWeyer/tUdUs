@@ -1,12 +1,14 @@
 $(function () {
+    ttTools.logger.info("Startup...");
+    
     var app = document.URL.indexOf("http://") === -1 && document.URL.indexOf("https://") === -1;
 
     $(document).bind("APP_READY", function () {
         $("#preLoad").css("opacity", "0").css("visibility", "hidden");
     });
 
-    $.when(kendoTools.templateLoader.loadExternalTemplate("../templates/tasksList.tmpl.html"),
-        kendoTools.templateLoader.loadExternalTemplate("../templates/idpList.tmpl.html"))
+    $.when(ttTools.templateLoader.loadExternalTemplate("../templates/tasksList.tmpl.html"),
+        ttTools.templateLoader.loadExternalTemplate("../templates/idpList.tmpl.html"))
         .then(
             function () {
                 if (app) {

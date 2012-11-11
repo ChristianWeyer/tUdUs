@@ -38,7 +38,7 @@
     saveTodoCore: function (item) {
         var self = this;
 
-        item.id = kendoTools.createGuid();
+        item.id = ttTools.createGuid();
         item.created = new Date().toUTCString();
 
         dataservices.create(endpoints.todos, item)

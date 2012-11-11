@@ -1,5 +1,5 @@
-//var servicesBaseUrl = "../../";
-var servicesBaseUrl = "http://tttodos.azurewebsites.net/";
+var servicesBaseUrl = "../../";
+//var servicesBaseUrl = "http://tttodos.azurewebsites.net/";
 //var servicesBaseUrl = "http://vs2012devwin8/tudus/";
 
 var endpoints = {
@@ -7,6 +7,7 @@ var endpoints = {
     ping: servicesBaseUrl + "api/ping/",
     pictures: servicesBaseUrl + "api/pictures/",
     signalr: servicesBaseUrl + "signalr",
+    log: servicesBaseUrl + "api/log/",
     acs: servicesBaseUrl + "api/acs/getidps?ns=tttodos&realm=http%3A%2F%2Ftt.com%2Fmobile%2Ftodos",
     oauth: "https://localhost/idsrv/issue/oauth2/authorize"
 };
