@@ -1,4 +1,7 @@
-getBaseUrl = function() {
+var appVersion = "0.7";
+var appDate = "2012-11-12_01";
+
+getBaseUrl = function () {
     var servicesBaseUrl;
     
     if(ttTools.isInApp()) {

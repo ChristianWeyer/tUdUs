@@ -87,6 +87,12 @@ todosApp.Views.resizeChart = function() {
     chart.redraw();
 };
 
+
+todosApp.Views.infoInit = function() {
+    $("#appVersion").text(appVersion);
+    $("#appDate").text(appDate);
+};
+
 todosApp.Views.loaderElement = {};
 
 todosApp.Views.showLoader = function (text) {
@@ -99,3 +105,4 @@ todosApp.Views.hideLoader = function () {
     todosApp.Views.loaderElement.text("Loading...").addClass("loaderHeading");
     window.kendoMobileApplication.hideLoading();
 };
+
