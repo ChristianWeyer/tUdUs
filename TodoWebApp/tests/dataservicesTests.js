@@ -5,12 +5,8 @@
 /// <reference path="../www/js/services/httpConstants.js" />
 /// <reference path="../www/js/services/dataservices.js" />
 
-// NOT functional at the moment
 module("dataservicesTests", {
     setup: function () {
-        //window.kendoMobileApplication = new kendo.mobile.Application($(document.body), {
-        //    transition: 'none'
-        //});
     },
     teardown: function () {        
     }
