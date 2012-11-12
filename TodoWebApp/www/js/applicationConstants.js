@@ -1,12 +1,22 @@
-
+getBaseUrl = function() {
+    var servicesBaseUrl;
+    
+    if(ttTools.isInApp()) {
+        servicesBaseUrl = "http://tttodos.azurewebsites.net/";
+    } else {
+        servicesBaseUrl = "../../";
+    };
+    
+    return servicesBaseUrl;
+};
 
 var endpoints = {
-    todos: ttTools.getBaseUrl() + "api/todos/",
-    ping: ttTools.getBaseUrl() + "api/ping/",
-    pictures: ttTools.getBaseUrl() + "api/pictures/",
-    signalr: ttTools.getBaseUrl() + "signalr",
-    log: ttTools.getBaseUrl() + "api/log/",
-    acs: ttTools.getBaseUrl() + "api/acs/getidps?ns=tttodos&realm=http%3A%2F%2Ftt.com%2Fmobile%2Ftodos",
+    todos: getBaseUrl() + "api/todos/",
+    ping: getBaseUrl() + "api/ping/",
+    pictures: getBaseUrl() + "api/pictures/",
+    signalr: getBaseUrl() + "signalr",
+    log: getBaseUrl() + "api/log/",
+    acs: getBaseUrl() + "api/acs/getidps?ns=tttodos&realm=http%3A%2F%2Ftt.com%2Fmobile%2Ftodos",
     oauth: "https://localhost/idsrv/issue/oauth2/authorize"
 };
 

@@ -11,15 +11,3 @@ ttTools.isInApp = function() {
     
     return app;
 };
-
-ttTools.getBaseUrl = function() {
-    var servicesBaseUrl;
-    
-    if(ttTools.isInApp()) {
-        servicesBaseUrl = "http://tttodos.azurewebsites.net/";
-    } else {
-        servicesBaseUrl = "../../";
-    };
-    
-    return servicesBaseUrl;
-};
