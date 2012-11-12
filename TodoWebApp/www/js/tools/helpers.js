@@ -5,3 +5,21 @@
     
     return (S4() + S4() + "-" + S4() + "-" + S4() + "-" + S4() + "-" + S4() + S4() + S4());
 };
+
+ttTools.isInApp = function() {
+    var app = document.URL.indexOf("http://") === -1 && document.URL.indexOf("https://") === -1;
+    
+    return app;
+};
+
+ttTools.getBaseUrl = function() {
+    var servicesBaseUrl;
+    
+    if(ttTools.isInApp()) {
+        servicesBaseUrl = "http://tttodos.azurewebsites.net/";
+    } else {
+        servicesBaseUrl = "../../";
+    };
+    
+    return servicesBaseUrl;
+};

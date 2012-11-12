@@ -1,14 +1,12 @@
-var servicesBaseUrl = "../../";
-//var servicesBaseUrl = "http://tttodos.azurewebsites.net/";
-//var servicesBaseUrl = "http://vs2012devwin8/tudus/";
+
 
 var endpoints = {
-    todos: servicesBaseUrl + "api/todos/",
-    ping: servicesBaseUrl + "api/ping/",
-    pictures: servicesBaseUrl + "api/pictures/",
-    signalr: servicesBaseUrl + "signalr",
-    log: servicesBaseUrl + "api/log/",
-    acs: servicesBaseUrl + "api/acs/getidps?ns=tttodos&realm=http%3A%2F%2Ftt.com%2Fmobile%2Ftodos",
+    todos: ttTools.getBaseUrl() + "api/todos/",
+    ping: ttTools.getBaseUrl() + "api/ping/",
+    pictures: ttTools.getBaseUrl() + "api/pictures/",
+    signalr: ttTools.getBaseUrl() + "signalr",
+    log: ttTools.getBaseUrl() + "api/log/",
+    acs: ttTools.getBaseUrl() + "api/acs/getidps?ns=tttodos&realm=http%3A%2F%2Ftt.com%2Fmobile%2Ftodos",
     oauth: "https://localhost/idsrv/issue/oauth2/authorize"
 };
 

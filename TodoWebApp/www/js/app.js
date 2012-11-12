@@ -3,8 +3,6 @@ $(function () {
         ttTools.logger.fatal("Uncaught error: " + errorMsg + " in " + url + ", line " + lineNumber);
     };
     ttTools.logger.info("Startup...");
-    
-    var app = document.URL.indexOf("http://") === -1 && document.URL.indexOf("https://") === -1;
 
     $(document).bind("APP_READY", function () {
         $("#preLoad").css("opacity", "0").css("visibility", "hidden");
@@ -14,7 +12,7 @@ $(function () {
         ttTools.templateLoader.loadExternalTemplate("../templates/idpList.tmpl.html"))
         .then(
             function () {
-                if (app) {
+                if (ttTools.isInApp()) {
                     document.addEventListener("deviceready", todosApp.deviceready, false);
                 } else {
                     todosApp.init();
