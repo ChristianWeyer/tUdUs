@@ -21,7 +21,7 @@
 	<key>OpenAllWhitelistURLsInWebView</key>
 	<false/>
 	<key>BackupWebStorage</key>
-	<true/>
+	<string>none</string>
 	<key>ExternalHosts</key>
 	<array>
 		<string>http://localhost</string>
