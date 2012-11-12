@@ -8,21 +8,25 @@
             $.connection.hub.url = endpoints.signalr;
             var hub = $.connection.todos;
 
-            hub.itemAdded = function (connectionId, item) {
+            $.connection.hub.connectionSlow(function () {
+                Notifier.warning("Connectivity issues...?");
+            });
+            
+            hub.client.itemAdded = function (connectionId, item) {
                 if ($.connection.hub.id !== connectionId) {
                     Notifier.info(item.title, 'REMOTE: New');
                     todosViewModel.addLocalItem(item);
                 }
             };
 
-            hub.itemUpdated = function (connectionId, item) {
+            hub.client.itemUpdated = function (connectionId, item) {
                 if ($.connection.hub.id !== connectionId) {
                     Notifier.info(item.title, 'REMOTE: Updated');
                     todosViewModel.updateLocalItem(item);
                 }
             };
 
-            hub.itemDeleted = function (connectionId, id) {
+            hub.client.itemDeleted = function (connectionId, id) {
                 if ($.connection.hub.id !== connectionId) {
                     Notifier.info(id, 'REMOTE: Deleted');
                     todosViewModel.deleteLocalItem(id);
