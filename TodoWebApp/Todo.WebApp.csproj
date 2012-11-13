@@ -70,17 +70,17 @@
       <HintPath>..\packages\Microsoft.AspNet.SignalR.Hosting.Common.1.0.0-alpha2\lib\net40\Microsoft.AspNet.SignalR.Hosting.Common.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
-    <Reference Include="Microsoft.Data.Edm, Version=5.0.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+    <Reference Include="Microsoft.Data.Edm, Version=5.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Microsoft.Data.Edm.5.0.2\lib\net40\Microsoft.Data.Edm.dll</HintPath>
+      <HintPath>..\packages\Microsoft.Data.Edm.5.1.0-rc2\lib\net40\Microsoft.Data.Edm.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.Data.OData, Version=5.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+    <Reference Include="Microsoft.Data.OData, Version=5.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Microsoft.Data.OData.5.0.1\lib\net40\Microsoft.Data.OData.dll</HintPath>
+      <HintPath>..\packages\Microsoft.Data.OData.5.1.0-rc2\lib\net40\Microsoft.Data.OData.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.Data.OData.Contrib, Version=5.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+    <Reference Include="Microsoft.Data.OData.Contrib, Version=5.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Microsoft.Data.OData.Contrib.5.0.1.50813\lib\net40\Microsoft.Data.OData.Contrib.dll</HintPath>
+      <HintPath>..\packages\Microsoft.Data.OData.Contrib.5.1.0.51016-rc2\lib\net40\Microsoft.Data.OData.Contrib.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -97,9 +97,9 @@
       <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.4.0.20710.0\lib\net40\System.Net.Http.Formatting.dll</HintPath>
     </Reference>
     <Reference Include="System.Net.Http.WebRequest" />
-    <Reference Include="System.Spatial, Version=5.0.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+    <Reference Include="System.Spatial, Version=5.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\System.Spatial.5.0.2\lib\net40\System.Spatial.dll</HintPath>
+      <HintPath>..\packages\System.Spatial.5.1.0-rc2\lib\net40\System.Spatial.dll</HintPath>
     </Reference>
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -113,13 +113,13 @@
     <Reference Include="System.Web.Http, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.4.0.20710.0\lib\net40\System.Web.Http.dll</HintPath>
     </Reference>
-    <Reference Include="System.Web.Http.OData, Version=0.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+    <Reference Include="System.Web.Http.OData, Version=0.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Microsoft.AspNet.WebApi.OData.0.1.0-alpha-120815\lib\net40\System.Web.Http.OData.dll</HintPath>
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.OData.0.2.0-alpha\lib\net40\System.Web.Http.OData.dll</HintPath>
     </Reference>
-    <Reference Include="System.Web.Http.Tracing, Version=0.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+    <Reference Include="System.Web.Http.Tracing, Version=0.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Microsoft.AspNet.WebApi.Tracing.0.1.0-alpha-120814\lib\net40\System.Web.Http.Tracing.dll</HintPath>
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Tracing.0.2.0-alpha\lib\net40\System.Web.Http.Tracing.dll</HintPath>
     </Reference>
     <Reference Include="System.Web.Http.WebHost, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.4.0.20710.0\lib\net40\System.Web.Http.WebHost.dll</HintPath>
@@ -130,7 +130,7 @@
     </Reference>
     <Reference Include="System.Web.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <Private>True</Private>
-      <HintPath>..\packages\Microsoft.AspNet.Razor.2.0.20710.0\lib\net40\System.Web.Razor.dll</HintPath>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.2.0.20715.0\lib\net40\System.Web.Razor.dll</HintPath>
     </Reference>
     <Reference Include="System.Web.Routing" />
     <Reference Include="System.Web.WebPages, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
@@ -161,6 +161,10 @@
       <HintPath>..\packages\Microsoft.AspNet.Providers.Core.1.1\lib\net40\System.Web.Providers.dll</HintPath>
     </Reference>
     <Reference Include="System.Xml.Linq" />
+    <Reference Include="Thinktecture.IdentityModel, Version=2.2.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Thinktecture.IdentityModel.2.2.1\lib\net45\Thinktecture.IdentityModel.dll</HintPath>
+    </Reference>
     <Reference Include="WebGrease">
       <Private>True</Private>
       <HintPath>..\packages\WebGrease.1.1.0\lib\WebGrease.dll</HintPath>
@@ -203,6 +207,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Areas\HelpPage\HelpPage.css" />
     <Content Include="www\js\libs\jquery.signalR-1.0.0-alpha2.js" />
     <Content Include="www\js\libs\jquery.signalR-1.0.0-alpha2.min.js" />
     <Content Include="www\images\loading-image.gif" />
@@ -245,7 +250,6 @@
     <Content Include="www\js\tools\templateLoader.js" />
     <Content Include="www\js\libs\cordova.js" />
     <Content Include="www\js\services\httpConstants.js" />
-    <Content Include="Areas\HelpPage\HelpPage.css" />
     <Content Include="images\thinktecture.jpg" />
     <Content Include="www\js\libs\jquery.ba-bbq.min.js" />
     <Content Include="www\js\libs\notifier.js">
@@ -318,10 +322,6 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Thinktecture.IdentityModel.45\IdentityModel\Thinktecture.IdentityModel\Thinktecture.IdentityModel.45.csproj">
-      <Project>{ac9a74df-4aab-43c8-b0ed-b7602721e545}</Project>
-      <Name>Thinktecture.IdentityModel.45</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Todo.DataAccess\Todo.DataAccess.csproj">
       <Project>{21D64DC8-1B27-4BD6-87B5-9BB8E8F77777}</Project>
       <Name>Todo.DataAccess</Name>
