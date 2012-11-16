@@ -30,7 +30,9 @@ todosApp.deviceready = function () {
 
 todosApp.init = function () {
     // for debugging only
-    cordova.exec(null, null, "PixAuth","loginWithBadCert",["https://ttidentity.cloudapp.net"]);
+    if (cordova.exec !== undefined) {
+        cordova.exec(null, null, "PixAuth", "loginWithBadCert", ["https://ttidentity.cloudapp.net"]);
+    };
     
     window.kendoMobileApplication =
         new kendo.mobile.Application($(document.body), {

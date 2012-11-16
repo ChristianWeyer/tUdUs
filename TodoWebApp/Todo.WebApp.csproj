@@ -217,6 +217,7 @@
     <Content Include="www\js\tools\logger.js" />
     <Content Include="www\js\tools\jsonAppender.js" />
     <Content Include="www\js\viewmodels\oauth2ViewModel.js" />
+    <Content Include="www\styles\images\back.png" />
     <Content Include="www\views\info.html" />
     <Content Include="www\views\settings.html" />
     <Content Include="www\views\stats.html" />
@@ -301,10 +302,6 @@
     <Content Include="www\js\libs\jquery.unobtrusive-ajax.min.js" />
     <Content Include="www\js\libs\jquery.validate.min.js" />
     <Content Include="www\js\libs\jquery.validate.unobtrusive.min.js" />
-    <Content Include="www\styles\images\android-sprite.png" />
-    <Content Include="www\styles\images\iconmasks.svg" />
-    <Content Include="www\styles\images\icons.png" />
-    <Content Include="www\styles\images\ios-sprite.png" />
     <Content Include="www\styles\kendo.mobile.all.min.css" />
     <Content Include="tests\dataservicesTests.js" />
     <Content Include="Web.config">
@@ -355,6 +352,8 @@
     <Content Include="Areas\HelpPage\Views\_ViewStart.cshtml" />
     <None Include="Properties\PublishProfiles\tttodos - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\tttodos - Web Deploy.pubxml" />
+    <Content Include="www\styles\images\KendoUI.ttf" />
+    <Content Include="www\styles\images\KendoUI.woff" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
