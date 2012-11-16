@@ -1,5 +1,5 @@
 var appVersion = "0.7";
-var appDate = "2012-11-12_01";
+var appDate = "2012-11-15_01";
 
 getBaseUrl = function () {
     var servicesBaseUrl;
@@ -20,14 +20,14 @@ var endpoints = {
     signalr: getBaseUrl() + "signalr",
     log: getBaseUrl() + "api/log/",
     acs: getBaseUrl() + "api/acs/getidps?ns=tttodos&realm=http%3A%2F%2Ftt.com%2Fmobile%2Ftodos",
-    oauth: "https://localhost/idsrv/issue/oauth2/authorize"
+    oauth: "https://ttidentity.cloudapp.net/test/issue/oauth2/authorize"
 };
 
 var oAuthConfig = {
     client_id: "tudus",
     scope: "http://tt.com/mobile/todos",
     response_type: "token",
-    redirect_uri: "http://localhost/tudus/www/js/services/oauthcallback.html"
+    redirect_uri: getBaseUrl() + "www/js/services/oauthcallback.html"
 };
 
 var authenticationModes = {

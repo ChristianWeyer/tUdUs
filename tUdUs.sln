@@ -22,8 +22,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{0B5E30
 		.nuget\NuGet.targets = .nuget\NuGet.targets
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Thinktecture.IdentityModel.45", "..\Thinktecture.IdentityModel.45\IdentityModel\Thinktecture.IdentityModel\Thinktecture.IdentityModel.45.csproj", "{AC9A74DF-4AAB-43C8-B0ED-B7602721E545}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Analysis (Debug)|Any CPU = Analysis (Debug)|Any CPU
@@ -88,14 +86,6 @@ Global
 		{05ABE5FA-9E23-4FC9-B315-BBA3FCE88A7E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{05ABE5FA-9E23-4FC9-B315-BBA3FCE88A7E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{05ABE5FA-9E23-4FC9-B315-BBA3FCE88A7E}.Release|Any CPU.Build.0 = Release|Any CPU
-		{AC9A74DF-4AAB-43C8-B0ED-B7602721E545}.Analysis (Debug)|Any CPU.ActiveCfg = Analysis (Debug)|Any CPU
-		{AC9A74DF-4AAB-43C8-B0ED-B7602721E545}.Analysis (Debug)|Any CPU.Build.0 = Analysis (Debug)|Any CPU
-		{AC9A74DF-4AAB-43C8-B0ED-B7602721E545}.Debug and Contracts|Any CPU.ActiveCfg = Debug and Contracts|Any CPU
-		{AC9A74DF-4AAB-43C8-B0ED-B7602721E545}.Debug and Contracts|Any CPU.Build.0 = Debug and Contracts|Any CPU
-		{AC9A74DF-4AAB-43C8-B0ED-B7602721E545}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{AC9A74DF-4AAB-43C8-B0ED-B7602721E545}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{AC9A74DF-4AAB-43C8-B0ED-B7602721E545}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{AC9A74DF-4AAB-43C8-B0ED-B7602721E545}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
