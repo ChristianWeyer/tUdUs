@@ -1,4 +1,4 @@
-﻿div {
+div {
     -webkit-transform: translateZ(0);
 }
 
@@ -24,6 +24,7 @@
         margin-left: -24px;
     }
 
+/*
 .km-android .km-view .km-content {
     background-color: rgb(229, 229, 229);
     color: rgb(51, 51, 51);
@@ -60,6 +61,7 @@
 .km-android .km-view .km-content .km-list > li .km-switch .km-switch-container {
     background-color: #b2b2b2;
 }
+*/
 
 #map .km-content,
 #map .km-scroll-container,
