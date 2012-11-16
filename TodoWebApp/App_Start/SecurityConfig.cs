@@ -23,7 +23,7 @@ namespace Todo.WebApp.App_Start
             //    AuthenticationOptions.ForAuthorizationHeader("Bearer"));
 
             authNConfig.AddJsonWebToken(
-                "http://identityserver.v2.thinktecture.com/trust/cw",
+                "http://identityserver.v2.thinktecture.com/trust/changethis",
                 "http://tt.com/mobile/todos",
                 ConfigurationManager.AppSettings["oauthSigningKey"],
                 AuthenticationOptions.ForAuthorizationHeader("Bearer"));
