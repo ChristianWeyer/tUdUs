@@ -36,6 +36,8 @@
 	</array>
 	<key>Plugins</key>
 	<dict>
+		<key>ChildBrowserCommand</key>
+		<string>ChildBrowserCommand</string>
 		<key>PixAuth</key>
 		<string>PixAuth</string>
 		<key>ChildBrowser</key>

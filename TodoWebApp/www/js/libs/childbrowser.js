@@ -1,4 +1,4 @@
-﻿/*
+/*
  * PhoneGap is available under *either* the terms of the modified BSD license *or* the
  * MIT License (2008). See http://opensource.org/licenses/alphabetical for full text.
  *
@@ -71,14 +71,14 @@ var ChildBrowser = (function (gap) {
             options = { showLocationBar: true };
         }
 
-        cordova.exec(onEvent, onError, "ChildBrowser", "showWebPage", [url, options]);
+        gap.exec(onEvent, onError, "ChildBrowser", "showWebPage", [url, options]);
     };
 
     /**
      * Close the browser opened by showWebPage.
      */
     ChildBrowser.close = function () {
-        cordova.exec(null, null, "ChildBrowser", "close", []);
+        gap.exec(null, null, "ChildBrowser", "close", []);
     };
 
     /**
@@ -92,16 +92,16 @@ var ChildBrowser = (function (gap) {
         if (usePhoneGap) {
             navigator.app.loadUrl(url);
         } else {
-            cordova.exec(null, null, "ChildBrowser", "openExternal", [url, usePhoneGap]);
+            gap.exec(null, null, "ChildBrowser", "openExternal", [url, usePhoneGap]);
         }
     };
 
     /**
      * Load ChildBrowser
      */
-    cordova.addConstructor(function () {
-        if (cordova.addPlugin) {
-            cordova.addPlugin("childBrowser", ChildBrowser);
+    gap.addConstructor(function () {
+        if (gap.addPlugin) {
+            gap.addPlugin("childBrowser", ChildBrowser);
         } else {
             if (!window.plugins) {
                 window.plugins = {};
@@ -112,4 +112,4 @@ var ChildBrowser = (function (gap) {
     });
 
     return ChildBrowser;
-})(window.Cordova || window.PhoneGap);
+})(window.cordova || window.Cordova || window.PhoneGap);
