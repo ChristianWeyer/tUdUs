@@ -220,7 +220,14 @@
     <Content Include="www\js\tools\logger.js" />
     <Content Include="www\js\tools\jsonAppender.js" />
     <Content Include="www\js\viewmodels\oauth2ViewModel.js" />
+    <Content Include="www\styles\icons.css">
+      <DependentUpon>icons.less</DependentUpon>
+    </Content>
+    <Content Include="www\styles\icons.min.css">
+      <DependentUpon>icons.less</DependentUpon>
+    </Content>
     <Content Include="www\styles\images\back.png" />
+    <Content Include="www\styles\images\icons.png" />
     <Content Include="www\views\info.html" />
     <Content Include="www\views\settings.html" />
     <Content Include="www\views\stats.html" />
