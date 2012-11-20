@@ -279,20 +279,12 @@
     <Content Include="www\js\viewmodels\todosViewModel.js" />
     <Content Include="www\js\viewmodels\authenticationViewModel.js" />
     <Content Include="www\js\libs\jquery.base64.min.js" />
-    <Content Include="www\styles\app.min.css">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>app.css</DependentUpon>
-    </Content>
     <Content Include="App_Data\Todo.WebApi.xml" />
     <Content Include="images\google.jpg" />
     <Content Include="images\microsoft.jpg" />
     <Content Include="images\yahoo.jpg" />
     <Content Include="index.html" />
-    <Content Include="www\styles\app.css">
-      <Generator>YUICompressor</Generator>
-      <LastGenOutput>app.min.css</LastGenOutput>
-    </Content>
+    <Content Include="www\styles\app.css" />
     <Content Include="Global.asax" />
     <Content Include="www\images\Wooden_Todo_128x128.png" />
     <Content Include="www\images\Wooden_Todo_256x256.png" />
@@ -357,6 +349,7 @@
     <None Include="Properties\PublishProfiles\tttodos - Web Deploy.pubxml" />
     <Content Include="www\styles\images\KendoUI.ttf" />
     <Content Include="www\styles\images\KendoUI.woff" />
+    <Content Include="www\styles\icons.less" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
