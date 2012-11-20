@@ -1,389 +1,328 @@
+/*
+* Kendo UI Mobile v2012.2.913 (http://kendoui.com)
+* Copyright 2012 Telerik AD. All rights reserved.
+*
+* Kendo UI Mobile commercial licenses may be obtained at
+* https://www.kendoui.com/purchase/license-agreement/kendo-ui-mobile-commercial.aspx
+* If you do not own a commercial license, this file shall be governed by the trial license terms.
+*/
 /* Icon Masks */
 
-@font-face {
-    font-family: "Kendo UI";
-    src: url("images/KendoUI.woff") format("woff"),
-         url("images/KendoUI.ttf") format("truetype");
+.km-about,
+.km-action,
+.km-add,
+.km-battery,
+.km-bookmarks,
+.km-camera,
+.km-cart,
+.km-compose,
+.km-contacts,
+.km-delete,
+.km-details,
+.km-download,
+.km-downloads,
+.km-edit,
+.km-fastforward,
+.km-favorites,
+.km-featured,
+.km-globe,
+.km-history,
+.km-home,
+.km-info,
+.km-more,
+.km-mostrecent,
+.km-mostviewed,
+.km-organize,
+.km-pause,
+.km-play,
+.km-recents,
+.km-refresh,
+.km-reply,
+.km-rewind,
+.km-search,
+.km-settings,
+.km-share,
+.km-sounds,
+.km-stop,
+.km-toprated,
+.km-trash,
+.km-volume,
+.km-wifi,
+.km-loading,
+.km-load-more .km-icon,
+.km-scroller-refresh .km-icon,
+.km-scroller-pull .km-icon
+{
+    -webkit-mask-box-image: none;
+    -webkit-mask-image: url("images/icons.png");
+    -webkit-mask-size: auto 100%;
 }
 
-body:before
+body:after
 {
-    font-family: "Kendo UI";
-    content: "\a0";
-    font-size: 0;
-    width: 0;
-    height: 0;
-    position: absolute;
-    z-index: -1;
+     content: url("images/icons.png");
+     display: none;
 }
 
-.km-root .km-pane .km-view .km-icon
+.km-action
 {
-    -webkit-background-clip: text;
-    background-size: 0 0;
+    -webkit-mask-position-x: 20%;
+    clip-path: url("images/iconmasks.svg#action");
 }
 
-.km-icon
+.km-add
 {
-    position: relative;
+    -webkit-mask-position-x: 22%;
+    clip-path: url("images/iconmasks.svg#add");
 }
 
-.km-icon:after,
-.km-icon:before,
-.km-contactadd:after,
-.km-contactadd:before,
-.km-rowdelete:after,
-.km-rowdelete:before,
-.km-rowinsert:after,
-.km-rowinsert:before,
-.km-detaildisclose:after,
-.km-detaildisclose:before,
-.km-loading:after
+.km-battery
 {
-    position: relative;
-    display: block;
-    width: 100%;
-    height: 100%;
-    text-align: left;
-    vertical-align: middle;
-    background-size: auto;
-    font: 1em/1em "Kendo UI";
+    -webkit-mask-position-x: 24%;
+    clip-path: url("images/iconmasks.svg#battery");
 }
 
-// Icon Shadow
-.km-icon:before,
-.km-contactadd:before,
-.km-rowdelete:before,
-.km-rowinsert:before,
-.km-detaildisclose:before
+.km-bookmarks
 {
-    position: absolute;
-    margin-top: 1px;
-    color: rgba(0,0,0,.7);
+    -webkit-mask-position-x: 26%;
+    clip-path: url("images/iconmasks.svg#bookmarks");
 }
 
-.km-icon:before,
-.km-contactadd:before,
-.km-rowdelete:before,
-.km-rowinsert:before,
-.km-detaildisclose:before
+.km-camera
 {
-    display: none;
+    -webkit-mask-position-x: 28%;
+    clip-path: url("images/iconmasks.svg#camera");
 }
 
-.km-state-active .km-icon:before,
-.km-state-active .km-contactadd:before,
-.km-state-active .km-rowdelete:before,
-.km-state-active .km-rowinsert:before,
-.km-state-active .km-detaildisclose:before
+.km-cart
 {
-    display: block;
+    -webkit-mask-position-x: 30%;
+    clip-path: url("images/iconmasks.svg#cart");
 }
 
-:-webkit-any(.km-ios):not(.km-android):not(.km-blackberry6):not(.km-blackberry7):not(.km-meego) .km-icon:after,
-:-webkit-any(.km-blackberry):not(.km-android):not(.km-blackberry6):not(.km-blackberry7):not(.km-meego) .km-icon:after
+.km-edit,
+.km-compose
 {
-    background-image: inherit;
-    background-repeat: inherit;
-    background-position: inherit;
-    background-color: currentcolor;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    -webkit-mask-position-x: 32%;
+    clip-path: url("images/iconmasks.svg#edit");
 }
 
-.km-root .km-pane.km-on-blackberry.km-blackberry6 .km-view .km-icon,
-.km-root .km-pane.km-on-blackberry.km-blackberry7 .km-view .km-icon,
-.km-root .km-pane.km-on-ios.km-ios4 .km-view .km-icon
+.km-contacts
 {
-    background: none;
+    -webkit-mask-position-x: 34%;
+    clip-path: url("images/iconmasks.svg#contacts");
 }
 
-.km-root .km-pane.km-on-blackberry.km-blackberry6 .km-view .km-icon:after,
-.km-root .km-pane.km-on-blackberry.km-blackberry7 .km-view .km-icon:after,
-.km-root .km-pane.km-on-ios.km-ios4 .km-view .km-icon:after
+.km-trash,
+.km-delete
 {
-    background: none;
-    -webkit-text-fill-color: inherit;
+    -webkit-mask-position-x: 36%;
+    clip-path: url("images/iconmasks.svg#trash");
 }
 
-.km-contactadd:after,
-.km-contactadd:before,
-.km-rowinsert:after,
-.km-rowinsert:before
+.km-details
 {
-    content: "\E039";
+    -webkit-mask-position-x: 38%;
+    clip-path: url("images/iconmasks.svg#details");
 }
 
-.km-rowdelete:after,
-.km-rowdelete:before
+.km-download,
+.km-downloads
 {
-    content: "\E03a";
+    -webkit-mask-position-x: 40%;
+    clip-path: url("images/iconmasks.svg#download");
 }
 
-.km-detaildisclose:after,
-.km-detaildisclose:before
+.km-fastforward
 {
-    content: "\E0E2";
+    -webkit-mask-position-x: 42%;
+    clip-path: url("images/iconmasks.svg#fastforward");
 }
 
-.km-action:after,
-.km-action:before
+.km-toprated,
+.km-favorites
 {
-    content: "\e0ca";
+    -webkit-mask-position-x: 44%;
+    clip-path: url("images/iconmasks.svg#toprated");
 }
 
-.km-add:after,
-.km-add:before
+.km-featured
 {
-    content: "\e0cb";
+    -webkit-mask-position-x: 46%;
+    clip-path: url("images/iconmasks.svg#featured");
+//    clip-path: url("data:image/svg+xml;utf-8;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB2aWV3Qm94PSIwIDAgMSAxIj4NCiAgICA8Y2xpcFBhdGggaWQ9ImZlYXR1cmVkIiBjbGlwUGF0aFVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCI+DQogICAgICAgIDxwYXRoIGZpbGw9ImJsYWNrIiBkPSJNMC40NzksMC4zNzRDMC40NTQsMC4zMSwwLjM4MSwwLjIzOSwwLjMxNiwwLjIxOEwwLjI5MiwwLjIwOWMtMC4wNjUtMC4wMjEtMC4xNTgtMC4wMi0wLjIwNiwwLjAwNA0KICAgICAgIAkJQzAuMDM5LDAuMjM3LDAuMDQsMC4yOTcsMC4wODgsMC4zNDVsMC4zODksMC4zODlDMC41MjUsMC43ODEsMC41OCwwLjgxMiwwLjU5OCwwLjhjMC4wMTgtMC4wMTIsMC4wMTMtMC4wNzQtMC4wMTEtMC4xMzkNCiAgICAgICAJCUwwLjQ3OSwwLjM3NHoiLz4NCiAgICAgICAgPHBhdGggZmlsbD0iYmxhY2siIGQ9Ik0wLjcyOSwwLjU3N0MwLjY3NSwwLjYyLDAuNjE1LDAuNjEyLDAuNTk2LDAuNTYxYy0wLjAyLTAuMDUxLTAuMDItMC4xMTYtMC4wMDItMC4xNDUNCiAgICAgICAgICAgIGMwLjAxOS0wLjAyNywwLjA3OC0wLjA2NSwwLjEzMy0wLjA4NGMwLjA1NC0wLjAxOCwwLjEzOC0wLjAxOCwwLjE4NiwwYzAuMDQ4LDAuMDE5LDAuMDQzLDAuMDY3LTAuMDExLDAuMTFMMC43MjksMC41Nzd6Ii8+DQogICAgICAgIDxwYXRoIGZpbGw9ImJsYWNrIiBkPSJNMC40MzIsMC43NWMwLjAxOCwwLjAxOCwwLjAyLDAuMDQ0LDAuMDAzLDAuMDU3QzAuNDE3LDAuODIsMC4zOTEsMC44MjIsMC4zNzYsMC44MTMNCiAgICAgICAgICAgIEMwLjM2LDAuODAzLDAuMzU5LDAuNzc2LDAuMzczLDAuNzU1UzAuNDE0LDAuNzMxLDAuNDMyLDAuNzV6Ii8+DQogICAgPC9jbGlwUGF0aD4NCjwvc3ZnPg==#featured");
 }
 
-.km-battery:after,
-.km-battery:before
+.km-globe
 {
-    content: "\e0ce";
+    -webkit-mask-position-x: 48%;
+    clip-path: url("images/iconmasks.svg#globe");
 }
 
-.km-bookmarks:after,
-.km-bookmarks:before
+.km-history
 {
-    content: "\e0cf";
+    -webkit-mask-position-x: 50%;
+    clip-path: url("images/iconmasks.svg#history");
 }
 
-.km-camera:after,
-.km-camera:before
+.km-home
 {
-    content: "\e0d0";
+    -webkit-mask-position-x: 52%;
+    clip-path: url("images/iconmasks.svg#home");
 }
 
-.km-cart:after,
-.km-cart:before
+.km-info,
+.km-about
 {
-    content: "\e0d1";
+    -webkit-mask-position-x: 54%;
+    clip-path: url("images/iconmasks.svg#info");
 }
 
-.km-edit:after,
-.km-compose:after,
-.km-edit:before,
-.km-compose:before
+.km-more
 {
-    content: "\e0d5";
+    -webkit-mask-position-x: 56%;
+    clip-path: url("images/iconmasks.svg#more");
 }
 
-.km-contacts:after,
-.km-contacts:before
+.km-mostrecent
 {
-    content: "\e0e4";
+    -webkit-mask-position-x: 58%;
+    clip-path: url("images/iconmasks.svg#mostrecent");
 }
 
-.km-trash:after,
-.km-delete:after,
-.km-trash:before,
-.km-delete:before
+.km-mostviewed
 {
-    content: "\e0ec";
+    -webkit-mask-position-x: 60%;
+    clip-path: url("images/iconmasks.svg#mostviewed");
 }
 
-.km-details:after,
-.km-details:before
+.km-organize
 {
-    content: "\e0e2";
+    -webkit-mask-position-x: 62%;
+    clip-path: url("images/iconmasks.svg#organize");
 }
 
-.km-download:after,
-.km-downloads:after,
-.km-download:before,
-.km-downloads:before
+.km-pause
 {
-    content: "\e0d4";
+    -webkit-mask-position-x: 64%;
+    clip-path: url("images/iconmasks.svg#pause");
 }
 
-.km-fastforward:after,
-.km-fastforward:before
+.km-play
 {
-    content: "\e0d9";
+    -webkit-mask-position-x: 66%;
+    clip-path: url("images/iconmasks.svg#play");
 }
 
-.km-toprated:after,
-.km-favorites:after,
-.km-toprated:before,
-.km-favorites:before
+.km-recents
 {
-    content: "\e0d7";
+    -webkit-mask-position-x: 68%;
+    clip-path: url("images/iconmasks.svg#recents");
 }
 
-.km-featured:after,
-.km-featured:before
+.km-refresh
 {
-    content: "\e0d8";
+    -webkit-mask-position-x: 70%;
+    clip-path: url("images/iconmasks.svg#refresh");
 }
 
-.km-globe:after,
-.km-globe:before
+.km-reply
 {
-    content: "\e0dc";
+    -webkit-mask-position-x: 72%;
+    clip-path: url("images/iconmasks.svg#reply");
 }
 
-.km-history:after,
-.km-history:before
+.km-rewind
 {
-    content: "\e0e7";
+    -webkit-mask-position-x: 74%;
+    clip-path: url("images/iconmasks.svg#rewind");
 }
 
-.km-home:after,
-.km-home:before
+.km-search
 {
-    content: "\e0dd";
+    -webkit-mask-position-x: 76%;
+    clip-path: url("images/iconmasks.svg#search");
 }
 
-.km-info:after,
-.km-about:after,
-.km-info:before,
-.km-about:before
+.km-settings
 {
-    content: "\e0de";
+    -webkit-mask-position-x: 78%;
+    clip-path: url("images/iconmasks.svg#settings");
 }
 
-.km-more:after,
-.km-more:before
+.km-share
 {
-    content: "\e0e0";
+    -webkit-mask-position-x: 80%;
+    clip-path: url("images/iconmasks.svg#share");
 }
 
-.km-mostrecent:after,
-.km-mostrecent:before
+.km-sounds,
+.km-volume
 {
-    content: "\e0cc";
+    -webkit-mask-position-x: 82%;
+    clip-path: url("images/iconmasks.svg#sounds");
 }
 
-.km-mostviewed:after,
-.km-mostviewed:before
+.km-stop
 {
-    content: "\e0d6";
+    -webkit-mask-position-x: 84%;
+    clip-path: url("images/iconmasks.svg#stop");
 }
 
-.km-organize:after,
-.km-organize:before
+.km-wifi
 {
-    content: "\e0eb";
+    -webkit-mask-position-x: 86%;
+    clip-path: url("images/iconmasks.svg#wifi");
 }
 
-.km-pause:after,
-.km-pause:before
+.km-android .km-more
 {
-    content: "\e0e3";
+    -webkit-mask-position-x: 88%;
+    clip-path: url("images/iconmasks.svg#androidmore");
 }
 
-.km-play:after,
-.km-play:before
+.km-meego .km-more
 {
-    content: "\e0e5";
+    -webkit-mask-position-x: 90%;
+    clip-path: url("images/iconmasks.svg#meegomore");
 }
 
-.km-recents:after,
-.km-recents:before
+.km-ios .km-loading,
+.km-ios .km-load-more .km-icon,
+.km-ios .km-scroller-refresh .km-icon
 {
-    content: "\e0d2";
+    -webkit-mask-position-x: 92%;
+    clip-path: url("images/iconmasks.svg#iosrefresh");
 }
 
-.km-refresh:after,
-.km-refresh:before
+.km-meego .km-loading,
+.km-meego .km-load-more .km-icon,
+.km-meego .km-scroller-refresh .km-icon
 {
-    content: "\e0e6";
+    -webkit-mask-position-x: 94%;
+    clip-path: url("images/iconmasks.svg#meegorefresh");
 }
 
-.km-reply:after,
-.km-reply:before
+.km-root .km-android .km-loading,
+.km-android .km-load-more .km-icon,
+.km-root .km-android .km-scroller-refresh .km-icon
 {
-    content: "\e0ed";
+    -webkit-mask-image: none;
+    background: url("images/icons.png");
+    background-size: auto 100%;
+    background-position-x: 96%;
 }
 
-.km-rewind:after,
-.km-rewind:before
+.km-blackberry .km-loading,
+.km-blackberry .km-load-more .km-icon,
+.km-blackberry .km-scroller-refresh .km-icon
 {
-    content: "\e0e8";
+    -webkit-mask-position-x: 98%;
+    clip-path: url("images/iconmasks.svg#berryrefresh");
 }
 
-.km-search:after,
-.km-search:before
+.km-scroller-pull .km-icon
 {
-    content: "\e0e9";
-}
-
-.km-settings:after,
-.km-settings:before
-{
-    content: "\e0da";
-}
-
-.km-share:after,
-.km-share:before
-{
-    content: "\e0df";
-}
-
-.km-sounds:after,
-.km-volume:after,
-.km-sounds:before,
-.km-volume:before
-{
-    content: "\e0ef";
-}
-
-.km-stop:after,
-.km-stop:before
-{
-    content: "\e0ea";
-}
-
-.km-wifi:after,
-.km-wifi:before
-{
-    content: "\e0f0";
-}
-
-.km-android .km-more:after,
-.km-android .km-more:before
-{
-    content: "\e0e1";
-}
-
-.km-meego .km-more:after,
-.km-meego .km-more:before
-{
-    content: "\e0f1";
-}
-
-.km-ios .km-loading:after,
-.km-ios .km-load-more .km-icon:after,
-.km-ios .km-scroller-refresh .km-icon:after
-{
-    content: "\e0f7";
-}
-
-.km-meego .km-loading:after,
-.km-meego .km-load-more .km-icon:after,
-.km-meego .km-scroller-refresh .km-icon:after
-{
-    content: "\e0f6";
-}
-
-.km-root .km-android .km-loading:after,
-.km-android .km-load-more .km-icon:after,
-.km-root .km-android .km-scroller-refresh .km-icon:after
-{
-    content: "\e0f6";
-}
-
-.km-blackberry .km-loading:after,
-.km-blackberry .km-load-more .km-icon:after,
-.km-blackberry .km-scroller-refresh .km-icon:after
-{
-    content: "\e0f6";
-    color: inherit;
-}
-
-.km-scroller-pull .km-icon:after
-{
-    content: "\e0f2";
+    -webkit-mask-position-x: 100%;
+    clip-path: url("images/iconmasks.svg#pullrefresh");
 }

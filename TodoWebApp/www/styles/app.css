@@ -8,6 +8,11 @@ div {
     -webkit-background-clip: border-box;
 }
 
+.km-icon:before
+{
+    display: none !important;
+}
+
 #preLoad {
     width: 100%;
     height: 100%;
