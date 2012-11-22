@@ -6,7 +6,7 @@
     init: function () {
         var self = this;
         
-        amplify.subscribe(dataServicesEvents.dirty, function(key) {
+        $.subscribe(dataServicesEvents.dirty, function(key) {
             if (key === endpoints.todos && navigator.onLine) {
                 self.set("isDirty", true);
             }

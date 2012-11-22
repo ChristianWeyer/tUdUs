@@ -97,7 +97,7 @@ todosApp.Views.loaderElement = {};
 
 todosApp.Views.showLoader = function (text) {
     todosApp.Views.loaderElement = window.kendoMobileApplication.pane.loader.element.find("h1");
-    todosApp.Views.loaderElement.text(text).addClass("loaderHeading");
+    todosApp.Views.loaderElement.text(text);//.addClass("loaderHeading");
     window.kendoMobileApplication.showLoading();
 };
 

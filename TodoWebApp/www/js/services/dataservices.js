@@ -10,18 +10,18 @@ var dataservices = (function () {
         console.log(error);
 
         if (error.status === 500) {
-            amplify.publish(dataServicesEvents.error, "Kaboom!");
+            $.publish(dataServicesEvents.error, "Kaboom!");
         } else if (error.status === 401) {
-            amplify.publish(dataServicesEvents.error, "Login failed.");
+            $.publish(dataServicesEvents.error, "Login failed.");
         }
         else {
-            amplify.publish(dataServicesEvents.error, error.statusText);
+            $.publish(dataServicesEvents.error, error.statusText);
         }
     }
 
     function beforeLoginSend(xhr, un, pw) {
         xhr.setRequestHeader(httpSecurity.AuthorizationHeader, createBasicAuthenticationHeader(un, pw));
-        amplify.publish(dataServicesEvents.action, "Login...");
+        $.publish(dataServicesEvents.action, "Login...");
     }
 
     function beforeSend(xhr) {
@@ -34,7 +34,7 @@ var dataservices = (function () {
                 amplify.store.sessionStorage(localStorageKeys.AuthenticationToken)));
         }
 
-        amplify.publish(dataServicesEvents.action, "Working...");
+        $.publish(dataServicesEvents.action, "Working...");
     }
 
     function createBasicAuthenticationHeader(un, pw) {
@@ -81,7 +81,7 @@ var dataservices = (function () {
             data.push(item);
 
             amplify.store.sessionStorage(key, data);
-            amplify.publish(dataServicesEvents.dirty, key);
+            $.publish(dataServicesEvents.dirty, key);
 
             deferred.resolve(item);
         }).promise();
@@ -96,7 +96,7 @@ var dataservices = (function () {
             data.splice(index, 1, item);
 
             amplify.store.sessionStorage(key, data);
-            amplify.publish(dataServicesEvents.dirty, key);
+            $.publish(dataServicesEvents.dirty, key);
 
             deferred.resolve(item);
         }).promise();
@@ -111,7 +111,7 @@ var dataservices = (function () {
             data.splice(index, 1);
 
             amplify.store.sessionStorage(key, data);
-            amplify.publish(dataServicesEvents.dirty, key);
+            $.publish(dataServicesEvents.dirty, key);
 
             deferred.resolve();
         }).promise();
@@ -126,7 +126,7 @@ var dataservices = (function () {
                 beforeSend: function (xhr) { beforeLoginSend(xhr, un, pw); }
             })
                 .always(function () {
-                    amplify.publish(dataServicesEvents.endaction);
+                    $.publish(dataServicesEvents.endaction);
                 })
                 .fail(function (error) {
                     handleServiceError(error);
@@ -148,7 +148,7 @@ var dataservices = (function () {
                     retryCodes: [500]
                 })
                     .always(function () {
-                        amplify.publish(dataServicesEvents.endaction);
+                        $.publish(dataServicesEvents.endaction);
                     })
                     .success(function (data) {
                         amplify.store.sessionStorage(service, data);
@@ -172,7 +172,7 @@ var dataservices = (function () {
                     beforeSend: function (xhr) { beforeSend(xhr); }
                 })
                     .always(function () {
-                        amplify.publish(dataServicesEvents.endaction);
+                        $.publish(dataServicesEvents.endaction);
                     })
                     .fail(function (error) {
                         handleServiceError(error);
@@ -192,7 +192,7 @@ var dataservices = (function () {
                     beforeSend: function (xhr) { beforeSend(xhr); }
                 })
                     .always(function () {
-                        amplify.publish(dataServicesEvents.endaction);
+                        $.publish(dataServicesEvents.endaction);
                     })
                     .fail(function (error) {
                         handleServiceError(error);
@@ -213,7 +213,7 @@ var dataservices = (function () {
                     beforeSend: function (xhr) { beforeSend(xhr); }
                 })
                     .always(function () {
-                        amplify.publish(dataServicesEvents.endaction);
+                        $.publish(dataServicesEvents.endaction);
                     })
                     .fail(function (error) {
                         handleServiceError(error);
@@ -224,7 +224,7 @@ var dataservices = (function () {
         sync: function (service) {
             return $.Deferred(function (deferred) {
                 if (navigator.onLine) {
-                    amplify.publish(dataServicesEvents.action, "Syncing...");
+                    $.publish(dataServicesEvents.action, "Syncing...");
 
                     var items = amplify.store.sessionStorage(service);
 
@@ -245,7 +245,7 @@ var dataservices = (function () {
                         amplify.store.sessionStorage(service, null);
                     }
 
-                    amplify.publish(dataServicesEvents.endaction);
+                    $.publish(dataServicesEvents.endaction);
                     deferred.resolve();
                 } else {
                     deferred.reject();

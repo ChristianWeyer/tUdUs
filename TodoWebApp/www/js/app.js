@@ -42,13 +42,13 @@ todosApp.init = function () {
 
     todosViewModel.init();
 
-    amplify.subscribe(dataServicesEvents.error, function (errorText) {
+    $.subscribe(dataServicesEvents.error, function (errorText) {
         errorViewModel.showErrorDialog(errorText);
     });
-    amplify.subscribe(dataServicesEvents.action, function (statusText) {
+    $.subscribe(dataServicesEvents.action, function (statusText) {
         todosApp.Views.showLoader(statusText);
     });
-    amplify.subscribe(dataServicesEvents.endaction, function () {
+    $.subscribe(dataServicesEvents.endaction, function () {
         todosApp.Views.hideLoader();
     });
 
