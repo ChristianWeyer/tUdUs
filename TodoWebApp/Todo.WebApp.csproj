@@ -211,6 +211,7 @@
     <Content Include="www\images\splash2x.png" />
     <Content Include="www\js\libs\cordova-android.js" />
     <Content Include="www\js\libs\cordova-ios.js" />
+    <Content Include="www\js\libs\jquery-1.8.3.min.js" />
     <Content Include="www\js\libs\jquery.ba-tinypubsub.min.js" />
     <Content Include="www\js\libs\jquery.signalR-1.0.0-alpha2.js" />
     <Content Include="www\js\libs\jquery.signalR-1.0.0-alpha2.min.js" />
@@ -300,7 +301,6 @@
     <Content Include="www\js\libs\amplify.min.js" />
     <Content Include="www\js\app.js" />
     <Content Include="www\js\libs\kendo.mobile.min.js" />
-    <Content Include="www\js\libs\jquery-1.7.1.min.js" />
     <Content Include="www\js\libs\jquery-ui-1.8.20.min.js" />
     <Content Include="www\js\libs\jquery.unobtrusive-ajax.min.js" />
     <Content Include="www\js\libs\jquery.validate.min.js" />
