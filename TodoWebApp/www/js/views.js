@@ -1,15 +1,15 @@
-﻿todosApp.Views.acsLoginShow = function() {
+﻿todosApp.Views.acsLoginShow = function () {
     acsViewModel.getIdps();
 };
 
-todosApp.Views.todosPageInit = function() {
+todosApp.Views.todosPageInit = function () {
     $("#done").kendoMobileSwitch({
         onLabel: "YES",
         offLabel: "NO"
     });
 };
 
-todosApp.Views.todoDetailsShow = function(e) {
+todosApp.Views.todoDetailsShow = function (e) {
     todosViewModel.set("currentItem", todosViewModel.todosSource.get(e.view.params.id));
     e.view.scroller.reset();
 
@@ -19,10 +19,10 @@ todosApp.Views.todoDetailsShow = function(e) {
 
 todosApp.Views.addTodoPageValidator = {};
 
-todosApp.Views.addTodoPageInit = function() {
+todosApp.Views.addTodoPageInit = function () {
     todosApp.Views.addTodoPageValidator = $("#addTodoPage").kendoValidator({
         messages: {
-            required: function(input) {
+            required: function (input) {
                 input.attr("placeholder", input.attr("name") + " is req.");
             }
         }
@@ -33,7 +33,7 @@ todosApp.Views.addTodoPageInit = function() {
 todosApp.Views.addTodoPageShow = function (e) {
     newTodoItemViewModel.set("pictureUrl", images.DefaultItemPicture);
     e.view.scroller.reset();
-    
+
     navigator.geolocation.getCurrentPosition(function (p) {
         newTodoItemViewModel.set("location", p.coords.latitude + "," + p.coords.longitude);
         todosApp.Views.createMap(p.coords.latitude, p.coords.longitude, "newMap");
@@ -59,7 +59,8 @@ todosApp.Views.createMap = function (lat, lng, element) {
     var map = new google.maps.Map(mapElement[0], options);
 };
 
-todosApp.Views.graphInit = function() {
+todosApp.Views.graphInit = function () {
+    setTimeout(function () {
         $("#chart").kendoChart({
             title: {
                 text: "Items (total) - fake"
@@ -73,13 +74,14 @@ todosApp.Views.graphInit = function() {
                 categories: [2009, 2010, 2011, 2012]
             }
         });
-    
-    $(window).resize(function () {
-        todosApp.Views.resizeChart();
-    });
+
+        $(window).resize(function () {
+            todosApp.Views.resizeChart();
+        });
+    }, 400);
 };
 
-todosApp.Views.resizeChart = function() {
+todosApp.Views.resizeChart = function () {
     //$("#chart").height($("#statsPage").height());
     $("#chart").width($("#statsPage").width());
 
@@ -88,7 +90,7 @@ todosApp.Views.resizeChart = function() {
 };
 
 
-todosApp.Views.infoInit = function() {
+todosApp.Views.infoInit = function () {
     $("#appVersion").text(appVersion);
     $("#appDate").text(appDate);
 };
@@ -101,7 +103,7 @@ todosApp.Views.showLoader = function (text) {
     window.kendoMobileApplication.showLoading();
 };
 
-todosApp.Views.hideLoader = function () {    
+todosApp.Views.hideLoader = function () {
     todosApp.Views.loaderElement.text("Loading...").addClass("loaderHeading");
     window.kendoMobileApplication.hideLoading();
 };
