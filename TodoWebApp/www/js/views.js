@@ -80,7 +80,7 @@ todosApp.Views.graphInit = function() {
 };
 
 todosApp.Views.resizeChart = function() {
-    $("#chart").height($("#statsPage").height());
+    //$("#chart").height($("#statsPage").height());
     $("#chart").width($("#statsPage").width());
 
     var chart = $("#chart").data("kendoChart");
