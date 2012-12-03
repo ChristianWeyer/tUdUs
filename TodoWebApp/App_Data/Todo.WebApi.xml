@@ -64,6 +64,12 @@
             Controller for uploading pictures
             </summary>
         </member>
+        <member name="M:Todo.WebApi.PicturesController.#ctor(Todo.Base.IGenericRepository{Todo.Entities.TodoItem})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Todo.WebApi.PicturesController"/> class.
+            </summary>
+            <param name="repository">The repository.</param>
+        </member>
         <member name="M:Todo.WebApi.PicturesController.Post">
             <summary>
             Post pictures to this action.
