@@ -9,7 +9,8 @@ $(function () {
     });
 
     $.when(ttTools.templateLoader.loadExternalTemplate("../templates/tasksList.tmpl.html"),
-        ttTools.templateLoader.loadExternalTemplate("../templates/idpList.tmpl.html"))
+           ttTools.templateLoader.loadExternalTemplate("../templates/idpList.tmpl.html"),
+           ttTools.templateLoader.loadExternalTemplate("../templates/pictureGallery.tmpl.html"))
         .then(
             function () {
                 if (ttTools.isInApp()) {

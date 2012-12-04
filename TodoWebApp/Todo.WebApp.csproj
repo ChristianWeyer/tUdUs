@@ -231,6 +231,8 @@
     </Content>
     <Content Include="www\styles\images\back.png" />
     <Content Include="www\styles\images\icons.png" />
+    <Content Include="www\templates\pictureGallery.tmpl.html" />
+    <Content Include="www\views\gallery.html" />
     <Content Include="www\views\info.html" />
     <Content Include="www\views\settings.html" />
     <Content Include="www\views\stats.html" />

@@ -12,7 +12,11 @@ todosApp.Views.todosPageInit = function () {
 todosApp.Views.todoDetailsShow = function (e) {
     todosViewModel.set("currentItem", todosViewModel.todosSource.get(e.view.params.id));
     e.view.scroller.reset();
-
+    e.view.scroller.unbind("pull")
+         .bind("pull", function () {
+             todosViewModel.loadTodos();
+         });
+    
     var coords = todosViewModel.get("currentItem.location").split(",");
     todosApp.Views.createMap(coords[0], coords[1], "detailsMap");
 };
@@ -27,7 +31,6 @@ todosApp.Views.addTodoPageInit = function () {
             }
         }
     }).data("kendoValidator");
-
 };
 
 todosApp.Views.addTodoPageShow = function (e) {
@@ -57,6 +60,15 @@ todosApp.Views.createMap = function (lat, lng, element) {
 
     var mapElement = $("#" + element);
     var map = new google.maps.Map(mapElement[0], options);
+};
+
+todosApp.Views.galleryInit = function () {
+    dataservices.getList(endpoints.todos)
+        .done(function (data) {
+            var template = kendo.template($("#galleryTemplate").html());
+            $("#gallery").html(kendo.render(template, data));
+            //kendo.mobile.init($("#gallery"));
+        });
 };
 
 todosApp.Views.graphInit = function () {

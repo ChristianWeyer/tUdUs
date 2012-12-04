@@ -8,10 +8,30 @@ div {
     -webkit-background-clip: border-box;
 }
 
-.km-icon:before
-{
+.km-icon:before {
     display: none !important;
 }
+
+#gallery .photo {
+    width: 320px;
+    margin: 0;
+    height: 220px;
+    display: inline-block;
+    -webkit-background-size: auto 100%;
+    background-size: auto 100%;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+/*#galleryContainer {
+    margin: 60px 0 1em 0;
+    padding-bottom: 20px;
+    padding-top: 20px;
+    background: rgba(0,0,0,.1);
+    border: 1px solid rgba(0,0,0,.3);
+    border-width: 1px 0;
+    box-shadow: 0 1px 1px rgba(255,255,255,.3);
+}*/
 
 #preLoad {
     width: 100%;
