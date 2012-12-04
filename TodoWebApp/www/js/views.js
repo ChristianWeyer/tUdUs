@@ -7,15 +7,18 @@ todosApp.Views.todosPageInit = function () {
         onLabel: "YES",
         offLabel: "NO"
     });
+    
+    window.kendoMobileApplication.view().scroller.unbind("pull")
+        .bind("pull", function () {
+              console.log("Pulled...");
+              todosViewModel.loadTodos();
+        });
+    
 };
 
 todosApp.Views.todoDetailsShow = function (e) {
     todosViewModel.set("currentItem", todosViewModel.todosSource.get(e.view.params.id));
     e.view.scroller.reset();
-    e.view.scroller.unbind("pull")
-         .bind("pull", function () {
-             todosViewModel.loadTodos();
-         });
     
     var coords = todosViewModel.get("currentItem.location").split(",");
     todosApp.Views.createMap(coords[0], coords[1], "detailsMap");
