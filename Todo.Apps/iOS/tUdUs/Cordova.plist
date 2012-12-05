@@ -24,6 +24,7 @@
 	<string>none</string>
 	<key>ExternalHosts</key>
 	<array>
+		<string>https://tttodos.blob.core.windows.net</string>
 		<string>https://ttidentity.cloudapp.net</string>
 		<string>https://secure.shared.live.com</string>
 		<string>https://login.live.com</string>
