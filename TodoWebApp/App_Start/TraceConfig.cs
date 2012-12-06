@@ -2,7 +2,7 @@ using System;
 using System.Web.Http;
 using System.Web.Http.Tracing;
 
-namespace Todo.WebApp.App_Start
+namespace Todo.WebApp
 {
     // TODO: To enable tracing in your application, please add the following line of code
     // to your startup code (WebApiConfig.cs or Global.asax.cs in an MVC 4 project):

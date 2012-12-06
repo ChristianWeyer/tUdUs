@@ -4,7 +4,7 @@ using Autofac;
 using Autofac.Integration.WebApi;
 using Newtonsoft.Json.Serialization;
 
-namespace Todo.WebApp.App_Start
+namespace Todo.WebApp
 {
     public static class WebApiConfig
     {

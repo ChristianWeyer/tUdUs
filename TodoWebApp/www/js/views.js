@@ -68,7 +68,6 @@ todosApp.Views.galleryInit = function () {
         .done(function (data) {
             var template = kendo.template($("#galleryTemplate").html());
             $("#gallery").html(kendo.render(template, data));
-            //kendo.mobile.init($("#gallery"));
         });
 };
 
@@ -95,7 +94,6 @@ todosApp.Views.graphInit = function () {
 };
 
 todosApp.Views.resizeChart = function () {
-    //$("#chart").height($("#statsPage").height());
     $("#chart").width($("#statsPage").width());
 
     var chart = $("#chart").data("kendoChart");

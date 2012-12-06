@@ -2,8 +2,8 @@
 using System.Data.Entity.Infrastructure;
 using System.Web.Http;
 using System.Web.Mvc;
+using System.Web.Optimization;
 using Todo.DataAccess;
-using Todo.WebApp.App_Start;
 
 namespace Todo.WebApp
 {
@@ -15,7 +15,8 @@ namespace Todo.WebApp
         protected void Application_Start()
         {
             AreaRegistration.RegisterAllAreas();
-            
+
+            BundleConfig.RegisterBundles(BundleTable.Bundles);
             WebApiConfig.Register(GlobalConfiguration.Configuration);
             SecurityConfig.Configure(GlobalConfiguration.Configuration);
             

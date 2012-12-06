@@ -4,7 +4,7 @@ using Thinktecture.IdentityModel.Authorization.WebApi;
 using Thinktecture.IdentityModel.Tokens.Http;
 using System.Configuration;
 
-namespace Todo.WebApp.App_Start
+namespace Todo.WebApp
 {
     public class SecurityConfig
     {
