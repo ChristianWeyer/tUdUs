@@ -13,7 +13,6 @@ todosApp.Views.todosPageInit = function () {
               console.log("Pulled...");
               todosViewModel.loadTodos();
         });
-    
 };
 
 todosApp.Views.todoDetailsShow = function (e) {
