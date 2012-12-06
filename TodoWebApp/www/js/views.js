@@ -2,17 +2,16 @@
     acsViewModel.getIdps();
 };
 
-todosApp.Views.todosPageInit = function () {
+todosApp.Views.todosPageInit = function (e) {
     $("#done").kendoMobileSwitch({
         onLabel: "YES",
         offLabel: "NO"
     });
     
-    window.kendoMobileApplication.view().scroller.unbind("pull")
-        .bind("pull", function () {
-              console.log("Pulled...");
-              todosViewModel.loadTodos();
-        });
+    e.view.scroller.unbind("pull")
+     .bind("pull", function () {
+         todosViewModel.loadTodos();
+     });
 };
 
 todosApp.Views.todoDetailsShow = function (e) {
