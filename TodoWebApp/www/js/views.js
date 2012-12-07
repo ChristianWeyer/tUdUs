@@ -10,7 +10,9 @@ todosApp.Views.todosPageInit = function (e) {
     
     e.view.scroller.unbind("pull")
      .bind("pull", function () {
-         todosViewModel.loadTodos();
+        todosApp.config.suppressLoader = true;
+        todosViewModel.loadTodos();
+        todosApp.config.suppressLoader = false;
      });
 };
 

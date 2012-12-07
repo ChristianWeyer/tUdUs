@@ -47,7 +47,9 @@ todosApp.init = function () {
         errorViewModel.showErrorDialog(errorText);
     });
     $.subscribe(dataServicesEvents.action, function (e, statusText) {
-        todosApp.Views.showLoader(statusText);
+        if(!todosApp.config.suppressLoader) {
+            todosApp.Views.showLoader(statusText);
+        }
     });
     $.subscribe(dataServicesEvents.endaction, function (e) {
         todosApp.Views.hideLoader();
@@ -61,6 +63,10 @@ todosApp.init = function () {
     if (!navigator.onLine) {
         todosApp.appOffline();
     }
+};
+
+todosApp.config = {
+    suppressLoader: false
 };
 
 todosApp.appOnline = function () {
