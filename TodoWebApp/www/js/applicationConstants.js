@@ -1,5 +1,5 @@
 var appVersion = "0.7.3";
-var appDate = "2012-12-06_01";
+var appDate = "2012-12-07_02";
 
 getBaseUrl = function () {
     var servicesBaseUrl;
