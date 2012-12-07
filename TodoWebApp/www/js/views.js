@@ -22,6 +22,9 @@ todosApp.Views.todoDetailsShow = function (e) {
     todosApp.Views.createMap(coords[0], coords[1], "detailsMap");
 };
 
+todosApp.Views.swiped = function(e) {
+};
+
 todosApp.Views.addTodoPageValidator = {};
 
 todosApp.Views.addTodoPageInit = function () {

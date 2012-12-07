@@ -393,7 +393,6 @@
     <Content Include="www\js\libs\amplify.min.js" />
     <Content Include="www\js\app.js" />
     <Content Include="www\js\libs\kendo.mobile.min.js" />
-    <Content Include="www\js\libs\jquery-ui-1.8.20.min.js" />
     <Content Include="www\js\libs\jquery.unobtrusive-ajax.min.js" />
     <Content Include="www\js\libs\jquery.validate.min.js" />
     <Content Include="www\js\libs\jquery.validate.unobtrusive.min.js" />
