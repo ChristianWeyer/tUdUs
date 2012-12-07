@@ -24,6 +24,11 @@
 	<string>none</string>
 	<key>ExternalHosts</key>
 	<array>
+		<string>https://*.bc.yahoo.com</string>
+		<string>https://s.yimg.com</string>
+		<string>https://*.login.yahoo.com</string>
+		<string>https://*.login.yahooapis.com</string>
+		<string>https://identity.thinktecture.com</string>
 		<string>https://tttodos.blob.core.windows.net</string>
 		<string>https://ttidentity.cloudapp.net</string>
 		<string>https://secure.shared.live.com</string>
