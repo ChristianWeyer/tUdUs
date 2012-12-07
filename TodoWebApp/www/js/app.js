@@ -65,10 +65,6 @@ todosApp.init = function () {
     }
 };
 
-todosApp.config = {
-    suppressLoader: false
-};
-
 todosApp.appOnline = function () {
     showNotification({
         message: "ONLINE",

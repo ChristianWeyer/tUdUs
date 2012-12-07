@@ -1,0 +1,3 @@
+todosApp.config = {
+    suppressLoader: false
+};
