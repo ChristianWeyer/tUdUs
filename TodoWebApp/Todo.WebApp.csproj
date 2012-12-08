@@ -299,6 +299,7 @@
     <Content Include="Scripts\WebApiTestClient.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="www\images\splash2x.png" />
+    <Content Include="www\js\config.js" />
     <Content Include="www\js\libs\cordova-android.js" />
     <Content Include="www\js\libs\cordova-ios.js" />
     <Content Include="www\js\libs\jquery-1.8.3.min.js" />
