@@ -3,6 +3,7 @@ using System.Data;
 using System.Data.Entity;
 using System.Linq;
 using System.Linq.Expressions;
+using System.Threading.Tasks;
 
 namespace Todo.Base
 {
@@ -55,6 +56,32 @@ namespace Todo.Base
             return entity;
         }
 
+        public async virtual Task<TEntity> InsertAsync(TEntity entity)
+        {
+            entities.Set<TEntity>().Add(entity);
+            await SaveAsync();
+
+            return entity;
+        }
+        public async virtual void DeleteAsync(TEntity entity)
+        {
+            entities.Entry<TEntity>(entity).State = EntityState.Deleted;
+            await SaveAsync();
+        }
+
+        public async virtual Task<TEntity> UpdateAsync(TEntity entity)
+        {
+            entities.Entry(entity).State = EntityState.Modified;
+            await SaveAsync();
+
+            return entity;
+        }
+
+        private async Task SaveAsync()
+        {
+            await entities.SaveChangesAsync();
+        }
+ 
         private void Save()
         {
             entities.SaveChanges();
