@@ -24,7 +24,15 @@ todosApp.Views.todoDetailsShow = function (e) {
     todosApp.Views.createMap(coords[0], coords[1], "detailsMap");
 };
 
-todosApp.Views.swiped = function(e) {
+todosApp.Views.swiped = function (e) {
+    // TODO: more MVVM-ish...
+    var liId = e.sender.element[0].id.substring(7);
+
+    if (e.direction == "right") {
+        $("#taskbn_" + liId).show("fast");
+    } else {
+        $("#taskbn_" + liId).hide("fast");
+    }
 };
 
 todosApp.Views.addTodoPageValidator = {};

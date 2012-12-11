@@ -1,11 +1,11 @@
 <script id="tasksListTemplate" type="text/x-kendo-template">
     # if (typeof isAdded !== 'undefined') { #
         # if (isAdded) { #
-            <a class="details-link" data-enable-swipe="1" data-swipe="todosApp.Views.swiped" style="color: darkred; font-style: italic;" data-role="listview-link" href="\#todoDetailsPage?id=#:id#">#= title#</a>
+            <a id="taskli_#:id#" class="details-link" data-role="touch" data-enable-swipe="1" data-swipe="todosApp.Views.swiped" style="color: darkred; font-style: italic;" data-role="listview-link" href="\#todoDetailsPage?id=#:id#">#= title#</a>
             # } #
         # } else { #
-            <a class="details-link" data-enable-swipe="1" data-swipe="todosApp.Views.swiped" data-role="listview-link" href="\#todoDetailsPage?id=#:id#">#= title#</a>
+            <a id="taskli_#:id#" class="details-link" data-role="touch" data-enable-swipe="1" data-swipe="todosApp.Views.swiped" data-role="listview-link" href="\#todoDetailsPage?id=#:id#">#= title#</a>
             # } #
     
-    <a data-role="detailbutton" data-style="rowdelete" data-bind="events:{click: removeTodo}"></a>
+    <a id="taskbn_#:id#" style="display:none;" data-role="detailbutton" data-style="rowdelete" data-bind="events:{click: removeTodo}"></a>
 </script>
