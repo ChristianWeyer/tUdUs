@@ -12,6 +12,17 @@ div {
     display: none !important;
 }
 
+.km-root .km-ios .km-tabstrip .km-button
+{
+    min-width: 5em;
+}
+
+.km-phone .km-tabstrip .km-icon {
+    width: 1.5rem;
+    height: 1.5rem;
+    font-size: 1.5rem;
+}
+
 #gallery .photo {
     width: 320px;
     margin: 0;
