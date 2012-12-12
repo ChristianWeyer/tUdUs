@@ -1,11 +1,11 @@
 <script id="tasksListTemplate" type="text/x-kendo-template">
     # if (typeof isAdded !== 'undefined') { #
         # if (isAdded) { #
-            <a id="taskli_#:id#" class="details-link" data-role="touch" data-enable-swipe="1" data-swipe="todosApp.Views.swiped" style="color: darkred; font-style: italic;" data-role="listview-link" href="\#todoDetailsPage?id=#:id#">#= title#</a>
+            <aspanid="taskli_#:id#" class="km-listview-link" data-role="touch" data-enable-swipe="1" data-swipe="todosApp.Views.swiped" data-tap="todosApp.Views.tapped" style="color: darkred; font-style: italic;" data-url="\#todoDetailsPage?id=#:id#">#= title#</span>
             # } #
         # } else { #
-            <a id="taskli_#:id#" class="details-link" data-role="touch" data-enable-swipe="1" data-swipe="todosApp.Views.swiped" data-role="listview-link" href="\#todoDetailsPage?id=#:id#">#= title#</a>
-            # } #
-    
+            <span id="taskli_#:id#" class="km-listview-link" data-role="touch" data-enable-swipe="1" data-tap="todosApp.Views.tapped" data-swipe="todosApp.Views.swiped" data-url="\#todoDetailsPage?id=#:id#" >#= title#</span>
+        # } #
+
     <a id="taskbn_#:id#" style="display:none;" data-role="detailbutton" data-style="rowdelete" data-bind="events:{click: removeTodo}"></a>
 </script>

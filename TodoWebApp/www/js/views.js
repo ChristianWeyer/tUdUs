@@ -24,6 +24,11 @@ todosApp.Views.todoDetailsShow = function (e) {
     todosApp.Views.createMap(coords[0], coords[1], "detailsMap");
 };
 
+todosApp.Views.tapped = function (e) {
+    var url = e.touch.target.data("url");
+    window.kendoMobileApplication.navigate(url);
+};
+
 todosApp.Views.swiped = function (e) {
     // TODO: more MVVM-ish...
     var liId = e.sender.element[0].id.substring(7);
