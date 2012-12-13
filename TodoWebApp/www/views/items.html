@@ -20,9 +20,68 @@
 	    <ul id="tasksList" data-role="listview" data-style="inset" data-bind="source: todosSource" data-pull-to-refresh="true" data-template="tasksListTemplate" >
 	    </ul>
     </div>
+    
+    <!-- tUdU details page -->
+    <div id="todoDetailsPage" data-role="view" data-title="Details" data-model="todosViewModel" data-show="todosApp.Views.todoDetailsShow" data-before-show="todosApp.Views.beforePageShow" data-layout="defaultLayout">
+		<header data-role="header">
+			<div data-role="navbar">
+				<a data-role="backbutton" data-align="left">Back</a>
+				<span data-role="view-title"></span>
+			</div>
+		</header>
 
-	<!-- tUdU details page -->
-	<div id="todoDetailsPage" data-role="view" data-title="Details" data-model="todosViewModel" data-show="todosApp.Views.todoDetailsShow" data-before-show="todosApp.Views.beforePageShow" data-layout="defaultLayout">
+		<h2>Item Details</h2>
+        	
+        <div id="scrollview-container">
+            <div data-role="scrollview">
+                <div data-role="page">
+                    <div>
+                        <ul data-role="listview" data-style="inset">
+                            <li>
+                                <label for="tasktitle">Title:</label>
+                                <input type="text" id="tasktitle" data-bind="value: currentItem.title" />
+                            </li>
+                            <li>
+                                <label for="details">Details:</label>
+                                <input type="text" id="details" data-bind="value: currentItem.details" />
+                            </li>
+                            <li>
+                                <label for="done">Done:</label>
+                                <input id="done" data-role="switch" data-bind="checked: currentItem.done" />
+                            </li>
+                            <li>
+                                <label for="created">Created:</label>
+                                <input type="text" id="created" data-bind="value: currentItem.created" />
+                            </li>
+                        </ul>
+                        </div>
+                </div><div data-role="page">
+                    <div>      
+                        <ul data-role="listview" data-style="inset">
+                            <li>
+                                <div id="detailsMap" style="height: 150px; width:100%;"></div>
+                            </li>
+                        </ul>
+                        </div>
+                </div><div data-role="page">
+                    <div>      
+                        <ul data-role="listview" data-style="inset">
+                            <li data-bind="visible: pictureAvailable">
+                                <img src="" style="margin: 0px auto; display: block; width: 200px" data-bind="attr: { src: currentItem.pictureUrl }" />
+                            </li>
+                        </ul>
+                        </div>
+                </div>
+            </div>
+        </div>
+
+        <br />
+	    <a id="saveTodoButton" data-bind="click: updateTodo" data-role="button">Save</a>
+        <br />
+    </div>
+
+    <!-- tUdU details page -->
+<!--	<div id="todoDetailsPage" data-role="view" data-title="Details" data-model="todosViewModel" data-show="todosApp.Views.todoDetailsShow" data-before-show="todosApp.Views.beforePageShow" data-layout="defaultLayout">
 		<header data-role="header">
 			<div data-role="navbar">
 				<a data-role="backbutton" data-align="left">Back</a>
@@ -60,7 +119,7 @@
 	    <br />
 	    <a id="saveTodoButton" data-bind="click: updateTodo" data-role="button">Save</a>
         <br/>
-	</div>
+	</div>-->
 	
     <!-- Add tUdU page -->
     <div id="addTodoPage" data-role="view" data-title="tUdUs" data-transition="overlay:up" data-model="newTodoItemViewModel" data-init="todosApp.Views.addTodoPageInit" data-show="todosApp.Views.addTodoPageShow" data-before-show="todosApp.Views.beforePageShow" data-layout="defaultLayout">

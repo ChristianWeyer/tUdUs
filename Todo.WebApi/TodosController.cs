@@ -79,7 +79,10 @@ namespace Todo.WebApi
         {
             try
             {
-                var updatedItem = repository.Update(item.Map());
+                var itemEntity = item.Map();
+                itemEntity.Owner = User.Identity.Name;
+
+                var updatedItem = repository.Update(itemEntity);
                 Hub.Clients.All.itemUpdated(ConnectionId, item);
     
                 return updatedItem.Map();
