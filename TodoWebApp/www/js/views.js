@@ -1,4 +1,4 @@
-﻿todosApp.Views.acsLoginShow = function () {
+todosApp.Views.acsLoginShow = function () {
     acsViewModel.getIdps();
 };
 
@@ -32,11 +32,17 @@ todosApp.Views.tapped = function (e) {
 todosApp.Views.swiped = function (e) {
     // TODO: more MVVM-ish...
     var liId = e.sender.element[0].id.substring(7);
-
-    if (e.direction == "right") {
+    
+    if (e.direction === "right") {
+        //$("#taskbn_" + liId).style.display = "block";
+        //$("#taskbn_" + liId).css('display', 'none');
         $("#taskbn_" + liId).show("fast");
+        //el.removeClass('km-listview-link');
     } else {
+        //$("#taskbn_" + liId).style.display = "none";
+        //$("#taskbn_" + liId).css('display', 'block');
         $("#taskbn_" + liId).hide("fast");
+        //el.addClass('km-listview-link');
     }
 };
 

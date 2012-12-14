@@ -8,9 +8,10 @@ div {
     -webkit-background-clip: border-box;
 }
 
-.km-icon:before {
+/*.km-icon:before {
     display: none !important;
 }
+*/
 
 .km-root .km-ios .km-tabstrip .km-button
 {
