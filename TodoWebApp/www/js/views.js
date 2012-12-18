@@ -91,7 +91,7 @@ todosApp.Views.galleryInit = function () {
     dataservices.getList(endpoints.todos)
         .done(function (data) {
             var template = kendo.template($("#galleryTemplate").html());
-            $("#gallery").html(kendo.render(template, data));
+            $("#gallery").data("kendoMobileScrollView").content(kendo.render(template, data));
         });
 };
 
