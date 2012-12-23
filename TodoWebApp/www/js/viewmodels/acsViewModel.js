@@ -22,7 +22,7 @@ var acsViewModel = kendo.observable({
     },
 
     openAuthWindow: function (url) {        
-        if (url.indexOf("login.live.com") !== -1) {
+        if (url.indexOf("login.live.com") !== -1 || url.indexOf("login.microsoftonline.com") !== -1) {
             url = url + "&pcexp=false";
         }
 

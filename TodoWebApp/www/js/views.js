@@ -114,7 +114,7 @@ todosApp.Views.graphInit = function () {
         $(window).resize(function () {
             todosApp.Views.resizeChart();
         });
-    }, 400);
+    }, 100);
 };
 
 todosApp.Views.resizeChart = function () {

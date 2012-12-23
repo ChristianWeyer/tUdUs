@@ -24,6 +24,11 @@
 	<string>none</string>
 	<key>ExternalHosts</key>
 	<array>
+		<string>https://*.msecnd.net</string>
+		<string>https://*.windowsazure.com</string>
+		<string>https://*.microsoftonline-p.com</string>
+		<string>https://*.microsoftonline-p.net</string>
+		<string>https://login.microsoftonline.com</string>
 		<string>https://*.bc.yahoo.com</string>
 		<string>https://s.yimg.com</string>
 		<string>https://*.login.yahoo.com</string>
