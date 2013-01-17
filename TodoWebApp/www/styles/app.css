@@ -2,17 +2,6 @@ div {
     -webkit-transform: translateZ(0);
 }
 
-/* Remove font icons styling, use .km- + data-icon name if only one should be overridden */
-.km-root .km-pane .km-view .km-icon {
-    background-size: 100% 100%;
-    -webkit-background-clip: border-box;
-}
-
-/*.km-icon:before {
-    display: none !important;
-}
-*/
-
 .km-root .km-ios .km-tabstrip .km-button
 {
     min-width: 5em;

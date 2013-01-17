@@ -1,5 +1,5 @@
-var appVersion = "0.7.5";
-var appDate = "2012-12-13_01";
+var appVersion = "0.7.6";
+var appDate = "2013-01-17_01";
 
 todosApp.config = {
     suppressLoader: false

@@ -342,14 +342,7 @@
     <Content Include="www\js\tools\logger.js" />
     <Content Include="www\js\tools\jsonAppender.js" />
     <Content Include="www\js\viewmodels\oauth2ViewModel.js" />
-    <Content Include="www\styles\icons.css">
-      <DependentUpon>icons.less</DependentUpon>
-    </Content>
-    <Content Include="www\styles\icons.min.css">
-      <DependentUpon>icons.less</DependentUpon>
-    </Content>
     <Content Include="www\styles\images\back.png" />
-    <Content Include="www\styles\images\icons.png" />
     <Content Include="www\templates\pictureGallery.tmpl.html" />
     <Content Include="www\views\gallery.html" />
     <Content Include="www\views\info.html" />
@@ -480,7 +473,6 @@
     <None Include="Properties\PublishProfiles\tttodos - Web Deploy.pubxml" />
     <Content Include="www\styles\images\KendoUI.ttf" />
     <Content Include="www\styles\images\KendoUI.woff" />
-    <Content Include="www\styles\icons.less" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
