@@ -3,7 +3,6 @@
 [Bb]uild
 TestResults
 PublishProfiles
-.DS_Store
 *.user
 *.suo
 *.[Cc]ache
@@ -15,7 +14,8 @@ PublishProfiles
 _ReSharper.*
 *.resharper
 packages
- 
+
+.idea
 *~.nib
 *.swp
 .DS_Store
@@ -27,5 +27,3 @@ packages
 *.pbxuser
 *.xcuserstate
 xcuserdata
-
-Todo.Apps/iOS/tUdUs.xcodeproj/xcuserdata/christian.xcuserdatad/xcschemes/xcschememanagement.plist
