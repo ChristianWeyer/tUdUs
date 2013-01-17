@@ -1,5 +1,5 @@
 ﻿var testClientModel;
-var emptyTestClientModel = 
+var emptyTestClientModel =
 {
     HttpMethod: '',
     UriPathTemplate: '',
@@ -9,34 +9,41 @@ var emptyTestClientModel =
 };
 
 (function () {
+    function BuildUriPath(template, uriParameters) {
+        var path = template;
+        for (var i in uriParameters) {
+            var parameter = uriParameters[i];
+            var variableName = '{' + parameter.name + '}';
+            var parameterValue = parameter.value();
+            if (parameterValue != "") {
+                path = path.replace(variableName, parameterValue);
+            }
+        }
+        return path;
+    }
+
     function TestClientViewModel(data) {
         var self = this;
         self.HttpMethod = ko.observable(data.HttpMethod);
         self.UriPathTemplate = data.UriPathTemplate;
         self.UriPath = ko.observable(self.UriPathTemplate);
 
-        self.UriParameters = data.UriParameters.map(function (parameter) {
-            var uriParameterValue = ko.observable(parameter.value);
+        self.UriParameters = new Array();
+        for (var i in data.UriParameters) {
+            var uriParameter = data.UriParameters[i];
+            var uriParameterValue = ko.observable(uriParameter.value);
             uriParameterValue.subscribe(function () {
-                var path = self.UriPathTemplate;
-                self.UriParameters.forEach(function (parameter) {
-                    var variableName = '{' + parameter.name + '}';
-                    var value = parameter.value();
-                    if (value != "") {
-                        path = path.replace(variableName, value);
-                    }
-                });
-                self.UriPath(path);
+                self.UriPath(BuildUriPath(self.UriPathTemplate, self.UriParameters));
             });
-            return { name: parameter.name, value: uriParameterValue };
-        });
-        
+            self.UriParameters.push({ name: uriParameter.name, value: uriParameterValue });
+        }
+
         self.RequestHeaders = ko.observableArray();
 
         self.RequestMediaType = ko.observable();
-        
+
         var sampleTypes = new Array();
-        for(var index in data.Samples) {
+        for (var index in data.Samples) {
             sampleTypes.push(index);
         };
         self.SampleTypes = sampleTypes;
@@ -47,14 +54,15 @@ var emptyTestClientModel =
 
         self.RequestMediaType.subscribe(function () {
             self.RequestBody(decodeSample(data.Samples[self.RequestMediaType()]) || "");
-        });
-
-        self.RequestBody.subscribe(function () {
             var headers = self.RequestHeaders;
             var mediaType = self.RequestMediaType();
             if (mediaType && mediaType != "") {
                 addOrReplaceHeader(headers, "content-type", mediaType);
             }
+        });
+
+        self.RequestBody.subscribe(function () {
+            var headers = self.RequestHeaders;
             var contentLengh = self.RequestBody().length;
             addOrReplaceHeader(headers, "content-length", contentLengh);
         });
@@ -88,8 +96,8 @@ var emptyTestClientModel =
             height: "auto",
             width: "700",
             modal: true,
-            open: function() {
-                jQuery('.ui-widget-overlay').bind('click', function() {
+            open: function () {
+                jQuery('.ui-widget-overlay').bind('click', function () {
                     jQuery('#testClientDialog').dialog('close');
                 })
             },
@@ -129,8 +137,7 @@ function decodeSample(sampleString) {
 function addOrReplaceHeader(headers, headerName, headerValue) {
     var headerList = headers();
     for (var i in headerList) {
-        if (headerList[i].name.toLowerCase() == headerName)
-        {
+        if (headerList[i].name.toLowerCase() == headerName) {
             headers.replace(headerList[i], { name: headerList[i].name, value: headerValue });
             return;
         }

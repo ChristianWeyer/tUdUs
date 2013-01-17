@@ -2,7 +2,7 @@ using System.Web.Http;
 using System.Web.Mvc;
 using Todo.WebApp.Areas.HelpPage.App_Start;
 
-namespace Todo.WebApp.Areas
+namespace Todo.WebApp.Areas.HelpPage
 {
     public class HelpPageAreaRegistration : AreaRegistration
     {
@@ -19,8 +19,8 @@ namespace Todo.WebApp.Areas
             context.MapRoute(
                 "HelpPage_Default",
                 "Help/{action}/{apiId}",
-                new { controller = "Help", action = "Index", apiId = UrlParameter.Optional }
-            );
+                new { controller = "Help", action = "Index", apiId = UrlParameter.Optional });
+
             HelpPageConfig.Register(GlobalConfiguration.Configuration);
         }
     }

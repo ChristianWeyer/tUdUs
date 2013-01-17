@@ -20,8 +20,8 @@ namespace Todo.WebApp
             WebApiConfig.Register(GlobalConfiguration.Configuration);
             SecurityConfig.Configure(GlobalConfiguration.Configuration);
             
-            Database.DefaultConnectionFactory = new
-                        SqlCeConnectionFactory("System.Data.SqlServerCe.4.0");
+            //Database.DefaultConnectionFactory = new
+            //            SqlCeConnectionFactory("System.Data.SqlServerCe.4.0");
             Database.SetInitializer<TodoContext>(new DropCreateDatabaseIfModelChanges<TodoContext>());
         }
     }
