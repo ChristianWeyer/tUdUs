@@ -20,8 +20,14 @@ todosApp.Views.todoDetailsShow = function (e) {
     todosViewModel.set("currentItem", todosViewModel.todosSource.get(e.view.params.id));
     e.view.scroller.reset();
     
-    var coords = todosViewModel.get("currentItem.location").split(",");
-    todosApp.Views.createMap(coords[0], coords[1], "detailsMap");
+    var loc = todosViewModel.get("currentItem.location");
+
+    if(loc != null) {
+        var coords = loc.split(",");
+        todosApp.Views.createMap(coords[0], coords[1], "detailsMap");
+    } else {
+        
+    }
 };
 
 todosApp.Views.tapped = function (e) {

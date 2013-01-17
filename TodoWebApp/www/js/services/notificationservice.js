@@ -1,7 +1,7 @@
 ﻿var notificationservice = (function () {
     return {
         register: function () {
-            NotifierjsConfig.defaultTimeOut = 1750;
+            NotifierjsConfig.defaultTimeOut = 2000;
             NotifierjsConfig.position = ["bottom", "right"];
             NotifierjsConfig.notificationStyles.width = "255";
 
