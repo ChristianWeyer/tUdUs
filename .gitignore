@@ -15,7 +15,7 @@ _ReSharper.*
 *.resharper
 packages
 
-.idea
+out
 *~.nib
 *.swp
 .DS_Store

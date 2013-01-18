@@ -1,8 +1,10 @@
 $(function () {
+    ttTools.logger.info("Startup...");
+
     window.onerror = function (errorMsg, url, lineNumber) {
         ttTools.logger.fatal("Uncaught error: " + errorMsg + " in " + url + ", line " + lineNumber);
+        console.log("Uncaught error: " + errorMsg + " in " + url + ", line " + lineNumber);
     };
-    ttTools.logger.info("Startup...");
 
     $(document).bind("APP_READY", function () {
         $("#preLoad").css("opacity", "0").css("visibility", "hidden");
