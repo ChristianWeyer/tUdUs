@@ -40,15 +40,11 @@ todosApp.Views.swiped = function (e) {
     var liId = e.sender.element[0].id.substring(7);
     
     if (e.direction === "right") {
-        //$("#taskbn_" + liId).style.display = "block";
-        //$("#taskbn_" + liId).css('display', 'none');
-        $("#taskbn_" + liId).show("fast");
-        //el.removeClass('km-listview-link');
+        $("#taskbn_" + liId).css('display', 'block');
+        //$("#taskbn_" + liId).show();
     } else {
-        //$("#taskbn_" + liId).style.display = "none";
-        //$("#taskbn_" + liId).css('display', 'block');
-        $("#taskbn_" + liId).hide("fast");
-        //el.addClass('km-listview-link');
+        $("#taskbn_" + liId).css('display', 'none');
+        //$("#taskbn_" + liId).hide();
     }
 };
 
