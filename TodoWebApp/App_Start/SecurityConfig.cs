@@ -8,7 +8,7 @@ namespace Todo.WebApp
 {
     public class SecurityConfig
     {
-        public static void Configure(HttpConfiguration config)
+        public static void Register(HttpConfiguration config)
         {
             var authNConfig = new AuthenticationConfiguration
                 {

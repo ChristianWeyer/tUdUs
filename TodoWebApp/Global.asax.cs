@@ -1,5 +1,4 @@
 ﻿using System.Data.Entity;
-using System.Data.Entity.Infrastructure;
 using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Optimization;
@@ -19,7 +18,7 @@ namespace Todo.WebApp
 
             BundleConfig.RegisterBundles(BundleTable.Bundles);
             WebApiConfig.Register(GlobalConfiguration.Configuration);
-            SecurityConfig.Configure(GlobalConfiguration.Configuration);
+            SecurityConfig.Register(GlobalConfiguration.Configuration);
             HubConfig.Register(RouteTable.Routes);
 
             //Database.DefaultConnectionFactory = new
