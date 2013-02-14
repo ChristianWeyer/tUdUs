@@ -1,4 +1,4 @@
-namespace Todo.WebApp.Areas.HelpPage.SampleGeneration
+namespace Todo.WebApp.Areas.HelpPage
 {
     /// <summary>
     /// Indicates whether the sample is used for request or response

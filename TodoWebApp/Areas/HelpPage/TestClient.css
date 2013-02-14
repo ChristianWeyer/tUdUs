@@ -11,29 +11,28 @@
 }
 
 #testClientButton {
-    position: fixed; right:0; bottom:0; display:block; font-size:x-large
-}
-
-table .test-client {
-    width: 100%;
-    border-collapse: collapse;
-}
-
-.test-client input {
-    width: 100%;
-    margin: 0 0 5px 0;
-}
-
-.test-client td {
-    padding: 0 15px 0 0;
-    margin: 0;
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    width: 150px;
+    font-size: x-large;
 }
 
 select {
     margin-top: 10px;
 }
 
-.panels {
+.panel {
     max-height: 120px;
     overflow: auto;
+}
+
+    .panel input {
+        width: 150px;
+    }
+
+.uriParameterLabel {
+    width: 100px;
+    float: left;
+    border: none;
 }

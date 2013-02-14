@@ -13,7 +13,7 @@ using System.Web.Http.Description;
 using System.Xml.Linq;
 using Newtonsoft.Json;
 
-namespace Todo.WebApp.Areas.HelpPage.SampleGeneration
+namespace Todo.WebApp.Areas.HelpPage
 {
     /// <summary>
     /// This class will generate the samples for the help page.
@@ -231,7 +231,7 @@ namespace Todo.WebApp.Areas.HelpPage.SampleGeneration
         /// <param name="mediaType">Type of the media.</param>
         /// <returns></returns>
         [SuppressMessage("Microsoft.Design", "CA1031:DoNotCatchGeneralExceptionTypes", Justification = "The exception is recorded as InvalidSample.")]
-        [SuppressMessage("Microsoft.WebAPI", "CR4001:DoNotCallProblematicMethodsOnTask", Justification = "The sample generation is done synchronously.")]
+        [SuppressMessage("Microsoft.Web.FxCop", "MW1201:DoNotCallProblematicMethodsOnTask", Justification = "The sample generation is done synchronously.")]
         public virtual object WriteSampleObjectUsingFormatter(MediaTypeFormatter formatter, object value, Type type, MediaTypeHeaderValue mediaType)
         {
             if (formatter == null)

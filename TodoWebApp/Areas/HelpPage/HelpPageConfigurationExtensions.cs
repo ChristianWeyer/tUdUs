@@ -8,7 +8,6 @@ using System.Net.Http.Headers;
 using System.Web.Http;
 using System.Web.Http.Description;
 using Todo.WebApp.Areas.HelpPage.Models;
-using Todo.WebApp.Areas.HelpPage.SampleGeneration;
 
 namespace Todo.WebApp.Areas.HelpPage
 {
@@ -220,7 +219,6 @@ namespace Todo.WebApp.Areas.HelpPage
                 {
                     apiModel.SampleRequests.Add(item.Key, item.Value);
                     LogInvalidSampleAsError(apiModel, item.Value);
-
                 }
 
                 foreach (var item in sampleGenerator.GetSampleResponses(apiDescription))

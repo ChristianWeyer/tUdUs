@@ -1,9 +1,11 @@
 @using Todo.WebApp.Areas.HelpPage
-@model Todo.WebApp.Areas.HelpPage.SampleGeneration.InvalidSample
+@model InvalidSample
 
 @if (HttpContext.Current.IsDebuggingEnabled)
 {
-    <pre class="wrapped ui-state-error">@Model.ErrorMessage</pre>
+    <div class="warning-message-container">
+        <p>@Model.ErrorMessage</p>
+    </div>
 }
 else
 {

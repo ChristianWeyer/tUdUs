@@ -21,10 +21,10 @@ namespace Todo.WebApp
                 defaults: new { id = RouteParameter.Optional }
             );
 
+            config.EnableSystemDiagnosticsTracing();
+
             config.Formatters.JsonFormatter.SerializerSettings.ContractResolver =
                 new CamelCasePropertyNamesContractResolver();
-
-            TraceConfig.Register(config);
 
             var builder = new ContainerBuilder();
 

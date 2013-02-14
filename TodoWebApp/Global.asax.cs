@@ -3,6 +3,7 @@ using System.Data.Entity.Infrastructure;
 using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Optimization;
+using System.Web.Routing;
 using Todo.DataAccess;
 
 namespace Todo.WebApp
@@ -19,7 +20,8 @@ namespace Todo.WebApp
             BundleConfig.RegisterBundles(BundleTable.Bundles);
             WebApiConfig.Register(GlobalConfiguration.Configuration);
             SecurityConfig.Configure(GlobalConfiguration.Configuration);
-            
+            HubConfig.Register(RouteTable.Routes);
+
             //Database.DefaultConnectionFactory = new
             //            SqlCeConnectionFactory("System.Data.SqlServerCe.4.0");
             Database.SetInitializer<TodoContext>(new DropCreateDatabaseIfModelChanges<TodoContext>());

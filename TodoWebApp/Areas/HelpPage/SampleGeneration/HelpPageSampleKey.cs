@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Net.Http.Headers;
 
-namespace Todo.WebApp.Areas.HelpPage.SampleGeneration
+namespace Todo.WebApp.Areas.HelpPage
 {
     /// <summary>
     /// This is used to identify the place where the sample should be applied.
@@ -25,8 +25,8 @@ namespace Todo.WebApp.Areas.HelpPage.SampleGeneration
             {
                 throw new ArgumentNullException("type");
             }
-            ControllerName = string.Empty;
-            ActionName = string.Empty;
+            ControllerName = String.Empty;
+            ActionName = String.Empty;
             ParameterNames = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
             ParameterType = type;
             MediaType = mediaType;

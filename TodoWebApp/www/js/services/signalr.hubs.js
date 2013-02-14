@@ -8,7 +8,7 @@
  *
  */
 
-/// <reference path="..\..\SignalR.Client.JS\Scripts\jquery-1.6.2.js" />
+/// <reference path="..\..\SignalR.Client.JS\Scripts\jquery-1.6.4.js" />
 /// <reference path="jquery.signalR.js" />
 (function ($, window) {
     /// <param name="$" type="jQuery" />
@@ -65,22 +65,29 @@
         }
     }
 
-    signalR.hub = $.hubConnection("/tudus/signalr", { useDefaultPath: false })
-        .starting(function () {
+    $.hubConnection.prototype.createHubProxies = function () {
+        var proxies = {};
+        this.starting(function () {
             // Register the hub proxies as subscribed
             // (instance, shouldSubscribe)
-            registerHubProxies(signalR, true);
+            registerHubProxies(proxies, true);
 
             this._registerSubscribedHubs();
         }).disconnected(function () {
             // Unsubscribe all hub proxies when we "disconnect".  This is to ensure that we do not re-add functional call backs.
             // (instance, shouldSubscribe)
-            registerHubProxies(signalR, false);
+            registerHubProxies(proxies, false);
         });
 
-    signalR.todos = signalR.hub.createHubProxy('todos'); 
-    signalR.todos.client = { };
-    signalR.todos.server = {
+        proxies.todos = this.createHubProxy('todos');
+        proxies.todos.client = {};
+        proxies.todos.server = {
+        };
+
+        return proxies;
     };
+
+    signalR.hub = $.hubConnection("/tudus/signalr", { useDefaultPath: false });
+    $.extend(signalR, signalR.hub.createHubProxies());
 
 }(window.jQuery, window));
