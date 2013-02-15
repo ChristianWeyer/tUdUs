@@ -4,7 +4,7 @@
     $scope.orderBy = 'Created';
 
     $scope.search = function () {
-        // Consider using OQuery: http://code.msdn.microsoft.com/oquery
+        // NOTE: Consider using OQuery: http://code.msdn.microsoft.com/oquery
         var filterQuery = "true";
 
         if ($scope.query) {
@@ -21,7 +21,7 @@
     };
 
     $scope.showMore = function () {
-        return !$scope.noMore;
+        return !$scope.noMore; // FIX: bad logic (see above)
     };
 
     $scope.page = function () {
