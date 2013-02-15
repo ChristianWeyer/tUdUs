@@ -21,8 +21,6 @@ namespace Todo.WebApp
             SecurityConfig.Register(GlobalConfiguration.Configuration);
             HubConfig.Register(RouteTable.Routes);
 
-            //Database.DefaultConnectionFactory = new
-            //            SqlCeConnectionFactory("System.Data.SqlServerCe.4.0");
             Database.SetInitializer<TodoContext>(new DropCreateDatabaseIfModelChanges<TodoContext>());
         }
     }

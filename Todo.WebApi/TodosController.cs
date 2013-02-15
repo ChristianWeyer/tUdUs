@@ -29,7 +29,7 @@ namespace Todo.WebApi
         /// List available TODO items. Supports OData query syntax.
         /// </summary>
         /// <returns>List of items.</returns>
-        [Queryable]
+        [Queryable] //(PageSize=20)
         public IQueryable<TodoItemDto> Get()
         {
             return repository.GetAll().Where(t => t.Owner == User.Identity.Name).Map();

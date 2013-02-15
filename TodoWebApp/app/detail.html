@@ -1,0 +1,29 @@
+﻿<h2>{{action}} Todo</h2>
+
+<form name="form" class="form-horizontal">
+    <div class="control-group" ng-class="{error: form.Title.$invalid}">
+        <label class="control-label" for="Title">Todo</label>
+        <div class="controls">
+            <input type="text" ng-model="item.title" id="Title">
+        </div>
+    </div>
+    <div class="control-group" ng-class="{error: form.Done.$invalid}">
+        <label class="control-label" for="Done">Done</label>
+        <div class="controls">
+            <input type="text" ng-model="item.done" id="Done">
+        </div>
+    </div>
+    <div class="control-group" ng-class="{error: form.Created.$invalid}">
+        <label class="control-label" for="Created">Created</label>
+        <div class="controls">
+            <input type="text" ng-model="item.created" id="Created">
+        </div>
+    </div>
+
+    <div class="form-actions">
+        <button ng-click="save()" class="btn btn-primary">
+            {{action}}
+        </button>
+        <a href="#/" class="btn">Cancel</a>
+    </div>
+</form>

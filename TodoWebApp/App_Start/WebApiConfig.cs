@@ -22,6 +22,7 @@ namespace Todo.WebApp
             );
 
             config.EnableSystemDiagnosticsTracing();
+            config.EnableQuerySupport();
 
             config.Formatters.JsonFormatter.SerializerSettings.ContractResolver =
                 new CamelCasePropertyNamesContractResolver();

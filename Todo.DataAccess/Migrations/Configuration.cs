@@ -1,28 +1,33 @@
+using Todo.Entities;
+
 namespace Todo.DataAccess.Migrations
 {
+    using System;
+    using System.Data.Entity;
     using System.Data.Entity.Migrations;
+    using System.Linq;
 
     internal sealed class Configuration : DbMigrationsConfiguration<Todo.DataAccess.TodoContext>
     {
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
+            ContextKey = "Todo.DataAccess.TodoContext";
         }
 
         protected override void Seed(Todo.DataAccess.TodoContext context)
         {
-            //  This method will be called after migrating to the latest version.
-
-            //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
-            //  to avoid creating duplicate seed data. E.g.
-            //
-            //    context.People.AddOrUpdate(
-            //      p => p.FullName,
-            //      new Person { FullName = "Andrew Peters" },
-            //      new Person { FullName = "Brice Lambson" },
-            //      new Person { FullName = "Rowan Miller" }
-            //    );
-            //
+            var r = new Random();
+            var items = Enumerable.Range(1, 50).Select(o => new TodoItem
+            {
+                Id = Guid.NewGuid(),
+                Created = new DateTime(2012, r.Next(1, 12), r.Next(1, 28)),
+                Done = false,
+                Title = o.ToString(),
+                Details = "TODO item no. " + o,
+                Owner = "cw"
+            }).ToArray();
+            context.TodoItems.AddOrUpdate(item => new { item.Title }, items);
         }
     }
 }
