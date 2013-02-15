@@ -218,14 +218,14 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="app\app.js" />
-    <Content Include="app\editController.js" />
-    <Content Include="app\createController.js" />
-    <Content Include="app\detail.html" />
-    <Content Include="app\index.html" />
-    <Content Include="app\list.html" />
-    <Content Include="app\listController.js" />
-    <Content Include="app\sortedDirective.js" />
+    <Content Include="app\js\app.js" />
+    <Content Include="app\js\controllers\editController.js" />
+    <Content Include="app\js\controllers\createController.js" />
+    <Content Include="app\views\detail.html" />
+    <Content Include="app\views\index.html" />
+    <Content Include="app\views\list.html" />
+    <Content Include="app\js\controllers\listController.js" />
+    <Content Include="app\js\directives\sortedDirective.js" />
     <Content Include="Areas\HelpPage\HelpPage.css" />
     <Content Include="Areas\HelpPage\TestClient.css" />
     <Content Include="Content\bootstrap-responsive.css" />

@@ -12,5 +12,5 @@ TodoApp.factory('Todo', function ($resource, $http) {
     $http.defaults.headers.common['Authorization'] =
         'Basic ' + $.base64.encode("cw" + ':' + "cw"); // TODO: create login dialog
 
-    return $resource('../api/todos/:id', { id: '@id' }, { update: { method: 'PUT' } });
+    return $resource('../../api/todos/:id', { id: '@id' }, { update: { method: 'PUT' } });
 });
