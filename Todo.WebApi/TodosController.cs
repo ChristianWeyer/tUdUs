@@ -67,6 +67,8 @@ namespace Todo.WebApi
             
             Hub.Clients.All.itemAdded(ConnectionId, item);
 
+            // TODO: create response msg and set status code.
+
             return newItem.Map();
         }
 

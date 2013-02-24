@@ -5,9 +5,11 @@
             NotifierjsConfig.position = ["bottom", "right"];
             NotifierjsConfig.notificationStyles.width = "255";
 
-            $.connection.hub.url = endpoints.signalr;
-            var hub = $.connection.todos;
+            $.connection.hub.logging = true;
 
+            $.connection.hub.url = endpoints.signalr;
+            var hub = $.connection.todos;            
+            
             $.connection.hub.connectionSlow(function () {
                 Notifier.warning("Connectivity issues...?");
             });
