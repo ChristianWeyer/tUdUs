@@ -32,7 +32,9 @@ namespace Todo.WebApi
         [Queryable] //(PageSize=20)
         public IQueryable<TodoItemDto> Get()
         {
-            return repository.GetAll().Where(t => t.Owner == User.Identity.Name).Map();
+            var userName = User.Identity.Name;
+
+            return repository.GetAll().Where(t => t.Owner == userName).Map();
         }
 
         /// <summary>

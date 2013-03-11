@@ -13,7 +13,8 @@ namespace Todo.WebApp
             var authNConfig = new AuthenticationConfiguration
                 {
                     DefaultAuthenticationScheme = "Basic",
-                    SendWwwAuthenticateResponseHeader = false
+                    SendWwwAuthenticateResponseHeader = false,
+                    RequireSsl = false
                 };
 
             //authNConfig.AddJsonWebToken(
