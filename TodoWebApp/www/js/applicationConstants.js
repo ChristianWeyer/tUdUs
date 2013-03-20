@@ -17,7 +17,7 @@ var endpoints = {
     signalr: getBaseUrl() + "signalr",
     log: getBaseUrl() + "api/log/",
     acs: getBaseUrl() + "api/acs/getidps?ns=tttodos&realm=http%3A%2F%2Ftt.com%2Fmobile%2Ftodos",
-    oauth: "https://ttidentity.cloudapp.net/test/issue/oauth2/authorize"
+    oauth: "https://identity.thinktecture.com/samplecw/issue/oauth2/authorize"
 };
 
 var oAuthConfig = {
