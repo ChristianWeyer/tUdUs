@@ -75,8 +75,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Todo.Interfaces\Todo.Base.csproj">
-      <Project>{EA925276-3B76-4178-99AB-FEA985E6AA5B}</Project>
+    <ProjectReference Include="..\Todo.Base\Todo.Base.csproj">
+      <Project>{ea925276-3b76-4178-99ab-fea985e6aa5b}</Project>
       <Name>Todo.Base</Name>
     </ProjectReference>
   </ItemGroup>

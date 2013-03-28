@@ -137,7 +137,7 @@
       <Project>{E8868953-F0BB-4B1C-8EF4-006285C76EE0}</Project>
       <Name>Todo.Entities</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Todo.Interfaces\Todo.Base.csproj">
+    <ProjectReference Include="..\Todo.Base\Todo.Base.csproj">
       <Project>{EA925276-3B76-4178-99AB-FEA985E6AA5B}</Project>
       <Name>Todo.Base</Name>
     </ProjectReference>

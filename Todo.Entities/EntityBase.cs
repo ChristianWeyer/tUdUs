@@ -5,7 +5,7 @@ using Todo.Base;
 
 namespace Todo.Entities
 {
-    public class EntityBase : IDataWithState
+    public abstract class EntityBase : IDataWithState
     {
         [Key]
         public Guid Id { get; set; }

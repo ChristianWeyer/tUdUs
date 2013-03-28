@@ -1,0 +1,30 @@
+﻿<#@ template language="C#" HostSpecific="True" #>
+<#@ Output Extension="cs" #>
+<#@ assembly name="System.Core" #>
+<#@ assembly name="$(SolutionDir)Todo.Base\bin\Debug\Todo.Base.dll" #>
+<#@ assembly name="$(SolutionDir)Todo.Entities\bin\Debug\Todo.Entities.dll" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="Todo.Base" #>
+<#@ import namespace="Todo.Entities" #>
+using Todo.Base;
+using Todo.Entities;
+ 
+namespace Todo.DataAccess
+{ 
+<# 
+	var contextName = "TodoContext";
+	var path = Host.ResolveAssemblyReference(@"$(SolutionDir)Todo.Entities\bin\Debug\Todo.Entities.dll") ;
+    var ass = System.Reflection.Assembly.LoadFile(path);
+    var typeList = ass.GetTypes().Where(t => t.IsClass && !t.IsAbstract && t.IsSubclassOf(typeof(Todo.Entities.EntityBase)) != null).ToList();
+    
+	foreach (var type in typeList)
+    {
+#>
+	public partial class <#= type.Name #>Repository : GenericRepository<<#= contextName #>, <#= type.Name #>>
+	{
+	}
+<#    
+    }
+#>
+}
