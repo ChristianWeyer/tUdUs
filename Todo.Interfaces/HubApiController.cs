@@ -1,8 +1,8 @@
-﻿using System;
-using System.Web.Http;
-using Microsoft.AspNet.SignalR;
+﻿using Microsoft.AspNet.SignalR;
 using Microsoft.AspNet.SignalR.Hubs;
+using System;
 using System.Net.Http.Formatting;
+using System.Web.Http;
 
 namespace Todo.Base
 {

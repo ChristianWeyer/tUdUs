@@ -1,8 +1,8 @@
-﻿using System.IdentityModel.Services;
+﻿using System.Configuration;
+using System.IdentityModel.Services;
 using System.Web.Http;
 using Thinktecture.IdentityModel.Authorization.WebApi;
 using Thinktecture.IdentityModel.Tokens.Http;
-using System.Configuration;
 
 namespace Todo.WebApp
 {

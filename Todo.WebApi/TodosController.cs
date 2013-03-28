@@ -2,6 +2,7 @@
 using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Net;
+using System.Net.Http;
 using System.Web.Http;
 using Todo.Base;
 using Todo.Contracts;
@@ -29,7 +30,7 @@ namespace Todo.WebApi
         /// List available TODO items. Supports OData query syntax.
         /// </summary>
         /// <returns>List of items.</returns>
-        [Queryable] //(PageSize=20)
+        [Queryable(PageSize=20)]
         public IQueryable<TodoItemDto> Get()
         {
             var userName = User.Identity.Name;
@@ -60,18 +61,27 @@ namespace Todo.WebApi
         /// </summary>
         /// <param name="item">The new item.</param>
         /// <returns>The new item with up-to-date data.</returns>
-        public TodoItemDto Post(TodoItemDto item)
+        public HttpResponseMessage Post(TodoItemDto item)
         {
-            var itemEntity = item.Map();
-            itemEntity.Owner = User.Identity.Name;
-            
-            var newItem = repository.Insert(itemEntity);
-            
-            Hub.Clients.All.itemAdded(ConnectionId, item);
+            if (ModelState.IsValid)
+            {
+                var itemEntity = item.Map();
+                itemEntity.Owner = User.Identity.Name;
 
-            // TODO: create response msg and set status code.
+                var newItem = repository.Insert(itemEntity);
 
-            return newItem.Map();
+                Hub.Clients.All.itemAdded(ConnectionId, item);
+
+                string uri = Url.Link("DefaultApi", new { id = item.Id });
+                var response = Request.CreateResponse<TodoItemDto>(HttpStatusCode.Created, newItem.Map());
+                response.Headers.Location = new Uri(uri);
+
+                return response;
+            }
+            else
+            {
+                return Request.CreateResponse(HttpStatusCode.BadRequest);
+            }
         }
 
         /// <summary>

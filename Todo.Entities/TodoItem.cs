@@ -1,13 +1,10 @@
 ﻿using System;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
+using System.Collections.Generic;
 
 namespace Todo.Entities
 {
-    public class TodoItem
+    public class TodoItem : EntityBase
     {
-        [Key]
-        public Guid Id { get; set; }
         public string Owner { get; set; }
         public string Title { get; set; }
         public string Details { get; set; }
@@ -16,5 +13,6 @@ namespace Todo.Entities
         public bool Done { get; set; }
         public string AssignedTo { get; set; }
         public string PictureUrl { get; set; }
+        //public List<Link> Links { get; set; }
     }
 }

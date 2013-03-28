@@ -1,8 +1,8 @@
-﻿using System.Reflection;
-using System.Web.Http;
-using Autofac;
+﻿using Autofac;
 using Autofac.Integration.WebApi;
 using Newtonsoft.Json.Serialization;
+using System.Reflection;
+using System.Web.Http;
 
 namespace Todo.WebApp
 {

@@ -1,5 +1,4 @@
 ﻿using System.Security.Claims;
-using System.Threading;
 
 namespace Todo.Security
 {

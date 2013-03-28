@@ -1,10 +1,9 @@
-﻿using System.Linq;
-using System.Security.Claims;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Todo.DataAccess;
-using Todo.WebApi;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System.Linq;
 using System.Security.Principal;
 using System.Threading;
+using Todo.DataAccess;
+using Todo.WebApi;
 
 namespace Todo.Tests
 {

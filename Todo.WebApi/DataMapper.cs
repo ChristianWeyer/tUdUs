@@ -1,7 +1,7 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using AutoMapper;
+﻿using AutoMapper;
 using AutoMapper.QueryableExtensions;
+using System.Collections.Generic;
+using System.Linq;
 using Todo.Contracts;
 using Todo.Entities;
 
@@ -17,7 +17,8 @@ namespace Todo.WebApi
             Mapper.CreateMap<TodoItem, TodoItemDto>();
             Mapper.CreateMap<TodoItemDto, TodoItem>()
                 .ForMember(m => m.Owner, o => o.Ignore())
-                .ForMember(m => m.AssignedTo, o => o.Ignore());
+                .ForMember(m => m.AssignedTo, o => o.Ignore())
+                .ForMember(m => m.State, o => o.Ignore());
 
             Mapper.AssertConfigurationIsValid();
         }

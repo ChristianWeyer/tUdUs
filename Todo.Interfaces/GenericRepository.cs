@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Data;
 using System.Data.Entity;
 using System.Linq;
 using System.Linq.Expressions;
@@ -9,7 +8,7 @@ namespace Todo.Base
 {
     public abstract class GenericRepository<TDbContext, TEntity> :
         IGenericRepository<TEntity>
-        where TEntity : class
+        where TEntity : class, IDataWithState
         where TDbContext : DbContext, new()
     {
         private TDbContext entities = new TDbContext();
@@ -23,6 +22,18 @@ namespace Todo.Base
         public virtual IQueryable<TEntity> GetAll()
         {
             IQueryable<TEntity> query = entities.Set<TEntity>();
+
+            return query;
+        }
+
+        public IQueryable<TEntity> GetAllIncluding(params Expression<Func<TEntity, object>>[] includeProperties)
+        {
+            IQueryable<TEntity> query = entities.Set<TEntity>();
+
+            foreach (var includeProperty in includeProperties)
+            {
+                query = query.Include(includeProperty);
+            }
 
             return query;
         }
@@ -42,12 +53,6 @@ namespace Todo.Base
             return entity;
         }
 
-        public virtual void Delete(TEntity entity)
-        {
-            entities.Entry<TEntity>(entity).State = EntityState.Deleted;
-            Save();
-        }
-
         public virtual TEntity Update(TEntity entity)
         {
             entities.Entry(entity).State = EntityState.Modified;
@@ -56,6 +61,32 @@ namespace Todo.Base
             return entity;
         }
 
+        public TEntity InsertOrUpdateGraph(TEntity entityGraph)
+        {
+            if (entityGraph.State == DataState.Added)
+            {
+                entities.Set<TEntity>().Add(entityGraph);
+            }
+            else
+            {
+                entities.Set<TEntity>().Add(entityGraph);
+                entities.ApplyStateChanges();
+            }
+
+            Save();
+            entities.ResetState();
+            
+            return entityGraph;
+        }
+
+        public virtual void Delete(TEntity entity)
+        {
+            entities.Entry<TEntity>(entity).State = EntityState.Deleted;
+            Save();
+        }
+
+        #region Async - untested YET
+       
         public async virtual Task<TEntity> InsertAsync(TEntity entity)
         {
             entities.Set<TEntity>().Add(entity);
@@ -81,7 +112,9 @@ namespace Todo.Base
         {
             await entities.SaveChangesAsync();
         }
- 
+        
+        #endregion
+
         private void Save()
         {
             entities.SaveChanges();
@@ -91,14 +124,15 @@ namespace Todo.Base
 
         protected virtual void Dispose(bool disposing)
         {
-            if (!this.disposed)
+            if (!disposed)
             {
                 if (disposing)
                 {
                     entities.Dispose();
                 }
             }
-            this.disposed = true;
+            
+            disposed = true;
         }
 
         public void Dispose()
