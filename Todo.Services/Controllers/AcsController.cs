@@ -17,7 +17,7 @@ using System.Web.Http;
 using Thinktecture.IdentityModel.Clients.AccessControlService;
 using Thinktecture.IdentityModel.Tokens;
 
-namespace Todo.WebApi
+namespace Todo.Services
 {
     /// <summary>
     /// Controller for interacting with Windows Azure ACS via WS-Federation.

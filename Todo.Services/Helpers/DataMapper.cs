@@ -5,7 +5,7 @@ using System.Linq;
 using Todo.Contracts;
 using Todo.Entities;
 
-namespace Todo.WebApi
+namespace Todo.Services
 {
     /// <summary>
     /// Class for mapping entities to DTOs and vice versa.

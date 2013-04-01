@@ -75,9 +75,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Todo.Base\Todo.Base.csproj">
+    <ProjectReference Include="..\Todo.Framework\Todo.Framework.csproj">
       <Project>{ea925276-3b76-4178-99ab-fea985e6aa5b}</Project>
-      <Name>Todo.Base</Name>
+      <Name>Todo.Framework</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

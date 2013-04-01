@@ -114,13 +114,13 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Todo.Base\Todo.Base.csproj">
-      <Project>{ea925276-3b76-4178-99ab-fea985e6aa5b}</Project>
-      <Name>Todo.Base</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Todo.Entities\Todo.Entities.csproj">
       <Project>{E8868953-F0BB-4B1C-8EF4-006285C76EE0}</Project>
       <Name>Todo.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Todo.Framework\Todo.Framework.csproj">
+      <Project>{ea925276-3b76-4178-99ab-fea985e6aa5b}</Project>
+      <Name>Todo.Framework</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

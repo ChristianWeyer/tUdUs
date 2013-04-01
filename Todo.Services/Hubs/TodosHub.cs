@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNet.SignalR;
 using Microsoft.AspNet.SignalR.Hubs;
 
-namespace Todo.WebApi
+namespace Todo.Services
 {
     /// <summary>
     /// Hub implementation which offers outbound API via SignalR.

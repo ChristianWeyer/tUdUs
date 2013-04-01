@@ -1,7 +1,7 @@
 ﻿using System.Diagnostics;
 using System.Web.Http;
 
-namespace Todo.WebApi
+namespace Todo.Services
 {
     /// <summary>
     /// Simple controller for receiving logging messages

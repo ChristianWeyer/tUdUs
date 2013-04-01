@@ -7,7 +7,7 @@ using System.Web.Http;
 using Todo.Base;
 using Todo.Entities;
 
-namespace Todo.WebApi
+namespace Todo.Services
 {
     /// <summary>
     /// Controller for uploading pictures

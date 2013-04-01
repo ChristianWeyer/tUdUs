@@ -1,6 +1,6 @@
 ﻿using System.Web.Http;
 
-namespace Todo.WebApi
+namespace Todo.Services
 {
     /// <summary>
     /// Ping controller.

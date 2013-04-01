@@ -1,7 +1,7 @@
 ﻿using Microsoft.WindowsAzure;
 using Microsoft.WindowsAzure.StorageClient;
 
-namespace Todo.WebApi
+namespace Todo.Services
 {
     internal static class BlobHelper
     {

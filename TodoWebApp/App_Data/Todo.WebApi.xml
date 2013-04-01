@@ -4,12 +4,12 @@
         <name>Todo.WebApi</name>
     </assembly>
     <members>
-        <member name="T:Todo.WebApi.AcsController">
+        <member name="T:Todo.Services.AcsController">
             <summary>
             Controller for interacting with Windows Azure ACS via WS-Federation.
             </summary>
         </member>
-        <member name="M:Todo.WebApi.AcsController.GetIdps(System.String,System.String)">
+        <member name="M:Todo.Services.AcsController.GetIdps(System.String,System.String)">
             <summary>
             Gets the IdP list from ACS.
             </summary>
@@ -17,30 +17,30 @@
             <param name="realm">The realm.</param>
             <returns></returns>
         </member>
-        <member name="M:Todo.WebApi.AcsController.Token">
+        <member name="M:Todo.Services.AcsController.Token">
             <summary>
             Endpoint where ACS posts the token to.
             </summary>
             <returns></returns>
         </member>
-        <member name="M:Todo.WebApi.AcsController.Noop">
+        <member name="M:Todo.Services.AcsController.Noop">
             <summary>
             No-op action.
             </summary>
             <returns></returns>
         </member>
-        <member name="T:Todo.WebApi.BlobStorageMultipartProvider">
+        <member name="T:Todo.Services.BlobStorageMultipartProvider">
             <summary>
             A multi-part file stream provider to upload files to Windows Azure Blob Storage.
             </summary>
         </member>
-        <member name="M:Todo.WebApi.BlobStorageMultipartProvider.#ctor(Microsoft.WindowsAzure.StorageClient.CloudBlobContainer)">
+        <member name="M:Todo.Services.BlobStorageMultipartProvider.#ctor(Microsoft.WindowsAzure.StorageClient.CloudBlobContainer)">
             <summary>
-            Initializes a new instance of the <see cref="T:Todo.WebApi.BlobStorageMultipartProvider"/> class.
+            Initializes a new instance of the <see cref="T:Todo.Services.BlobStorageMultipartProvider"/> class.
             </summary>
             <param name="container">The container.</param>
         </member>
-        <member name="P:Todo.WebApi.BlobStorageMultipartProvider.Files">
+        <member name="P:Todo.Services.BlobStorageMultipartProvider.Files">
             <summary>
             Gets or sets the files.
             </summary>
@@ -48,41 +48,41 @@
             The files.
             </value>
         </member>
-        <member name="T:Todo.WebApi.LogController">
+        <member name="T:Todo.Services.LogController">
             <summary>
             Simple controller for receiving logging messages
             </summary>
         </member>
-        <member name="M:Todo.WebApi.LogController.Post(System.Object)">
+        <member name="M:Todo.Services.LogController.Post(System.Object)">
             <summary>
             Post specified log data.
             </summary>
             <param name="logData">The log data.</param>
         </member>
-        <member name="T:Todo.WebApi.PicturesController">
+        <member name="T:Todo.Services.PicturesController">
             <summary>
             Controller for uploading pictures
             </summary>
         </member>
-        <member name="M:Todo.WebApi.PicturesController.#ctor(Todo.Base.IGenericRepository{Todo.Entities.TodoItem})">
+        <member name="M:Todo.Services.PicturesController.#ctor(Todo.Base.IGenericRepository{Todo.Entities.TodoItem})">
             <summary>
-            Initializes a new instance of the <see cref="T:Todo.WebApi.PicturesController"/> class.
+            Initializes a new instance of the <see cref="T:Todo.Services.PicturesController"/> class.
             </summary>
             <param name="repository">The repository.</param>
         </member>
-        <member name="M:Todo.WebApi.PicturesController.Post">
+        <member name="M:Todo.Services.PicturesController.Post">
             <summary>
             Post pictures to this action.
             </summary>
             <returns></returns>
             <exception cref="T:System.Web.Http.HttpResponseException"></exception>
         </member>
-        <member name="T:Todo.WebApi.FileDetails">
+        <member name="T:Todo.Services.FileDetails">
             <summary>
             File details DTO.
             </summary>
         </member>
-        <member name="P:Todo.WebApi.FileDetails.Name">
+        <member name="P:Todo.Services.FileDetails.Name">
             <summary>
             Gets or sets the name.
             </summary>
@@ -90,7 +90,7 @@
             The name.
             </value>
         </member>
-        <member name="P:Todo.WebApi.FileDetails.Size">
+        <member name="P:Todo.Services.FileDetails.Size">
             <summary>
             Gets or sets the size.
             </summary>
@@ -98,7 +98,7 @@
             The size.
             </value>
         </member>
-        <member name="P:Todo.WebApi.FileDetails.ContentType">
+        <member name="P:Todo.Services.FileDetails.ContentType">
             <summary>
             Gets or sets the type of the content.
             </summary>
@@ -106,7 +106,7 @@
             The type of the content.
             </value>
         </member>
-        <member name="P:Todo.WebApi.FileDetails.Location">
+        <member name="P:Todo.Services.FileDetails.Location">
             <summary>
             Gets or sets the location.
             </summary>
@@ -114,112 +114,112 @@
             The location.
             </value>
         </member>
-        <member name="T:Todo.WebApi.PingController">
+        <member name="T:Todo.Services.PingController">
             <summary>
             Ping controller.
             </summary>
         </member>
-        <member name="M:Todo.WebApi.PingController.Get">
+        <member name="M:Todo.Services.PingController.Get">
             <summary>
             Dummy Get action.
             </summary>
             <returns></returns>
         </member>
-        <member name="T:Todo.WebApi.DataMapper">
+        <member name="T:Todo.Services.DataMapper">
             <summary>
             Class for mapping entities to DTOs and vice versa.
             </summary>
         </member>
-        <member name="M:Todo.WebApi.DataMapper.Map(Todo.Entities.TodoItem)">
+        <member name="M:Todo.Services.DataMapper.Map(Todo.Entities.TodoItem)">
             <summary>
             Maps the specified item.
             </summary>
             <param name="item">The item.</param>
             <returns></returns>
         </member>
-        <member name="M:Todo.WebApi.DataMapper.Map(Todo.Contracts.TodoItemDto)">
+        <member name="M:Todo.Services.DataMapper.Map(Todo.Contracts.TodoItemDto)">
             <summary>
             Maps the specified item.
             </summary>
             <param name="item">The item.</param>
             <returns></returns>
         </member>
-        <member name="M:Todo.WebApi.DataMapper.Map(System.Collections.Generic.IEnumerable{Todo.Entities.TodoItem})">
+        <member name="M:Todo.Services.DataMapper.Map(System.Collections.Generic.IEnumerable{Todo.Entities.TodoItem})">
             <summary>
             Maps the specified items.
             </summary>
             <param name="items">The items.</param>
             <returns></returns>
         </member>
-        <member name="M:Todo.WebApi.DataMapper.Map(System.Collections.Generic.IEnumerable{Todo.Contracts.TodoItemDto})">
+        <member name="M:Todo.Services.DataMapper.Map(System.Collections.Generic.IEnumerable{Todo.Contracts.TodoItemDto})">
             <summary>
             Maps the specified items.
             </summary>
             <param name="items">The items.</param>
             <returns></returns>
         </member>
-        <member name="M:Todo.WebApi.DataMapper.Map(System.Linq.IQueryable{Todo.Entities.TodoItem})">
+        <member name="M:Todo.Services.DataMapper.Map(System.Linq.IQueryable{Todo.Entities.TodoItem})">
             <summary>
             Maps the specified items.
             </summary>
             <param name="items">The items.</param>
             <returns></returns>
         </member>
-        <member name="T:Todo.WebApi.TodosController">
+        <member name="T:Todo.Services.TodosController">
             <summary>
             The controller for TODO items.
             </summary>
         </member>
-        <member name="M:Todo.WebApi.TodosController.#ctor(Todo.Base.IGenericRepository{Todo.Entities.TodoItem})">
+        <member name="M:Todo.Services.TodosController.#ctor(Todo.Base.IGenericRepository{Todo.Entities.TodoItem})">
             <summary>
-            Initializes a new instance of the <see cref="T:Todo.WebApi.TodosController"/> class.
+            Initializes a new instance of the <see cref="T:Todo.Services.TodosController"/> class.
             </summary>
             <param name="repository">The repository.</param>
         </member>
-        <member name="M:Todo.WebApi.TodosController.Get">
+        <member name="M:Todo.Services.TodosController.Get">
             <summary>
             List available TODO items. Supports OData query syntax.
             </summary>
             <returns>List of items.</returns>
         </member>
-        <member name="M:Todo.WebApi.TodosController.Get(System.Guid)">
+        <member name="M:Todo.Services.TodosController.Get(System.Guid)">
             <summary>
             Get a single TODO item by ID.
             </summary>
             <param name="id">The ID of the item</param>
             <returns>A TODO item.</returns>
         </member>
-        <member name="M:Todo.WebApi.TodosController.Post(Todo.Contracts.TodoItemDto)">
+        <member name="M:Todo.Services.TodosController.Post(Todo.Contracts.TodoItemDto)">
             <summary>
             Add a new TODO item to the system.
             </summary>
             <param name="item">The new item.</param>
             <returns>The new item with up-to-date data.</returns>
         </member>
-        <member name="M:Todo.WebApi.TodosController.Put(Todo.Contracts.TodoItemDto)">
+        <member name="M:Todo.Services.TodosController.Put(Todo.Contracts.TodoItemDto)">
             <summary>
             Update an existing TODO item.
             </summary>
             <param name="item">The existing item.</param>
             <returns>The existing item with up-to-date data.</returns>
         </member>
-        <member name="M:Todo.WebApi.TodosController.Delete(System.Guid)">
+        <member name="M:Todo.Services.TodosController.Delete(System.Guid)">
             <summary>
             Delete an existing TODO item by ID.
             </summary>
             <param name="id">The ID of the item.</param>
         </member>
-        <member name="T:Todo.WebApi.TodosHub">
+        <member name="T:Todo.Services.TodosHub">
             <summary>
             Hub implementation which offers outbound API via SignalR.
             </summary>
         </member>
-        <member name="T:Todo.WebApi.TokenResponse">
+        <member name="T:Todo.Services.TokenResponse">
             <summary>
             Token response DTO.
             </summary>
         </member>
-        <member name="P:Todo.WebApi.TokenResponse.AccessToken">
+        <member name="P:Todo.Services.TokenResponse.AccessToken">
             <summary>
             Gets or sets the access token.
             </summary>
@@ -227,7 +227,7 @@
             The access token.
             </value>
         </member>
-        <member name="P:Todo.WebApi.TokenResponse.TokenType">
+        <member name="P:Todo.Services.TokenResponse.TokenType">
             <summary>
             Gets or sets the type of the token.
             </summary>
@@ -235,7 +235,7 @@
             The type of the token.
             </value>
         </member>
-        <member name="P:Todo.WebApi.TokenResponse.ExpiresIn">
+        <member name="P:Todo.Services.TokenResponse.ExpiresIn">
             <summary>
             Gets or sets the expires in.
             </summary>
@@ -243,7 +243,7 @@
             The expires in.
             </value>
         </member>
-        <member name="P:Todo.WebApi.TokenResponse.RefreshToken">
+        <member name="P:Todo.Services.TokenResponse.RefreshToken">
             <summary>
             Gets or sets the refresh token.
             </summary>

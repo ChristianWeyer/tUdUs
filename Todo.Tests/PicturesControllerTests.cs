@@ -3,7 +3,7 @@ using System.Linq;
 using System.Security.Principal;
 using System.Threading;
 using Todo.DataAccess;
-using Todo.WebApi;
+using Todo.Services;
 
 namespace Todo.Tests
 {

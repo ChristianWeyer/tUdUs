@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 
-namespace Todo.WebApi
+namespace Todo.Services
 {
     /// <summary>
     /// Token response DTO.

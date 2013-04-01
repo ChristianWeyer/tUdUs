@@ -8,7 +8,7 @@ using Todo.Base;
 using Todo.Contracts;
 using Todo.Entities;
 
-namespace Todo.WebApi
+namespace Todo.Services
 {
     /// <summary>
     /// The controller for TODO items.

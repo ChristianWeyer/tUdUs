@@ -4,7 +4,7 @@ using System.IO;
 using System.Net.Http;
 using System.Threading.Tasks;
 
-namespace Todo.WebApi
+namespace Todo.Services
 {
     /// <summary>
     /// A multi-part file stream provider to upload files to Windows Azure Blob Storage.

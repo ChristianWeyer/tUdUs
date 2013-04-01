@@ -90,17 +90,17 @@
       <Project>{e8868953-f0bb-4b1c-8ef4-006285c76ee0}</Project>
       <Name>Todo.Entities</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Todo.Base\Todo.Base.csproj">
+    <ProjectReference Include="..\Todo.Framework\Todo.Framework.csproj">
       <Project>{ea925276-3b76-4178-99ab-fea985e6aa5b}</Project>
-      <Name>Todo.Base</Name>
+      <Name>Todo.Framework</Name>
     </ProjectReference>
     <ProjectReference Include="..\Todo.Security\Todo.Security.csproj">
       <Project>{05abe5fa-9e23-4fc9-b315-bba3fce88a7e}</Project>
       <Name>Todo.Security</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Todo.WebApi\Todo.WebApi.csproj">
+    <ProjectReference Include="..\Todo.Services\Todo.Services.csproj">
       <Project>{acffc9c6-7462-4955-9999-12c24e818d9e}</Project>
-      <Name>Todo.WebApi</Name>
+      <Name>Todo.Services</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
