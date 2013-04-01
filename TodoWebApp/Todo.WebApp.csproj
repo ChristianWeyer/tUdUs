@@ -200,8 +200,6 @@
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\HubConfig.cs" />
-    <Compile Include="App_Start\SecurityConfig.cs" />
-    <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Areas\HelpPage\ApiDescriptionExtensions.cs" />
     <Compile Include="Areas\HelpPage\App_Start\HelpPageConfig.cs" />
     <Compile Include="Areas\HelpPage\Controllers\HelpController.cs" />
@@ -656,6 +654,10 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Todo.Common\Todo.Common.csproj">
+      <Project>{1170f28f-d34a-465a-bc72-fc1e2589e68f}</Project>
+      <Name>Todo.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Todo.DataAccess\Todo.DataAccess.csproj">
       <Project>{21D64DC8-1B27-4BD6-87B5-9BB8E8F77777}</Project>
       <Name>Todo.DataAccess</Name>

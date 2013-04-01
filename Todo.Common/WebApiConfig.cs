@@ -1,11 +1,11 @@
-﻿using System.Net.Http.Formatting;
-using Autofac;
+﻿using Autofac;
 using Autofac.Integration.WebApi;
 using Newtonsoft.Json.Serialization;
+using System.Net.Http.Formatting;
 using System.Reflection;
 using System.Web.Http;
 
-namespace Todo.WebApp
+namespace Todo.Hosting.Config
 {
     public static class WebApiConfig
     {
@@ -33,6 +33,12 @@ namespace Todo.WebApp
             config.Formatters.JsonFormatter.SerializerSettings.ContractResolver =
                 new CamelCasePropertyNamesContractResolver();
 
+            var resolver = ConfigureContainer();
+            config.DependencyResolver = resolver;
+        }
+
+        private static AutofacWebApiDependencyResolver ConfigureContainer()
+        {
             var builder = new ContainerBuilder();
 
             var webApiAssembly = Assembly.Load("Todo.WebApi");
@@ -40,13 +46,14 @@ namespace Todo.WebApp
 
             var assembly = Assembly.Load("Todo.DataAccess");
             builder.RegisterAssemblyTypes(assembly)
-                .Where(t => t.Name.EndsWith("Repository"))
-                .AsImplementedInterfaces()
-                .InstancePerApiRequest();
+                   .Where(t => t.Name.EndsWith("Repository"))
+                   .AsImplementedInterfaces()
+                   .InstancePerApiRequest();
 
             var container = builder.Build();
             var resolver = new AutofacWebApiDependencyResolver(container);
-            config.DependencyResolver = resolver;
+
+            return resolver;
         }
     }
 }
