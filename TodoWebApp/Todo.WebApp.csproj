@@ -228,6 +228,7 @@
     <Content Include="app\views\list.html" />
     <Content Include="app\js\controllers\listController.js" />
     <Content Include="app\js\directives\sortedDirective.js" />
+    <Content Include="App_Data\Todo.DataAccess.TodoContext.sdf" />
     <Content Include="Areas\HelpPage\HelpPage.css" />
     <Content Include="Areas\HelpPage\TestClient.css" />
     <Content Include="Content\bootstrap-responsive.css" />
