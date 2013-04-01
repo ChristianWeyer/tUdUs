@@ -1,4 +1,5 @@
-﻿using Autofac;
+﻿using System.Net.Http.Formatting;
+using Autofac;
 using Autofac.Integration.WebApi;
 using Newtonsoft.Json.Serialization;
 using System.Reflection;
@@ -10,6 +11,11 @@ namespace Todo.WebApp
     {
         public static void Register(HttpConfiguration config)
         {
+            config.Formatters.JsonFormatter.AddQueryStringMapping(
+                "$format", "json", "application/json");
+            config.Formatters.XmlFormatter.AddQueryStringMapping(
+                "$format", "xml", "application/xml");
+
             config.Routes.MapHttpRoute(
                 name: "ACSApi",
                 routeTemplate: "api/acs/{action}/{ns}/{realm}",
