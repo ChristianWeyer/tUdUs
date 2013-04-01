@@ -104,12 +104,6 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Todo.Common\Todo.Common.csproj">
-      <Project>{1170f28f-d34a-465a-bc72-fc1e2589e68f}</Project>
-      <Name>Todo.Common</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="Todo.DataAccess.TodoContext.sdf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -135,6 +129,12 @@
       <ProductName>SQL Server Compact 4.0 SP1</ProductName>
       <Install>true</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Todo.Hosting\Todo.Hosting.csproj">
+      <Project>{1170f28f-d34a-465a-bc72-fc1e2589e68f}</Project>
+      <Name>Todo.Hosting</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\nuget.targets" />

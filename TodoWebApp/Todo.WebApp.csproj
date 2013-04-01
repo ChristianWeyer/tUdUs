@@ -655,13 +655,13 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Todo.Common\Todo.Common.csproj">
-      <Project>{1170f28f-d34a-465a-bc72-fc1e2589e68f}</Project>
-      <Name>Todo.Common</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Todo.DataAccess\Todo.DataAccess.csproj">
       <Project>{21D64DC8-1B27-4BD6-87B5-9BB8E8F77777}</Project>
       <Name>Todo.DataAccess</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Todo.Hosting\Todo.Hosting.csproj">
+      <Project>{1170f28f-d34a-465a-bc72-fc1e2589e68f}</Project>
+      <Name>Todo.Hosting</Name>
     </ProjectReference>
     <ProjectReference Include="..\Todo.Security\Todo.Security.csproj">
       <Project>{05ABE5FA-9E23-4FC9-B315-BBA3FCE88A7E}</Project>

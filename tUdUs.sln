@@ -26,7 +26,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Todo.Tests", "Todo.Tests\To
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Todo.SelfHost", "Todo.SelfHost\Todo.SelfHost.csproj", "{008529CD-7770-4D46-BEBF-B1504830F981}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Todo.Common", "Todo.Common\Todo.Common.csproj", "{1170F28F-D34A-465A-BC72-FC1E2589E68F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Todo.Hosting", "Todo.Hosting\Todo.Hosting.csproj", "{1170F28F-D34A-465A-BC72-FC1E2589E68F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

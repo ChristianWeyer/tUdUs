@@ -7,8 +7,8 @@
     <ProjectGuid>{1170F28F-D34A-465A-BC72-FC1E2589E68F}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Todo.Common</RootNamespace>
-    <AssemblyName>Todo.Common</AssemblyName>
+    <RootNamespace>Todo.Hosting</RootNamespace>
+    <AssemblyName>Todo.Hosting</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
