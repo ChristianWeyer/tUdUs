@@ -46,6 +46,7 @@ todosApp.init = function () {
     todosViewModel.init();
 
     $.subscribe(dataServicesEvents.error, function (e, errorText) {
+        todosApp.Views.hideLoader();
         errorViewModel.showErrorDialog(errorText);
     });
     $.subscribe(dataServicesEvents.action, function (e, statusText) {

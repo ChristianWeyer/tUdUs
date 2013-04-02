@@ -35,7 +35,7 @@ namespace Todo.Services
         {
             var userName = User.Identity.Name;
 
-            return repository.GetAll().Where(t => t.Owner == userName).Map();
+            return repository.GetAll().Where(t => t.Owner == userName).OrderBy(o => o.Created).Map();
         }
 
         /// <summary>
@@ -72,7 +72,7 @@ namespace Todo.Services
 
                 Hub.Clients.All.itemAdded(ConnectionId, item);
 
-                string uri = Url.Link("DefaultApi", new { id = item.Id });
+                var uri = Url.Link("DefaultApi", new { id = item.Id });
                 var response = Request.CreateResponse<TodoItemDto>(HttpStatusCode.Created, newItem.Map());
                 response.Headers.Location = new Uri(uri);
 
@@ -89,7 +89,7 @@ namespace Todo.Services
         /// </summary>
         /// <param name="item">The existing item.</param>
         /// <returns>The existing item with up-to-date data.</returns>
-        public TodoItemDto Put(TodoItemDto item)
+        public TodoItemDto Put([FromBody] TodoItemDto item)
         {
             try
             {

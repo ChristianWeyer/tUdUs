@@ -167,8 +167,9 @@ var dataservices = (function () {
                 return $.ajax({
                     url: addConnectionIdParameter(service),
                     type: httpVerbs.POST,
+                    contentType: contentTypes.JSON,
                     dataType: dataTypes.JSON,
-                    data: item,
+                    data: JSON.stringify(item),
                     beforeSend: function (xhr) { beforeSend(xhr); }
                 })
                     .always(function () {
@@ -206,10 +207,11 @@ var dataservices = (function () {
             }
             else {
                 return $.ajax({
-                    url: addConnectionIdParameter(service),
+                    url: addConnectionIdParameter(service + item.id),
                     type: httpVerbs.PUT,
+                    contentType: contentTypes.JSON,
                     dataType: dataTypes.JSON,
-                    data: item,
+                    data: JSON.stringify(item),
                     beforeSend: function (xhr) { beforeSend(xhr); }
                 })
                     .always(function () {

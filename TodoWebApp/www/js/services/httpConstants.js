@@ -16,3 +16,7 @@ var dataTypes = {
     XML: "xml",
     HTML: "html"
 };
+
+var contentTypes = {
+    JSON: "application/json"
+};

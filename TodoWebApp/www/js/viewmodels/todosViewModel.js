@@ -1,5 +1,5 @@
 ﻿var todosViewModel = kendo.observable({
-    todosSource: new kendo.data.DataSource({ sort: { field: "title", dir: "asc" } }),
+    todosSource: new kendo.data.DataSource({ sort: { field: "created", dir: "asc" } }),
     currentItem: {},
     isDirty: false,
     
