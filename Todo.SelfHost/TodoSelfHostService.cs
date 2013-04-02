@@ -1,33 +1,59 @@
-﻿using System.ServiceProcess;
+﻿using System;
+using System.Reflection;
+using System.ServiceProcess;
 using System.Web.Http.SelfHost;
+using Microsoft.AspNet.SignalR;
+using Microsoft.Owin.Hosting;
+using Owin;
 using Todo.Hosting.Config;
 
 namespace Todo.SelfHost
 {
+    public class SignalRStartup
+    {
+        public void Configuration(IAppBuilder app)
+        {
+            var a = Assembly.LoadFrom("Todo.Services.dll");
+
+            app.MapHubs(
+                new HubConfiguration
+                {
+                    EnableCrossDomain = true
+                });
+        }
+    }
+
     public partial class TodoSelfHostService : ServiceBase
     {
-        private const string webApiUrl =
-            "http://localhost:7778/";
+        private const string webApiUrl = "http://localhost:7778/";
+        private const string signalRUrl = "http://localhost:7779/";
 
-        private HttpSelfHostServer server;
+        private HttpSelfHostServer webApiServer;
+        private IDisposable signalRServer;
 
         public TodoSelfHostService()
         {
             InitializeComponent();
 
-            server = SetupWebApiServer(webApiUrl);
+            webApiServer = SetupWebApiServer(webApiUrl);
         }
 
         protected override async void OnStart(string[] args)
         {
-            await server.OpenAsync();
+            await webApiServer.OpenAsync();
+            signalRServer = WebApplication.Start<SignalRStartup>(signalRUrl);
         }
 
         protected override async void OnStop()
         {
-            if (server != null)
+            if (webApiServer != null)
             {
-                await server.CloseAsync();
+                await webApiServer.CloseAsync();
+            }
+
+            if (signalRServer != null)
+            {
+                signalRServer.Dispose();
             }
         }
 

@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <doc>
     <assembly>
-        <name>Todo.WebApi</name>
+        <name>Todo.Services</name>
     </assembly>
     <members>
         <member name="T:Todo.Services.AcsController">

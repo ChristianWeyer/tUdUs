@@ -45,7 +45,7 @@ namespace Todo.Hosting.Config
         {
             var builder = new ContainerBuilder();
 
-            var webApiAssembly = Assembly.Load("Todo.WebApi");
+            var webApiAssembly = Assembly.Load("Todo.Services");
             builder.RegisterApiControllers(webApiAssembly);
 
             var assembly = Assembly.Load("Todo.DataAccess");

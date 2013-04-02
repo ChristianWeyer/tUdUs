@@ -8,8 +8,8 @@
     <ProjectGuid>{EA925276-3B76-4178-99AB-FEA985E6AA5B}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Todo.Base</RootNamespace>
-    <AssemblyName>Todo.Base</AssemblyName>
+    <RootNamespace>Todo.Framework</RootNamespace>
+    <AssemblyName>Todo.Framework</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
