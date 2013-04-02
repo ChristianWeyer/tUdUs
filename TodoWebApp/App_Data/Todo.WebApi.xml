@@ -29,6 +29,11 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="T:Todo.Services.UiClaims.UiClaimsController">
+            <summary>
+            Controller for requesting view claims
+            </summary>
+        </member>
         <member name="T:Todo.Services.BlobStorageMultipartProvider">
             <summary>
             A multi-part file stream provider to upload files to Windows Azure Blob Storage.

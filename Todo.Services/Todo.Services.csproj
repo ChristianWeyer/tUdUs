@@ -113,6 +113,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\AcsController.cs" />
+    <Compile Include="Controllers\UiClaims\UiClaimsAuthorizationManager.cs" />
+    <Compile Include="Controllers\UiClaims\UiClaimsController.cs" />
+    <Compile Include="Controllers\UiClaims\UiClaimsData.cs" />
+    <Compile Include="Controllers\UiClaims\UiClaimsMetadata.cs" />
+    <Compile Include="Controllers\UiClaims\UiClaimsServiceAuthorizationManager.cs" />
     <Compile Include="Helpers\BlobStorageMultipartProvider.cs" />
     <Compile Include="Helpers\BlobHelper.cs" />
     <Compile Include="Controllers\LogController.cs" />

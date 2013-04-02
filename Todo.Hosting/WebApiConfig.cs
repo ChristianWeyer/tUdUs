@@ -11,10 +11,15 @@ namespace Todo.Hosting.Config
     {
         public static void Register(HttpConfiguration config)
         {
+            config.Formatters.Clear();
+            config.Formatters.Add(new JsonMediaTypeFormatter());
             config.Formatters.JsonFormatter.AddQueryStringMapping(
                 "$format", "json", "application/json");
-            config.Formatters.XmlFormatter.AddQueryStringMapping(
-                "$format", "xml", "application/xml");
+            
+            config.Routes.MapHttpRoute(
+                name: "UiClaimsApi",
+                routeTemplate: "api/uiclaims/{action}",
+                defaults: new { controller = "UiClaims" });
 
             config.Routes.MapHttpRoute(
                 name: "ACSApi",
@@ -24,8 +29,7 @@ namespace Todo.Hosting.Config
             config.Routes.MapHttpRoute(
                 name: "DefaultApi",
                 routeTemplate: "api/{controller}/{id}",
-                defaults: new { id = RouteParameter.Optional }
-            );
+                defaults: new { id = RouteParameter.Optional });
 
             config.EnableSystemDiagnosticsTracing();
             config.EnableQuerySupport();
