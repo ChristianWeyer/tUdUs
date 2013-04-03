@@ -1,5 +1,5 @@
 $(function () {
-    ttTools.logger.info("Startup...");
+  	ttTools.logger.info("Startup...");
 
     window.onerror = function (errorMsg, url, lineNumber) {
         ttTools.logger.fatal("Uncaught error: " + errorMsg + " in " + url + ", line " + lineNumber);
@@ -39,7 +39,7 @@ todosApp.init = function () {
     
     window.kendoMobileApplication =
         new kendo.mobile.Application($(document.body), {
-            transition: 'none',
+            transition: 'slide',
             hideAddressBar: true
         });
 
