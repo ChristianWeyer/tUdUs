@@ -15,7 +15,7 @@ $(function () {
            ttTools.templateLoader.loadExternalTemplate("../templates/pictureGallery.tmpl.html"))
         .then(
             function () {
-                if (ttTools.isInApp()) {
+                if (ttTools.isInPhoneGapApp()) {
                     document.addEventListener("deviceready", todosApp.deviceready, false);
                 } else {
                     todosApp.init();
@@ -32,15 +32,14 @@ todosApp.deviceready = function () {
 };
 
 todosApp.init = function () {
-    // for PhoneGap debugging only
-    //if (cordova.exec !== undefined) {
-    //    cordova.exec(null, null, "PixAuth", "loginWithBadCert", ["https://ttidentity.cloudapp.net"]);
-    //};
+    var platform = '';
+    if(ttTools.isInApp()) platform = 'meego';
     
     window.kendoMobileApplication =
         new kendo.mobile.Application($(document.body), {
             transition: 'slide',
-            hideAddressBar: true
+            hideAddressBar: true,
+            platform: platform
         });
 
     todosViewModel.init();

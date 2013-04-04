@@ -1,0 +1,15 @@
+{
+  "name": "tUdUs",
+  "description": "Simple TODO list app",
+  "version": "0.1.0",
+  "main": "views/index.html",
+  "window": {
+    "title": "tUdUs",
+    "toolbar": false,
+    "width": 800,
+    "height": 600,
+    "position": "mouse",
+    "min_width": 400,
+    "min_height": 200
+  }
+}

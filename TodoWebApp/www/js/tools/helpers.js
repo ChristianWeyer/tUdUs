@@ -6,8 +6,12 @@
     return (S4() + S4() + "-" + S4() + "-" + S4() + "-" + S4() + "-" + S4() + S4() + S4());
 };
 
+ttTools.isInPhoneGapApp = function() {
+    return window.PhoneGap != undefined;
+};
+
 ttTools.isInApp = function() {
-    var app = document.URL.indexOf("http://") === -1 && document.URL.indexOf("https://") === -1;
+    var local = document.URL.indexOf("http://") === -1 && document.URL.indexOf("https://") === -1;
     
-    return app;
+    return ttTools.isInPhoneGapApp && local;
 };
