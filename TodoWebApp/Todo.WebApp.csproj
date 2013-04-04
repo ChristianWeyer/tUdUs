@@ -547,7 +547,6 @@
     <Content Include="www\js\config.js" />
     <Content Include="www\js\libs\cordova-android.js" />
     <Content Include="www\js\libs\cordova-ios.js" />
-    <Content Include="www\js\libs\jquery-1.9.1.js" />
     <Content Include="www\js\libs\jquery-1.9.1.min.js" />
     <Content Include="www\js\libs\jquery.ba-tinypubsub.min.js" />
     <Content Include="www\images\loading-image.gif" />
