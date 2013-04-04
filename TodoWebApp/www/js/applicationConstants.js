@@ -1,7 +1,7 @@
 getBaseUrl = function () {
     var servicesBaseUrl;
     
-    if(ttTools.isInApp()) {
+    if(ttTools.isInApp() || ttTools.isInPhoneGapApp()) {
         servicesBaseUrl = "http://tttodos.azurewebsites.net/";
     } else {
         servicesBaseUrl = "../../";

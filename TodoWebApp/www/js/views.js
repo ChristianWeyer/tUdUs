@@ -18,7 +18,7 @@ todosApp.Views.todosPageInit = function (e) {
 
 todosApp.Views.todoDetailsShow = function (e) {
     todosViewModel.set("currentItem", todosViewModel.todosSource.get(e.view.params.id));
-    e.view.scroller.reset();
+    //e.view.scroller.reset();
 };
 
 todosApp.Views.todoDetailsAfterShow = function (e) {
