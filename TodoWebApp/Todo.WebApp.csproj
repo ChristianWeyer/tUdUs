@@ -568,9 +568,6 @@
     <Content Include="www\views\items.html" />
     <Content Include="www\views\acs.html" />
     <Content Include="www\js\libs\childbrowser.js" />
-    <Content Include="www\config.xml">
-      <SubType>Designer</SubType>
-    </Content>
     <Content Include="www\images\noimage.png" />
     <Content Include="www\views\index.html" />
     <Content Include="www\images\error_bg.png" />
