@@ -356,7 +356,6 @@
     <Content Include="images\orderedList9.png" />
     <Content Include="Scripts\jquery-ui-1.10.1.js" />
     <Content Include="Scripts\jquery-ui-1.10.1.min.js" />
-    <Content Include="Scripts\jquery.signalR-1.0.1.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\jquery.signalR-1.1.0-beta1-130404.js" />
     <Content Include="Scripts\jquery.signalR-1.1.0-beta1-130404.min.js" />
@@ -559,8 +558,8 @@
     <Content Include="www\js\libs\jquery-1.9.1.min.js" />
     <Content Include="www\js\libs\jquery.ba-tinypubsub.min.js" />
     <Content Include="www\images\loading-image.gif" />
-    <Content Include="www\js\libs\jquery.signalR-1.0.1.js" />
-    <Content Include="www\js\libs\jquery.signalR-1.0.1.min.js" />
+    <Content Include="www\js\libs\jquery.signalR-1.1.0-beta1-130404.js" />
+    <Content Include="www\js\libs\jquery.signalR-1.1.0-beta1-130404.min.js" />
     <Content Include="www\js\libs\log4javascript.js" />
     <Content Include="www\js\services\oauthcallback.html" />
     <Content Include="www\js\services\signalr.hubs.js" />
