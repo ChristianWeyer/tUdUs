@@ -6,27 +6,14 @@ using Microsoft.AspNet.SignalR;
 using Microsoft.Owin.Hosting;
 using Owin;
 using Todo.Hosting.Config;
+using System.Web.Http.Cors;
 
 namespace Todo.SelfHost
 {
-    public class SignalRStartup
-    {
-        public void Configuration(IAppBuilder app)
-        {
-            var a = Assembly.LoadFrom("Todo.Services.dll");
-
-            app.MapHubs(
-                new HubConfiguration
-                {
-                    EnableCrossDomain = true
-                });
-        }
-    }
-
     public partial class TodoSelfHostService : ServiceBase
     {
         private const string webApiUrl = "http://localhost:7778/";
-        private const string signalRUrl = "http://localhost:7779/";
+        private const string signalRUrl = "http://localhost:7778/";
 
         private HttpSelfHostServer webApiServer;
         private IDisposable signalRServer;
@@ -39,9 +26,9 @@ namespace Todo.SelfHost
         }
 
         protected override async void OnStart(string[] args)
-        {
+        {            
+            signalRServer = WebApplication.Start<Startup>(signalRUrl);
             await webApiServer.OpenAsync();
-            signalRServer = WebApplication.Start<SignalRStartup>(signalRUrl);
         }
 
         protected override async void OnStop()
@@ -72,10 +59,25 @@ namespace Todo.SelfHost
             var configuration = new HttpSelfHostConfiguration(url);
             WebApiConfig.Register(configuration);
             SecurityConfig.Register(configuration);
+            configuration.EnableCors(new EnableCorsAttribute());
 
             var host = new HttpSelfHostServer(configuration);
 
             return host;
+        }
+    }
+
+    public class Startup
+    {
+        public void Configuration(IAppBuilder app)
+        {
+            var a = Assembly.LoadFrom("Todo.Services.dll");
+
+            app.MapHubs(
+                new HubConfiguration
+                {
+                    EnableCrossDomain = true
+                });
         }
     }
 }
