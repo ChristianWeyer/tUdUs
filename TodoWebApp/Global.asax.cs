@@ -4,7 +4,7 @@ using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
 using Todo.DataAccess;
-using Todo.Hosting.Config;
+using Todo.Hosting;
 
 namespace Todo.WebApp
 {
@@ -23,6 +23,7 @@ namespace Todo.WebApp
             HubConfig.Register(RouteTable.Routes);
 
             Database.SetInitializer<TodoContext>(new DropCreateDatabaseIfModelChanges<TodoContext>());
+            EFWarmup.Run();
         }
     }
 }

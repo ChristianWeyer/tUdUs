@@ -5,8 +5,8 @@ using System.Web.Http.SelfHost;
 using Microsoft.AspNet.SignalR;
 using Microsoft.Owin.Hosting;
 using Owin;
-using Todo.Hosting.Config;
 using System.Web.Http.Cors;
+using Todo.Hosting;
 
 namespace Todo.SelfHost
 {

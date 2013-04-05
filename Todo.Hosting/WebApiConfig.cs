@@ -5,7 +5,7 @@ using System.Net.Http.Formatting;
 using System.Reflection;
 using System.Web.Http;
 
-namespace Todo.Hosting.Config
+namespace Todo.Hosting
 {
     public static class WebApiConfig
     {
