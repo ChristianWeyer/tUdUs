@@ -3,7 +3,6 @@ $(function () {
 
     window.onerror = function (errorMsg, url, lineNumber) {
         ttTools.logger.fatal("Uncaught error: " + errorMsg + " in " + url + ", line " + lineNumber);
-        console.log("Uncaught error: " + errorMsg + " in " + url + ", line " + lineNumber);
     };
 
     $(document).bind("APP_READY", function () {

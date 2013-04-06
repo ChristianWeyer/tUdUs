@@ -7,7 +7,7 @@
 
 var dataservices = (function () {
     function handleServiceError(error) {
-        console.log(error);
+        ttTools.logger.error(error);
 
         if (error.status === 500) {
             $.publish(dataServicesEvents.error, "Kaboom!");

@@ -7,12 +7,13 @@ using Microsoft.Owin.Hosting;
 using Owin;
 using System.Web.Http.Cors;
 using Todo.Hosting;
+using System.Configuration;
 
 namespace Todo.SelfHost
 {
     public partial class TodoSelfHostService : ServiceBase
     {
-        private const string baseUrl = "http://localhost:7778/";
+        private string baseUrl = ConfigurationManager.AppSettings["SelfHost.BaseUrl"];
         private IDisposable server;
 
         public TodoSelfHostService()

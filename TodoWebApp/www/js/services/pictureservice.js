@@ -1,7 +1,7 @@
 ﻿var pictureservice = (function () {
     function handleError(error) {
         var errorString = JSON.stringify(error);
-        console.log(errorString);
+        ttTools.logger.error(errorString);
         
         errorViewModel.showErrorDialog(errorString);
     }

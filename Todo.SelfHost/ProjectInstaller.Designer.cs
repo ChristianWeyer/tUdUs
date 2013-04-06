@@ -38,7 +38,9 @@
             // 
             // serviceInstaller1
             // 
-            this.serviceInstaller1.ServiceName = "Service1";
+            this.serviceInstaller1.Description = "Self-hosted tUdUs server application";
+            this.serviceInstaller1.DisplayName = "tUdUs Server";
+            this.serviceInstaller1.ServiceName = "TODOListService";
             // 
             // ProjectInstaller
             // 
