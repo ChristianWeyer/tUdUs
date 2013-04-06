@@ -1,15 +1,14 @@
 getBaseUrl = function () {
-    var servicesBaseUrl;
-
-    //servicesBaseUrl = "http://localhost:7778/";
+    var host = "http://tttodos.azurewebsites.net/";
+    var baseUrl;
     
     if(ttTools.isInApp() || ttTools.isInPhoneGapApp()) {
-        servicesBaseUrl = "http://tttodos.azurewebsites.net/";
+        baseUrl = host;
     } else {
-        servicesBaseUrl = "../../";
+        baseUrl = "../../";
     };
     
-    return servicesBaseUrl;
+    return baseUrl;
 };
 
 var endpoints = {

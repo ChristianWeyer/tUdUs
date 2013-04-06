@@ -12,8 +12,8 @@ namespace Todo.SelfHost
 {
     public partial class TodoSelfHostService : ServiceBase
     {
-        private const string webApiUrl = "http://localhost:7778/";
-        private const string signalRUrl = "http://localhost:7778/";
+        private const string webApiUrl = "http://localhost:7778/web";
+        private const string signalRUrl = "http://localhost:7778/push";
 
         private HttpSelfHostServer webApiServer;
         private IDisposable signalRServer;
