@@ -60,6 +60,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Microsoft.AspNet.SignalR.Owin.1.1.0-beta1-130405\lib\net45\Microsoft.AspNet.SignalR.Owin.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.AspNet.WebApi.Owin">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Owin.0.22.0-pre-20405-168\lib\net40\Microsoft.AspNet.WebApi.Owin.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Owin.Host.HttpListener, Version=0.22.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Microsoft.Owin.Host.HttpListener.1.1.0-alpha1-20405-167\lib\net45\Microsoft.Owin.Host.HttpListener.dll</HintPath>

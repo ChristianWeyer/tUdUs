@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Reflection;
 using System.ServiceProcess;
-using System.Web.Http.SelfHost;
+using System.Web.Http;
 using Microsoft.AspNet.SignalR;
 using Microsoft.Owin.Hosting;
 using Owin;
@@ -12,35 +12,24 @@ namespace Todo.SelfHost
 {
     public partial class TodoSelfHostService : ServiceBase
     {
-        private const string webApiUrl = "http://localhost:7778/web";
-        private const string signalRUrl = "http://localhost:7778/push";
-
-        private HttpSelfHostServer webApiServer;
-        private IDisposable signalRServer;
+        private const string baseUrl = "http://localhost:7778/";
+        private IDisposable server;
 
         public TodoSelfHostService()
         {
             InitializeComponent();
-
-            webApiServer = SetupWebApiServer(webApiUrl);
         }
 
         protected override async void OnStart(string[] args)
-        {            
-            signalRServer = WebApplication.Start<Startup>(signalRUrl);
-            await webApiServer.OpenAsync();
+        {
+            server = WebApplication.Start<Startup>(baseUrl);
         }
 
         protected override async void OnStop()
         {
-            if (webApiServer != null)
+            if (server != null)
             {
-                await webApiServer.CloseAsync();
-            }
-
-            if (signalRServer != null)
-            {
-                signalRServer.Dispose();
+                server.Dispose();
             }
         }
 
@@ -53,31 +42,21 @@ namespace Todo.SelfHost
         {
             OnStop();
         }
-
-        private static HttpSelfHostServer SetupWebApiServer(string url)
-        {
-            var configuration = new HttpSelfHostConfiguration(url);
-            WebApiConfig.Register(configuration);
-            SecurityConfig.Register(configuration);
-            configuration.EnableCors(new EnableCorsAttribute());
-
-            var host = new HttpSelfHostServer(configuration);
-
-            return host;
-        }
     }
 
     public class Startup
     {
-        public void Configuration(IAppBuilder app)
+        public void Configuration(IAppBuilder builder)
         {
             var a = Assembly.LoadFrom("Todo.Services.dll");
+            var hubConfig = new HubConfiguration { EnableCrossDomain = true };
+            builder.MapHubs(hubConfig);
 
-            app.MapHubs(
-                new HubConfiguration
-                {
-                    EnableCrossDomain = true
-                });
+            var webApiConfig = new HttpConfiguration();
+            WebApiConfig.Register(webApiConfig);
+            SecurityConfig.Register(webApiConfig);
+            webApiConfig.EnableCors(new EnableCorsAttribute());
+            builder.UseWebApi(webApiConfig);
         }
     }
 }

@@ -1,10 +1,9 @@
 getBaseUrl = function () {
-    var host = "http://tttodos.azurewebsites.net/";
-    var baseUrl;
+    //var host = "http://tttodos.azurewebsites.net/";
+    var host = "http://localhost:7778/";
+    var baseUrl = host;
     
-    if(ttTools.isInApp() || ttTools.isInPhoneGapApp()) {
-        baseUrl = host;
-    } else {
+    if(!(ttTools.isInApp() || ttTools.isInPhoneGapApp())) {
         baseUrl = "../../";
     };
     
@@ -36,7 +35,7 @@ var authenticationModes = {
 
 var localStorageKeys = {
     UserName: "userName",
-    Password: "password", // yes, not good... ;(
+    Password: "password", // yes, NOT good... ;(
     AuthenticationToken: "authenticationToken"
 };
 
