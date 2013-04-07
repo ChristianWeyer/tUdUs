@@ -15,7 +15,7 @@ namespace Todo.Services
         /// <param name="logData">The log data.</param>
         public void Post(dynamic logData)
         {
-            // TODO: persist logging messages - JSON DB ?
+            // TODO: persist logging messages - consider using a JSON DB (MongoDB?)
             /* E.g. JSON structure:
                 'logger',
                 'timestamp',
