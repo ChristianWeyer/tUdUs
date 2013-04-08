@@ -21,14 +21,14 @@ namespace Todo.Base
 
         public virtual IQueryable<TEntity> GetAll()
         {
-            IQueryable<TEntity> query = entities.Set<TEntity>();
+            IQueryable<TEntity> query = entities.Set<TEntity>().AsNoTracking();
 
             return query;
         }
 
         public IQueryable<TEntity> GetAllIncluding(params Expression<Func<TEntity, object>>[] includeProperties)
         {
-            IQueryable<TEntity> query = entities.Set<TEntity>();
+            IQueryable<TEntity> query = entities.Set<TEntity>().AsNoTracking();
 
             foreach (var includeProperty in includeProperties)
             {
@@ -40,7 +40,7 @@ namespace Todo.Base
 
         public IQueryable<TEntity> FindBy(Expression<Func<TEntity, bool>> predicate)
         {
-            IQueryable<TEntity> query = entities.Set<TEntity>().Where(predicate);
+            IQueryable<TEntity> query = entities.Set<TEntity>().AsNoTracking().Where(predicate);
 
             return query;
         }

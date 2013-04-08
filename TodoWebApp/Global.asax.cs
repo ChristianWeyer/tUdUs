@@ -22,6 +22,8 @@ namespace Todo.WebApp
             SecurityConfig.Register(GlobalConfiguration.Configuration);
             HubConfig.Register(RouteTable.Routes);
 
+            //HibernatingRhinos.Profiler.Appender.EntityFramework.EntityFrameworkProfiler.Initialize();
+
             Database.SetInitializer<TodoContext>(new DropCreateDatabaseIfModelChanges<TodoContext>());
             EFWarmup.Run();
         }
