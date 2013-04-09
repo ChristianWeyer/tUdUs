@@ -1,68 +1,44 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.Dynamic;
 using System.Web.Http;
-using MongoDB.Driver;
-using Simple.Data;
-using Simple.Data.MongoDB;
+using Serilog;
+using Serilog.Events;
 
 namespace Todo.Services
 {
     /// <summary>
     /// Simple controller for receiving logging messages
     /// </summary>
-    [AllowAnonymous]
+    [AllowAnonymous] // Consider one strongly typed action for anon; dynamic action for authenticated only
     public class LogController : ApiController
     {
-        /// <summary>
-        /// Post specified log data.
-        /// </summary>
-        /// <param name="logData">The log data.</param>
-        public void Post(LogData logData)
-        {
-            // TODO: persist logging messages - consider EF code-first
-            Debug.WriteLine("###Log message from client: {0}", logData.Message);
-        }
-
         ///// <summary>
-        ///// Post specified log data (dynamic version).
+        ///// Post specified log data.
         ///// </summary>
         ///// <param name="logData">The log data.</param>
-        //public void Post(dynamic logData)
+        //public void Post(LogData logData)
         //{
-        //    // TODO: persist logging messages - consider using a JSON DB (MongoDB?)
-        //    /* E.g. JSON structure:
-        //        'logger',
-        //        'timestamp',
-        //        'level',
-        //        'url',
-        //        'message',
-        //        'exception'
-        //     */
-
-        //    try
-        //    {
-        //        var db = DatabaseHelper.Open();
-        //        db.Logs.Insert(logData); // does not work; either further investigate - or wait for dynamic support in official MongoDB driver 2.0
-        //    }
-        //    catch (Exception)
-        //    {
-        //        // NOTE: swallow intentionally for the demo app
-        //        //throw;
-        //    }
-
-        //    string msg = logData.message;
-        //    Debug.WriteLine("###Log message from client: {0}", msg);
+        //    // TODO: persist logging messages - consider EF code-first
+        //    Debug.WriteLine("###Log message from client: {0}", logData.Message);
         //}
 
-        //internal static class DatabaseHelper
-        //{
-        //    public static dynamic Open()
-        //    {
-        //        return Database.Opener.OpenMongo("mongodb://localhost/todosLogging?safe=true");
-        //    }
-        //}
+        /// <summary>
+        /// Post specified log data (dynamic version).
+        /// </summary>
+        /// <param name="logData">The log data.</param>
+        public void Post(dynamic logData)
+        {
+            Log.Logger = new LoggerConfiguration()
+                .WriteTo.Console()
+                .WriteTo.MongoDB("mongodb://localhost/todoslogs")
+                .CreateLogger();
+
+            //Log.Write(...);
+            Log.Information("tUdUs: {@LogData}", logData); // NOTE: does not yet really work...
+
+            string msg = logData.message;
+            Debug.WriteLine("###Log message from client: {0}", msg);
+        }
     }
 
     public class LogData
