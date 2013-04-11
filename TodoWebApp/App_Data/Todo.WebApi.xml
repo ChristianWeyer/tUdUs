@@ -58,9 +58,9 @@
             Simple controller for receiving logging messages
             </summary>
         </member>
-        <member name="M:Todo.Services.LogController.Post(System.Object)">
+        <member name="M:Todo.Services.LogController.Post(Todo.Services.LogData)">
             <summary>
-            Post specified log data (dynamic version).
+            Post specified log data.
             </summary>
             <param name="logData">The log data.</param>
         </member>
