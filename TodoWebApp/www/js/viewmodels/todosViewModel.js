@@ -6,8 +6,8 @@
     init: function () {
         var self = this;
         
-        $.subscribe(dataServicesEvents.dirty, function(key) {
-            if (key === endpoints.todos && navigator.onLine) {
+        $.subscribe(dataServicesEvents.dirty, function(_, key) {
+            if (key === endpoints.todos) {
                 self.set("isDirty", true);
             }
         });

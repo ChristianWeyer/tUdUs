@@ -81,7 +81,7 @@ var dataservices = (function () {
             data.push(item);
 
             amplify.store.sessionStorage(key, data);
-            $.publish(dataServicesEvents.dirty, key);
+            $.publish(dataServicesEvents.dirty, key); 
 
             deferred.resolve(item);
         }).promise();
@@ -236,7 +236,7 @@ var dataservices = (function () {
                                 dataservices.destroy(service, item.id);
                             }
                             if (item.isAdded) {
-                                // TODO: implement picture upload
+                                // NOTE: implement picture upload? Breaks generic approach...
                                 dataservices.create(service, item);
                             }
                             if (item.isUpdated) {
