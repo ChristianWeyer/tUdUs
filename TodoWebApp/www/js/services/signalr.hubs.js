@@ -1,5 +1,5 @@
 /*!
- * ASP.NET SignalR JavaScript Library v1.0.0
+ * ASP.NET SignalR JavaScript Library v1.1.0-beta1
  * http://signalr.net/
  *
  * Copyright Microsoft Open Technologies, Inc. All rights reserved.
@@ -79,8 +79,8 @@
             registerHubProxies(proxies, false);
         });
 
-        proxies.todos = this.createHubProxy('todos');
-        proxies.todos.client = {};
+        proxies.todos = this.createHubProxy('todos'); 
+        proxies.todos.client = { };
         proxies.todos.server = {
         };
 

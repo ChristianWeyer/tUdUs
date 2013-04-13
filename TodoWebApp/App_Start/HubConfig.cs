@@ -1,4 +1,5 @@
 using System.Web.Routing;
+using Microsoft.AspNet.SignalR;
 
 namespace Todo.WebApp
 {
@@ -6,6 +7,9 @@ namespace Todo.WebApp
     {
         public static void Register(RouteCollection routes)
         {
+            const string connectionString = "Data Source=(local);Initial Catalog=SignalRBackend;Integrated Security=SSPI;Asynchronous Processing=True;";
+            //GlobalHost.DependencyResolver.UseSqlServer(connectionString);
+
             routes.MapHubs();
         }
     }
