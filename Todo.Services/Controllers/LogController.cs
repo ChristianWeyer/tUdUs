@@ -13,34 +13,35 @@ namespace Todo.Services
     [AllowAnonymous] // Consider one strongly typed action for anon; dynamic action for authenticated only
     public class LogController : ApiController
     {
-        /// <summary>
-        /// Post specified log data.
-        /// </summary>
-        /// <param name="logData">The log data.</param>
-        public void Post(LogData logData)
-        {
-            // TODO: persist logging messages - consider EF code-first
-            Debug.WriteLine("###Log message from client: {0}", logData.Message);
-        }
-
         ///// <summary>
-        ///// Post specified log data (dynamic version).
+        ///// Post specified log data.
         ///// </summary>
         ///// <param name="logData">The log data.</param>
-        //public void Post(dynamic logData)
+        //public void Post(LogData logData)
         //{
-        //    Log.Logger = new LoggerConfiguration()
-        //        .WriteTo.Console()
-        //        .WriteTo.MongoDB("mongodb://localhost/todoslogs")
-        //        .CreateLogger();
-
-        //    //Log.Write(...);
-        //    Log.Information("tUdUs: {@LogData}", logData); // NOTE: does not yet really work...
-        //    Log.Information("tUdUs: {@LogData}", JsonConvert.SerializeObject(logData)); // NOTE: does not yet really work...
-
-        //    string msg = logData.message;
-        //    Debug.WriteLine("###Log message from client: {0}", msg);
+        //    // TODO: persist logging messages - consider EF code-first
+        //    Debug.WriteLine("###Log message from client: {0}", logData.Message);
         //}
+
+        /// <summary>
+        /// Post specified log data (dynamic version).
+        /// </summary>
+        /// <param name="logData">The log data.</param>
+        public void Post(dynamic logData)
+        {
+            Log.Logger = new LoggerConfiguration()
+                .WriteTo.Console()
+                .WriteTo.MongoDB("mongodb://localhost/todoslogs")
+                .CreateLogger();
+
+            //Log.Write(...);
+            var logString = JsonConvert.SerializeObject(logData);
+            Log.Information("tUdUs: {@LogData}", logData); // NOTE: does not yet really work...
+            Log.Information("tUdUs: {@LogData}", logString); // NOTE: does not yet really work...
+
+            string msg = logData.message;
+            Debug.WriteLine("###Log message from client: {0}", msg);
+        }
     }
 
     public class LogData
