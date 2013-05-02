@@ -12,17 +12,6 @@ namespace Todo.SelfHost
         /// </summary>
         static void Main(string[] args)
         {
-            /* If you'd like specific behavior based on whether the user launches the executable you can use
-            if(Environment.UserInteractive) { 
-         
-            }
-            */
-            /* If you'd like specific behavior based on whether the IDE Debugger launches or attached to the executable you can use
-            if(Debugger.IsAttached) { 
-         
-            }
-            */
-
             var service = new TodoSelfHostService();
             var arguments = string.Concat(args);
             
