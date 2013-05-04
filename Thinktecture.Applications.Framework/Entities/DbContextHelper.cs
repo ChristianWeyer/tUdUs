@@ -1,6 +1,6 @@
 ﻿using System.Data.Entity;
 
-namespace Todo.Base
+namespace Thinktecture.Applications.Framework
 {
     public static class DbContextHelper
     {

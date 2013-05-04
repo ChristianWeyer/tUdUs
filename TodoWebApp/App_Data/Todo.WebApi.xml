@@ -69,7 +69,7 @@
             Controller for uploading pictures
             </summary>
         </member>
-        <member name="M:Todo.Services.PicturesController.#ctor(Todo.Base.IGenericRepository{Todo.Entities.TodoItem})">
+        <member name="M:Todo.Services.PicturesController.#ctor(Thinktecture.Applications.Framework.IGenericRepository{Todo.Entities.TodoItem})">
             <summary>
             Initializes a new instance of the <see cref="T:Todo.Services.PicturesController"/> class.
             </summary>
@@ -175,7 +175,7 @@
             The controller for TODO items.
             </summary>
         </member>
-        <member name="M:Todo.Services.TodosController.#ctor(Todo.Base.IGenericRepository{Todo.Entities.TodoItem})">
+        <member name="M:Todo.Services.TodosController.#ctor(Thinktecture.Applications.Framework.IGenericRepository{Todo.Entities.TodoItem})">
             <summary>
             Initializes a new instance of the <see cref="T:Todo.Services.TodosController"/> class.
             </summary>

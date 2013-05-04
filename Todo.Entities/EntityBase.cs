@@ -1,7 +1,7 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using Todo.Base;
+using Thinktecture.Applications.Framework;
 
 namespace Todo.Entities
 {

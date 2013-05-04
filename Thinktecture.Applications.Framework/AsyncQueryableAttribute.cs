@@ -10,7 +10,7 @@ using System.Web.Http;
 using System.Web.Http.Controllers;
 using System.Web.Http.Filters;
 
-namespace Todo.Framework
+namespace Thinktecture.Applications.Framework
 {
     public class AsyncQueryableAttribute : ActionFilterAttribute
     {

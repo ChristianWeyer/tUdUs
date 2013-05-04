@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Todo.WebApp", "TodoWebApp\Todo.WebApp.csproj", "{64069339-BC56-4D57-B8A0-6E0B433FCA61}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Todo.Framework", "Todo.Framework\Todo.Framework.csproj", "{EA925276-3B76-4178-99AB-FEA985E6AA5B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Thinktecture.Applications.Framework", "Thinktecture.Applications.Framework\Thinktecture.Applications.Framework.csproj", "{EA925276-3B76-4178-99AB-FEA985E6AA5B}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Todo.DataAccess", "Todo.DataAccess\Todo.DataAccess.csproj", "{21D64DC8-1B27-4BD6-87B5-9BB8E8F77777}"
 EndProject

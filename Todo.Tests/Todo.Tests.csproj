@@ -96,9 +96,9 @@
       <Project>{e8868953-f0bb-4b1c-8ef4-006285c76ee0}</Project>
       <Name>Todo.Entities</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Todo.Framework\Todo.Framework.csproj">
+    <ProjectReference Include="..\Todo.Framework\Thinktecture.Applications.Framework.csproj">
       <Project>{ea925276-3b76-4178-99ab-fea985e6aa5b}</Project>
-      <Name>Todo.Framework</Name>
+      <Name>Thinktecture.Applications.Framework</Name>
     </ProjectReference>
     <ProjectReference Include="..\Todo.Security\Todo.Security.csproj">
       <Project>{05abe5fa-9e23-4fc9-b315-bba3fce88a7e}</Project>

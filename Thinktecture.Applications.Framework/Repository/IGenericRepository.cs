@@ -2,7 +2,7 @@
 using System.Linq;
 using System.Linq.Expressions;
 
-namespace Todo.Base
+namespace Thinktecture.Applications.Framework
 {
     public interface IGenericRepository<TEntity> : IDisposable where TEntity : class
     {

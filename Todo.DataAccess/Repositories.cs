@@ -1,4 +1,4 @@
-﻿using Todo.Base;
+﻿using Thinktecture.Applications.Framework;
 using Todo.Entities;
 
 namespace Todo.DataAccess

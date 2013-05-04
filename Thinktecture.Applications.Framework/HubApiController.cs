@@ -4,7 +4,7 @@ using System;
 using System.Net.Http.Formatting;
 using System.Web.Http;
 
-namespace Todo.Base
+namespace Thinktecture.Applications.Framework
 {
     /// <summary>
     /// Simple Web API & SignalR integration.

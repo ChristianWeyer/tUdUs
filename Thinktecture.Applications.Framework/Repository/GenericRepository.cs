@@ -4,7 +4,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
 
-namespace Todo.Base
+namespace Thinktecture.Applications.Framework
 {
     public abstract class GenericRepository<TDbContext, TEntity> :
         IGenericRepository<TEntity>

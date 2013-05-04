@@ -1,4 +1,4 @@
-﻿namespace Todo.Base
+﻿namespace Thinktecture.Applications.Framework
 {
     public enum DataState
     {
