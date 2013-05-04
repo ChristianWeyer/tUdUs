@@ -17,7 +17,7 @@ namespace Todo.Tests
                 new GenericPrincipal(new GenericIdentity("cw"), null);
             
             var pc = new PicturesController(
-                new TodoRepository());
+                new TodoItemRepository());
             var pics = pc.Get().ToList();
 
             Assert.IsNotNull(pics);

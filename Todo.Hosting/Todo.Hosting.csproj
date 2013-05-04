@@ -118,7 +118,7 @@
       <Project>{e8868953-f0bb-4b1c-8ef4-006285c76ee0}</Project>
       <Name>Todo.Entities</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Todo.Framework\Thinktecture.Applications.Framework.csproj">
+    <ProjectReference Include="..\Thinktecture.Applications.Framework\Thinktecture.Applications.Framework.csproj">
       <Project>{ea925276-3b76-4178-99ab-fea985e6aa5b}</Project>
       <Name>Thinktecture.Applications.Framework</Name>
     </ProjectReference>
