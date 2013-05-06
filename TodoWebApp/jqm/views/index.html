@@ -11,9 +11,9 @@
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.6/angular.min.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.6/angular-resource.min.js"></script>
         <script src="http://underscorejs.org/underscore-min.js"></script>
-        <script src="../www/js/libs/jquery.base64.min.js"></script>
-        <script src="services.js"></script>
-        <script src="controllers.js"></script>
+        <script src="../../www/js/libs/jquery.base64.min.js"></script>
+        <script src="../js/services.js"></script>
+        <script src="../js/controllers.js"></script>
     </head>
 
 <body ng-controller="TodoController">
@@ -50,13 +50,13 @@
                 <input id="description" type="text" ng-model="todo.title"/>
             </li>
             <li data-role="fieldcontain">
-                <label for="body">Body</label>
-                <textarea id="body" cols="40" rows="8" ng-model="todo.details"></textarea>
+                <label for="details">Details</label>
+                <textarea id="details" cols="40" rows="8" ng-model="todo.details"></textarea>
             </li>
            
             <li data-role="fieldcontain">
-                <label for="duedate">Created</label>
-                <input id="duedate" type="date" ng-model="todo.created"/>
+                <label for="createddate">Created</label>
+                <input id="createddate" type="date" ng-model="todo.created"/>
             </li>
         </ul>
         <button data-inline="true" onclick="$.mobile.changePage('#todo-list')" ng-click="completeTodo(todo.id)">

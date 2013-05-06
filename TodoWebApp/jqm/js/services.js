@@ -3,7 +3,7 @@ var module1 = angular.module('TodoService', ['ngResource']).factory('Todo', ['$r
     $http.defaults.headers.common['Authorization'] =
         'Basic ' + $.base64.encode("cw" + ':' + "cw"); // TODO: create/show login dialog
     
-    var Todo = $resource('../api/todos/:todoId', {}, {
+    var Todo = $resource('../../api/todos/:todoId', {}, {
         update: { method: 'PUT'}
     });
     return Todo;
