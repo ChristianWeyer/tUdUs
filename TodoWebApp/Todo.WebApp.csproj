@@ -344,7 +344,6 @@
     <Content Include="Content\themes\base\minified\jquery.ui.theme.min.css" />
     <Content Include="Content\themes\base\minified\jquery.ui.tooltip.min.css" />
     <Content Include="jqm\js\controllers.js" />
-    <Content Include="jqm\views\details.html" />
     <Content Include="jqm\views\index.html" />
     <Content Include="jqm\js\services.js" />
     <Content Include="Scripts\jquery-1.9.1.js" />

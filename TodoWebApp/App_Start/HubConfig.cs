@@ -10,7 +10,8 @@ namespace Todo.WebApp
             const string connectionString = "Data Source=(local);Initial Catalog=SignalRBackend;Integrated Security=SSPI;Asynchronous Processing=True;";
             //GlobalHost.DependencyResolver.UseSqlServer(connectionString);
 
-            routes.MapHubs();
+            var hubConfig = new HubConfiguration { EnableCrossDomain = true };
+            routes.MapHubs(hubConfig);
         }
     }
 }
