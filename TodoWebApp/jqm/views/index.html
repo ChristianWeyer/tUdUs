@@ -21,7 +21,7 @@
     <div id="todo-list" data-role="page">
         <div data-role="header">
             <h1>tUdUs</h1>
-            <a href="#todo-detail" ng-click="newTodo()" data-icon="add" class="ui-btn-right">New</a>
+            <a href="#todo-detail" data-transition="none" ng-click="newTodo()" data-icon="add" class="ui-btn-right">New</a>
         </div>
         <div data-role="content">
             <ul data-role="listview" data-filter="true">
@@ -38,7 +38,7 @@
 <!--Todo Detail Page-->
 <div id="todo-detail" data-role="page">
     <div data-role="header">
-        <a href="#" data-icon="back" data-rel="back">Back</a>
+        <a href="#" data-transition="none" data-icon="back" data-rel="back">Back</a>
 
         <h1>{{todo.title}}</h1>
         <a href="#todo-list" ng-click="saveTodo()" data-icon="check" class="ui-btn-right">Save</a>
