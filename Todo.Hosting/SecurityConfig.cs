@@ -10,10 +10,10 @@ namespace Todo.Hosting
     {
         public static void Register(HttpConfiguration config)
         {
-            var authNConfig = new AuthenticationConfiguration
+            var authNConfig = new AuthenticationConfiguration()
                 {
-                    DefaultAuthenticationScheme = "Basic",
-                    SendWwwAuthenticateResponseHeader = false,
+                    //DefaultAuthenticationScheme = "Basic",
+                   SendWwwAuthenticateResponseHeaders = false,
                     RequireSsl = false
                 };
 
@@ -26,8 +26,7 @@ namespace Todo.Hosting
             authNConfig.AddJsonWebToken(
                 "http://identityserver.v2.thinktecture.com/trust/cw",
                 "http://tt.com/mobile/todos",
-                ConfigurationManager.AppSettings["oauthSigningKey"],
-                AuthenticationOptions.ForAuthorizationHeader("Bearer"));
+                ConfigurationManager.AppSettings["oauthSigningKey"]);
 
             authNConfig.AddBasicAuthentication(
                 (un, pw) => un == pw); // this is the super complex basic authentication validation logic :)
