@@ -1,5 +1,5 @@
 /**
- * @license AngularJS v1.0.6
+ * @license AngularJS v1.0.4
  * (c) 2010-2012 Google, Inc. http://angularjs.org
  * License: MIT
  */
@@ -23,17 +23,6 @@
  *
  * The returned resource object has action methods which provide high-level behaviors without
  * the need to interact with the low level {@link ng.$http $http} service.
- *
- * # Installation
- * To use $resource make sure you have included the `angular-resource.js` that comes in Angular 
- * package. You can also find this file on Google CDN, bower as well as at
- * {@link http://code.angularjs.org/ code.angularjs.org}.
- *
- * Finally load the module in your application:
- *
- *        angular.module('app', ['ngResource']);
- *
- * and you are ready to get started!
  *
  * @param {string} url A parameterized URL template with parameters prefixed by `:` as in
  *   `/user/:username`. If you are using a URL with a port number (e.g. 
@@ -80,9 +69,9 @@
  *
  *   Calling these methods invoke an {@link ng.$http} with the specified http method,
  *   destination and parameters. When the data is returned from the server then the object is an
- *   instance of the resource class. The actions `save`, `remove` and `delete` are available on it
- *   as  methods with the `$` prefix. This allows you to easily perform CRUD operations (create,
- *   read, update, delete) on server-side data like this:
+ *   instance of the resource class `save`, `remove` and `delete` actions are available on it as
+ *   methods with the `$` prefix. This allows you to easily perform CRUD operations (create, read,
+ *   update, delete) on server-side data like this:
  *   <pre>
         var User = $resource('/user/:userId', {userId:'@id'});
         var user = User.get({userId:123}, function() {
@@ -162,9 +151,9 @@
      });
    </pre>
  *
- * It's worth noting that the success callback for `get`, `query` and other method gets passed
- * in the response that came from the server as well as $http header getter function, so one
- * could rewrite the above example and get access to http headers as:
+ *     It's worth noting that the success callback for `get`, `query` and other method gets passed
+ *     in the response that came from the server as well as $http header getter function, so one
+ *     could rewrite the above example and get access to http headers as:
  *
    <pre>
      var User = $resource('/user/:userId', {userId:'@id'});
@@ -279,7 +268,7 @@ angular.module('ngResource', ['ng']).
         replace(/%3A/gi, ':').
         replace(/%24/g, '$').
         replace(/%2C/gi, ',').
-        replace(/%20/g, (pctEncodeSpaces ? '%20' : '+'));
+        replace((pctEncodeSpaces ? null : /%20/g), '+');
     }
 
     function Route(template, defaults) {
@@ -287,7 +276,7 @@ angular.module('ngResource', ['ng']).
       this.defaults = defaults || {};
       var urlParams = this.urlParams = {};
       forEach(template.split(/\W/), function(param){
-        if (param && (new RegExp("(^|[^\\\\]):" + param + "\\W").test(template))) {
+        if (param && template.match(new RegExp("[^\\\\]:" + param + "\\W"))) {
           urlParams[param] = true;
         }
       });
@@ -452,6 +441,5 @@ angular.module('ngResource', ['ng']).
 
     return ResourceFactory;
   }]);
-
 
 })(window, window.angular);

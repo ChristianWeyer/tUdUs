@@ -1,5 +1,5 @@
 /**
- * @license AngularJS v1.0.6
+ * @license AngularJS v1.0.4
  * (c) 2010-2012 Google, Inc. http://angularjs.org
  * License: MIT
  */
@@ -162,6 +162,5 @@ directive.tabPane = function() {
 
 
 angular.module('bootstrap', []).directive(directive);
-
 
 })(window, window.angular);
