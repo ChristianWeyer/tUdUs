@@ -108,6 +108,7 @@
     <Compile Include="Entities\IDataWithState.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Entities\StateMapper.cs" />
+    <Compile Include="WebApi\RequireSslAttribute.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

@@ -24,7 +24,7 @@ namespace Todo.WebApp
 
             //HibernatingRhinos.Profiler.Appender.EntityFramework.EntityFrameworkProfiler.Initialize();
 
-            Database.SetInitializer<TodoContext>(new DropCreateDatabaseIfModelChanges<TodoContext>());
+            Database.SetInitializer(new DropCreateDatabaseIfModelChanges<TodoContext>());
             EFWarmup.Run();
         }
     }
