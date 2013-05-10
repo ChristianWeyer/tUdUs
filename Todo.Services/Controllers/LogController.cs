@@ -1,9 +1,5 @@
-﻿using System;
-using System.Diagnostics;
+﻿using Serilog;
 using System.Web.Http;
-using Newtonsoft.Json;
-using Serilog;
-using Serilog.Events;
 
 namespace Todo.Services
 {
@@ -19,11 +15,6 @@ namespace Todo.Services
         /// <param name="logData">The log data.</param>
         public void Post(LogData logData)
         {
-            Log.Logger = new LoggerConfiguration()
-                .WriteTo.Console()
-                .WriteTo.MongoDB("mongodb://localhost/todoslogs")
-                .CreateLogger();
-
             Log.Information("tUdUs: {@LogData}", logData); // NOTE: does not yet really work...
         }
 

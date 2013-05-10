@@ -1,9 +1,11 @@
 ﻿using Autofac;
 using Autofac.Integration.WebApi;
 using Newtonsoft.Json.Serialization;
+using Serilog;
 using System.Net.Http.Formatting;
 using System.Reflection;
 using System.Web.Http;
+
 
 namespace Todo.Hosting
 {
@@ -11,11 +13,16 @@ namespace Todo.Hosting
     {
         public static void Register(HttpConfiguration config)
         {
+            Log.Logger = new LoggerConfiguration()
+                .WriteTo.Console()
+                 .WriteTo.MongoDB("mongodb://localhost/todoslogs")
+                .CreateLogger();
+
             config.Formatters.Clear();
             config.Formatters.Add(new JsonMediaTypeFormatter());
             config.Formatters.JsonFormatter.AddQueryStringMapping(
                 "$format", "json", "application/json");
-            
+
             config.Routes.MapHttpRoute(
                 name: "UiClaimsApi",
                 routeTemplate: "api/uiclaims/{action}",

@@ -1,13 +1,13 @@
-﻿using System;
+﻿using Microsoft.AspNet.SignalR;
+using Microsoft.Owin.Hosting;
+using Owin;
+using System;
+using System.Configuration;
 using System.Reflection;
 using System.ServiceProcess;
 using System.Web.Http;
-using Microsoft.AspNet.SignalR;
-using Microsoft.Owin.Hosting;
-using Owin;
 using System.Web.Http.Cors;
 using Todo.Hosting;
-using System.Configuration;
 
 namespace Todo.SelfHost
 {

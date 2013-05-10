@@ -9,7 +9,7 @@ namespace Todo.Hosting
         {
             using (var db = new TodoContext())
             {
-                db.TodoItems.Take((1));
+                var x = db.TodoItems.Take((1));
             }
         }
     }
