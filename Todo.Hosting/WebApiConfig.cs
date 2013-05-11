@@ -15,7 +15,7 @@ namespace Todo.Hosting
         {
             Log.Logger = new LoggerConfiguration()
                 .WriteTo.Console()
-                 .WriteTo.MongoDB("mongodb://localhost/todoslogs")
+                .WriteTo.MongoDB("mongodb://localhost:27017/todoslogs")
                 .CreateLogger();
 
             config.Formatters.Clear();

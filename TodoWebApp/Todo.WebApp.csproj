@@ -265,6 +265,8 @@
     <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ApiGroup.cshtml" />
     <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\TestClientReferences.cshtml" />
     <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\TestClientDialogs.cshtml" />
+    <None Include="Properties\PublishProfiles\tudus - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\tudus - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-2.0.0.intellisense.js" />
     <Content Include="Content\themes\base\images\animated-overlay.gif" />
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
