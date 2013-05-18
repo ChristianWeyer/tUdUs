@@ -1,7 +1,7 @@
 getBaseUrl = function () {
     var useSelfHost = false;
-    //var host = "http://tttodos.azurewebsites.net/";
-    var host = "http://localhost:7778/";
+    var host = "http://tttodos.azurewebsites.net/";
+    //var host = "http://localhost:7778/";
     var baseUrl = host;
     
     if (!(ttTools.isInApp() || ttTools.isInPhoneGapApp() || useSelfHost)) {
