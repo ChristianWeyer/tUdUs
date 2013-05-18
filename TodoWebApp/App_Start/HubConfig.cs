@@ -8,7 +8,7 @@ namespace Todo.WebApp
         public static void Register(RouteCollection routes)
         {
             const string connectionString = "Data Source=(local);Initial Catalog=SignalRBackend;Integrated Security=SSPI;Asynchronous Processing=True;";
-            //GlobalHost.DependencyResolver.UseSqlServer(connectionString);
+            GlobalHost.DependencyResolver.UseSqlServer(connectionString);
 
             var hubConfig = new HubConfiguration { EnableCrossDomain = true };
             routes.MapHubs(hubConfig);
