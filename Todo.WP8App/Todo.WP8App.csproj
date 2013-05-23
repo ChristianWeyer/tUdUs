@@ -196,9 +196,9 @@
     <Content Include="www\js\config.js" />
     <Content Include="www\js\libs\amplify.min.js" />
     <Content Include="www\js\libs\childbrowser.js" />
-    <Content Include="www\js\libs\cordova-phone.js" />
     <Content Include="www\js\libs\cordova-android.js" />
     <Content Include="www\js\libs\cordova-ios.js" />
+    <Content Include="www\js\libs\cordova-phone.js" />
     <Content Include="www\js\libs\cordova.js" />
     <Content Include="www\js\libs\jquery-1.9.1.js" />
     <Content Include="www\js\libs\jquery-1.9.1.min.js" />
