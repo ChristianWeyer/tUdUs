@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>tUdUs</title>
+</head>
+<body>
+	<!-- Info/About page -->
+	<div id="infoPage" data-role="view" data-title="tUdUs" data-layout="defaultLayout" data-init="todosApp.Views.infoInit">
+		<header data-role="header">
+			<div data-role="navbar">
+				<span data-role="view-title"></span>
+			</div>
+		</header>
+		
+		<h2>About tUdUs</h2>
+			
+		<ul data-role="listview" data-style="inset">
+		    <li>
+		        Version <span id="appVersion"></span> (<span id="appDate"></span>)
+		        <img data-align="right" alt="tUdUs" src="../images/Wooden_Todo_32x32.png" style="float: right"/>
+		    </li>
+			<li>
+				<a href="mailto:christian.weyer@thinktecture.com?Subject=Question about tUdUs app" data-rel="external">Christian Weyer</a>
+				<a data-role="detailbutton" data-icon="compose"></a>
+			</li>
+		</ul>      				
+	</div>
+</body>
+</html>

@@ -439,6 +439,7 @@
     <Content Include="Scripts\jquery-2.0.0.js" />
     <Content Include="Scripts\jquery-2.0.0.min.js" />
     <Content Include="Scripts\jquery-2.0.0.min.map" />
+    <Content Include="www\js\libs\cordova-phone.js" />
     <Content Include="www\js\libs\jquery.ba-bbq_patched.min.js">
       <DependentUpon>jquery.ba-bbq_patched.js</DependentUpon>
     </Content>

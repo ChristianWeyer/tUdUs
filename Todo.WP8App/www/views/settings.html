@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>tUdUs</title>
+</head>
+<body>
+    <!-- Settings page -->
+	<div id="settingsPage" data-role="view" data-title="tUdUs" data-model="settingsViewModel" data-layout="defaultLayout">
+		<header data-role="header">
+			<div data-role="navbar">
+				<span data-role="view-title"></span>
+			</div>
+		</header>
+		
+		<h2>Settings</h2>
+			
+	    <ul data-role="listview" data-style="inset">
+	        <li>
+	            <select data-bind="value: authenticationMode">
+	                <option value="Basic">Basic</option>
+	                <option value="ACS">ACS</option>
+                    <option value="IdSrv">IdSrv</option>
+	            </select>
+	            Authentication
+	        </li>
+	    </ul>
+	</div>        
+</body>
+</html>

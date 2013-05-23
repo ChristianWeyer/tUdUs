@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>tUdUs</title>
+</head>
+<body>
+    <!-- ACS Login page -->
+    <div id="acsLogin" data-role="view" data-title="Login" data-model="acsViewModel" data-show="todosApp.Views.acsLoginShow" data-layout="defaultLayout">
+		<header data-role="header">
+			<div data-role="navbar">
+				<span data-role="view-title"></span>
+			</div>
+		</header>		
+		
+		<h2>Choose your Identity Provider</h2>
+		<br />
+
+        <ul id="idps" data-role="listview" data-bind="source: idpsSource" data-template="idpListTemplate" data-style="inset">
+		</ul>
+	</div>
+</body>
+</html>

@@ -37,16 +37,16 @@
     <script src="../js/tools/helpers.js" type="text/javascript"></script>
         
         <script>
-            if (navigator.userAgent.toLowerCase().match(/(iphone|ipod|ipad|android|blackberry)/)) {
+            if (navigator.userAgent.toLowerCase().match(/(iphone|ipod|ipad|android|blackberry|phone)/)) {
                 if (navigator.userAgent.toLowerCase().match(/android/)) {
                     document.write('<script charset="utf-8" src="../js/libs/cordova-android.js"><\/script>');
                 }
                 else if (navigator.userAgent.toLowerCase().match(/iphone/) || navigator.userAgent.toLowerCase().match(/ipad/)) {
                     document.write('<script charset="utf-8" src="../js/libs/cordova-ios.js"><\/script>');
                 } else {
-                    document.write('<script charset="utf-8" src="../js/libs/cordova.js"><\/script>');
+                    document.write('<script charset="utf-8" src="../js/libs/cordova-phone.js"><\/script>');
                 }
-                
+
                 document.write('<script src="../js/libs/childbrowser.js" type="text/javascript"><\/script>');
             }
         </script>

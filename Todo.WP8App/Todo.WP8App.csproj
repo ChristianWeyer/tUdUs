@@ -1,0 +1,316 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+ Licensed to the Apache Software Foundation (ASF) under one
+ or more contributor license agreements.  See the NOTICE file
+ distributed with this work for additional information
+ regarding copyright ownership.  The ASF licenses this file
+ to you under the Apache License, Version 2.0 (the
+ "License"); you may not use this file except in compliance
+ with the License.  You may obtain a copy of the License at
+
+   http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing,
+ software distributed under the License is distributed on an
+ "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ KIND, either express or implied.  See the License for the
+ specific language governing permissions and limitations
+ under the License. 
+-->
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>10.0.20506</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{3677C1B7-D68B-4CF9-BF8A-E869D437A6DF}</ProjectGuid>
+    <ProjectTypeGuids>{C089C8C0-30E0-4E22-80C0-CE093F111A43};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Todo.WP8App</RootNamespace>
+    <AssemblyName>Todo.WP8App</AssemblyName>
+    <TargetFrameworkVersion>v8.0</TargetFrameworkVersion>
+    <SilverlightVersion>
+    </SilverlightVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <TargetFrameworkIdentifier>WindowsPhone</TargetFrameworkIdentifier>
+    <SilverlightApplication>true</SilverlightApplication>
+    <SupportedCultures>en-US</SupportedCultures>
+    <XapOutputs>true</XapOutputs>
+    <GenerateSilverlightManifest>true</GenerateSilverlightManifest>
+    <XapFilename>CordovaAppProj_$(Configuration)_$(Platform).xap</XapFilename>
+    <SilverlightManifestTemplate>Properties\AppManifest.xml</SilverlightManifestTemplate>
+    <SilverlightAppEntry>Todo.WP8App.App</SilverlightAppEntry>
+    <ValidateXaml>true</ValidateXaml>
+    <ThrowErrorsInValidation>true</ThrowErrorsInValidation>
+    <MinimumVisualStudioVersion>11.0</MinimumVisualStudioVersion>
+    <BackgroundAgentType />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>Bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;TRACE;SILVERLIGHT;WINDOWS_PHONE</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>Bin\Release</OutputPath>
+    <DefineConstants>TRACE;SILVERLIGHT;WINDOWS_PHONE</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>Bin\x86\Debug</OutputPath>
+    <DefineConstants>DEBUG;TRACE;SILVERLIGHT;WINDOWS_PHONE</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <DebugType>full</DebugType>
+    <PlatformTarget>
+    </PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>ManagedMinimumRules.ruleset</CodeAnalysisRuleSet>
+    <Optimize>false</Optimize>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>Bin\x86\Release</OutputPath>
+    <DefineConstants>TRACE;SILVERLIGHT;WINDOWS_PHONE</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoStdLib>true</NoStdLib>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>
+    </PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>ManagedMinimumRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|ARM'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>Bin\ARM\Debug</OutputPath>
+    <DefineConstants>DEBUG;TRACE;SILVERLIGHT;WINDOWS_PHONE</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <DebugType>full</DebugType>
+    <PlatformTarget>
+    </PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>ManagedMinimumRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+    <Optimize>false</Optimize>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|ARM'">
+    <OutputPath>Bin\ARM\Release</OutputPath>
+    <DefineConstants>TRACE;SILVERLIGHT;WINDOWS_PHONE</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoStdLib>true</NoStdLib>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>
+    </PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>ManagedMinimumRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="cordovalib\BrowserMouseHelper.cs" />
+    <Compile Include="cordovalib\CommandFactory.cs" />
+    <Compile Include="cordovalib\Commands\BaseCommand.cs" />
+    <Compile Include="cordovalib\ConfigHandler.cs" />
+    <Compile Include="cordovalib\CordovaCommandCall.cs" />
+    <Compile Include="cordovalib\CordovaView.xaml.cs">
+      <DependentUpon>CordovaView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="cordovalib\DOMStorageHelper.cs" />
+    <Compile Include="cordovalib\JSON\JsonHelper.cs" />
+    <Compile Include="cordovalib\NativeExecution.cs" />
+    <Compile Include="cordovalib\OrientationHelper.cs" />
+    <Compile Include="cordovalib\PluginResult.cs" />
+    <Compile Include="cordovalib\ScriptCallback.cs" />
+    <Compile Include="MainPage.xaml.cs">
+      <DependentUpon>MainPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </ApplicationDefinition>
+    <Page Include="cordovalib\CordovaView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Plugins\UI\AudioRecorder.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Plugins\UI\ImageCapture.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Plugins\UI\NotificationBox.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Plugins\UI\VideoRecorder.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="MainPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="config.xml" />
+    <Content Include="Images\**" />
+    <Content Include="resources\notification-beep.wav" />
+    <Content Include="www\Images\error_bg.png" />
+    <Content Include="www\Images\error_close.png" />
+    <Content Include="www\Images\info_bg.png" />
+    <Content Include="www\Images\info_close.png" />
+    <Resource Include="www\Images\loading-image.gif" />
+    <Content Include="www\Images\noimage.png" />
+    <Content Include="www\Images\splash.png" />
+    <Content Include="www\Images\splash2x.png" />
+    <Content Include="www\Images\succ_bg.png" />
+    <Content Include="www\Images\succ_close.png" />
+    <Content Include="www\Images\warn_bg.png" />
+    <Content Include="www\Images\warn_close.png" />
+    <Content Include="www\Images\Wooden_Todo_128x128.png" />
+    <Content Include="www\Images\Wooden_Todo_256x256.png" />
+    <Content Include="www\Images\Wooden_Todo_32x32.png" />
+    <Content Include="www\js\app.js" />
+    <Content Include="www\js\applicationConstants.js" />
+    <Content Include="www\js\config.js" />
+    <Content Include="www\js\libs\amplify.min.js" />
+    <Content Include="www\js\libs\childbrowser.js" />
+    <Content Include="www\js\libs\cordova-phone.js" />
+    <Content Include="www\js\libs\cordova-android.js" />
+    <Content Include="www\js\libs\cordova-ios.js" />
+    <Content Include="www\js\libs\cordova.js" />
+    <Content Include="www\js\libs\jquery-1.9.1.js" />
+    <Content Include="www\js\libs\jquery-1.9.1.min.js" />
+    <Content Include="www\js\libs\jquery-ajax-retry.js" />
+    <Content Include="www\js\libs\jquery.ba-bbq.min.js" />
+    <Content Include="www\js\libs\jquery.ba-bbq_patched.js" />
+    <Content Include="www\js\libs\jquery.ba-bbq_patched.min.js">
+      <DependentUpon>jquery.ba-bbq_patched.js</DependentUpon>
+    </Content>
+    <Content Include="www\js\libs\jquery.ba-tinypubsub.min.js" />
+    <Content Include="www\js\libs\jquery.base64.min.js" />
+    <Content Include="www\js\libs\jquery.signalR-1.1.0.js" />
+    <Content Include="www\js\libs\jquery.signalR-1.1.0.min.js" />
+    <Content Include="www\js\libs\jquery.unobtrusive-ajax.min.js" />
+    <Content Include="www\js\libs\jquery.validate.min.js" />
+    <Content Include="www\js\libs\jquery.validate.unobtrusive.min.js" />
+    <Content Include="www\js\libs\jquery_notification_v.1.js" />
+    <Content Include="www\js\libs\kendo.dataviz.min.js" />
+    <Content Include="www\js\libs\kendo.mobile.min.js" />
+    <Content Include="www\js\libs\log4javascript.js" />
+    <Content Include="www\js\libs\notifier.js">
+      <Generator>GoogleClosureCompiler</Generator>
+      <LastGenOutput>notifier.min.js</LastGenOutput>
+    </Content>
+    <Content Include="www\js\libs\notifier.min.js">
+      <DependentUpon>notifier.js</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Content>
+    <Content Include="www\js\libs\require.js" />
+    <Content Include="www\js\libs\underscore-min.js" />
+    <Content Include="www\js\namespaces.js" />
+    <Content Include="www\js\services\dataservices.js" />
+    <Content Include="www\js\services\httpConstants.js" />
+    <Content Include="www\js\services\notificationservice.js" />
+    <Content Include="www\js\services\oauthcallback.html" />
+    <Content Include="www\js\services\pictureservice.js" />
+    <Content Include="www\js\services\signalr.hubs.js" />
+    <Content Include="www\js\tools\helpers.js" />
+    <Content Include="www\js\tools\jsonAppender.js" />
+    <Content Include="www\js\tools\logger.js" />
+    <Content Include="www\js\tools\templateLoader.js" />
+    <Content Include="www\js\viewmodels\acsViewModel.js" />
+    <Content Include="www\js\viewmodels\authenticationViewModel.js" />
+    <Content Include="www\js\viewmodels\errorViewModel.js" />
+    <Content Include="www\js\viewmodels\newTodoItemViewModel.js" />
+    <Content Include="www\js\viewmodels\oauth2ViewModel.js" />
+    <Content Include="www\js\viewmodels\settingsViewModel.js" />
+    <Content Include="www\js\viewmodels\startViewModel.js" />
+    <Content Include="www\js\viewmodels\todosViewModel.js" />
+    <Content Include="www\js\views.js" />
+    <Content Include="www\styles\app.css" />
+    <Content Include="www\styles\images\back.png" />
+    <Content Include="www\styles\jquery_notification.css" />
+    <Content Include="www\styles\kendo.dataviz.min.css" />
+    <Content Include="www\styles\kendo.mobile.all.min.css" />
+    <Content Include="www\templates\idpList.tmpl.html" />
+    <Content Include="www\templates\pictureGallery.tmpl.html" />
+    <Content Include="www\templates\tasksList.tmpl.html" />
+    <Content Include="www\views\acs.html" />
+    <Content Include="www\views\gallery.html" />
+    <Content Include="www\views\index.html" />
+    <Content Include="www\views\info.html" />
+    <Content Include="www\views\items.html" />
+    <Content Include="www\views\settings.html" />
+    <Content Include="www\views\stats.html" />
+    <None Include="VERSION" />
+    <None Include="Properties\AppManifest.xml">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Properties\WMAppManifest.xml">
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="www\js\libs\jquery.ba-bbq_patched.min.js.map">
+      <DependentUpon>jquery.ba-bbq_patched.js</DependentUpon>
+    </Content>
+    <Content Include="www\styles\images\KendoUI.ttf" />
+    <Content Include="www\styles\images\KendoUI.woff" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ApplicationIcon.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Background.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SplashScreenImage.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Plugins\*" />
+    <Compile Include="Plugins\UI\*.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\$(TargetFrameworkIdentifier)\$(TargetFrameworkVersion)\Microsoft.$(TargetFrameworkIdentifier).$(TargetFrameworkVersion).Overrides.targets" />
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\$(TargetFrameworkIdentifier)\$(TargetFrameworkVersion)\Microsoft.$(TargetFrameworkIdentifier).CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <ProjectExtensions />
+  <PropertyGroup>
+  </PropertyGroup>
+  <PropertyGroup>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+</Project>
