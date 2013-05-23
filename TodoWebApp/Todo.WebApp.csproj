@@ -439,6 +439,12 @@
     <Content Include="Scripts\jquery-2.0.0.js" />
     <Content Include="Scripts\jquery-2.0.0.min.js" />
     <Content Include="Scripts\jquery-2.0.0.min.map" />
+    <Content Include="www\js\libs\jquery.ba-bbq_patched.min.js">
+      <DependentUpon>jquery.ba-bbq_patched.js</DependentUpon>
+    </Content>
+    <Content Include="www\js\libs\jquery.ba-bbq_patched.min.js.map">
+      <DependentUpon>jquery.ba-bbq_patched.js</DependentUpon>
+    </Content>
     <None Include="_bin_deployableAssemblies\x86\sqlcese40.dll" />
     <None Include="_bin_deployableAssemblies\x86\sqlceqp40.dll" />
     <None Include="_bin_deployableAssemblies\x86\sqlceme40.dll" />
@@ -701,6 +707,7 @@
     <Content Include="www\js\libs\cordova-ios.js" />
     <Content Include="www\js\libs\jquery-1.9.1.js" />
     <Content Include="www\js\libs\jquery-1.9.1.min.js" />
+    <Content Include="www\js\libs\jquery.ba-bbq_patched.js" />
     <Content Include="www\js\libs\jquery.ba-tinypubsub.min.js" />
     <Content Include="www\images\loading-image.gif" />
     <Content Include="www\js\libs\jquery.signalR-1.1.0.js" />
