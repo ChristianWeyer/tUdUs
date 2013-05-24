@@ -10,7 +10,8 @@ namespace Thinktecture.Applications.Framework
         {
             var sourceType = typeof(TSource);
             var destinationType = typeof(TDestination);
-            var existingMaps = Mapper.GetAllTypeMaps().First(x => x.SourceType.Equals(sourceType) && x.DestinationType.Equals(destinationType));
+            var existingMaps = Mapper.GetAllTypeMaps().First(
+                x => x.SourceType.Equals(sourceType) && x.DestinationType.Equals(destinationType));
             
             foreach (var property in existingMaps.GetUnmappedPropertyNames())
             {
