@@ -4,6 +4,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using Essential.Diagnostics.Abstractions;
 using Thinktecture.Applications.Framework;
 using Todo.Contracts;
 using Todo.Entities;
@@ -16,14 +17,16 @@ namespace Todo.Services
     public class TodosController : HubApiController<TodosHub>
     {
         private readonly IGenericRepository<TodoItem> repository;
+        private readonly ITraceSource tracer;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="TodosController" /> class.
         /// </summary>
         /// <param name="repository">The repository.</param>
-        public TodosController(IGenericRepository<TodoItem> repository)
-        {            
-            this.repository = repository;            
+        public TodosController(IGenericRepository<TodoItem> repository, ITraceSource tracer)
+        {
+            this.repository = repository;
+            this.tracer = tracer;
         }
 
         /// <summary>
@@ -34,6 +37,8 @@ namespace Todo.Services
         public IQueryable<TodoItemDto> Get()
         {
             var userName = User.Identity.Name;
+
+            tracer.TraceInformation("Getting tUdUs...");
 
             return repository.GetAll().Where(t => t.Owner == userName).OrderBy(o => o.Created).Map();
         }

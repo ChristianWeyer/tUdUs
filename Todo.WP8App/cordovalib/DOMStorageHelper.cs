@@ -12,20 +12,12 @@
 	limitations under the License.
 */
 
-using System;
-using System.Net;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Documents;
-using System.Windows.Ink;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Animation;
-using System.Windows.Shapes;
-using System.IO.IsolatedStorage;
-using System.Collections.Generic;
 using Microsoft.Phone.Controls;
+using System;
+using System.Collections.Generic;
+using System.IO.IsolatedStorage;
 using System.Linq;
+using System.Windows;
 using WPCordovaClassLib.Cordova.JSON;
 
 /*

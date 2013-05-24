@@ -12,10 +12,9 @@
 	limitations under the License.
 */
 
+using Microsoft.Phone.Shell;
 using System;
 using System.Reflection;
-using Microsoft.Phone.Shell;
-using System.Diagnostics;
 
 namespace WPCordovaClassLib.Cordova.Commands
 {

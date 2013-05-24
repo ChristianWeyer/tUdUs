@@ -12,24 +12,13 @@
 	limitations under the License.
 */
 
-using System;
-using System.Net;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Documents;
-using System.Windows.Ink;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Animation;
-using System.Windows.Shapes;
-using DeviceCompass = Microsoft.Devices.Sensors.Compass;
-using System.Windows.Threading;
-using System.Runtime.Serialization;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Globalization;
-using System.Threading;
 using Microsoft.Devices.Sensors;
+using System;
+using System.Collections.Generic;
+using System.Globalization;
+using System.Runtime.Serialization;
+using System.Threading;
+using DeviceCompass = Microsoft.Devices.Sensors.Compass;
 
 namespace WPCordovaClassLib.Cordova.Commands
 {

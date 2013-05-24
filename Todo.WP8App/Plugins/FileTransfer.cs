@@ -13,14 +13,13 @@
 */
 
 using System;
-using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.IO.IsolatedStorage;
 using System.Net;
 using System.Runtime.Serialization;
-using System.Windows;
 using System.Security;
-using System.Diagnostics;
+using System.Windows;
 
 namespace WPCordovaClassLib.Cordova.Commands
 {

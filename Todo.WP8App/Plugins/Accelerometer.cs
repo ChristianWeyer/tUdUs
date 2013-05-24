@@ -13,13 +13,11 @@
 */
 
 
+using Microsoft.Devices.Sensors;
 using System;
-using System.Collections.Generic;
+using System.Globalization;
 using System.Runtime.Serialization;
 using System.Threading;
-using Microsoft.Devices.Sensors;
-using System.Globalization;
-using System.Diagnostics;
 
 namespace WPCordovaClassLib.Cordova.Commands
 {

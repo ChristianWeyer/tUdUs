@@ -1,11 +1,12 @@
-﻿using Autofac;
+﻿using System.Diagnostics;
+using Autofac;
 using Autofac.Integration.WebApi;
+using Essential.Diagnostics.Abstractions;
 using Newtonsoft.Json.Serialization;
 using Serilog;
 using System.Net.Http.Formatting;
 using System.Reflection;
 using System.Web.Http;
-
 
 namespace Todo.Hosting
 {
@@ -15,7 +16,7 @@ namespace Todo.Hosting
         {
             Log.Logger = new LoggerConfiguration()
                 .WriteTo.Console()
-                .WriteTo.MongoDB("mongodb://localhost:27017/todoslogs")
+                //.WriteTo.MongoDB("mongodb://localhost:27017/todoslogs")
                 .CreateLogger();
 
             config.Formatters.Clear();
@@ -60,6 +61,11 @@ namespace Todo.Hosting
                    .Where(t => t.Name.EndsWith("Repository"))
                    .AsImplementedInterfaces()
                    .InstancePerApiRequest();
+
+            builder.Register(
+                c => new TraceSource("tUdUs")).As<TraceSource>();
+            builder.Register(
+                c => new TraceSourceWrapper(c.Resolve<TraceSource>())).As<ITraceSource>();
 
             var container = builder.Build();
             var resolver = new AutofacWebApiDependencyResolver(container);

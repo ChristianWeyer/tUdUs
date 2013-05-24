@@ -12,14 +12,14 @@
 	limitations under the License.
 */
 
+using Microsoft.Phone.Controls;
+using Microsoft.Phone.Shell;
+using Microsoft.Phone.Tasks;
 using System;
 using System.IO;
 using System.IO.IsolatedStorage;
 using System.Windows.Media;
 using System.Windows.Navigation;
-using Microsoft.Phone.Controls;
-using Microsoft.Phone.Shell;
-using Microsoft.Phone.Tasks;
 using VideoResult = WPCordovaClassLib.Cordova.UI.VideoCaptureTask.VideoResult;
 
 namespace WPCordovaClassLib.Cordova.UI

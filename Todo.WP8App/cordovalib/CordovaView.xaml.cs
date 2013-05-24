@@ -12,31 +12,16 @@
 	limitations under the License.
 */
 
+using Microsoft.Phone.Controls;
+using Microsoft.Phone.Shell;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
+using System.ComponentModel;
+using System.Diagnostics;
+using System.IO;
+using System.IO.IsolatedStorage;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Animation;
-using System.Windows.Shapes;
-using Microsoft.Phone.Controls;
-using System.IO.IsolatedStorage;
-using System.Windows.Resources;
-using System.Windows.Interop;
-using System.Runtime.Serialization.Json;
-using System.IO;
-using System.ComponentModel;
-using System.Xml.Linq;
-using WPCordovaClassLib.Cordova.Commands;
-using System.Diagnostics;
-using System.Text;
 using WPCordovaClassLib.Cordova;
-using System.Threading;
-using Microsoft.Phone.Shell;
 using WPCordovaClassLib.Cordova.JSON;
 using WPCordovaClassLib.CordovaLib;
 

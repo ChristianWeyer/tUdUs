@@ -12,21 +12,19 @@
 	limitations under the License.
 */
 
+using Microsoft.Phone;
+using Microsoft.Phone.Tasks;
+using Microsoft.Xna.Framework.Media;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.IO.IsolatedStorage;
 using System.Runtime.Serialization;
+using System.Windows;
 using System.Windows.Media.Imaging;
-using Microsoft.Phone;
-using Microsoft.Phone.Tasks;
-using Microsoft.Xna.Framework.Media;
 using WPCordovaClassLib.Cordova.UI;
 using AudioResult = WPCordovaClassLib.Cordova.UI.AudioCaptureTask.AudioResult;
 using VideoResult = WPCordovaClassLib.Cordova.UI.VideoCaptureTask.VideoResult;
-using System.Windows;
-using System.Diagnostics;
-using Microsoft.Phone.Controls;
 
 namespace WPCordovaClassLib.Cordova.Commands
 {

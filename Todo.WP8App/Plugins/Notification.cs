@@ -12,15 +12,15 @@
 	limitations under the License.
 */
 
-using System;
-using System.Windows;
-using System.Windows.Controls;
 using Microsoft.Devices;
-using System.Runtime.Serialization;
-using System.Threading;
-using System.Windows.Resources;
 using Microsoft.Phone.Controls;
 using Microsoft.Xna.Framework.Audio;
+using System;
+using System.Runtime.Serialization;
+using System.Threading;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Resources;
 using WPCordovaClassLib.Cordova.UI;
 
 

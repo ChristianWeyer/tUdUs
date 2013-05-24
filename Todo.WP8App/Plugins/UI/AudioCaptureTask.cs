@@ -12,11 +12,11 @@
 	limitations under the License.
 */
 
+using Microsoft.Phone.Controls;
+using Microsoft.Phone.Tasks;
 using System;
 using System.IO;
 using System.Windows;
-using Microsoft.Phone.Controls;
-using Microsoft.Phone.Tasks;
 
 namespace WPCordovaClassLib.Cordova.UI
 {

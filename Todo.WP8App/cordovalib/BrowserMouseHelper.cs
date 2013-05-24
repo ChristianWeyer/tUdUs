@@ -1,4 +1,7 @@
-﻿/*
+﻿using Microsoft.Phone.Controls;
+using System;
+using System.Collections.Generic;
+/*
  Licensed to the Apache Software Foundation (ASF) under one
  or more contributor license agreements.  See the NOTICE file
  distributed with this work for additional information
@@ -16,15 +19,10 @@
  specific language governing permissions and limitations
  under the License. 
  */
-using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
-using Microsoft.Phone.Controls;
 using System.Windows.Input;
-using System.Diagnostics;
 using System.Windows.Media;
-using System;
-using System.Collections.Generic;
 
 namespace WPCordovaClassLib
 {

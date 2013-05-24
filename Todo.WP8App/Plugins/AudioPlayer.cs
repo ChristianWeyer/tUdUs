@@ -12,18 +12,17 @@
 	limitations under the License.
 */
 
+using Microsoft.Phone.Controls;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Audio;
 using System;
+using System.Diagnostics;
 using System.IO;
 using System.IO.IsolatedStorage;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Threading;
-using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Audio;
-using Microsoft.Xna.Framework.Media;
-using Microsoft.Phone.Controls;
-using System.Diagnostics;
 using System.Windows.Resources;
+using System.Windows.Threading;
 
 namespace WPCordovaClassLib.Cordova.Commands
 {

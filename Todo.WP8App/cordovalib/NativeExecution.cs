@@ -12,13 +12,12 @@
 	limitations under the License.
 */
 
+using Microsoft.Devices;
+using Microsoft.Phone.Controls;
 using System;
 using System.Diagnostics;
 using System.Threading;
-using Microsoft.Devices;
-using Microsoft.Phone.Controls;
 using WPCordovaClassLib.Cordova.Commands;
-using System.Windows;
 
 namespace WPCordovaClassLib.Cordova
 {

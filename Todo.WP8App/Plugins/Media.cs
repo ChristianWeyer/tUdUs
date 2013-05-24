@@ -14,9 +14,9 @@
 
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Runtime.Serialization;
 using System.Windows;
-using System.Diagnostics;
 
 namespace WPCordovaClassLib.Cordova.Commands
 {
