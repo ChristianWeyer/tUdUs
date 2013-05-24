@@ -2,6 +2,7 @@
 using AutoMapper.QueryableExtensions;
 using System.Collections.Generic;
 using System.Linq;
+using Thinktecture.Applications.Framework;
 using Todo.Contracts;
 using Todo.Entities;
 
@@ -15,10 +16,10 @@ namespace Todo.Services
         static DataMapper()
         {
             Mapper.CreateMap<TodoItem, TodoItemDto>();
-            Mapper.CreateMap<TodoItemDto, TodoItem>()
-                .ForMember(m => m.Owner, o => o.Ignore())
-                .ForMember(m => m.AssignedTo, o => o.Ignore())
-                .ForMember(m => m.State, o => o.Ignore());
+            Mapper.CreateMap<TodoItemDto, TodoItem>().IgnoreAllNonExisting();
+                //.ForMember(m => m.Owner, o => o.Ignore())
+                //.ForMember(m => m.AssignedTo, o => o.Ignore())
+                //.ForMember(m => m.State, o => o.Ignore());
 
             Mapper.AssertConfigurationIsValid();
         }
