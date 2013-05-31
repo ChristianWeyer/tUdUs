@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Data.Entity.Infrastructure;
+using System.Diagnostics;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
@@ -54,7 +55,7 @@ namespace Todo.Services
 
             if (todo == null)
             {
-                // TODO: log...
+                tracer.TraceEvent(TraceEventType.Error, 1000, "Item not found");
                 throw new HttpResponseException(HttpStatusCode.NotFound);
             }
 
@@ -94,7 +95,7 @@ namespace Todo.Services
         /// </summary>
         /// <param name="item">The existing item.</param>
         /// <returns>The existing item with up-to-date data.</returns>
-        public TodoItemDto Put([FromBody] TodoItemDto item)
+        public TodoItemDto Put(TodoItemDto item)
         {
             try
             {
@@ -108,7 +109,7 @@ namespace Todo.Services
             }
             catch (DbUpdateException)
             {
-                // TODO: log...
+                tracer.TraceEvent(TraceEventType.Error, 1000, "DB update failed.");
                 throw new HttpResponseException(HttpStatusCode.BadRequest);
             }            
         }
@@ -126,7 +127,7 @@ namespace Todo.Services
             }
             catch (DbUpdateException)
             {
-                // TODO: log...
+                tracer.TraceEvent(TraceEventType.Error, 1000, "DB update failed.");
                 throw new HttpResponseException(HttpStatusCode.BadRequest);
             }            
         }
