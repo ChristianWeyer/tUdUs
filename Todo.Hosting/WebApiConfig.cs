@@ -7,6 +7,7 @@ using Serilog;
 using System.Net.Http.Formatting;
 using System.Reflection;
 using System.Web.Http;
+using Thinktecture.Applications.Framework.WebApi;
 
 namespace Todo.Hosting
 {
@@ -24,6 +25,8 @@ namespace Todo.Hosting
             config.Formatters.JsonFormatter.AddQueryStringMapping(
                 "$format", "json", "application/json");
 
+            config.Services.Replace(typeof(IContentNegotiator), new JsonContentNegotiator());
+            
             config.Routes.MapHttpRoute(
                 name: "UiClaimsApi",
                 routeTemplate: "api/uiclaims/{action}",
